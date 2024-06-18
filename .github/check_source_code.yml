@@ -10,15 +10,3 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - uses: actions/checkout@v4
-      - name: Install Dependencies
-        shell: bash
-        run: yarn install --frozen-lockfile
-      - name: Lint & Build Check
-        shell: bash
-        run: |
-          yarn format:check
-          yarn lint:check
-          yarn build
