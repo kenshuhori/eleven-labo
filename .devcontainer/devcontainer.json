@@ -1,0 +1,21 @@
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "files.insertFinalNewline": true
+      }
+    }
+  },
+  "dockerComposeFile": [
+    "../compose.yaml"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "name": "eleven-labo",
+  "service": "workspace",
+  "workspaceFolder": "/usr/src/app"
+}
