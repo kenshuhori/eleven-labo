@@ -2,6 +2,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "biomejs.biome",
         "ms-azuretools.vscode-docker"
       ],
       "settings": {
