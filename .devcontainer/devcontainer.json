@@ -10,7 +10,7 @@
     }
   },
   "dockerComposeFile": [
-    "../compose.yaml"
+    "compose.yaml"
   ],
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
