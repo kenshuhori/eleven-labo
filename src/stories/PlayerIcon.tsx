@@ -7,10 +7,10 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Select,
   useDisclosure,
 } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
+import Select from "react-select";
 
 interface PlayerIconProps {
   backgroundColor?: string;
@@ -40,6 +40,12 @@ export const PlayerIcon = ({
     width: "40px",
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const options = [
+    { value: "player001", label: "M.Salah" },
+    { value: "player002", label: "A.Becker" },
+    { value: "player003", label: "V.Van Dijk" },
+    { value: "player004", label: "Mac Allister" },
+  ];
 
   return (
     <>
@@ -53,13 +59,7 @@ export const PlayerIcon = ({
           <ModalHeader>選手選択</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Select placeholder="選手を選択してください">
-              <option value="1">選手1</option>
-              <option value="2">選手2</option>
-              <option value="3">選手3</option>
-              <option value="4">選手4</option>
-              <option value="5">選手5</option>
-            </Select>
+            <Select options={options} placeholder="選手を選択してください" />
           </ModalBody>
 
           <ModalFooter>
