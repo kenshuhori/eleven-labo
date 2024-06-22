@@ -8,10 +8,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-  args: { backgroundColor: "#FFFFFF" },
+  args: { width: "25", height: "24" },
 } satisfies Meta<typeof Menu>;
 
 export default meta;
@@ -19,6 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    backgroundColor: "#FFFFFFF",
+    width: "25",
+    height: "24",
   },
 };
