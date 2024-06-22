@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
 import { PlayerIcon } from "./PlayerIcon";
 
 const meta = {
@@ -12,14 +11,14 @@ const meta = {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-  args: { onClick: fn() },
+  args: { label: "PlayerIcon" },
 } satisfies Meta<typeof PlayerIcon>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Base: Story = {
   args: {
-    label: "Button",
+    label: "Base",
   },
 };
