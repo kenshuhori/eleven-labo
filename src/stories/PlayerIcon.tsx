@@ -63,10 +63,9 @@ export const PlayerIcon = ({
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="blue" onClick={onClose}>
               閉じる
             </Button>
-            <Button variant="ghost">確定</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
