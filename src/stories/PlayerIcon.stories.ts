@@ -17,6 +17,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+    number: "??",
+  },
+};
+
 export const Liverpool: Story = {
   args: {
     backgroundColor: "#C8102E",

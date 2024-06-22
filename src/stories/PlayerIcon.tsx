@@ -7,6 +7,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Select,
   useDisclosure,
 } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
@@ -20,18 +21,18 @@ interface PlayerIconProps {
 }
 
 export const PlayerIcon = ({
-  backgroundColor = "#FFFFFF",
-  borderColor = "#000000",
-  color = "#000000",
+  backgroundColor,
+  borderColor,
+  color,
   number,
   textStrokeColor,
   ...props
 }: PlayerIconProps) => {
   const style: CSSProperties = {
-    backgroundColor: backgroundColor,
-    border: `2px solid ${borderColor}`,
+    backgroundColor: backgroundColor ?? "#FFFFFF",
+    border: `2px solid ${borderColor ?? "#000000"}`,
     borderRadius: "50%",
-    color: color,
+    color: color ?? "#000000",
     fontSize: "1.0rem",
     fontWeight: "1000",
     height: "40px",
@@ -52,7 +53,13 @@ export const PlayerIcon = ({
           <ModalHeader>選手選択</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <p>選手選択</p>
+            <Select placeholder="選手を選択してください">
+              <option value="1">選手1</option>
+              <option value="2">選手2</option>
+              <option value="3">選手3</option>
+              <option value="4">選手4</option>
+              <option value="5">選手5</option>
+            </Select>
           </ModalBody>
 
           <ModalFooter>
