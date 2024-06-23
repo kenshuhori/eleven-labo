@@ -6,6 +6,6 @@ type Player = {
     backgroundColor: string;
     borderColor: string;
     color: string;
-    textStrokeColor: string | null;
+    textShadowColor: string | null;
   };
 };

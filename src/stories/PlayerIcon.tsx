@@ -19,7 +19,7 @@ interface PlayerIconProps {
   borderColor?: string;
   color?: string;
   number?: number;
-  textStrokeColor?: string;
+  textShadowColor?: string;
 }
 
 export const PlayerIcon = ({
@@ -27,7 +27,7 @@ export const PlayerIcon = ({
   borderColor,
   color,
   number,
-  textStrokeColor,
+  textShadowColor: textShadowColor,
   ...props
 }: PlayerIconProps) => {
   const defaultPlayer: Player = {
@@ -38,7 +38,7 @@ export const PlayerIcon = ({
       backgroundColor: backgroundColor ?? "#FFFFFF",
       borderColor: borderColor ?? "#000000",
       color: color ?? "#000000",
-      textStrokeColor: textStrokeColor ?? null,
+      textShadowColor: textShadowColor ?? null,
     },
   };
 
@@ -51,9 +51,9 @@ export const PlayerIcon = ({
       fontSize: "1.0rem",
       fontWeight: "1000",
       height: "40px",
-      WebkitTextStroke: team.textStrokeColor
-        ? `0.7px ${team.textStrokeColor}`
-        : "0px",
+      textShadow: team.textShadowColor
+        ? `1px 1px ${team.textShadowColor}`
+        : "unset",
       width: "40px",
     };
   };
@@ -73,7 +73,7 @@ export const PlayerIcon = ({
         backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
         borderColor: selected?.team.borderColor ?? "#000000",
         color: selected?.team.color ?? "#000000",
-        textStrokeColor: selected?.team.textStrokeColor ?? null,
+        textShadowColor: selected?.team.textShadowColor ?? null,
       },
     });
   }, []);
@@ -88,7 +88,7 @@ export const PlayerIcon = ({
         backgroundColor: "#C8102E",
         borderColor: "#00B2A9",
         color: "#F6EB61",
-        textStrokeColor: null,
+        textShadowColor: null,
       },
     },
     {
@@ -101,33 +101,33 @@ export const PlayerIcon = ({
         backgroundColor: "#6CABDD",
         borderColor: "#FFFFFF",
         color: "#1C2C5B",
-        textStrokeColor: "#FFFFFF",
+        textShadowColor: "#FFFFFF",
       },
     },
     {
       value: "player003",
-      label: "V.Van Dijk",
-      name: "V.Van Dijk",
-      number: 4,
+      label: "M.Odegaard",
+      name: "M.Odegaard",
+      number: 8,
       team: {
-        name: "Liverpool",
-        backgroundColor: "#C8102E",
-        borderColor: "#00B2A9",
-        color: "#F6EB61",
-        textStrokeColor: null,
+        name: "Arsenal",
+        backgroundColor: "#EF0107",
+        borderColor: "#063672",
+        color: "#FFFFFF",
+        textShadowColor: "#9C824A",
       },
     },
     {
       value: "player004",
-      label: "Mac Allister",
-      name: "Mac Allister",
-      number: 10,
+      label: "H.Son",
+      name: "H.Son",
+      number: 7,
       team: {
-        name: "Liverpool",
-        color: "#FF0000",
+        name: "Totenham",
+        color: "#132257",
         backgroundColor: "#FFFFFF",
-        borderColor: "#00B2A9",
-        textStrokeColor: null,
+        borderColor: "#132257",
+        textShadowColor: null,
       },
     },
   ];

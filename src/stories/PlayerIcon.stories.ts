@@ -12,7 +12,7 @@ const meta = {
     backgroundColor: { control: "color" },
     borderColor: { control: "color" },
     color: { control: "color" },
-    textStrokeColor: { control: "color" },
+    textShadowColor: { control: "color" },
   },
   args: {
     backgroundColor: "#FFFFFF",
@@ -37,7 +37,7 @@ export const Arsenal: Story = {
     borderColor: "#063672",
     color: "#FFFFFF",
     number: 99,
-    textStrokeColor: "#9C824A",
+    textShadowColor: "#9C824A",
   },
 };
 
@@ -65,7 +65,7 @@ export const ManchesterCity: Story = {
     borderColor: "#FFFFFF",
     color: "#1C2C5B",
     number: 99,
-    textStrokeColor: "#FFFFFF",
+    textShadowColor: "#FFFFFF",
   },
 };
 
@@ -75,7 +75,7 @@ export const ManchesterUnited: Story = {
     borderColor: "#000000",
     color: "#000000",
     number: 99,
-    textStrokeColor: "#FBE122",
+    textShadowColor: "#FBE122",
   },
 };
 
