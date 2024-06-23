@@ -7,16 +7,18 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
+  VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import type { CSSProperties } from "react";
+import { type CSSProperties, useCallback, useState } from "react";
 import Select from "react-select";
 
 interface PlayerIconProps {
   backgroundColor?: string;
   borderColor?: string;
   color?: string;
-  number: string;
+  number?: number;
   textStrokeColor?: string;
 }
 
@@ -28,30 +30,121 @@ export const PlayerIcon = ({
   textStrokeColor,
   ...props
 }: PlayerIconProps) => {
-  const style: CSSProperties = {
-    backgroundColor: backgroundColor ?? "#FFFFFF",
-    border: `2px solid ${borderColor ?? "#000000"}`,
-    borderRadius: "50%",
-    color: color ?? "#000000",
-    fontSize: "1.0rem",
-    fontWeight: "1000",
-    height: "40px",
-    WebkitTextStroke: textStrokeColor ? `1px ${"#ffffff"}` : "none",
-    width: "40px",
+  const defaultPlayer: Player = {
+    name: "???",
+    number: number ?? 99,
+    team: {
+      name: "Default",
+      backgroundColor: backgroundColor ?? "#FFFFFF",
+      borderColor: borderColor ?? "#000000",
+      color: color ?? "#000000",
+      textStrokeColor: textStrokeColor ?? null,
+    },
+  };
+
+  const style = (team: Player["team"]): CSSProperties => {
+    return {
+      backgroundColor: team.backgroundColor,
+      border: `2px solid ${team.borderColor}`,
+      borderRadius: "50%",
+      color: team.color,
+      fontSize: "1.0rem",
+      fontWeight: "1000",
+      height: "40px",
+      WebkitTextStroke: team.textStrokeColor
+        ? `0.7px ${team.textStrokeColor}`
+        : "0px",
+      width: "40px",
+    };
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const options = [
-    { value: "player001", label: "M.Salah" },
-    { value: "player002", label: "A.Becker" },
-    { value: "player003", label: "V.Van Dijk" },
-    { value: "player004", label: "Mac Allister" },
+
+  type Option = {
+    value: string;
+    label: string;
+  } & Player;
+  const [player, setPlayer] = useState<Player>(defaultPlayer);
+  const onChange = useCallback((selected: Option | null) => {
+    setPlayer({
+      name: selected?.name ?? "???",
+      number: selected?.number ?? 0,
+      team: {
+        name: selected?.team.name ?? "???",
+        backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
+        borderColor: selected?.team.borderColor ?? "#000000",
+        color: selected?.team.color ?? "#000000",
+        textStrokeColor: selected?.team.textStrokeColor ?? null,
+      },
+    });
+  }, []);
+  const options: Option[] = [
+    {
+      value: "player001",
+      label: "M.Salah",
+      name: "M.Salah",
+      number: 11,
+      team: {
+        name: "Liverpool",
+        backgroundColor: "#C8102E",
+        borderColor: "#00B2A9",
+        color: "#F6EB61",
+        textStrokeColor: null,
+      },
+    },
+    {
+      value: "player002",
+      label: "K.De Bruyne",
+      name: "K.De Bruyne",
+      number: 17,
+      team: {
+        name: "Manchester City",
+        backgroundColor: "#6CABDD",
+        borderColor: "#FFFFFF",
+        color: "#1C2C5B",
+        textStrokeColor: "#FFFFFF",
+      },
+    },
+    {
+      value: "player003",
+      label: "V.Van Dijk",
+      name: "V.Van Dijk",
+      number: 4,
+      team: {
+        name: "Liverpool",
+        backgroundColor: "#C8102E",
+        borderColor: "#00B2A9",
+        color: "#F6EB61",
+        textStrokeColor: null,
+      },
+    },
+    {
+      value: "player004",
+      label: "Mac Allister",
+      name: "Mac Allister",
+      number: 10,
+      team: {
+        name: "Liverpool",
+        color: "#FF0000",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#00B2A9",
+        textStrokeColor: null,
+      },
+    },
   ];
 
   return (
     <>
-      <Button onClick={onOpen} style={style} type="button" {...props}>
-        {number}
-      </Button>
+      <VStack>
+        <Button
+          onClick={onOpen}
+          style={style(player.team)}
+          type="button"
+          {...props}
+        >
+          {player.number}
+        </Button>
+        <Text>{player.name}</Text>
+      </VStack>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -59,7 +152,11 @@ export const PlayerIcon = ({
           <ModalHeader>選手選択</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Select options={options} placeholder="選手を選択してください" />
+            <Select
+              onChange={onChange}
+              options={options}
+              placeholder="選手を選択してください"
+            />
           </ModalBody>
 
           <ModalFooter>
