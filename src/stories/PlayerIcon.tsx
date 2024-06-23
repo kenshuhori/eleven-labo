@@ -27,7 +27,7 @@ export const PlayerIcon = ({
   borderColor,
   color,
   number,
-  textShadowColor: textShadowColor,
+  textShadowColor,
   ...props
 }: PlayerIconProps) => {
   const defaultPlayer: Player = {
@@ -54,6 +54,7 @@ export const PlayerIcon = ({
       textShadow: team.textShadowColor
         ? `1px 1px ${team.textShadowColor}`
         : "unset",
+      filter: "drop-shadow(2px 4px 2px #888888)",
       width: "40px",
     };
   };
@@ -143,7 +144,7 @@ export const PlayerIcon = ({
         >
           {player.number}
         </Button>
-        <Text>{player.name}</Text>
+        <Text style={playerNameStyle}>{player.name}</Text>
       </VStack>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -168,4 +169,12 @@ export const PlayerIcon = ({
       </Modal>
     </>
   );
+};
+
+const playerNameStyle: CSSProperties = {
+  fontSize: "1.0rem",
+  fontWeight: "1000",
+  color: "#FFFFFF",
+  textShadow: "1px 1px #000000",
+  filter: "drop-shadow(2px 4px 2px #888888)",
 };
