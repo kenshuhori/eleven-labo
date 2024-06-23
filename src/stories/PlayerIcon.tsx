@@ -64,7 +64,7 @@ export const PlayerIcon = ({
       fontWeight: "1000",
       height: "40px",
       WebkitTextStroke: team.textStrokeColor
-        ? `1px ${team.textStrokeColor}`
+        ? `0.7px ${team.textStrokeColor}`
         : "0px",
       width: "40px",
     };
