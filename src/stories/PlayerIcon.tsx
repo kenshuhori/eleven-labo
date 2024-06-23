@@ -18,7 +18,7 @@ interface PlayerIconProps {
   backgroundColor?: string;
   borderColor?: string;
   color?: string;
-  number: string;
+  number?: number;
   textStrokeColor?: string;
 }
 
@@ -44,13 +44,13 @@ export const PlayerIcon = ({
 
   const defaultPlayer: Player = {
     name: "???",
-    number: 99,
+    number: number ?? 99,
     team: {
       name: "Default",
-      backgroundColor: "#FFFFFF",
-      borderColor: "#000000",
-      color: "#000000",
-      textStrokeColor: null,
+      backgroundColor: backgroundColor ?? "#FFFFFF",
+      borderColor: borderColor ?? "#000000",
+      color: color ?? "#000000",
+      textStrokeColor: textStrokeColor ?? null,
     },
   };
 
@@ -65,7 +65,7 @@ export const PlayerIcon = ({
       height: "40px",
       WebkitTextStroke: team.textStrokeColor
         ? `1px ${team.textStrokeColor}`
-        : "none",
+        : "0px",
       width: "40px",
     };
   };

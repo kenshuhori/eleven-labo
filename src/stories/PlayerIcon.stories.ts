@@ -18,7 +18,7 @@ const meta = {
     backgroundColor: "#FFFFFF",
     borderColor: "#000000",
     color: "#000000",
-    number: "??",
+    number: 99,
   },
 } satisfies Meta<typeof PlayerIcon>;
 
@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    number: "??",
+    number: 99,
   },
 };
 
@@ -36,7 +36,7 @@ export const Liverpool: Story = {
     backgroundColor: "#C8102E",
     borderColor: "#00B2A9",
     color: "#F6EB61",
-    number: "100",
+    number: 99,
   },
 };
 
@@ -45,7 +45,7 @@ export const ManchesterCity: Story = {
     backgroundColor: "#6CABDD",
     borderColor: "#FFFFFF",
     color: "#1C2C5B",
-    number: "100",
+    number: 99,
     textStrokeColor: "#FFFFFF",
   },
 };
