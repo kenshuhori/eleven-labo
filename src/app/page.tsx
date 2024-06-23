@@ -20,6 +20,7 @@ export default function Home() {
 
   [
     player001Ref,
+    player002Ref,
     player003Ref,
     player004Ref,
     player005Ref,
@@ -38,8 +39,8 @@ export default function Home() {
         if (event.buttons) {
           const horizon = ballSvg.offsetLeft + event.movementX;
           if (horizon < 50 || horizon > window.innerWidth - 100) return;
-          ballSvg.style.left = `${ballSvg.offsetLeft + event.movementX}px`;
-          ballSvg.style.top = `${ballSvg.offsetTop + event.movementY}px`;
+          ballSvg.style.left = `${pxToRem(ballSvg.offsetLeft + event.movementX)}rem`;
+          ballSvg.style.top = `${pxToRem(ballSvg.offsetTop + event.movementY)}rem`;
           ballSvg.style.position = "absolute";
           ballSvg.draggable = false;
           ballSvg.setPointerCapture(event.pointerId);
@@ -47,6 +48,12 @@ export default function Home() {
       };
     }, [playerRef]);
   });
+
+  const pxToRem = (px: number) => {
+    const coefficient = window.innerWidth / 360;
+    return px / 10 / coefficient;
+  };
+
   return (
     <>
       <Header />
