@@ -2,10 +2,7 @@ import {
   Button,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
   Text,
   VStack,
@@ -149,22 +146,23 @@ export const PlayerIcon = ({
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>選手選択</ModalHeader>
-          <ModalCloseButton />
+        <ModalContent style={{ width: "300px" }}>
+          {/* <ModalHeader>選手選択</ModalHeader>
+          <ModalCloseButton /> */}
           <ModalBody>
             <Select
               onChange={onChange}
+              menuIsOpen={isOpen}
               options={options}
-              placeholder="選手を選択してください"
+              placeholder="選手を選択"
             />
           </ModalBody>
 
-          <ModalFooter>
+          {/* <ModalFooter>
             <Button colorScheme="blue" onClick={onClose}>
               閉じる
             </Button>
-          </ModalFooter>
+          </ModalFooter> */}
         </ModalContent>
       </Modal>
     </>
