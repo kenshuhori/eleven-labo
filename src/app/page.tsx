@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const player001Ref = useRef<HTMLDivElement>(null);
   const player002Ref = useRef<HTMLDivElement>(null);
   const player003Ref = useRef<HTMLDivElement>(null);
   const player004Ref = useRef<HTMLDivElement>(null);
@@ -18,6 +19,7 @@ export default function Home() {
   const player011Ref = useRef<HTMLDivElement>(null);
 
   [
+    player001Ref,
     player002Ref,
     player003Ref,
     player004Ref,
@@ -37,8 +39,8 @@ export default function Home() {
         if (event.buttons) {
           const horizon = ballSvg.offsetLeft + event.movementX;
           if (horizon < 50 || horizon > window.innerWidth - 100) return;
-          ballSvg.style.left = `${ballSvg.offsetLeft + event.movementX}px`;
-          ballSvg.style.top = `${ballSvg.offsetTop + event.movementY}px`;
+          ballSvg.style.left = `${pxToRem(ballSvg.offsetLeft + event.movementX)}rem`;
+          ballSvg.style.top = `${pxToRem(ballSvg.offsetTop + event.movementY)}rem`;
           ballSvg.style.position = "absolute";
           ballSvg.draggable = false;
           ballSvg.setPointerCapture(event.pointerId);
@@ -46,6 +48,12 @@ export default function Home() {
       };
     }, [playerRef]);
   });
+
+  const pxToRem = (px: number) => {
+    const coefficient = window.innerWidth / 360;
+    return px / 10 / coefficient;
+  };
+
   return (
     <>
       <Header />
@@ -68,7 +76,7 @@ export default function Home() {
             <PlayerIcon className={styles.rb} ref={player002Ref} />
           </div>
           <div>
-            <PlayerIcon className={styles.gk} />
+            <PlayerIcon className={styles.gk} ref={player001Ref} />
           </div>
         </div>
       </main>
