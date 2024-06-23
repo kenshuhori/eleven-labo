@@ -10,7 +10,8 @@ interface HeaderProps {
 
 export const Header = ({ backUrl }: HeaderProps) => (
   <header style={HeaderStyle}>
-    <div style={HeaderLeftItemStyle}>
+    {/* 中央のタイトルがズレるためあえて24pxをいれる */}
+    <div style={{ width: "24px" }}>
       {backUrl && (
         <Link href={backUrl} passHref>
           <ChevronLeftIcon />
@@ -18,9 +19,7 @@ export const Header = ({ backUrl }: HeaderProps) => (
       )}
     </div>
     <h1 style={HeaderH1Style}>Eleven Labo</h1>
-    <div style={HeaderRightItemStyle}>
-      <MenuButton />
-    </div>
+    <MenuButton />
   </header>
 );
 
@@ -29,7 +28,7 @@ const HeaderStyle: CSSProperties = {
   padding: "15px 20px",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-between",
 };
 
 const HeaderH1Style: CSSProperties = {
@@ -37,14 +36,4 @@ const HeaderH1Style: CSSProperties = {
   fontSize: "20px",
   lineHeight: 1,
   margin: "6px 0 6px 10px",
-};
-
-const HeaderLeftItemStyle: CSSProperties = {
-  position: "absolute",
-  left: "10px",
-};
-
-const HeaderRightItemStyle: CSSProperties = {
-  position: "absolute",
-  right: "10px",
 };
