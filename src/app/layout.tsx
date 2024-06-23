@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body>
+      <body style={{ overflow: "hidden" }}>
         <Providers>{children}</Providers>
       </body>
     </html>
