@@ -11,35 +11,35 @@
 .lw {
     display: inline-block;
     top: 5%;
-    left: 15%;
+    left: 10%;
     position: absolute;
 }
 
 .cf {
     display: inline-block;
     top: 5%;
-    left: 45%;
+    left: 40%;
     position: absolute;
 }
 
 .rw {
     display: inline-block;
     top: 5%;
-    left: 75%;
+    left: 70%;
     position: absolute;
 }
 
 .lih {
     display: inline-block;
     top: 30%;
-    left: 20%;
+    left: 10%;
     position: absolute;
 }
 
 .cmf {
     display: inline-block;
     top: 30%;
-    left: 45%;
+    left: 40%;
     position: absolute;
 }
 
@@ -53,34 +53,34 @@
 .lb {
     display: inline-block;
     top: 55%;
-    left: 15%;
+    left: 10%;
     position: absolute;
 }
 
 .lcb {
     display: inline-block;
     top: 55%;
-    left: 35%;
+    left: 30%;
     position: absolute;
 }
 
 .rcb {
     display: inline-block;
     top: 55%;
-    left: 55%;
+    left: 50%;
     position: absolute;
 }
 
 .rb {
     display: inline-block;
     top: 55%;
-    left: 75%;
+    left: 70%;
     position: absolute;
 }
 
 .gk {
     display: inline-block;
     top: 75%;
-    left: 45%;
+    left: 40%;
     position: absolute;
 }
