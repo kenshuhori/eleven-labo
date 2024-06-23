@@ -1,15 +1,16 @@
 "use client";
 
 import { Header } from "@/stories/Header";
+import { PlayerIcon } from "@/stories/PlayerIcon";
 import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const ballRef = useRef<HTMLImageElement>(null);
+  const playerRef = useRef<HTMLImageElement>(null);
   useEffect(() => {
-    if (!ballRef.current) return;
+    if (!playerRef.current) return;
 
-    const ballSvg = ballRef.current;
+    const ballSvg = playerRef.current;
     ballSvg.onpointermove = (event) => {
       if (event.buttons) {
         ballSvg.style.left = `${ballSvg.offsetLeft + event.movementX}px`;
@@ -24,15 +25,9 @@ export default function Home() {
     <>
       <Header />
       <main className={styles.main}>
-        <h1>ベストイレブン研究所 | Eleven Labo</h1>
-        <img
-          id="ballSvg"
-          src="https://js.cx/clipart/ball.svg"
-          alt="ball"
-          width="40"
-          height="40"
-          ref={ballRef}
-        />
+        <div ref={playerRef}>
+          <PlayerIcon />
+        </div>
       </main>
     </>
   );
