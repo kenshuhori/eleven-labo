@@ -1,7 +1,8 @@
-.main {
-    display: flex;
-    justify-content: center;
+.footballField {
     align-items: center;
-    height: 400px;
     background-color: #289A0B;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    width: 100%;
 }
