@@ -47,12 +47,12 @@ export const PlayerIcon = ({
       color: team.color,
       fontSize: "1rem",
       fontWeight: "1000",
-      height: "3rem",
+      height: "3.5rem",
       textShadow: team.textShadowColor
         ? `1px 1px ${team.textShadowColor}`
         : "unset",
-      filter: "drop-shadow(2px 4px 6px #000000)",
-      width: "3rem",
+      filter: "drop-shadow(2px 4px 2px #000000)",
+      width: "3.5rem",
     };
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -172,6 +172,5 @@ const playerNameStyle: CSSProperties = {
   fontSize: "1.0rem",
   fontWeight: "1000",
   color: "#FFFFFF",
-  textShadow: "1px 1px #000000",
-  filter: "drop-shadow(2px 4px 6px #000000)",
+  textShadow: "2px 2px #000000",
 };
