@@ -8,7 +8,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  args: { width: "25", height: "24" },
+  args: { iconBoxSize: 5 },
 } satisfies Meta<typeof MenuButton>;
 
 export default meta;
@@ -16,7 +16,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    width: "25",
-    height: "24",
+    iconBoxSize: 5,
   },
 };

@@ -13,11 +13,10 @@ import { GiSoccerBall } from "react-icons/gi";
 import { RiTeamFill } from "react-icons/ri";
 
 interface MenuProps {
-  height?: string;
-  width?: string;
+  iconBoxSize?: number;
 }
 
-export const MenuButton = ({ height = "25", width = "24" }: MenuProps) => {
+export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
   return (
     <Menu>
       <ChakraMenuButton
@@ -28,17 +27,17 @@ export const MenuButton = ({ height = "25", width = "24" }: MenuProps) => {
       />
       <MenuList>
         <Link href="/themes" passHref>
-          <MenuItem icon={<Icon as={FaBook} boxSize={5} />}>
+          <MenuItem icon={<Icon as={FaBook} boxSize={iconBoxSize} />}>
             テーマ ~Themes~
           </MenuItem>
         </Link>
         <Link href="/teams" passHref>
-          <MenuItem icon={<Icon as={GiSoccerBall} boxSize={5} />}>
+          <MenuItem icon={<Icon as={GiSoccerBall} boxSize={iconBoxSize} />}>
             チーム ~Teams~
           </MenuItem>
         </Link>
         <Link href="/aboutUs" passHref>
-          <MenuItem icon={<Icon as={RiTeamFill} boxSize={5} />}>
+          <MenuItem icon={<Icon as={RiTeamFill} boxSize={iconBoxSize} />}>
             About Us
           </MenuItem>
         </Link>
