@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <h1>ベストイレブン研究所 | Eleven Labo</h1>
+        <h1>テーマ一覧 | Eleven Labo</h1>
       </main>
     </>
   );
