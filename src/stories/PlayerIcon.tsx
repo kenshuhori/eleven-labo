@@ -152,7 +152,6 @@ export const PlayerIcon = ({
           <ModalBody>
             <Select
               onChange={onChange}
-              menuIsOpen={isOpen}
               options={options}
               placeholder="選手を選択"
             />
