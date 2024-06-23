@@ -146,7 +146,7 @@ export const PlayerIcon = ({
 
       <Modal isOpen={isOpen} onClose={onClose} size="md">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent style={{ top: "15vh" }}>
           {/* <ModalHeader>選手選択</ModalHeader>
           <ModalCloseButton /> */}
           <ModalBody>
