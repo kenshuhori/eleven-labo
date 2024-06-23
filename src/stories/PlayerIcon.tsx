@@ -30,18 +30,6 @@ export const PlayerIcon = ({
   textStrokeColor,
   ...props
 }: PlayerIconProps) => {
-  type Player = {
-    name: string;
-    number: number;
-    team: {
-      name: string;
-      backgroundColor: string;
-      borderColor: string;
-      color: string;
-      textStrokeColor: string | null;
-    };
-  };
-
   const defaultPlayer: Player = {
     name: "???",
     number: number ?? 99,
@@ -74,16 +62,7 @@ export const PlayerIcon = ({
   type Option = {
     value: string;
     label: string;
-    name: string;
-    number: number;
-    team: {
-      name: string;
-      backgroundColor: string;
-      borderColor: string;
-      color: string;
-      textStrokeColor: string | null;
-    };
-  };
+  } & Player;
   const [player, setPlayer] = useState<Player>(defaultPlayer);
   const onChange = useCallback((selected: Option | null) => {
     setPlayer({
