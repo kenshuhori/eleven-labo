@@ -10,8 +10,16 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     backgroundColor: { control: "color" },
+    borderColor: { control: "color" },
+    color: { control: "color" },
+    textStrokeColor: { control: "color" },
   },
-  args: { number: "PlayerIcon" },
+  args: {
+    backgroundColor: "#FFFFFF",
+    borderColor: "#000000",
+    color: "#000000",
+    number: "??",
+  },
 } satisfies Meta<typeof PlayerIcon>;
 
 export default meta;
