@@ -18,7 +18,9 @@ export const Header = ({ backUrl }: HeaderProps) => (
         </Link>
       )}
     </div>
-    <h1 style={HeaderH1Style}>Eleven Labo</h1>
+    <Link href="/" passHref>
+      <h1 style={HeaderH1Style}>Eleven Labo</h1>
+    </Link>
     <MenuButton />
   </header>
 );
