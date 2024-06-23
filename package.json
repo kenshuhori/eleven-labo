@@ -10,6 +10,7 @@
     "format:check": "biome format .",
     "lint": "biome lint --write .",
     "lint:check": "biome lint .",
+    "tsc": "tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
