@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const player001Ref = useRef<HTMLDivElement>(null);
   const player002Ref = useRef<HTMLDivElement>(null);
   const player003Ref = useRef<HTMLDivElement>(null);
   const player004Ref = useRef<HTMLDivElement>(null);
@@ -18,7 +19,7 @@ export default function Home() {
   const player011Ref = useRef<HTMLDivElement>(null);
 
   [
-    player002Ref,
+    player001Ref,
     player003Ref,
     player004Ref,
     player005Ref,
@@ -68,7 +69,7 @@ export default function Home() {
             <PlayerIcon className={styles.rb} ref={player002Ref} />
           </div>
           <div>
-            <PlayerIcon className={styles.gk} />
+            <PlayerIcon className={styles.gk} ref={player001Ref} />
           </div>
         </div>
       </main>
