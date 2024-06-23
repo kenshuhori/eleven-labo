@@ -1,7 +1,86 @@
-.main {
-    display: flex;
-    justify-content: center;
+.footballField {
     align-items: center;
-    height: 400px;
     background-color: #289A0B;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.lw {
+    display: inline-block;
+    top: 5%;
+    left: 15%;
+    position: absolute;
+}
+
+.cf {
+    display: inline-block;
+    top: 5%;
+    left: 45%;
+    position: absolute;
+}
+
+.rw {
+    display: inline-block;
+    top: 5%;
+    left: 75%;
+    position: absolute;
+}
+
+.lih {
+    display: inline-block;
+    top: 30%;
+    left: 20%;
+    position: absolute;
+}
+
+.cmf {
+    display: inline-block;
+    top: 30%;
+    left: 45%;
+    position: absolute;
+}
+
+.rih {
+    display: inline-block;
+    top: 30%;
+    left: 70%;
+    position: absolute;
+}
+
+.lb {
+    display: inline-block;
+    top: 55%;
+    left: 15%;
+    position: absolute;
+}
+
+.lcb {
+    display: inline-block;
+    top: 55%;
+    left: 35%;
+    position: absolute;
+}
+
+.rcb {
+    display: inline-block;
+    top: 55%;
+    left: 55%;
+    position: absolute;
+}
+
+.rb {
+    display: inline-block;
+    top: 55%;
+    left: 75%;
+    position: absolute;
+}
+
+.gk {
+    display: inline-block;
+    top: 75%;
+    left: 45%;
+    position: absolute;
 }
