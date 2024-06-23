@@ -46,25 +46,39 @@ export const PlayerIcon = ({
   type Option = {
     value: string;
     label: string;
+    name: string;
+    number: number;
   };
-  const [playerName, setPlayerName] = useState<string | null>("??");
+  type Player = {
+    name: string;
+    number: number;
+  };
+  const [player, setPlayer] = useState<Player>({ name: "???", number: 99 });
   const onChange = useCallback((selected: Option | null) => {
-    setPlayerName(selected?.label ?? null);
+    setPlayer({
+      name: selected?.name ?? "???",
+      number: selected?.number ?? 0,
+    });
   }, []);
   const options: Option[] = [
-    { value: "player001", label: "M.Salah" },
-    { value: "player002", label: "A.Becker" },
-    { value: "player003", label: "V.Van Dijk" },
-    { value: "player004", label: "Mac Allister" },
+    { value: "player001", label: "M.Salah", name: "M.Salah", number: 11 },
+    { value: "player002", label: "A.Becker", name: "A.Becker", number: 1 },
+    { value: "player003", label: "V.Van Dijk", name: "V.Van Dijk", number: 4 },
+    {
+      value: "player004",
+      label: "Mac Allister",
+      name: "Mac Allister",
+      number: 10,
+    },
   ];
 
   return (
     <>
       <VStack>
         <Button onClick={onOpen} style={style} type="button" {...props}>
-          {number}
+          {player.number}
         </Button>
-        <Text>{playerName}</Text>
+        <Text>{player.name}</Text>
       </VStack>
 
       <Modal isOpen={isOpen} onClose={onClose}>
