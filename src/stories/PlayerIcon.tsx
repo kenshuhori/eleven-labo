@@ -48,14 +48,14 @@ export const PlayerIcon = ({
       border: `2px solid ${team.borderColor}`,
       borderRadius: "50%",
       color: team.color,
-      fontSize: "1.0rem",
+      fontSize: "1rem",
       fontWeight: "1000",
-      height: "40px",
+      height: "3rem",
       textShadow: team.textShadowColor
         ? `1px 1px ${team.textShadowColor}`
         : "unset",
-      filter: "drop-shadow(2px 4px 2px #888888)",
-      width: "40px",
+      filter: "drop-shadow(2px 4px 6px #000000)",
+      width: "3rem",
     };
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -176,5 +176,5 @@ const playerNameStyle: CSSProperties = {
   fontWeight: "1000",
   color: "#FFFFFF",
   textShadow: "1px 1px #000000",
-  filter: "drop-shadow(2px 4px 2px #888888)",
+  filter: "drop-shadow(2px 4px 6px #000000)",
 };
