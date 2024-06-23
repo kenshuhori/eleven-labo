@@ -22,7 +22,7 @@ export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
       <ChakraMenuButton
         as={IconButton}
         aria-label="Options"
-        icon={<HamburgerIcon />}
+        icon={<HamburgerIcon boxSize={8} />}
         border={0}
         variant="outline"
       />

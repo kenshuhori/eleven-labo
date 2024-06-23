@@ -27,7 +27,7 @@ export const Header = ({ backUrl }: HeaderProps) => (
 
 const HeaderStyle: CSSProperties = {
   borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
-  padding: "15px 20px",
+  padding: "10px 20px",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -35,7 +35,7 @@ const HeaderStyle: CSSProperties = {
 
 const HeaderH1Style: CSSProperties = {
   fontWeight: 700,
-  fontSize: "1.5rem",
+  fontSize: "1.7rem",
   lineHeight: 1,
   margin: "6px 0 6px 10px",
 };
