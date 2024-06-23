@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Menu } from "./Menu";
+import { MenuButton } from "./MenuButton";
 
 const meta = {
-  title: "ElevenLabo/Menu",
-  component: Menu,
+  title: "ElevenLabo/MenuButton",
+  component: MenuButton,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
   args: { width: "25", height: "24" },
-} satisfies Meta<typeof Menu>;
+} satisfies Meta<typeof MenuButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

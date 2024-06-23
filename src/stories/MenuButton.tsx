@@ -6,7 +6,6 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input,
   useDisclosure,
 } from "@chakra-ui/react";
 
@@ -15,7 +14,7 @@ interface MenuProps {
   width?: string;
 }
 
-export const Menu = ({ height = "25", width = "24" }: MenuProps) => {
+export const MenuButton = ({ height = "25", width = "24" }: MenuProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -55,9 +54,7 @@ export const Menu = ({ height = "25", width = "24" }: MenuProps) => {
         <DrawerContent>
           <DrawerHeader>{/* なにもなし */}</DrawerHeader>
 
-          <DrawerBody>
-            <Input placeholder="Type here..." />
-          </DrawerBody>
+          <DrawerBody>{/* ここにメニューを書く */}</DrawerBody>
 
           <DrawerFooter>{/* なにもなし */}</DrawerFooter>
         </DrawerContent>
