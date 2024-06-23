@@ -45,7 +45,7 @@ export const PlayerIcon = ({
       border: `2px solid ${team.borderColor}`,
       borderRadius: "50%",
       color: team.color,
-      fontSize: "1rem",
+      fontSize: "1.4rem",
       fontWeight: "1000",
       height: "3.5rem",
       textShadow: team.textShadowColor
