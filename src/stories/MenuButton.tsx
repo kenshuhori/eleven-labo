@@ -23,6 +23,7 @@ export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
         as={IconButton}
         aria-label="Options"
         icon={<HamburgerIcon />}
+        border={0}
         variant="outline"
       />
       <MenuList>

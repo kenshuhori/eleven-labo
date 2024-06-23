@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Header backUrl="/" />
       <main className={styles.main}>
-        <h1>テーマ一覧 | Eleven Labo</h1>
+        <h1>チーム一覧 | Eleven Labo</h1>
       </main>
     </>
   );
