@@ -7,9 +7,11 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
+  VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import type { CSSProperties } from "react";
+import { type CSSProperties, useCallback, useState } from "react";
 import Select from "react-select";
 
 interface PlayerIconProps {
@@ -40,7 +42,16 @@ export const PlayerIcon = ({
     width: "40px",
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const options = [
+
+  type Option = {
+    value: string;
+    label: string;
+  };
+  const [playerName, setPlayerName] = useState<string | null>("??");
+  const onChange = useCallback((selected: Option | null) => {
+    setPlayerName(selected?.label ?? null);
+  }, []);
+  const options: Option[] = [
     { value: "player001", label: "M.Salah" },
     { value: "player002", label: "A.Becker" },
     { value: "player003", label: "V.Van Dijk" },
@@ -49,9 +60,12 @@ export const PlayerIcon = ({
 
   return (
     <>
-      <Button onClick={onOpen} style={style} type="button" {...props}>
-        {number}
-      </Button>
+      <VStack>
+        <Button onClick={onOpen} style={style} type="button" {...props}>
+          {number}
+        </Button>
+        <Text>{playerName}</Text>
+      </VStack>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -59,7 +73,11 @@ export const PlayerIcon = ({
           <ModalHeader>選手選択</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Select options={options} placeholder="選手を選択してください" />
+            <Select
+              onChange={onChange}
+              options={options}
+              placeholder="選手を選択してください"
+            />
           </ModalBody>
 
           <ModalFooter>
