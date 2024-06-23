@@ -144,9 +144,9 @@ export const PlayerIcon = ({
         <Text style={playerNameStyle}>{player.name}</Text>
       </VStack>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size="md">
         <ModalOverlay />
-        <ModalContent style={{ width: "20rem" }}>
+        <ModalContent>
           {/* <ModalHeader>選手選択</ModalHeader>
           <ModalCloseButton /> */}
           <ModalBody>
