@@ -14,7 +14,7 @@ export const Header = ({ backUrl }: HeaderProps) => (
     <div style={{ width: "24px" }}>
       {backUrl && (
         <Link href={backUrl} passHref>
-          <ChevronLeftIcon />
+          <ChevronLeftIcon boxSize={8} />
         </Link>
       )}
     </div>
