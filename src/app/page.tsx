@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const playerRef = useRef<HTMLImageElement>(null);
+  const playerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!playerRef.current) return;
 

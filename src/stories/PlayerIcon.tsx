@@ -2,10 +2,7 @@ import {
   Button,
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
   Text,
   VStack,
@@ -48,14 +45,14 @@ export const PlayerIcon = ({
       border: `2px solid ${team.borderColor}`,
       borderRadius: "50%",
       color: team.color,
-      fontSize: "1.0rem",
+      fontSize: "1rem",
       fontWeight: "1000",
-      height: "40px",
+      height: "3rem",
       textShadow: team.textShadowColor
         ? `1px 1px ${team.textShadowColor}`
         : "unset",
-      filter: "drop-shadow(2px 4px 2px #888888)",
-      width: "40px",
+      filter: "drop-shadow(2px 4px 6px #000000)",
+      width: "3rem",
     };
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -149,22 +146,22 @@ export const PlayerIcon = ({
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>選手選択</ModalHeader>
-          <ModalCloseButton />
+        <ModalContent style={{ width: "20rem" }}>
+          {/* <ModalHeader>選手選択</ModalHeader>
+          <ModalCloseButton /> */}
           <ModalBody>
             <Select
               onChange={onChange}
               options={options}
-              placeholder="選手を選択してください"
+              placeholder="選手を選択"
             />
           </ModalBody>
 
-          <ModalFooter>
+          {/* <ModalFooter>
             <Button colorScheme="blue" onClick={onClose}>
               閉じる
             </Button>
-          </ModalFooter>
+          </ModalFooter> */}
         </ModalContent>
       </Modal>
     </>
@@ -176,5 +173,5 @@ const playerNameStyle: CSSProperties = {
   fontWeight: "1000",
   color: "#FFFFFF",
   textShadow: "1px 1px #000000",
-  filter: "drop-shadow(2px 4px 2px #888888)",
+  filter: "drop-shadow(2px 4px 6px #000000)",
 };

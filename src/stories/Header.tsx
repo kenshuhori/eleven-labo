@@ -35,7 +35,7 @@ const HeaderStyle: CSSProperties = {
 
 const HeaderH1Style: CSSProperties = {
   fontWeight: 700,
-  fontSize: "20px",
+  fontSize: "1.5rem",
   lineHeight: 1,
   margin: "6px 0 6px 10px",
 };
