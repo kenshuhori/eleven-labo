@@ -1,8 +1,9 @@
 import React, { type CSSProperties } from "react";
 
 import { ChevronLeftIcon } from "@chakra-ui/icons";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { MenuButton } from "./MenuButton";
+// import { MenuButton } from "./MenuButton";
 
 interface HeaderProps {
   backUrl?: string;
@@ -21,7 +22,16 @@ export const Header = ({ backUrl }: HeaderProps) => (
     <Link href="/" passHref>
       <h1 style={HeaderH1Style}>Eleven Labo</h1>
     </Link>
-    <MenuButton />
+    <div style={HeaderRightStyle}>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+    </div>
+    {/* メニューボタンは一旦利用しないで進める */}
+    {/* <MenuButton /> */}
   </header>
 );
 
@@ -38,4 +48,10 @@ const HeaderH1Style: CSSProperties = {
   fontSize: "1.7rem",
   lineHeight: 1,
   margin: "6px 0 6px 6px",
+};
+
+const HeaderRightStyle: CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
 };
