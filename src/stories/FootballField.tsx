@@ -1,13 +1,29 @@
-import React, { type CSSProperties } from "react";
-
-import { ChevronLeftIcon } from "@chakra-ui/icons";
-import Link from "next/link";
-import { MenuButton } from "./MenuButton";
+import fieldJpg from "@public/field.jpg";
+import type React from "react";
 
 interface FootballFieldProps {
-  backUrl?: string;
+  children?: React.ReactNode;
+  height?: string;
+  width?: string;
 }
 
-export const FootballField = ({ backUrl }: FootballFieldProps) => (
-  <div>hoge</div>
+export const FootballField = ({
+  children,
+  height,
+  width,
+}: FootballFieldProps) => (
+  <div
+    style={{
+      alignItems: "center",
+      backgroundImage: `url(${fieldJpg.src})`,
+      backgroundSize: "cover",
+      display: "flex",
+      height: height ?? "36rem",
+      justifyContent: "center",
+      position: "absolute",
+      width: width ?? "100%",
+    }}
+  >
+    {children}
+  </div>
 );

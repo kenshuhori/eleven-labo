@@ -1,5 +1,6 @@
 "use client";
 
+import { FootballField } from "@/stories/FootballField";
 import { Header } from "@/stories/Header";
 import { PlayerIcon } from "@/stories/PlayerIcon";
 import { useEffect, useRef } from "react";
@@ -38,7 +39,10 @@ export default function Home() {
       playerIcon.onpointermove = (event) => {
         if (event.buttons) {
           const horizon = playerIcon.offsetLeft + event.movementX;
+          const vertical = playerIcon.offsetTop + event.movementY;
           if (horizon < 0 || horizon > window.innerWidth - 100) return;
+          if (vertical < 0 || vertical > window.innerHeight - 100) return;
+
           playerIcon.style.left = `${pxToRem(playerIcon.offsetLeft + event.movementX)}rem`;
           playerIcon.style.top = `${pxToRem(playerIcon.offsetTop + event.movementY)}rem`;
           playerIcon.style.position = "absolute";
@@ -58,7 +62,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <div className={styles.footballField}>
+        <FootballField>
           <div>
             <PlayerIcon className={styles.lw} ref={player011Ref} />
             <PlayerIcon className={styles.cf} ref={player009Ref} />
@@ -78,7 +82,7 @@ export default function Home() {
           <div>
             <PlayerIcon className={styles.gk} ref={player001Ref} />
           </div>
-        </div>
+        </FootballField>
       </main>
     </>
   );
