@@ -1,20 +1,29 @@
 import fieldJpg from "@public/field.jpg";
-import React, { type CSSProperties } from "react";
+import type React from "react";
 
 interface FootballFieldProps {
-  height?: number;
-  width?: number;
+  children?: React.ReactNode;
+  height?: string;
+  width?: string;
 }
 
-export const FootballField = ({ height, width }: FootballFieldProps) => (
-  <>
-    <div
-      style={{
-        backgroundImage: `url(${fieldJpg.src})`,
-        backgroundSize: "cover",
-        height: `${height ?? 390}px`,
-        width: `${width ?? 390}px`,
-      }}
-    />
-  </>
+export const FootballField = ({
+  children,
+  height,
+  width,
+}: FootballFieldProps) => (
+  <div
+    style={{
+      alignItems: "center",
+      backgroundImage: `url(${fieldJpg.src})`,
+      backgroundSize: "cover",
+      display: "flex",
+      height: height ?? "30rem",
+      justifyContent: "center",
+      position: "absolute",
+      width: width ?? "100%",
+    }}
+  >
+    {children}
+  </div>
 );

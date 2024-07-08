@@ -1,13 +1,3 @@
-.footballField {
-    align-items: center;
-    background-color: #289A0B;
-    display: flex;
-    height: 30rem;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-}
-
 .lw {
     display: inline-block;
     top: 5%;

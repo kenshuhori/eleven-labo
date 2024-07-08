@@ -1,5 +1,6 @@
 "use client";
 
+import { FootballField } from "@/stories/FootballField";
 import { Header } from "@/stories/Header";
 import { PlayerIcon } from "@/stories/PlayerIcon";
 import { useEffect, useRef } from "react";
@@ -58,7 +59,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <div className={styles.footballField}>
+        <FootballField>
           <div>
             <PlayerIcon className={styles.lw} ref={player011Ref} />
             <PlayerIcon className={styles.cf} ref={player009Ref} />
@@ -78,7 +79,7 @@ export default function Home() {
           <div>
             <PlayerIcon className={styles.gk} ref={player001Ref} />
           </div>
-        </div>
+        </FootballField>
       </main>
     </>
   );
