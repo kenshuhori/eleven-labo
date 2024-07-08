@@ -1,76 +1,76 @@
 .lw {
     display: inline-block;
-    top: 5%;
+    top: 10%;
     left: 10%;
     position: absolute;
 }
 
 .cf {
     display: inline-block;
-    top: 5%;
+    top: 10%;
     left: 40%;
     position: absolute;
 }
 
 .rw {
     display: inline-block;
-    top: 5%;
+    top: 10%;
     left: 70%;
     position: absolute;
 }
 
 .lih {
     display: inline-block;
-    top: 30%;
+    top: 35%;
     left: 10%;
     position: absolute;
 }
 
 .cmf {
     display: inline-block;
-    top: 30%;
+    top: 35%;
     left: 40%;
     position: absolute;
 }
 
 .rih {
     display: inline-block;
-    top: 30%;
+    top: 35%;
     left: 70%;
     position: absolute;
 }
 
 .lb {
     display: inline-block;
-    top: 55%;
+    top: 60%;
     left: 10%;
     position: absolute;
 }
 
 .lcb {
     display: inline-block;
-    top: 55%;
+    top: 60%;
     left: 30%;
     position: absolute;
 }
 
 .rcb {
     display: inline-block;
-    top: 55%;
+    top: 60%;
     left: 50%;
     position: absolute;
 }
 
 .rb {
     display: inline-block;
-    top: 55%;
+    top: 60%;
     left: 70%;
     position: absolute;
 }
 
 .gk {
     display: inline-block;
-    top: 75%;
+    top: 80%;
     left: 40%;
     position: absolute;
 }

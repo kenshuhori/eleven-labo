@@ -18,7 +18,7 @@ export const FootballField = ({
       backgroundImage: `url(${fieldJpg.src})`,
       backgroundSize: "cover",
       display: "flex",
-      height: height ?? "30rem",
+      height: height ?? "36rem",
       justifyContent: "center",
       position: "absolute",
       width: width ?? "100%",
