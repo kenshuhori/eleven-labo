@@ -34,16 +34,16 @@ export default function Home() {
     useEffect(() => {
       if (!playerRef.current) return;
 
-      const ballSvg = playerRef.current;
-      ballSvg.onpointermove = (event) => {
+      const playerIcon = playerRef.current;
+      playerIcon.onpointermove = (event) => {
         if (event.buttons) {
-          const horizon = ballSvg.offsetLeft + event.movementX;
-          if (horizon < 50 || horizon > window.innerWidth - 100) return;
-          ballSvg.style.left = `${pxToRem(ballSvg.offsetLeft + event.movementX)}rem`;
-          ballSvg.style.top = `${pxToRem(ballSvg.offsetTop + event.movementY)}rem`;
-          ballSvg.style.position = "absolute";
-          ballSvg.draggable = false;
-          ballSvg.setPointerCapture(event.pointerId);
+          const horizon = playerIcon.offsetLeft + event.movementX;
+          if (horizon < 0 || horizon > window.innerWidth - 100) return;
+          playerIcon.style.left = `${pxToRem(playerIcon.offsetLeft + event.movementX)}rem`;
+          playerIcon.style.top = `${pxToRem(playerIcon.offsetTop + event.movementY)}rem`;
+          playerIcon.style.position = "absolute";
+          playerIcon.draggable = false;
+          playerIcon.setPointerCapture(event.pointerId);
         }
       };
     }, [playerRef]);
