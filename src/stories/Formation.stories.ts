@@ -9,14 +9,26 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    width: { control: "text" },
+    formation: { control: "text" },
   },
   args: {
-    width: "35rem",
+    formation: "4-3-3",
   },
 } satisfies Meta<typeof Formation>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const FourThreeThree: Story = {
+  name: "4-3-3",
+  args: {
+    formation: "4-3-3",
+  },
+};
+
+export const FourFourTwo: Story = {
+  name: "4-4-2",
+  args: {
+    formation: "4-4-2",
+  },
+};
