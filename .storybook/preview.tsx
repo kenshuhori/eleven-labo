@@ -1,4 +1,3 @@
-import { ClerkProvider } from "@clerk/nextjs";
 import type { Preview } from "@storybook/react";
 import React from "react";
 import theme from "../src/app/theme";
@@ -15,13 +14,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [
-    (Story) => (
-      <ClerkProvider>
-        <Story />
-      </ClerkProvider>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 };
 
 export default preview;
