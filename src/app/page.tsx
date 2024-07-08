@@ -38,7 +38,7 @@ export default function Home() {
       ballSvg.onpointermove = (event) => {
         if (event.buttons) {
           const horizon = ballSvg.offsetLeft + event.movementX;
-          if (horizon < 50 || horizon > window.innerWidth - 100) return;
+          if (horizon < 0 || horizon > window.innerWidth - 100) return;
           ballSvg.style.left = `${pxToRem(ballSvg.offsetLeft + event.movementX)}rem`;
           ballSvg.style.top = `${pxToRem(ballSvg.offsetTop + event.movementY)}rem`;
           ballSvg.style.position = "absolute";
