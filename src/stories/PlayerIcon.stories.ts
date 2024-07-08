@@ -1,5 +1,5 @@
+import { PlayerIcon } from "@/components/PlayerIcon";
 import type { Meta, StoryObj } from "@storybook/react";
-import { PlayerIcon } from "./PlayerIcon";
 
 const meta = {
   title: "ElevenLabo/PlayerIcon",

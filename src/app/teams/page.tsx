@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/stories/Header";
+import { Header } from "@/components/Header";
 import styles from "./page.module.css";
 
 export default function Home() {

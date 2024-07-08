@@ -1,8 +1,8 @@
 "use client";
 
-import { FootballField } from "@/stories/FootballField";
-import { Header } from "@/stories/Header";
-import { PlayerIcon } from "@/stories/PlayerIcon";
+import { FootballField } from "@/components/FootballField";
+import { Header } from "@/components/Header";
+import { PlayerIcon } from "@/components/PlayerIcon";
 import { useEffect, useRef } from "react";
 import styles from "./page.module.css";
 

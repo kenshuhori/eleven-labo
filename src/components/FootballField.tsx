@@ -4,12 +4,14 @@ import type React from "react";
 interface FootballFieldProps {
   children?: React.ReactNode;
   height?: string;
+  position?: React.CSSProperties["position"];
   width?: string;
 }
 
 export const FootballField = ({
   children,
   height,
+  position,
   width,
 }: FootballFieldProps) => (
   <div
@@ -20,7 +22,7 @@ export const FootballField = ({
       display: "flex",
       height: height ?? "36rem",
       justifyContent: "center",
-      position: "absolute",
+      position: position ?? "absolute",
       width: width ?? "100%",
     }}
   >

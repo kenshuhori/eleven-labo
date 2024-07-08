@@ -1,5 +1,5 @@
+import { MenuButton } from "@/components/MenuButton";
 import type { Meta, StoryObj } from "@storybook/react";
-import { MenuButton } from "./MenuButton";
 
 const meta = {
   title: "ElevenLabo/MenuButton",

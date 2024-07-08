@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FootballField } from "./FootballField";
+import { FootballField } from "../components/FootballField";
 
 const meta = {
   title: "ElevenLabo/FootballField",
@@ -7,6 +7,17 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+  },
+  argTypes: {
+    children: { control: "text" },
+    height: { control: "text" },
+    position: { control: "text" },
+    width: { control: "text" },
+  },
+  args: {
+    height: "35rem",
+    position: "relative",
+    width: "35rem",
   },
 } satisfies Meta<typeof FootballField>;
 
