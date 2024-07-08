@@ -1,13 +1,20 @@
+import fieldJpg from "@public/field.jpg";
 import React, { type CSSProperties } from "react";
 
-import { ChevronLeftIcon } from "@chakra-ui/icons";
-import Link from "next/link";
-import { MenuButton } from "./MenuButton";
-
 interface FootballFieldProps {
-  backUrl?: string;
+  height?: number;
+  width?: number;
 }
 
-export const FootballField = ({ backUrl }: FootballFieldProps) => (
-  <div>hoge</div>
+export const FootballField = ({ height, width }: FootballFieldProps) => (
+  <>
+    <div
+      style={{
+        backgroundImage: `url(${fieldJpg.src})`,
+        backgroundSize: "cover",
+        height: `${height ?? 390}px`,
+        width: `${width ?? 390}px`,
+      }}
+    />
+  </>
 );
