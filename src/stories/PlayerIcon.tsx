@@ -52,7 +52,7 @@ export const PlayerIcon = forwardRef(
       },
     };
 
-    const style = (team: Player["team"]): CSSProperties => {
+    const style = (team: Team): CSSProperties => {
       return {
         backgroundColor: team.backgroundColor,
         border: `3px solid ${team.borderColor}`,
