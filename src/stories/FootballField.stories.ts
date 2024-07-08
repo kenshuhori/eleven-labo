@@ -8,6 +8,17 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    children: { control: "text" },
+    height: { control: "text" },
+    position: { control: "text" },
+    width: { control: "text" },
+  },
+  args: {
+    height: "35rem",
+    position: "relative",
+    width: "35rem",
+  },
 } satisfies Meta<typeof FootballField>;
 
 export default meta;
