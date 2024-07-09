@@ -1,3 +1,8 @@
+type Formation = {
+  code: string;
+  name: string;
+};
+
 type Player = {
   name: string;
   number: number;

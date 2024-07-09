@@ -1,8 +1,10 @@
 import type React from "react";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
+import { formations } from "@/fixtures/formations";
+import Select from "react-select";
 
 interface FormationProps {
   formation?: "4-3-3" | "4-4-2" | "3-4-3";
@@ -61,23 +63,48 @@ export const Formation = ({ formation, style }: FormationProps) => {
     return px / 10 / coefficient;
   };
 
-  const formationClass = `formation-${formation}`;
+  type Option = {
+    value: string;
+    label: string;
+  } & Formation;
+  const onChange = useCallback((selected: Option | null) => {
+    if (selected === null) return;
+
+    console.log(selected);
+    setFormationClass(`formation-${selected?.code}`);
+  }, []);
+  const options: Option[] = formations.map((formation) => ({
+    value: formation.code,
+    label: formation.name,
+    ...formation,
+  }));
+
+  const [formationClass, setFormationClass] = useState<string>(
+    `formation-${formation}`,
+  );
 
   return (
-    <div className={formationClass}>
-      <FootballField style={style}>
-        <PlayerIcon className="player-no11" number={11} ref={player11Ref} />
-        <PlayerIcon className="player-no10" number={10} ref={player10Ref} />
-        <PlayerIcon className="player-no09" number={9} ref={player09Ref} />
-        <PlayerIcon className="player-no08" number={8} ref={player08Ref} />
-        <PlayerIcon className="player-no07" number={7} ref={player07Ref} />
-        <PlayerIcon className="player-no06" number={6} ref={player06Ref} />
-        <PlayerIcon className="player-no05" number={5} ref={player05Ref} />
-        <PlayerIcon className="player-no04" number={4} ref={player04Ref} />
-        <PlayerIcon className="player-no03" number={3} ref={player03Ref} />
-        <PlayerIcon className="player-no02" number={2} ref={player02Ref} />
-        <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
-      </FootballField>
-    </div>
+    <>
+      <div className={formationClass}>
+        <FootballField style={style}>
+          <PlayerIcon className="player-no11" number={11} ref={player11Ref} />
+          <PlayerIcon className="player-no10" number={10} ref={player10Ref} />
+          <PlayerIcon className="player-no09" number={9} ref={player09Ref} />
+          <PlayerIcon className="player-no08" number={8} ref={player08Ref} />
+          <PlayerIcon className="player-no07" number={7} ref={player07Ref} />
+          <PlayerIcon className="player-no06" number={6} ref={player06Ref} />
+          <PlayerIcon className="player-no05" number={5} ref={player05Ref} />
+          <PlayerIcon className="player-no04" number={4} ref={player04Ref} />
+          <PlayerIcon className="player-no03" number={3} ref={player03Ref} />
+          <PlayerIcon className="player-no02" number={2} ref={player02Ref} />
+          <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
+        </FootballField>
+      </div>
+      <Select
+        onChange={onChange}
+        options={options}
+        placeholder="フォーメーションを選択"
+      />
+    </>
   );
 };
