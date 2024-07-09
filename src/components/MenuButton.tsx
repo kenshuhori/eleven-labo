@@ -28,9 +28,7 @@ export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
       />
       <MenuList>
         <Link href="/themes" passHref>
-          <MenuItem icon={<Icon as={FaBook} boxSize={iconBoxSize} />}>
-            テーマ ~Themes~
-          </MenuItem>
+          <MenuItem icon={<Icon as={FaBook} boxSize={iconBoxSize} />}>テーマ ~Themes~</MenuItem>
         </Link>
         <Link href="/teams" passHref>
           <MenuItem icon={<Icon as={GiSoccerBall} boxSize={iconBoxSize} />}>
@@ -38,9 +36,7 @@ export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
           </MenuItem>
         </Link>
         <Link href="/aboutUs" passHref>
-          <MenuItem icon={<Icon as={RiTeamFill} boxSize={iconBoxSize} />}>
-            About Us
-          </MenuItem>
+          <MenuItem icon={<Icon as={RiTeamFill} boxSize={iconBoxSize} />}>About Us</MenuItem>
         </Link>
       </MenuList>
     </Menu>

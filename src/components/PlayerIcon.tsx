@@ -9,13 +9,7 @@ import {
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import {
-  type CSSProperties,
-  type ForwardedRef,
-  forwardRef,
-  useCallback,
-  useState,
-} from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import Select from "react-select";
 
 interface PlayerIconProps {
@@ -61,9 +55,7 @@ export const PlayerIcon = forwardRef(
         fontSize: "1.4rem",
         fontWeight: "1000",
         height: "3.5rem",
-        textShadow: team.textShadowColor
-          ? `1px 1px ${team.textShadowColor}`
-          : "unset",
+        textShadow: team.textShadowColor ? `1px 1px ${team.textShadowColor}` : "unset",
         filter: "drop-shadow(2px 4px 2px #000000)",
         width: "3.5rem",
       };
@@ -97,12 +89,7 @@ export const PlayerIcon = forwardRef(
     return (
       <div className={className} ref={ref}>
         <VStack>
-          <Button
-            onClick={onOpen}
-            style={style(player.team)}
-            type="button"
-            {...props}
-          >
+          <Button onClick={onOpen} style={style(player.team)} type="button" {...props}>
             {player.number}
           </Button>
           <Text style={playerNameStyle}>{player.name}</Text>
@@ -112,11 +99,7 @@ export const PlayerIcon = forwardRef(
           <ModalOverlay />
           <ModalContent style={{ top: "15vh" }}>
             <ModalBody>
-              <Select
-                onChange={onChange}
-                options={options}
-                placeholder="選手を選択"
-              />
+              <Select onChange={onChange} options={options} placeholder="選手を選択" />
             </ModalBody>
           </ModalContent>
         </Modal>
