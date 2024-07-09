@@ -3,27 +3,21 @@ import type React from "react";
 
 interface FootballFieldProps {
   children?: React.ReactNode;
-  height?: string;
-  position?: React.CSSProperties["position"];
-  width?: string;
+  style?: React.CSSProperties;
 }
 
-export const FootballField = ({
-  children,
-  height,
-  position,
-  width,
-}: FootballFieldProps) => (
+export const FootballField = ({ children, style }: FootballFieldProps) => (
   <div
     style={{
       alignItems: "center",
       backgroundImage: `url(${fieldJpg.src})`,
       backgroundSize: "cover",
       display: "flex",
-      height: height ?? "36rem",
+      height: "36rem",
       justifyContent: "center",
-      position: position ?? "absolute",
-      width: width ?? "100%",
+      position: "absolute",
+      width: "100%",
+      ...style,
     }}
   >
     {children}

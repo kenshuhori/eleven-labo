@@ -10,9 +10,15 @@ const meta = {
   },
   argTypes: {
     formation: { control: "text" },
+    style: { control: "object" },
   },
   args: {
     formation: "4-3-3",
+    style: {
+      height: "35rem",
+      position: "relative",
+      width: "35rem",
+    },
   },
 } satisfies Meta<typeof Formation>;
 
