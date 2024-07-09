@@ -1,24 +1,15 @@
-/* 
-  レスポンシブデザインの基本
-  max-width: 648px
-  max-font-size: 18px
-
-  max-width: 480px
-  max-font-sixe: 13px
-*/
-
 html,
 body {
-  font-size: min(2.887vw, 18px)
+  font-size: min(2.887vw, 19px)
 }
 
 .global-container {
-  max-width: 648px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media screen and (min-width: 648px) {
+@media screen and (min-width: 680px) {
   body {
     overflow-y: scroll; /* コンテンツ量に応じてスクロールバーの表示・非表示されると面倒なので常に表示しておく */
   }
@@ -31,7 +22,7 @@ body {
   
   /* fixed要素に対する細かな調整 */
   .fixed.fixed-pc {
-    max-width: 648px;
+    max-width: 480px;
     left: calc(50% - 240px);
   }
   body[style*="hidden"] .fixed.fixed-pc {
