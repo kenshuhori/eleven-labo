@@ -32,3 +32,10 @@ export const FourFourTwo: Story = {
     formation: "4-4-2",
   },
 };
+
+export const ThreeFourThree: Story = {
+  name: "3-4-3",
+  args: {
+    formation: "3-4-3",
+  },
+};
