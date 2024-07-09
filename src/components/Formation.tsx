@@ -67,21 +67,20 @@ export const Formation = ({ formation, style }: FormationProps) => {
     value: string;
     label: string;
   } & Formation;
+
   const onChange = useCallback((selected: Option | null) => {
     if (selected === null) return;
 
-    console.log(selected);
     setFormationClass(`formation-${selected?.code}`);
   }, []);
+
   const options: Option[] = formations.map((formation) => ({
     value: formation.code,
     label: formation.name,
     ...formation,
   }));
 
-  const [formationClass, setFormationClass] = useState<string>(
-    `formation-${formation}`,
-  );
+  const [formationClass, setFormationClass] = useState<string>(`formation-${formation}`);
 
   return (
     <>
@@ -100,11 +99,7 @@ export const Formation = ({ formation, style }: FormationProps) => {
           <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
         </FootballField>
       </div>
-      <Select
-        onChange={onChange}
-        options={options}
-        placeholder="フォーメーションを選択"
-      />
+      <Select onChange={onChange} options={options} placeholder="フォーメーションを選択" />
     </>
   );
 };
