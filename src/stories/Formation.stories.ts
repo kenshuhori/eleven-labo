@@ -10,9 +10,15 @@ const meta = {
   },
   argTypes: {
     formation: { control: "text" },
+    style: { control: "object" },
   },
   args: {
     formation: "4-3-3",
+    style: {
+      height: "35rem",
+      position: "relative",
+      width: "35rem",
+    },
   },
 } satisfies Meta<typeof Formation>;
 
@@ -30,5 +36,12 @@ export const FourFourTwo: Story = {
   name: "4-4-2",
   args: {
     formation: "4-4-2",
+  },
+};
+
+export const ThreeFourThree: Story = {
+  name: "3-4-3",
+  args: {
+    formation: "3-4-3",
   },
 };

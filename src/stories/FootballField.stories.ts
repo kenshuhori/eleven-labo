@@ -10,14 +10,14 @@ const meta = {
   },
   argTypes: {
     children: { control: "text" },
-    height: { control: "text" },
-    position: { control: "text" },
-    width: { control: "text" },
+    style: { control: "object" },
   },
   args: {
-    height: "35rem",
-    position: "relative",
-    width: "35rem",
+    style: {
+      height: "15rem",
+      position: "relative",
+      width: "15rem",
+    },
   },
 } satisfies Meta<typeof FootballField>;
 

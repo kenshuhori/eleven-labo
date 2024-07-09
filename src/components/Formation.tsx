@@ -1,29 +1,82 @@
 import type React from "react";
+import { useEffect, useRef } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 
 interface FormationProps {
-  formation?: "4-3-3" | "4-4-2";
+  formation?: "4-3-3" | "4-4-2" | "3-4-3";
+  style?: React.CSSProperties;
 }
 
-export const Formation = ({ formation }: FormationProps) => {
+export const Formation = ({ formation, style }: FormationProps) => {
+  const player01Ref = useRef<HTMLDivElement>(null);
+  const player02Ref = useRef<HTMLDivElement>(null);
+  const player03Ref = useRef<HTMLDivElement>(null);
+  const player04Ref = useRef<HTMLDivElement>(null);
+  const player05Ref = useRef<HTMLDivElement>(null);
+  const player06Ref = useRef<HTMLDivElement>(null);
+  const player07Ref = useRef<HTMLDivElement>(null);
+  const player08Ref = useRef<HTMLDivElement>(null);
+  const player09Ref = useRef<HTMLDivElement>(null);
+  const player10Ref = useRef<HTMLDivElement>(null);
+  const player11Ref = useRef<HTMLDivElement>(null);
+
+  [
+    player01Ref,
+    player02Ref,
+    player03Ref,
+    player04Ref,
+    player05Ref,
+    player06Ref,
+    player07Ref,
+    player08Ref,
+    player09Ref,
+    player10Ref,
+    player11Ref,
+  ].forEach((playerRef, index) => {
+    useEffect(() => {
+      if (!playerRef.current) return;
+
+      const playerIcon = playerRef.current;
+      playerIcon.onpointermove = (event) => {
+        if (event.buttons) {
+          const horizon = playerIcon.offsetLeft + event.movementX;
+          const vertical = playerIcon.offsetTop + event.movementY;
+          if (horizon < 0 || horizon > window.innerWidth - 100) return;
+          if (vertical < 0 || vertical > window.innerHeight - 100) return;
+
+          playerIcon.style.left = `${pxToRem(playerIcon.offsetLeft + event.movementX)}rem`;
+          playerIcon.style.top = `${pxToRem(playerIcon.offsetTop + event.movementY)}rem`;
+          playerIcon.style.position = "absolute";
+          playerIcon.draggable = false;
+          playerIcon.setPointerCapture(event.pointerId);
+        }
+      };
+    }, [playerRef]);
+  });
+
+  const pxToRem = (px: number) => {
+    const coefficient = window.innerWidth / 360;
+    return px / 10 / coefficient;
+  };
+
   const formationClass = `formation-${formation}`;
 
   return (
     <div className={formationClass}>
-      <FootballField height="35rem" position="relative" width="35rem">
-        <PlayerIcon className="player-no11" />
-        <PlayerIcon className="player-no10" />
-        <PlayerIcon className="player-no09" />
-        <PlayerIcon className="player-no08" />
-        <PlayerIcon className="player-no07" />
-        <PlayerIcon className="player-no06" />
-        <PlayerIcon className="player-no05" />
-        <PlayerIcon className="player-no04" />
-        <PlayerIcon className="player-no03" />
-        <PlayerIcon className="player-no02" />
-        <PlayerIcon className="player-no01" />
+      <FootballField style={style}>
+        <PlayerIcon className="player-no11" number={11} ref={player11Ref} />
+        <PlayerIcon className="player-no10" number={10} ref={player10Ref} />
+        <PlayerIcon className="player-no09" number={9} ref={player09Ref} />
+        <PlayerIcon className="player-no08" number={8} ref={player08Ref} />
+        <PlayerIcon className="player-no07" number={7} ref={player07Ref} />
+        <PlayerIcon className="player-no06" number={6} ref={player06Ref} />
+        <PlayerIcon className="player-no05" number={5} ref={player05Ref} />
+        <PlayerIcon className="player-no04" number={4} ref={player04Ref} />
+        <PlayerIcon className="player-no03" number={3} ref={player03Ref} />
+        <PlayerIcon className="player-no02" number={2} ref={player02Ref} />
+        <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
       </FootballField>
     </div>
   );
