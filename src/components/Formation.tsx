@@ -67,12 +67,13 @@ export const Formation = ({ formation, style }: FormationProps) => {
     value: string;
     label: string;
   } & Formation;
+  
   const onChange = useCallback((selected: Option | null) => {
     if (selected === null) return;
 
-    console.log(selected);
     setFormationClass(`formation-${selected?.code}`);
   }, []);
+
   const options: Option[] = formations.map((formation) => ({
     value: formation.code,
     label: formation.name,
