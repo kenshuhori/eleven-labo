@@ -87,16 +87,16 @@ export const Formation = ({ formation, style }: FormationProps) => {
     <>
       <div className={formationClass}>
         <FootballField style={style}>
-          <PlayerIcon className="player-no11" number={11} ref={player11Ref} />
-          <PlayerIcon className="player-no10" number={10} ref={player10Ref} />
-          <PlayerIcon className="player-no09" number={9} ref={player09Ref} />
-          <PlayerIcon className="player-no08" number={8} ref={player08Ref} />
-          <PlayerIcon className="player-no07" number={7} ref={player07Ref} />
-          <PlayerIcon className="player-no06" number={6} ref={player06Ref} />
-          <PlayerIcon className="player-no05" number={5} ref={player05Ref} />
-          <PlayerIcon className="player-no04" number={4} ref={player04Ref} />
-          <PlayerIcon className="player-no03" number={3} ref={player03Ref} />
-          <PlayerIcon className="player-no02" number={2} ref={player02Ref} />
+          <PlayerIcon className="player-no11 transition" number={11} ref={player11Ref} />
+          <PlayerIcon className="player-no10 transition" number={10} ref={player10Ref} />
+          <PlayerIcon className="player-no09 transition" number={9} ref={player09Ref} />
+          <PlayerIcon className="player-no08 transition" number={8} ref={player08Ref} />
+          <PlayerIcon className="player-no07 transition" number={7} ref={player07Ref} />
+          <PlayerIcon className="player-no06 transition" number={6} ref={player06Ref} />
+          <PlayerIcon className="player-no05 transition" number={5} ref={player05Ref} />
+          <PlayerIcon className="player-no04 transition" number={4} ref={player04Ref} />
+          <PlayerIcon className="player-no03 transition" number={3} ref={player03Ref} />
+          <PlayerIcon className="player-no02 transition" number={2} ref={player02Ref} />
           <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
         </FootballField>
       </div>
