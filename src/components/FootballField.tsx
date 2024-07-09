@@ -15,7 +15,7 @@ export const FootballField = ({ children, style }: FootballFieldProps) => (
       display: "flex",
       height: "36rem",
       justifyContent: "center",
-      position: "absolute",
+      position: "relative",
       width: "100%",
       ...style,
     }}
