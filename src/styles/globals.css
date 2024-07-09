@@ -1,4 +1,31 @@
 html,
 body {
-  font-size: 2.778vw;
+  font-size: min(2.887vw, 19px)
+}
+
+.global-container {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 680px) {
+  body {
+    overflow-y: scroll; /* コンテンツ量に応じてスクロールバーの表示・非表示されると面倒なので常に表示しておく */
+  }
+
+  /* モバイルレイアウトの左右に境界線をつけて見た目を整えるとGood */
+  .global-container {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+  
+  /* fixed要素に対する細かな調整 */
+  .fixed.fixed-pc {
+    max-width: 480px;
+    left: calc(50% - 240px);
+  }
+  body[style*="hidden"] .fixed.fixed-pc {
+    left: calc(50% - 240px - (var(--scrollbar-width) / 2));
+  }
 }

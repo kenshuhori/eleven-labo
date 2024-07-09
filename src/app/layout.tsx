@@ -20,8 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body style={{ overflow: "hidden" }}>
-        <Providers>{children}</Providers>
+      <body>
+        <Providers>
+          <div className="global-container">{children}</div>
+        </Providers>
       </body>
     </html>
   );
