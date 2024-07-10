@@ -1,3 +1,4 @@
+import { transformAgo } from "@/utils/ago";
 import { Flex } from "@chakra-ui/react";
 import { HeartIcon } from "@public/heartIcon";
 import { PostIcon } from "@public/postIcon";
@@ -13,25 +14,29 @@ interface ThemeProps {
   url: string;
 }
 
-export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProps) => (
-  <div style={baseStyle}>
-    <div style={titleStyle}>{title}</div>
-    <div style={createdAtStyle}>{createdAt}</div>
-    <div style={navigateStyle}>
-      <Link href={url}>{"続きを読む >"}</Link>
+export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProps) => {
+  const createdAgo = transformAgo(createdAt);
+
+  return (
+    <div style={baseStyle}>
+      <div style={titleStyle}>{title}</div>
+      <div style={createdAtStyle}>{createdAgo}</div>
+      <div style={navigateStyle}>
+        <Link href={url}>{"続きを読む >"}</Link>
+      </div>
+      <Flex style={footerStyle}>
+        <Flex style={{ gap: "4px" }}>
+          <HeartIcon />
+          <div className="likeCount">{likeCount} likes</div>
+        </Flex>
+        <Flex style={{ gap: "4px" }}>
+          <PostIcon />
+          <div className="postCount">{postCount} posts</div>
+        </Flex>
+      </Flex>
     </div>
-    <Flex style={footerStyle}>
-      <Flex style={{ gap: "4px" }}>
-        <HeartIcon />
-        <div className="likeCount">{likeCount} likes</div>
-      </Flex>
-      <Flex style={{ gap: "4px" }}>
-        <PostIcon />
-        <div className="postCount">{postCount} posts</div>
-      </Flex>
-    </Flex>
-  </div>
-);
+  );
+};
 
 const baseStyle: CSSProperties = {
   border: "1px solid #DDDDDD",
