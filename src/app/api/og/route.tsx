@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : "23-24のプレミアリーグベスト11を考えよう！！";
+      : "ベストイレブン研究所 最高のベストイレブンを創ろう!";
 
     return new ImageResponse(
       <div style={baseStyle}>
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
           <div style={titleStyle}>{title}</div>
           <EyeCatchOgp />
         </div>
-        <div style={serviceStyle}>
+        <div style={logoStyle}>
           <ServiceLogoOgp />
         </div>
       </div>,
@@ -59,17 +59,12 @@ const mainStyle: CSSProperties = {
 
 const titleStyle: CSSProperties = {
   fontSize: "60px",
-  fontFamily: "Roboto",
   fontWeight: "bold",
 };
 
-const serviceStyle: CSSProperties = {
+const logoStyle: CSSProperties = {
   bottom: "80px",
   display: "flex",
   left: "80px",
   position: "absolute",
-};
-
-const logoStyle: CSSProperties = {
-  fontSize: "40px",
 };
