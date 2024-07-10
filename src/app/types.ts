@@ -10,6 +10,7 @@ type Player = {
 };
 
 type Team = {
+  code: string;
   name: string;
   backgroundColor: string;
   borderColor: string;
