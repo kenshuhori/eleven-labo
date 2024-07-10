@@ -1,4 +1,5 @@
 import { EyeCatchOgp } from "@public/eyeCatchOgp";
+import { ServiceLogoOgp } from "@public/serviceLogoOgp";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import type { CSSProperties } from "react";
@@ -18,6 +19,9 @@ export async function GET(request: NextRequest) {
         <div style={mainStyle}>
           <div style={titleStyle}>{title}</div>
           <EyeCatchOgp />
+        </div>
+        <div style={serviceStyle}>
+          <ServiceLogoOgp />
         </div>
       </div>,
       {
@@ -57,4 +61,15 @@ const titleStyle: CSSProperties = {
   fontSize: "60px",
   fontFamily: "Roboto",
   fontWeight: "bold",
+};
+
+const serviceStyle: CSSProperties = {
+  bottom: "80px",
+  display: "flex",
+  left: "80px",
+  position: "absolute",
+};
+
+const logoStyle: CSSProperties = {
+  fontSize: "40px",
 };
