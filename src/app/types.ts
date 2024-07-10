@@ -17,3 +17,7 @@ type Team = {
   color: string;
   textShadowColor: string | null;
 };
+
+type Theme = {
+  title: string;
+};
