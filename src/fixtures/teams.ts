@@ -1,5 +1,6 @@
 export const teams: Team[] = [
   {
+    code: "arsenal",
     name: "Arsenal",
     backgroundColor: "#EF0107",
     borderColor: "#063672",
@@ -7,6 +8,7 @@ export const teams: Team[] = [
     textShadowColor: "#9C824A",
   },
   {
+    code: "aston_villa",
     name: "Aston Villa",
     color: "#670E36",
     backgroundColor: "#95BFE5",
@@ -14,6 +16,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "bournemouth",
     name: "Bournemouth",
     color: "#000000",
     backgroundColor: "#DA291C",
@@ -21,6 +24,7 @@ export const teams: Team[] = [
     textShadowColor: "#FFFFFF",
   },
   {
+    code: "brighton",
     name: "Brighton",
     color: "#FFCD00",
     backgroundColor: "#0057B8",
@@ -28,6 +32,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "brentford",
     name: "Brentford",
     color: "#FFB400",
     backgroundColor: "#FFFFFF",
@@ -35,6 +40,7 @@ export const teams: Team[] = [
     textShadowColor: "#000000",
   },
   {
+    code: "burnley",
     name: "Burnley",
     color: "#EDE939",
     backgroundColor: "#6C1D45",
@@ -42,6 +48,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "chelsea",
     name: "Chelsea",
     color: "#FFFFFF",
     backgroundColor: "#034694",
@@ -50,6 +57,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "crystal_palace",
     name: "Crystal Palace",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -58,6 +66,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "everton",
     name: "Everton",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -66,6 +75,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "fullham",
     name: "Fullham",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -74,6 +84,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "ipswich_town",
     name: "Ipswich Town",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -82,6 +93,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "leicester_city",
     name: "Leicester City",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -89,6 +101,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "liverpool",
     name: "Liverpool",
     backgroundColor: "#C8102E",
     borderColor: "#00B2A9",
@@ -96,6 +109,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "manchester_city",
     name: "Manchester City",
     backgroundColor: "#6CABDD",
     borderColor: "#FFFFFF",
@@ -103,6 +117,7 @@ export const teams: Team[] = [
     textShadowColor: "#FFFFFF",
   },
   {
+    code: "manchester_united",
     name: "Manchester United",
     color: "#000000",
     backgroundColor: "#DA291C",
@@ -110,6 +125,7 @@ export const teams: Team[] = [
     textShadowColor: "#FBE122",
   },
   {
+    code: "newcastle",
     name: "Newcastle",
     color: "#F1BE48",
     backgroundColor: "#241F20",
@@ -118,6 +134,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "nottingham_forest",
     name: "Nottingham Forest",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -126,6 +143,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "norwich_city",
     name: "Norwich City",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -134,6 +152,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "sheffield_united",
     name: "Sheffield United",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -142,6 +161,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "southampton",
     name: "Southampton",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -149,7 +169,8 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
-    name: "Totenham",
+    code: "tottenham",
+    name: "Tottenham",
     color: "#132257",
     backgroundColor: "#FFFFFF",
     borderColor: "#132257",
@@ -157,6 +178,7 @@ export const teams: Team[] = [
   },
   {
     // ToDo: Fix the color
+    code: "watford",
     name: "Watford",
     color: "#FFFFFF",
     backgroundColor: "#FFFFFF",
@@ -164,6 +186,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "wast_ham_united",
     name: "West Ham United",
     color: "#F3D459",
     backgroundColor: "#7A263A",
@@ -171,6 +194,7 @@ export const teams: Team[] = [
     textShadowColor: null,
   },
   {
+    code: "wolverhampton",
     name: "Wolverhampton",
     color: "#231F20",
     backgroundColor: "#FDB913",

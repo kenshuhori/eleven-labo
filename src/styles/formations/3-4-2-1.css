@@ -1,15 +1,16 @@
-.formation-4-3-3 {
+/* ToDo: 3-4-2-1 フォーメーションを作成 */
+.formation-3-4-2-1 {
   .player-no11 {
     display: inline-block;
     top: 10%;
-    left: 10%;
+    left: 15%;
     position: absolute;
   }
 
   .player-no10 {
       display: inline-block;
       top: 35%;
-      left: 40%;
+      left: 10%;
       position: absolute;
   }
 
@@ -30,42 +31,42 @@
   .player-no07 {
       display: inline-block;
       top: 10%;
-      left: 70%;
+      left: 65%;
       position: absolute;
   }
 
   .player-no06 {
       display: inline-block;
       top: 35%;
-      left: 10%;
+      left: 30%;
       position: absolute;
   }
 
   .player-no05 {
       display: inline-block;
       top: 60%;
-      left: 10%;
+      left: 15%;
       position: absolute;
   }
 
   .player-no04 {
       display: inline-block;
-      top: 60%;
-      left: 30%;
+      top: 35%;
+      left: 50%;
       position: absolute;
   }
 
   .player-no03 {
       display: inline-block;
       top: 60%;
-      left: 50%;
+      left: 40%;
       position: absolute;
   }
 
   .player-no02 {
       display: inline-block;
       top: 60%;
-      left: 70%;
+      left: 65%;
       position: absolute;
   }
 
@@ -76,3 +77,4 @@
       position: absolute;
   }
 }
+  

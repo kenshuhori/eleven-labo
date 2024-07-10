@@ -38,6 +38,7 @@ export const PlayerIcon = forwardRef(
       name: "???",
       number: number ?? 99,
       team: {
+        code: "default",
         name: "Default",
         backgroundColor: backgroundColor ?? "#FFFFFF",
         borderColor: borderColor ?? "#000000",
@@ -72,6 +73,7 @@ export const PlayerIcon = forwardRef(
         name: selected?.name ?? "???",
         number: selected?.number ?? 0,
         team: {
+          code: selected?.team.code ?? "???",
           name: selected?.team.name ?? "???",
           backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
           borderColor: selected?.team.borderColor ?? "#000000",
