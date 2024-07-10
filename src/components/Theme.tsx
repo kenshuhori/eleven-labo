@@ -18,7 +18,7 @@ export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProp
     <div style={titleStyle}>{title}</div>
     <div style={createdAtStyle}>{createdAt}</div>
     <div style={navigateStyle}>
-      <Link href={url}>続きを読む</Link>
+      <Link href={url}>{"続きを読む >"}</Link>
     </div>
     <Flex style={footerStyle}>
       <Flex style={{ gap: "4px" }}>
