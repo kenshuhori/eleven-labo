@@ -26,11 +26,11 @@ export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProp
       </div>
       <Flex style={footerStyle}>
         <Flex style={{ gap: "4px" }}>
-          <HeartIcon />
+          <HeartIcon style={{ fill: "#FFFFFF" }} />
           <div className="likeCount">{likeCount} likes</div>
         </Flex>
         <Flex style={{ gap: "4px" }}>
-          <PostIcon />
+          <PostIcon style={{ fill: "#FFFFFF" }} />
           <div className="postCount">{postCount} posts</div>
         </Flex>
       </Flex>
@@ -47,7 +47,7 @@ const baseStyle: CSSProperties = {
 };
 
 const titleStyle: CSSProperties = {
-  fontSize: "0.7rem",
+  fontSize: "0.8rem",
   fontWeight: "bold",
 };
 
