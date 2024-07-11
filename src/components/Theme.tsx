@@ -26,11 +26,11 @@ export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProp
       </div>
       <Flex style={footerStyle}>
         <Flex style={{ gap: "4px" }}>
-          <HeartIcon style={{ fill: "#FFFFFF" }} />
+          <HeartIcon style={iconStyle} />
           <div className="likeCount">{likeCount} likes</div>
         </Flex>
         <Flex style={{ gap: "4px" }}>
-          <PostIcon style={{ fill: "#FFFFFF" }} />
+          <PostIcon style={iconStyle} />
           <div className="postCount">{postCount} posts</div>
         </Flex>
       </Flex>
@@ -68,4 +68,10 @@ const footerStyle: CSSProperties = {
   gap: "14px",
   lineHeight: "normal",
   position: "absolute",
+};
+
+const iconStyle: CSSProperties = {
+  fill: "#FFFFFF",
+  height: "16px",
+  width: "16px",
 };
