@@ -1,5 +1,5 @@
-import { EyeCatchOgp } from "@public/eyeCatchOgp";
-import { ServiceLogoOgp } from "@public/serviceLogoOgp";
+import { EyeCatchImage } from "@public/ogp/eyeCatchImage";
+import { ServiceLogo } from "@public/ogp/serviceLogo";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import type { CSSProperties } from "react";
@@ -18,10 +18,10 @@ export async function GET(request: NextRequest) {
       <div style={baseStyle}>
         <div style={mainStyle}>
           <div style={titleStyle}>{title}</div>
-          <EyeCatchOgp />
+          <EyeCatchImage />
         </div>
         <div style={logoStyle}>
-          <ServiceLogoOgp />
+          <ServiceLogo />
         </div>
       </div>,
       {
