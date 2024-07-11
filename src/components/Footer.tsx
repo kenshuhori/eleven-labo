@@ -2,12 +2,24 @@ import React, { type CSSProperties } from "react";
 
 export const Footer = () => (
   <footer style={baseStyle}>
-    <div>hoge</div>
+    <div style={logoStyle}>ベストイレブン研究所</div>
+    <div>
+      <div>about us</div>
+      <div>お問い合わせ</div>
+    </div>
   </footer>
 );
 
 const baseStyle: CSSProperties = {
-  alignItems: "center",
+  backgroundColor: "#555555",
+  color: "#ffffff",
   display: "flex",
-  justifyContent: "space-between",
+  flexDirection: "column",
+  padding: "20px",
+  width: "auto",
+};
+
+const logoStyle: CSSProperties = {
+  fontSize: "1.2rem",
+  fontWeight: "bold",
 };
