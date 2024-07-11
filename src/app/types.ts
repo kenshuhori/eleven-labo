@@ -20,8 +20,8 @@ type Team = {
 
 type Theme = {
   createdAt: string;
-  likeCount: string;
-  postCount: string;
+  likeCount: number;
+  postCount: number;
   title: string;
   url: string;
 };
