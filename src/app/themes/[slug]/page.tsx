@@ -10,7 +10,7 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   return (
     <>
-      <Header backUrl="/" />
+      <Header backUrl="/themes" />
       <main style={baseStyle}>
         <div>{`テーマ${params.slug}`}</div>
       </main>
