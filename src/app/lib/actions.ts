@@ -1,6 +1,8 @@
 "use server";
 
 import { sql } from "@vercel/postgres";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export async function createTheme(formData: FormData) {
   const { title, like_count, post_count } = {
@@ -14,7 +16,10 @@ export async function createTheme(formData: FormData) {
   }
 
   await sql`
-    INSERT INTO themes (title, like_count, post_count)
-    VALUES (${title.toString()}, 0, 0)
+    INSERT INTO themes (title)
+    VALUES (${title.toString()})
   `;
+
+  revalidatePath("/themes");
+  redirect("/themes");
 }
