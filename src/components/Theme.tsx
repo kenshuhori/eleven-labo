@@ -18,29 +18,29 @@ export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProp
   const createdAgo = transformAgo(createdAt);
 
   return (
-    <div style={baseStyle}>
-      <div style={titleStyle}>{title}</div>
-      <div style={createdAtStyle}>{createdAgo}</div>
-      <div style={navigateStyle}>
-        <Link href={url}>{"続きを読む >"}</Link>
+    <Link href={url}>
+      <div style={baseStyle}>
+        <div style={titleStyle}>{title}</div>
+        <div style={createdAtStyle}>{createdAgo}</div>
+        <div style={navigateStyle}>{"続きを読む >"}</div>
+        <Flex style={footerStyle}>
+          <Flex style={{ gap: "4px" }}>
+            <HeartIcon style={iconStyle} />
+            <div className="likeCount">{likeCount} likes</div>
+          </Flex>
+          <Flex style={{ gap: "4px" }}>
+            <PostIcon style={iconStyle} />
+            <div className="postCount">{postCount} posts</div>
+          </Flex>
+        </Flex>
       </div>
-      <Flex style={footerStyle}>
-        <Flex style={{ gap: "4px" }}>
-          <HeartIcon style={iconStyle} />
-          <div className="likeCount">{likeCount} likes</div>
-        </Flex>
-        <Flex style={{ gap: "4px" }}>
-          <PostIcon style={iconStyle} />
-          <div className="postCount">{postCount} posts</div>
-        </Flex>
-      </Flex>
-    </div>
+    </Link>
   );
 };
 
 const baseStyle: CSSProperties = {
-  border: "1px solid #DDDDDD",
-  height: "6rem",
+  borderBottom: "1px solid #DDDDDD",
+  height: "7rem",
   padding: "12px 18px",
   position: "relative",
   width: "100%",
