@@ -9,10 +9,12 @@
 
 html,
 body {
-  font-size: min(2.887vw, 18px)
+  font-size: min(2.887vw, 18px);
+  height: 100%;
 }
 
 .global-container {
+  height: 100%;
   max-width: 648px;
   margin-left: auto;
   margin-right: auto;

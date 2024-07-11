@@ -1,14 +1,26 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import styles from "./page.module.css";
+import { Theme } from "@/components/Theme";
+import { themes } from "@/fixtures/themes";
 
 export default function Home() {
   return (
     <>
       <Header backUrl="/" />
-      <main className={styles.main}>
-        <h1>テーマ一覧 | Eleven Labo</h1>
+      <main>
+        {themes.map((theme) => {
+          return (
+            <Theme
+              createdAt={theme.createdAt}
+              likeCount={theme.likeCount}
+              postCount={theme.postCount}
+              title={theme.title}
+              url={theme.url}
+              key={theme.url}
+            />
+          );
+        })}
       </main>
     </>
   );

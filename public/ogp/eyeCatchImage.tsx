@@ -1,4 +1,8 @@
-export const EyeCatchOgp = () => {
+interface EyeCatchImageProps {
+  style?: React.CSSProperties;
+}
+
+export const EyeCatchImage = ({ style }: EyeCatchImageProps) => {
   return (
     <svg
       width="390"
@@ -6,6 +10,7 @@ export const EyeCatchOgp = () => {
       viewBox="0 0 390 390"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={style}
     >
       <g clip-path="url(#clip0_132_1422)">
         <rect x="0.00561523" y="19.5515" width="389.983" height="370.448" fill="#289A0B" />
