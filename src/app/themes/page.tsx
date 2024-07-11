@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Theme } from "@/components/Theme";
 import { themes } from "@/fixtures/themes";
@@ -22,6 +23,7 @@ export default function Home() {
           );
         })}
       </main>
+      <Footer />
     </>
   );
 }
