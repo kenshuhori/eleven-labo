@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Providers } from "./providers";
 import "@/styles/globals.css";
 import { inter } from "@/app/fonts";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "ベストイレブン研究所 | Eleven Labo",
@@ -23,7 +25,11 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <Providers>
-          <div className="global-container">{children}</div>
+          <div className="global-container">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
