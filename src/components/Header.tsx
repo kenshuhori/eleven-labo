@@ -2,24 +2,10 @@ import React, { type CSSProperties } from "react";
 
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { FaChevronLeft } from "react-icons/fa";
-// import { MenuButton } from "./MenuButton";
 
-interface HeaderProps {
-  backUrl?: string;
-}
-
-export const Header = ({ backUrl }: HeaderProps) => {
+export const Header = () => {
   return (
     <header style={HeaderStyle}>
-      {/* 中央のタイトルがズレるためあえて24pxをいれる */}
-      <div style={{ width: "24px" }}>
-        {backUrl && (
-          <Link href={backUrl} passHref>
-            <FaChevronLeft />
-          </Link>
-        )}
-      </div>
       <Link href="/" passHref>
         <h1 style={HeaderH1Style}>Eleven Labo</h1>
       </Link>
@@ -31,8 +17,6 @@ export const Header = ({ backUrl }: HeaderProps) => {
           <UserButton />
         </SignedIn>
       </div>
-      {/* メニューボタンは一旦利用しないで進める */}
-      {/* <MenuButton /> */}
     </header>
   );
 };
