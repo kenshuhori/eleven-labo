@@ -101,7 +101,18 @@ export const PlayerIcon = forwardRef(
           <ModalOverlay />
           <ModalContent style={{ top: "15vh" }}>
             <ModalBody>
-              <Select onChange={onChange} options={options} placeholder="選手を選択" />
+              <Select<
+                Option,
+                false,
+                {
+                  line: string;
+                  options: Option[];
+                }
+              >
+                onChange={onChange}
+                options={options}
+                placeholder="選手を選択"
+              />
             </ModalBody>
           </ModalContent>
         </Modal>
