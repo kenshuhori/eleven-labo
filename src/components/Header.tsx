@@ -1,8 +1,8 @@
 import React, { type CSSProperties } from "react";
 
-import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { FaChevronLeft } from "react-icons/fa";
 // import { MenuButton } from "./MenuButton";
 
 interface HeaderProps {
@@ -15,7 +15,7 @@ export const Header = ({ backUrl }: HeaderProps) => (
     <div style={{ width: "24px" }}>
       {backUrl && (
         <Link href={backUrl} passHref>
-          <ChevronLeftIcon boxSize={8} />
+          <FaChevronLeft />
         </Link>
       )}
     </div>
