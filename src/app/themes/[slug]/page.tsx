@@ -1,6 +1,3 @@
-"use client";
-
-import { Header } from "@/components/Header";
 import type { CSSProperties } from "react";
 
 interface PageProps {
@@ -9,12 +6,9 @@ interface PageProps {
 
 export default function Page({ params }: { params: PageProps }) {
   return (
-    <>
-      <Header backUrl="/themes" />
-      <main style={baseStyle}>
-        <div>{`テーマ${params.slug}`}</div>
-      </main>
-    </>
+    <main style={baseStyle}>
+      <div>{`テーマ${params.slug}`}</div>
+    </main>
   );
 }
 
