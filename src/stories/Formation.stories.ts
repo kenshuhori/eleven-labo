@@ -74,6 +74,13 @@ export const FourTwoOneThree: Story = {
   },
 };
 
+export const FourFourOneOne: Story = {
+  name: "4-4-1-1",
+  args: {
+    formation: "4-4-1-1",
+  },
+};
+
 export const FourThreeThree: Story = {
   name: "4-3-3",
   args: {
@@ -98,7 +105,7 @@ export const FourFourTwo: Story = {
 export const FourSixZero: Story = {
   name: "4-6-0",
   args: {
-    formation: "4-4-2",
+    formation: "4-6-0",
   },
 };
 
