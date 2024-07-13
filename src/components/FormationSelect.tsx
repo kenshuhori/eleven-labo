@@ -40,12 +40,12 @@ export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
               letterSpacing: "0.8px",
             }}
           >
-            {`${data.name} #${data.code}`}
+            {data.name}
           </span>
         </div>
       </div>
     ) : (
-      <span>{`${data.name} #${data.code}`}</span>
+      <span>{data.name}</span>
     );
   };
 
@@ -62,7 +62,7 @@ export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
         formatOptionLabel={formatOptionLabel}
         onChange={onChange}
         options={options}
-        placeholder="選手を選択"
+        placeholder="フォーメーションを選択"
       />
     </div>
   );
