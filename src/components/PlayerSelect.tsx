@@ -32,8 +32,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         <div>
           <span
             style={{
-              color: "#DDDDDD",
-              fontFamily: "Noto Sans JP",
+              color: "#000000",
               fontSize: "16px",
               fontStyle: "normal",
               fontWeight: 700,
@@ -41,65 +40,12 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
               letterSpacing: "0.8px",
             }}
           >
-            {data.name}
-          </span>
-          <span
-            style={{
-              color: "#DDDDDD",
-              fontFamily: "Noto Sans JP",
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "150%",
-              letterSpacing: "0.6px",
-            }}
-          >
-            {data.team.name}
-          </span>
-        </div>
-        <div>
-          <span
-            style={{
-              color: "#DDDDDD",
-              fontFamily: "Noto Sans JP",
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "150%",
-              letterSpacing: "0.6px",
-              marginRight: "8px",
-            }}
-          >
-            {"あいうえお"}
-          </span>
-          <span
-            style={{
-              color: "#DDDDDD",
-              fontFamily: "Noto Sans JP",
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "150%",
-              letterSpacing: "0.6px",
-            }}
-          >
-            {"かきくけこ"}
+            {`${data.name} #${data.number}`}
           </span>
         </div>
       </div>
     ) : (
-      <span
-        style={{
-          color: "#DDDDDD",
-          fontFamily: "Noto Sans JP",
-          fontSize: "16px",
-          fontStyle: "normal",
-          fontWeight: 400,
-          lineHeight: "150%",
-        }}
-      >
-        {"さしすせそ"}
-      </span>
+      <span>{`${data.name} #${data.number}`}</span>
     );
   };
 
