@@ -53,6 +53,27 @@ export const ThreeFourThree: Story = {
   },
 };
 
+export const FourOneTwoThree: Story = {
+  name: "4-1-2-3",
+  args: {
+    formation: "4-1-2-3",
+  },
+};
+
+export const FourOneFourOne: Story = {
+  name: "4-1-4-1",
+  args: {
+    formation: "4-1-4-1",
+  },
+};
+
+export const FourTwoOneThree: Story = {
+  name: "4-2-1-3",
+  args: {
+    formation: "4-2-1-3",
+  },
+};
+
 export const FourThreeThree: Story = {
   name: "4-3-3",
   args: {
@@ -60,9 +81,30 @@ export const FourThreeThree: Story = {
   },
 };
 
+export const FourFourTwoDiamond: Story = {
+  name: "4-4-2-Diamond",
+  args: {
+    formation: "4-4-2-D",
+  },
+};
+
 export const FourFourTwo: Story = {
   name: "4-4-2",
   args: {
     formation: "4-4-2",
+  },
+};
+
+export const FourSixZero: Story = {
+  name: "4-6-0",
+  args: {
+    formation: "4-4-2",
+  },
+};
+
+export const FiveFourOne: Story = {
+  name: "5-4-1",
+  args: {
+    formation: "5-4-1",
   },
 };
