@@ -39,6 +39,13 @@ export const ThreeFourTwoOne: Story = {
   },
 };
 
+export const ThreeFourThreeDiamond: Story = {
+  name: "3-4-3-Diamond",
+  args: {
+    formation: "3-4-3-D",
+  },
+};
+
 export const ThreeFourThree: Story = {
   name: "3-4-3",
   args: {
