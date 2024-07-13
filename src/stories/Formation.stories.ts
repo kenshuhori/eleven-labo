@@ -25,6 +25,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const ThreeFourOneTwo: Story = {
+  name: "3-4-1-2",
+  args: {
+    formation: "3-4-1-2",
+  },
+};
+
 export const FourThreeThree: Story = {
   name: "4-3-3",
   args: {

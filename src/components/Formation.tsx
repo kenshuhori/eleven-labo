@@ -7,7 +7,7 @@ import { formations } from "@/fixtures/formations";
 import Select from "react-select";
 
 interface FormationProps {
-  formation?: "4-3-3" | "4-4-2" | "3-4-3";
+  formation?: "3-4-1-2" | "4-3-3" | "4-4-2" | "3-4-3";
   style?: React.CSSProperties;
 }
 
