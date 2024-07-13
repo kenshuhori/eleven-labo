@@ -3,42 +3,42 @@
   .player-no11 {
     display: inline-block;
     top: 10%;
-    left: 30%;
+    left: 10%;
     position: absolute;
   }
 
   .player-no10 {
       display: inline-block;
-      top: 35%;
-      left: 10%;
+      top: 25%;
+      left: 40%;
       position: absolute;
   }
 
   .player-no09 {
       display: inline-block;
       top: 10%;
-      left: 50%;
+      left: 40%;
       position: absolute;
   }
 
   .player-no08 {
       display: inline-block;
-      top: 35%;
-      left: 50%;
+      top: 40%;
+      left: 55%;
       position: absolute;
   }
 
   .player-no07 {
       display: inline-block;
-      top: 35%;
+      top: 10%;
       left: 70%;
       position: absolute;
   }
 
   .player-no06 {
       display: inline-block;
-      top: 35%;
-      left: 30%;
+      top: 40%;
+      left: 25%;
       position: absolute;
   }
 

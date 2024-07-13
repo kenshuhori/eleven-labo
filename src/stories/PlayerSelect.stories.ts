@@ -1,0 +1,25 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { PlayerSelect } from "../components/PlayerSelect";
+
+const meta = {
+  title: "ElevenLabo/PlayerSelect",
+  component: PlayerSelect,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
+  argTypes: {
+    onChange: { control: "text" },
+  },
+  args: {
+    onChange: () => {},
+    style: {
+      width: "20rem",
+    },
+  },
+} satisfies Meta<typeof PlayerSelect>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};

@@ -1,4 +1,3 @@
-import { players } from "@/fixtures/players";
 import {
   Button,
   Modal,
@@ -10,7 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
-import Select from "react-select";
+import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
   backgroundColor?: string;
@@ -63,12 +62,8 @@ export const PlayerIcon = forwardRef(
     };
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    type Option = {
-      value: string;
-      label: string;
-    } & Player;
     const [player, setPlayer] = useState<Player>(defaultPlayer);
-    const onChange = useCallback((selected: Option | null) => {
+    const onChange = useCallback((selected: PlayerSelectOption | null) => {
       setPlayer({
         name: selected?.name ?? "???",
         number: selected?.number ?? 0,
@@ -82,11 +77,6 @@ export const PlayerIcon = forwardRef(
         },
       });
     }, []);
-    const options: Option[] = players.map((player, index) => ({
-      value: `player_${index}`,
-      label: player.name,
-      ...player,
-    }));
 
     return (
       <div className={className} ref={ref}>
@@ -101,7 +91,7 @@ export const PlayerIcon = forwardRef(
           <ModalOverlay />
           <ModalContent style={{ top: "15vh" }}>
             <ModalBody>
-              <Select onChange={onChange} options={options} placeholder="選手を選択" />
+              <PlayerSelect onChange={onChange} />
             </ModalBody>
           </ModalContent>
         </Modal>

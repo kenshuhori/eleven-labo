@@ -2,15 +2,15 @@
 .formation-3-4-2-1 {
   .player-no11 {
     display: inline-block;
-    top: 10%;
-    left: 15%;
+    top: 20%;
+    left: 25%;
     position: absolute;
   }
 
   .player-no10 {
       display: inline-block;
-      top: 35%;
-      left: 10%;
+      top: 20%;
+      left: 55%;
       position: absolute;
   }
 
@@ -23,22 +23,22 @@
 
   .player-no08 {
       display: inline-block;
-      top: 35%;
-      left: 70%;
+      top: 40%;
+      left: 50%;
       position: absolute;
   }
 
   .player-no07 {
       display: inline-block;
-      top: 10%;
-      left: 65%;
+      top: 35%;
+      left: 75%;
       position: absolute;
   }
 
   .player-no06 {
       display: inline-block;
       top: 35%;
-      left: 30%;
+      left: 5%;
       position: absolute;
   }
 
@@ -51,8 +51,8 @@
 
   .player-no04 {
       display: inline-block;
-      top: 35%;
-      left: 50%;
+      top: 40%;
+      left: 30%;
       position: absolute;
   }
 
@@ -77,4 +77,4 @@
       position: absolute;
   }
 }
-  
+    
