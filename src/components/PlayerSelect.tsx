@@ -1,92 +1,21 @@
 import { players } from "@/fixtures/players";
-import React, { useCallback, useState, type CSSProperties } from "react";
+import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
 interface PlayerSelectProps {
-  backgroundColor?: string;
-  borderColor?: string;
-  color?: string;
-  number?: number;
-  textShadowColor?: string;
+  onChange: (selected: PlayerSelectOption | null) => void;
+  style?: CSSProperties;
 }
 
-export const PlayerSelect = ({
-  backgroundColor,
-  borderColor,
-  color,
-  number,
-  textShadowColor,
-}: PlayerSelectProps) => {
-  const defaultPlayer: Player = {
-    name: "???",
-    number: number ?? 99,
-    team: {
-      code: "default",
-      name: "Default",
-      backgroundColor: backgroundColor ?? "#FFFFFF",
-      borderColor: borderColor ?? "#000000",
-      color: color ?? "#000000",
-      textShadowColor: textShadowColor ?? null,
-    },
-  };
-
-  type Option = {
-    value: string;
-    label: string;
-  } & Player;
-  const [player, setPlayer] = useState<Player>(defaultPlayer);
-  const onChange = useCallback((selected: Option | null) => {
-    setPlayer({
-      name: selected?.name ?? "???",
-      number: selected?.number ?? 0,
-      team: {
-        code: selected?.team.code ?? "???",
-        name: selected?.team.name ?? "???",
-        backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
-        borderColor: selected?.team.borderColor ?? "#000000",
-        color: selected?.team.color ?? "#000000",
-        textShadowColor: selected?.team.textShadowColor ?? null,
-      },
-    });
-  }, []);
-  const options: Option[] = players.map((player, index) => ({
+export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
+  const options: PlayerSelectOption[] = players.map((player, index) => ({
     value: `player_${index}`,
     label: player.name,
     ...player,
   }));
 
-  const formatGroupLabel = ({
-    line,
-  }: {
-    line: string;
-    options: Option[];
-  }): JSX.Element => {
-    return (
-      <div
-        style={{
-          padding: "8px",
-          alignItems: "center",
-          alignSelf: "stretch",
-        }}
-      >
-        <span
-          style={{
-            color: "#EEEEEE",
-            fontFamily: "Noto Sans JP",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: 700,
-            lineHeight: "100%",
-          }}
-        >
-          {line}
-        </span>
-      </div>
-    );
-  };
-
   const formatOptionLabel = (
-    data: Option,
+    data: PlayerSelectOption,
     { context }: { context: "menu" | "value" },
   ): JSX.Element => {
     return context === "menu" ? (
@@ -175,23 +104,20 @@ export const PlayerSelect = ({
   };
 
   return (
-    <div style={baseStyle}>
+    <div style={{ ...style }}>
       <Select<
-        Option,
+        PlayerSelectOption,
         false,
         {
           line: string;
-          options: Option[];
+          options: PlayerSelectOption[];
         }
       >
+        formatOptionLabel={formatOptionLabel}
         onChange={onChange}
         options={options}
         placeholder="選手を選択"
       />
     </div>
   );
-};
-
-const baseStyle: CSSProperties = {
-  width: "auto",
 };

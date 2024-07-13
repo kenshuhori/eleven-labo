@@ -9,6 +9,11 @@ type Player = {
   team: Team;
 };
 
+type PlayerSelectOption = {
+  value: string;
+  label: string;
+} & Player;
+
 type Team = {
   code: string;
   name: string;
