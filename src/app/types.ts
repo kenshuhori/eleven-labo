@@ -3,6 +3,11 @@ type Formation = {
   name: string;
 };
 
+type FormationSelectOption = {
+  value: string;
+  label: string;
+} & Formation;
+
 type Player = {
   name: string;
   number: number;
