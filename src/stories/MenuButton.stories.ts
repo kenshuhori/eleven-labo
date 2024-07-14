@@ -5,7 +5,13 @@ const meta = {
   title: "ElevenLabo/MenuButton",
   component: MenuButton,
   parameters: {
-    layout: "centered",
+    layout: "padded",
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 200,
+      },
+    },
   },
   tags: ["autodocs"],
   args: { iconBoxSize: 5 },
