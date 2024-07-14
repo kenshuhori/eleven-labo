@@ -1,3 +1,4 @@
+import { defaultPlayer } from "@/fixtures/players";
 import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "./PlayerSelect";
@@ -14,18 +15,11 @@ export const PlayerIcon = forwardRef(
     const [player, setPlayer] = useState<Player>(initialPlayer);
     const onChange = useCallback(
       (selected: PlayerSelectOption | null) => {
-        setPlayer({
-          name: selected?.name ?? "???",
-          number: selected?.number ?? 0,
-          team: {
-            code: selected?.team.code ?? "???",
-            name: selected?.team.name ?? "???",
-            backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
-            borderColor: selected?.team.borderColor ?? "#000000",
-            color: selected?.team.color ?? "#000000",
-            textShadowColor: selected?.team.textShadowColor ?? null,
-          },
-        });
+        if (selected === null) {
+          setPlayer(defaultPlayer({}));
+        } else {
+          setPlayer(selected);
+        }
         onClose();
       },
       [onClose],
@@ -33,7 +27,7 @@ export const PlayerIcon = forwardRef(
 
     return (
       <div className={className} ref={ref}>
-        <div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: "4px" }}>
+        <div style={contentStyle}>
           <button onClick={onOpen} style={playerIconStyle(player.team)} type="button">
             {player.number}
           </button>
@@ -52,6 +46,13 @@ export const PlayerIcon = forwardRef(
     );
   },
 );
+
+const contentStyle: CSSProperties = {
+  alignItems: "center",
+  display: "flex",
+  flexDirection: "column",
+  gap: "4px",
+};
 
 const playerIconStyle = (team: Team): CSSProperties => {
   return {
