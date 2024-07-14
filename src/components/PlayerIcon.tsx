@@ -1,13 +1,4 @@
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalOverlay,
-  Text,
-  VStack,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "./PlayerSelect";
 
@@ -80,12 +71,12 @@ export const PlayerIcon = forwardRef(
 
     return (
       <div className={className} ref={ref}>
-        <VStack>
-          <Button onClick={onOpen} style={style(player.team)} type="button" {...props}>
+        <div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: "4px" }}>
+          <button onClick={onOpen} style={style(player.team)} type="button" {...props}>
             {player.number}
-          </Button>
-          <Text style={playerNameStyle}>{player.name}</Text>
-        </VStack>
+          </button>
+          <label style={playerNameStyle}>{player.name}</label>
+        </div>
 
         <Modal isOpen={isOpen} onClose={onClose} size="md">
           <ModalOverlay />
