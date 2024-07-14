@@ -8,6 +8,11 @@ type FormationSelectOption = {
   label: string;
 } & Formation;
 
+type GroupedFormationSelectOption = {
+  category: string;
+  options: FormationSelectOption[];
+};
+
 type Player = {
   name: string;
   number: number;
