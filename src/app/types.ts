@@ -8,6 +8,11 @@ type FormationSelectOption = {
   label: string;
 } & Formation;
 
+type GroupedFormationSelectOption = {
+  category: string;
+  options: FormationSelectOption[];
+};
+
 type Player = {
   name: string;
   number: number;
@@ -18,6 +23,11 @@ type PlayerSelectOption = {
   value: string;
   label: string;
 } & Player;
+
+type GroupedPlayerSelectOption = {
+  category: string;
+  options: PlayerSelectOption[];
+};
 
 type Team = {
   code: string;

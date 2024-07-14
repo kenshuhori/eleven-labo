@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PlayerSelect } from "../components/PlayerSelect";
+import { FormationSelect } from "../components/FormationSelect";
 
 const meta = {
-  title: "ElevenLabo/PlayerSelect",
-  component: PlayerSelect,
+  title: "ElevenLabo/FormationSelect",
+  component: FormationSelect,
   tags: ["autodocs"],
   parameters: {
     layout: "padded",
@@ -23,7 +23,7 @@ const meta = {
       width: "20rem",
     },
   },
-} satisfies Meta<typeof PlayerSelect>;
+} satisfies Meta<typeof FormationSelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

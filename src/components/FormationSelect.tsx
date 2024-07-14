@@ -1,4 +1,5 @@
 import { formations } from "@/fixtures/formations";
+import { groupedFormations } from "@/utils/groupFormation";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
@@ -8,11 +9,15 @@ interface FormationSelectProps {
 }
 
 export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
-  const options: FormationSelectOption[] = formations.map((formation, index) => ({
-    value: formation.code,
-    label: formation.name,
-    ...formation,
-  }));
+  const groupedOptions: GroupedFormationSelectOption[] = groupedFormations(formations);
+
+  const formatGroupLabel = (group: GroupedFormationSelectOption) => {
+    return (
+      <div>
+        <span>{group.category}</span>
+      </div>
+    );
+  };
 
   const formatOptionLabel = (
     data: FormationSelectOption,
@@ -21,48 +26,39 @@ export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
     return context === "menu" ? (
       <div
         style={{
-          padding: "8px",
+          padding: "2px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "flex-start",
-          gap: "8px",
+          gap: "2px",
         }}
       >
         <div>
           <span
             style={{
-              color: "#000000",
               fontSize: "16px",
-              fontStyle: "normal",
               fontWeight: 700,
-              lineHeight: "150%",
-              letterSpacing: "0.8px",
+              letterSpacing: "1px",
             }}
           >
-            {`${data.name} #${data.code}`}
+            {data.name}
           </span>
         </div>
       </div>
     ) : (
-      <span>{`${data.name} #${data.code}`}</span>
+      <span>{data.name}</span>
     );
   };
 
   return (
     <div style={{ ...style }}>
-      <Select<
-        FormationSelectOption,
-        false,
-        {
-          line: string;
-          options: FormationSelectOption[];
-        }
-      >
+      <Select<FormationSelectOption, false, GroupedFormationSelectOption>
+        formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
         onChange={onChange}
-        options={options}
-        placeholder="選手を選択"
+        options={groupedOptions}
+        placeholder="フォーメーションを選択"
       />
     </div>
   );
