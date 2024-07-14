@@ -24,6 +24,11 @@ type PlayerSelectOption = {
   label: string;
 } & Player;
 
+type GroupedPlayerSelectOption = {
+  category: string;
+  options: PlayerSelectOption[];
+};
+
 type Team = {
   code: string;
   name: string;

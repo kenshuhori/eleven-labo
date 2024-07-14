@@ -1,8 +1,7 @@
 export const groupedFormations = (formations: Formation[]): GroupedFormationSelectOption[] => {
-  formations.sort();
-  const threeBacks = formations.filter((formation) => formation.code.startsWith("3"));
-  const fourBacks = formations.filter((formation) => formation.code.startsWith("4"));
-  const fiveBacks = formations.filter((formation) => formation.code.startsWith("5"));
+  const threeBacks = formations.filter((formation) => formation.code.startsWith("3")).sort();
+  const fourBacks = formations.filter((formation) => formation.code.startsWith("4")).sort();
+  const fiveBacks = formations.filter((formation) => formation.code.startsWith("5")).sort();
   const others = formations.filter(
     (formation) =>
       !formation.code.startsWith("3") &&
