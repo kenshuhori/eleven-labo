@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
+import { defaultPlayer } from "@/fixtures/players";
 import { FormationSelect } from "./FormationSelect";
 
 interface FormationProps {
@@ -75,17 +76,61 @@ export const Formation = ({ formation, style }: FormationProps) => {
     <>
       <div className={formationClass}>
         <FootballField style={style}>
-          <PlayerIcon className="player-no11 transition" number={11} ref={player11Ref} />
-          <PlayerIcon className="player-no10 transition" number={10} ref={player10Ref} />
-          <PlayerIcon className="player-no09 transition" number={9} ref={player09Ref} />
-          <PlayerIcon className="player-no08 transition" number={8} ref={player08Ref} />
-          <PlayerIcon className="player-no07 transition" number={7} ref={player07Ref} />
-          <PlayerIcon className="player-no06 transition" number={6} ref={player06Ref} />
-          <PlayerIcon className="player-no05 transition" number={5} ref={player05Ref} />
-          <PlayerIcon className="player-no04 transition" number={4} ref={player04Ref} />
-          <PlayerIcon className="player-no03 transition" number={3} ref={player03Ref} />
-          <PlayerIcon className="player-no02 transition" number={2} ref={player02Ref} />
-          <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
+          <PlayerIcon
+            className="player-no11 transition"
+            player={defaultPlayer({ number: 11 })}
+            ref={player11Ref}
+          />
+          <PlayerIcon
+            className="player-no10 transition"
+            player={defaultPlayer({ number: 10 })}
+            ref={player10Ref}
+          />
+          <PlayerIcon
+            className="player-no09 transition"
+            player={defaultPlayer({ number: 9 })}
+            ref={player09Ref}
+          />
+          <PlayerIcon
+            className="player-no08 transition"
+            player={defaultPlayer({ number: 8 })}
+            ref={player08Ref}
+          />
+          <PlayerIcon
+            className="player-no07 transition"
+            player={defaultPlayer({ number: 7 })}
+            ref={player07Ref}
+          />
+          <PlayerIcon
+            className="player-no06 transition"
+            player={defaultPlayer({ number: 6 })}
+            ref={player06Ref}
+          />
+          <PlayerIcon
+            className="player-no05 transition"
+            player={defaultPlayer({ number: 5 })}
+            ref={player05Ref}
+          />
+          <PlayerIcon
+            className="player-no04 transition"
+            player={defaultPlayer({ number: 4 })}
+            ref={player04Ref}
+          />
+          <PlayerIcon
+            className="player-no03 transition"
+            player={defaultPlayer({ number: 3 })}
+            ref={player03Ref}
+          />
+          <PlayerIcon
+            className="player-no02 transition"
+            player={defaultPlayer({ number: 2 })}
+            ref={player02Ref}
+          />
+          <PlayerIcon
+            className="player-no01"
+            player={defaultPlayer({ number: 1 })}
+            ref={player01Ref}
+          />
         </FootballField>
       </div>
       <FormationSelect onChange={onChange} />

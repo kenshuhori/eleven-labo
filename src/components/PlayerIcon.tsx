@@ -3,6 +3,7 @@ import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useStat
 import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
+  player: Player;
   backgroundColor?: string;
   borderColor?: string;
   className?: string;
@@ -12,31 +13,7 @@ interface PlayerIconProps {
 }
 
 export const PlayerIcon = forwardRef(
-  (
-    {
-      backgroundColor,
-      borderColor,
-      color,
-      className,
-      number,
-      textShadowColor,
-      ...props
-    }: PlayerIconProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
-    const defaultPlayer: Player = {
-      name: "???",
-      number: number ?? 99,
-      team: {
-        code: "default",
-        name: "Default",
-        backgroundColor: backgroundColor ?? "#FFFFFF",
-        borderColor: borderColor ?? "#000000",
-        color: color ?? "#000000",
-        textShadowColor: textShadowColor ?? null,
-      },
-    };
-
+  ({ player: initialPlayer, className }: PlayerIconProps, ref: ForwardedRef<HTMLDivElement>) => {
     const style = (team: Team): CSSProperties => {
       return {
         backgroundColor: team.backgroundColor,
@@ -53,7 +30,7 @@ export const PlayerIcon = forwardRef(
     };
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const [player, setPlayer] = useState<Player>(defaultPlayer);
+    const [player, setPlayer] = useState<Player>(initialPlayer);
     const onChange = useCallback(
       (selected: PlayerSelectOption | null) => {
         setPlayer({
@@ -76,7 +53,7 @@ export const PlayerIcon = forwardRef(
     return (
       <div className={className} ref={ref}>
         <div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: "4px" }}>
-          <button onClick={onOpen} style={style(player.team)} type="button" {...props}>
+          <button onClick={onOpen} style={style(player.team)} type="button">
             {player.number}
           </button>
           <label style={playerNameStyle}>{player.name}</label>
