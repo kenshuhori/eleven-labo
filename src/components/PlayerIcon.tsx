@@ -1,12 +1,5 @@
 import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
-import {
-  type CSSProperties,
-  type ForwardedRef,
-  forwardRef,
-  useCallback,
-  useRef,
-  useState,
-} from "react";
+import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
