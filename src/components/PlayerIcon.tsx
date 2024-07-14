@@ -15,9 +15,7 @@ export const PlayerIcon = forwardRef(
     const [player, setPlayer] = useState<Player>(initialPlayer);
     const onChange = useCallback(
       (selected: PlayerSelectOption | null) => {
-        if (selected === null) {
-          setPlayer(defaultPlayer({}));
-        } else {
+        if (selected !== null) {
           setPlayer(selected);
         }
         onClose();
