@@ -6,7 +6,13 @@ const meta = {
   component: PlayerSelect,
   tags: ["autodocs"],
   parameters: {
-    layout: "centered",
+    layout: "padded",
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 400,
+      },
+    },
   },
   argTypes: {
     onChange: { control: "text" },

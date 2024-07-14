@@ -1,4 +1,6 @@
 import { players } from "@/fixtures/players";
+import { teams } from "@/fixtures/teams";
+import { groupedPlayers } from "@/utils/groupPlayer";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
@@ -8,11 +10,15 @@ interface PlayerSelectProps {
 }
 
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
-  const options: PlayerSelectOption[] = players.map((player, index) => ({
-    value: `player_${index}`,
-    label: player.name,
-    ...player,
-  }));
+  const groupedOptions: GroupedPlayerSelectOption[] = groupedPlayers(players, teams);
+
+  const formatGroupLabel = (group: GroupedPlayerSelectOption) => {
+    return (
+      <div>
+        <span>{group.category}</span>
+      </div>
+    );
+  };
 
   const formatOptionLabel = (
     data: PlayerSelectOption,
@@ -21,23 +27,20 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
     return context === "menu" ? (
       <div
         style={{
-          padding: "8px",
+          padding: "2px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "flex-start",
-          gap: "8px",
+          gap: "2px",
         }}
       >
         <div>
           <span
             style={{
-              color: "#000000",
               fontSize: "16px",
-              fontStyle: "normal",
               fontWeight: 700,
-              lineHeight: "150%",
-              letterSpacing: "0.8px",
+              letterSpacing: "1px",
             }}
           >
             {`${data.name} #${data.number}`}
@@ -51,17 +54,11 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 
   return (
     <div style={{ ...style }}>
-      <Select<
-        PlayerSelectOption,
-        false,
-        {
-          line: string;
-          options: PlayerSelectOption[];
-        }
-      >
+      <Select<PlayerSelectOption, false, GroupedPlayerSelectOption>
+        formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
         onChange={onChange}
-        options={options}
+        options={groupedOptions}
         placeholder="選手を選択"
       />
     </div>
