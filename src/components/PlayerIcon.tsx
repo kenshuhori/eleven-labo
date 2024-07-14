@@ -9,20 +9,6 @@ interface PlayerIconProps {
 
 export const PlayerIcon = forwardRef(
   ({ player: initialPlayer, className }: PlayerIconProps, ref: ForwardedRef<HTMLDivElement>) => {
-    const style = (team: Team): CSSProperties => {
-      return {
-        backgroundColor: team.backgroundColor,
-        border: `3px solid ${team.borderColor}`,
-        borderRadius: "50%",
-        color: team.color,
-        fontSize: "1.4rem",
-        fontWeight: "1000",
-        height: "3.5rem",
-        textShadow: team.textShadowColor ? `1px 1px ${team.textShadowColor}` : "unset",
-        filter: "drop-shadow(2px 4px 2px #000000)",
-        width: "3.5rem",
-      };
-    };
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const [player, setPlayer] = useState<Player>(initialPlayer);
@@ -48,7 +34,7 @@ export const PlayerIcon = forwardRef(
     return (
       <div className={className} ref={ref}>
         <div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: "4px" }}>
-          <button onClick={onOpen} style={style(player.team)} type="button">
+          <button onClick={onOpen} style={playerIconStyle(player.team)} type="button">
             {player.number}
           </button>
           <label style={playerNameStyle}>{player.name}</label>
@@ -66,6 +52,21 @@ export const PlayerIcon = forwardRef(
     );
   },
 );
+
+const playerIconStyle = (team: Team): CSSProperties => {
+  return {
+    backgroundColor: team.backgroundColor,
+    border: `3px solid ${team.borderColor}`,
+    borderRadius: "50%",
+    color: team.color,
+    fontSize: "1.4rem",
+    fontWeight: "1000",
+    height: "3.5rem",
+    textShadow: team.textShadowColor ? `1px 1px ${team.textShadowColor}` : "unset",
+    filter: "drop-shadow(2px 4px 2px #000000)",
+    width: "3.5rem",
+  };
+};
 
 const playerNameStyle: CSSProperties = {
   color: "#FFFFFF",
