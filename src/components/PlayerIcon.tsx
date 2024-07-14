@@ -1,5 +1,12 @@
 import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
-import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
+import {
+  type CSSProperties,
+  type ForwardedRef,
+  forwardRef,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
@@ -54,20 +61,24 @@ export const PlayerIcon = forwardRef(
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const [player, setPlayer] = useState<Player>(defaultPlayer);
-    const onChange = useCallback((selected: PlayerSelectOption | null) => {
-      setPlayer({
-        name: selected?.name ?? "???",
-        number: selected?.number ?? 0,
-        team: {
-          code: selected?.team.code ?? "???",
-          name: selected?.team.name ?? "???",
-          backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
-          borderColor: selected?.team.borderColor ?? "#000000",
-          color: selected?.team.color ?? "#000000",
-          textShadowColor: selected?.team.textShadowColor ?? null,
-        },
-      });
-    }, []);
+    const onChange = useCallback(
+      (selected: PlayerSelectOption | null) => {
+        setPlayer({
+          name: selected?.name ?? "???",
+          number: selected?.number ?? 0,
+          team: {
+            code: selected?.team.code ?? "???",
+            name: selected?.team.name ?? "???",
+            backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
+            borderColor: selected?.team.borderColor ?? "#000000",
+            color: selected?.team.color ?? "#000000",
+            textShadowColor: selected?.team.textShadowColor ?? null,
+          },
+        });
+        onClose();
+      },
+      [onClose],
+    );
 
     return (
       <div className={className} ref={ref}>

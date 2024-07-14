@@ -23,40 +23,40 @@ export const Formation = ({ formation, style }: FormationProps) => {
   const player10Ref = useRef<HTMLDivElement>(null);
   const player11Ref = useRef<HTMLDivElement>(null);
 
-  [
-    player01Ref,
-    player02Ref,
-    player03Ref,
-    player04Ref,
-    player05Ref,
-    player06Ref,
-    player07Ref,
-    player08Ref,
-    player09Ref,
-    player10Ref,
-    player11Ref,
-  ].forEach((playerRef, index) => {
-    useEffect(() => {
-      if (!playerRef.current) return;
+  // [
+  //   player01Ref,
+  //   player02Ref,
+  //   player03Ref,
+  //   player04Ref,
+  //   player05Ref,
+  //   player06Ref,
+  //   player07Ref,
+  //   player08Ref,
+  //   player09Ref,
+  //   player10Ref,
+  //   player11Ref,
+  // ].forEach((playerRef, index) => {
+  //   useEffect(() => {
+  //     if (!playerRef.current) return;
 
-      // ドラッグ&ドロップで移動する処理は一旦塞ぐ
-      // const playerIcon = playerRef.current;
-      // playerIcon.onpointermove = (event) => {
-      //   if (event.buttons) {
-      //     const horizon = playerIcon.offsetLeft + event.movementX;
-      //     const vertical = playerIcon.offsetTop + event.movementY;
-      //     if (horizon < 0 || horizon > window.innerWidth - 100) return;
-      //     if (vertical < 0 || vertical > window.innerHeight - 100) return;
+  //     // ドラッグ&ドロップで移動する処理は一旦塞ぐ
+  //     const playerIcon = playerRef.current;
+  //     playerIcon.onpointermove = (event) => {
+  //       if (event.buttons) {
+  //         const horizon = playerIcon.offsetLeft + event.movementX;
+  //         const vertical = playerIcon.offsetTop + event.movementY;
+  //         if (horizon < 0 || horizon > window.innerWidth - 100) return;
+  //         if (vertical < 0 || vertical > window.innerHeight - 100) return;
 
-      //     playerIcon.style.left = `${pxToRem(playerIcon.offsetLeft + event.movementX)}rem`;
-      //     playerIcon.style.top = `${pxToRem(playerIcon.offsetTop + event.movementY)}rem`;
-      //     playerIcon.style.position = "absolute";
-      //     playerIcon.draggable = false;
-      //     playerIcon.setPointerCapture(event.pointerId);
-      //   }
-      // };
-    }, [playerRef]);
-  });
+  //         playerIcon.style.left = `${pxToRem(playerIcon.offsetLeft + event.movementX)}rem`;
+  //         playerIcon.style.top = `${pxToRem(playerIcon.offsetTop + event.movementY)}rem`;
+  //         playerIcon.style.position = "absolute";
+  //         playerIcon.draggable = false;
+  //         playerIcon.setPointerCapture(event.pointerId);
+  //       }
+  //     };
+  //   }, [playerRef]);
+  // });
 
   // const pxToRem = (px: number) => {
   //   const coefficient = window.innerWidth / 360;
