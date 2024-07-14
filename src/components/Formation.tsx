@@ -5,6 +5,7 @@ import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { formations } from "@/fixtures/formations";
 import Select from "react-select";
+import { FormationSelect } from "./FormationSelect";
 
 interface FormationProps {
   formation?:
@@ -114,7 +115,7 @@ export const Formation = ({ formation, style }: FormationProps) => {
           <PlayerIcon className="player-no01" number={1} ref={player01Ref} />
         </FootballField>
       </div>
-      <Select onChange={onChange} options={options} placeholder="フォーメーションを選択" />
+      <FormationSelect onChange={onChange} />
     </>
   );
 };
