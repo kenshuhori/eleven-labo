@@ -1,5 +1,5 @@
 import { formations } from "@/fixtures/formations";
-import { groupedFormation } from "@/utils/groupFormation";
+import { groupedFormations } from "@/utils/groupFormation";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
@@ -9,7 +9,7 @@ interface FormationSelectProps {
 }
 
 export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
-  const groupedOptions: GroupedFormationSelectOption[] = groupedFormation(formations);
+  const groupedOptions: GroupedFormationSelectOption[] = groupedFormations(formations);
 
   const formatGroupLabel = (group: GroupedFormationSelectOption) => {
     return (

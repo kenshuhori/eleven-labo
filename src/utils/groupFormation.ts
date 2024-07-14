@@ -1,4 +1,4 @@
-export const groupedFormation = (formations: Formation[]): GroupedFormationSelectOption[] => {
+export const groupedFormations = (formations: Formation[]): GroupedFormationSelectOption[] => {
   formations.sort();
   const threeBacks = formations.filter((formation) => formation.code.startsWith("3"));
   const fourBacks = formations.filter((formation) => formation.code.startsWith("4"));

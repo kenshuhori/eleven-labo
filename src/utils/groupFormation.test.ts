@@ -1,9 +1,9 @@
 import { formations } from "@/fixtures/formations";
 import { expect, test } from "vitest";
-import { groupedFormation } from "./groupFormation";
+import { groupedFormations } from "./groupFormation";
 
 test("グループ化されたフォーメーション配列が返ること", () => {
-  const result = groupedFormation(formations);
+  const result = groupedFormations(formations);
   expect(result).toStrictEqual([
     {
       category: "3バック",
