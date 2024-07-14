@@ -4,12 +4,7 @@ import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
   player: Player;
-  backgroundColor?: string;
-  borderColor?: string;
   className?: string;
-  color?: string;
-  number?: number;
-  textShadowColor?: string;
 }
 
 export const PlayerIcon = forwardRef(

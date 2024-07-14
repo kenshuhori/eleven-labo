@@ -10,16 +10,22 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    backgroundColor: { control: "color" },
-    borderColor: { control: "color" },
-    color: { control: "color" },
-    textShadowColor: { control: "color" },
+    player: { control: "object" },
+    className: { control: "text" },
   },
   args: {
-    backgroundColor: "#FFFFFF",
-    borderColor: "#000000",
-    color: "#000000",
-    number: 99,
+    player: {
+      name: "Player",
+      number: 99,
+      team: {
+        code: "???",
+        name: "Team",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#000000",
+        color: "#000000",
+        textShadowColor: null,
+      },
+    },
   },
 } satisfies Meta<typeof PlayerIcon>;
 
