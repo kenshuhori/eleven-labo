@@ -1,5 +1,4 @@
 import { transformAgo } from "@/utils/ago";
-import { Flex } from "@chakra-ui/react";
 import { HeartIcon } from "@public/heartIcon";
 import { PostIcon } from "@public/postIcon";
 import Link from "next/link";
@@ -23,16 +22,16 @@ export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProp
         <div style={titleStyle}>{title}</div>
         <div style={createdAtStyle}>{createdAgo}</div>
         <div style={navigateStyle}>{"続きを読む >"}</div>
-        <Flex style={footerStyle}>
-          <Flex style={{ gap: "4px" }}>
+        <div style={footerStyle}>
+          <div style={{ display: "flex", gap: "4px" }}>
             <HeartIcon style={iconStyle} />
             <div className="likeCount">{likeCount} likes</div>
-          </Flex>
-          <Flex style={{ gap: "4px" }}>
+          </div>
+          <div style={{ display: "flex", gap: "4px" }}>
             <PostIcon style={iconStyle} />
             <div className="postCount">{postCount} posts</div>
-          </Flex>
-        </Flex>
+          </div>
+        </div>
       </div>
     </Link>
   );
@@ -64,6 +63,7 @@ const navigateStyle: CSSProperties = {
 const footerStyle: CSSProperties = {
   alignItems: "flex-end",
   bottom: "8px",
+  display: "flex",
   fontSize: "0.8rem",
   gap: "14px",
   lineHeight: "normal",
