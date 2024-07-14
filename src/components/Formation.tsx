@@ -3,8 +3,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
-import { formations } from "@/fixtures/formations";
-import Select from "react-select";
 import { FormationSelect } from "./FormationSelect";
 
 interface FormationProps {
@@ -74,27 +72,16 @@ export const Formation = ({ formation, style }: FormationProps) => {
     }, [playerRef]);
   });
 
-  const pxToRem = (px: number) => {
-    const coefficient = window.innerWidth / 360;
-    return px / 10 / coefficient;
-  };
+  // const pxToRem = (px: number) => {
+  //   const coefficient = window.innerWidth / 360;
+  //   return px / 10 / coefficient;
+  // };
 
-  type Option = {
-    value: string;
-    label: string;
-  } & Formation;
-
-  const onChange = useCallback((selected: Option | null) => {
+  const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;
 
     setFormationClass(`formation-${selected?.code}`);
   }, []);
-
-  const options: Option[] = formations.map((formation) => ({
-    value: formation.code,
-    label: formation.name,
-    ...formation,
-  }));
 
   const [formationClass, setFormationClass] = useState<string>(`formation-${formation}`);
 
