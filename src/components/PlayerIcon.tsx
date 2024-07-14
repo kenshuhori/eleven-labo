@@ -1,13 +1,4 @@
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalOverlay,
-  Text,
-  VStack,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "./PlayerSelect";
 
@@ -63,29 +54,33 @@ export const PlayerIcon = forwardRef(
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const [player, setPlayer] = useState<Player>(defaultPlayer);
-    const onChange = useCallback((selected: PlayerSelectOption | null) => {
-      setPlayer({
-        name: selected?.name ?? "???",
-        number: selected?.number ?? 0,
-        team: {
-          code: selected?.team.code ?? "???",
-          name: selected?.team.name ?? "???",
-          backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
-          borderColor: selected?.team.borderColor ?? "#000000",
-          color: selected?.team.color ?? "#000000",
-          textShadowColor: selected?.team.textShadowColor ?? null,
-        },
-      });
-    }, []);
+    const onChange = useCallback(
+      (selected: PlayerSelectOption | null) => {
+        setPlayer({
+          name: selected?.name ?? "???",
+          number: selected?.number ?? 0,
+          team: {
+            code: selected?.team.code ?? "???",
+            name: selected?.team.name ?? "???",
+            backgroundColor: selected?.team.backgroundColor ?? "#FFFFFF",
+            borderColor: selected?.team.borderColor ?? "#000000",
+            color: selected?.team.color ?? "#000000",
+            textShadowColor: selected?.team.textShadowColor ?? null,
+          },
+        });
+        onClose();
+      },
+      [onClose],
+    );
 
     return (
       <div className={className} ref={ref}>
-        <VStack>
-          <Button onClick={onOpen} style={style(player.team)} type="button" {...props}>
+        <div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: "4px" }}>
+          <button onClick={onOpen} style={style(player.team)} type="button" {...props}>
             {player.number}
-          </Button>
-          <Text style={playerNameStyle}>{player.name}</Text>
-        </VStack>
+          </button>
+          <label style={playerNameStyle}>{player.name}</label>
+        </div>
 
         <Modal isOpen={isOpen} onClose={onClose} size="md">
           <ModalOverlay />

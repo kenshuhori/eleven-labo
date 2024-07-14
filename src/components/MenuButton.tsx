@@ -1,4 +1,3 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   MenuButton as ChakraMenuButton,
   Icon,
@@ -11,6 +10,7 @@ import Link from "next/link";
 import { FaBook } from "react-icons/fa6";
 import { GiSoccerBall } from "react-icons/gi";
 import { RiTeamFill } from "react-icons/ri";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 interface MenuProps {
   iconBoxSize?: number;
@@ -22,7 +22,7 @@ export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
       <ChakraMenuButton
         as={IconButton}
         aria-label="Options"
-        icon={<HamburgerIcon boxSize={8} />}
+        icon={<RxHamburgerMenu size="2rem" />}
         border={0}
         variant="outline"
       />

@@ -57,6 +57,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
       <Select<PlayerSelectOption, false, GroupedPlayerSelectOption>
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
+        menuIsOpen={true}
         onChange={onChange}
         options={groupedOptions}
         placeholder="選手を選択"
