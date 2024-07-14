@@ -6,21 +6,7 @@ import "@/styles/formations.css";
 import { FormationSelect } from "./FormationSelect";
 
 interface FormationProps {
-  formation?:
-    | "3-4-1-2"
-    | "3-4-2-1"
-    | "3-4-3-D"
-    | "3-4-3"
-    | "4-1-2-3"
-    | "4-1-4-1"
-    | "4-2-1-3"
-    | "4-2-3-1"
-    | "4-3-3"
-    | "4-4-1-1"
-    | "4-4-2-D"
-    | "4-4-2"
-    | "4-6-0"
-    | "5-4-1";
+  formation?: Formation["code"];
   style?: React.CSSProperties;
 }
 
