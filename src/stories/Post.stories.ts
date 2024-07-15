@@ -24,7 +24,7 @@ const meta = {
     commentCount: 8,
     description:
       "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
-    postUrl: "/post/1",
+    postUrl: "/posts/1",
     likeCount: 12,
   },
 } satisfies Meta<typeof Post>;
