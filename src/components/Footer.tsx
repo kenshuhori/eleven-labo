@@ -1,12 +1,13 @@
 import { serviceTitle } from "@/constants";
+import Link from "next/link";
 import React, { type CSSProperties } from "react";
 
 export const Footer = () => (
   <footer style={baseStyle}>
     <div style={logoStyle}>{serviceTitle}</div>
-    <div>
-      <div>about us</div>
-      <div>お問い合わせ</div>
+    <div style={linksStyle}>
+      <Link href="/aboutUs">about us</Link>
+      <Link href="/contact">お問い合わせ</Link>
     </div>
   </footer>
 );
@@ -19,6 +20,11 @@ const baseStyle: CSSProperties = {
   padding: "20px",
   marginTop: "20px",
   width: "auto",
+};
+
+const linksStyle: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
 };
 
 const logoStyle: CSSProperties = {
