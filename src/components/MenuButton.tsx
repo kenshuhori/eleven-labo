@@ -1,6 +1,5 @@
 import {
   MenuButton as ChakraMenuButton,
-  Icon,
   IconButton,
   Menu,
   MenuItem,
@@ -13,10 +12,10 @@ import { RiTeamFill } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 interface MenuProps {
-  iconBoxSize?: number;
+  iconBoxSize?: string;
 }
 
-export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
+export const MenuButton = ({ iconBoxSize = "1.2rem" }: MenuProps) => {
   return (
     <Menu>
       <ChakraMenuButton
@@ -28,15 +27,13 @@ export const MenuButton = ({ iconBoxSize = 5 }: MenuProps) => {
       />
       <MenuList>
         <Link href="/themes" passHref>
-          <MenuItem icon={<Icon as={FaBook} boxSize={iconBoxSize} />}>テーマ ~Themes~</MenuItem>
+          <MenuItem icon={<FaBook size={iconBoxSize} />}>テーマ ~Themes~</MenuItem>
         </Link>
         <Link href="/teams" passHref>
-          <MenuItem icon={<Icon as={GiSoccerBall} boxSize={iconBoxSize} />}>
-            チーム ~Teams~
-          </MenuItem>
+          <MenuItem icon={<GiSoccerBall size={iconBoxSize} />}>チーム ~Teams~</MenuItem>
         </Link>
         <Link href="/aboutUs" passHref>
-          <MenuItem icon={<Icon as={RiTeamFill} boxSize={iconBoxSize} />}>About Us</MenuItem>
+          <MenuItem icon={<RiTeamFill size={iconBoxSize} />}>About Us</MenuItem>
         </Link>
       </MenuList>
     </Menu>

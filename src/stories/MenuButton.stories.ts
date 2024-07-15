@@ -14,7 +14,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  args: { iconBoxSize: 5 },
+  args: { iconBoxSize: "1.2rem" },
 } satisfies Meta<typeof MenuButton>;
 
 export default meta;
@@ -22,6 +22,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    iconBoxSize: 5,
+    iconBoxSize: "1.2rem",
   },
 };

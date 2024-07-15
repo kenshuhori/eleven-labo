@@ -1,8 +1,9 @@
+import { serviceTitle } from "@/constants";
 import React, { type CSSProperties } from "react";
 
 export const Footer = () => (
   <footer style={baseStyle}>
-    <div style={logoStyle}>ベストイレブン研究所</div>
+    <div style={logoStyle}>{serviceTitle}</div>
     <div>
       <div>about us</div>
       <div>お問い合わせ</div>
