@@ -13,7 +13,7 @@ export const FootballField = ({ children, style }: FootballFieldProps) => (
       backgroundImage: `url(${fieldJpg.src})`,
       backgroundSize: "cover",
       display: "flex",
-      height: "36rem",
+      height: "30rem",
       justifyContent: "center",
       position: "relative",
       width: "100%",
