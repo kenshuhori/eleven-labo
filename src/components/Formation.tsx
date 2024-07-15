@@ -4,15 +4,15 @@ import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
-import { defaultFormation } from "@/fixtures/formations";
 import { defaultPlayer } from "@/fixtures/players";
 
 interface FormationProps {
-  formation?: Formation["code"];
+  formation: Formation;
+  readonly?: boolean;
   style?: React.CSSProperties;
 }
 
-export const Formation = ({ formation, style }: FormationProps) => {
+export const Formation = ({ formation, readonly = false, style }: FormationProps) => {
   const player01Ref = useRef<HTMLDivElement>(null);
   const player02Ref = useRef<HTMLDivElement>(null);
   const player03Ref = useRef<HTMLDivElement>(null);
@@ -71,7 +71,7 @@ export const Formation = ({ formation, style }: FormationProps) => {
     setFormationClass(`formation-${selected?.code}`);
   }, []);
 
-  const [formationClass, setFormationClass] = useState<string>(`formation-${formation}`);
+  const [formationClass, setFormationClass] = useState<string>(`formation-${formation.code}`);
 
   return (
     <>
@@ -80,59 +80,70 @@ export const Formation = ({ formation, style }: FormationProps) => {
           <PlayerIcon
             className="player-no11 transition"
             player={defaultPlayer({ number: 11 })}
+            readonly={readonly}
             ref={player11Ref}
           />
           <PlayerIcon
             className="player-no10 transition"
             player={defaultPlayer({ number: 10 })}
+            readonly={readonly}
             ref={player10Ref}
           />
           <PlayerIcon
             className="player-no09 transition"
             player={defaultPlayer({ number: 9 })}
+            readonly={readonly}
             ref={player09Ref}
           />
           <PlayerIcon
             className="player-no08 transition"
             player={defaultPlayer({ number: 8 })}
+            readonly={readonly}
             ref={player08Ref}
           />
           <PlayerIcon
             className="player-no07 transition"
             player={defaultPlayer({ number: 7 })}
+            readonly={readonly}
             ref={player07Ref}
           />
           <PlayerIcon
             className="player-no06 transition"
             player={defaultPlayer({ number: 6 })}
+            readonly={readonly}
             ref={player06Ref}
           />
           <PlayerIcon
             className="player-no05 transition"
             player={defaultPlayer({ number: 5 })}
+            readonly={readonly}
             ref={player05Ref}
           />
           <PlayerIcon
             className="player-no04 transition"
             player={defaultPlayer({ number: 4 })}
+            readonly={readonly}
             ref={player04Ref}
           />
           <PlayerIcon
             className="player-no03 transition"
             player={defaultPlayer({ number: 3 })}
+            readonly={readonly}
             ref={player03Ref}
           />
           <PlayerIcon
             className="player-no02 transition"
             player={defaultPlayer({ number: 2 })}
+            readonly={readonly}
             ref={player02Ref}
           />
           <PlayerIcon
             className="player-no01"
             player={defaultPlayer({ number: 1 })}
+            readonly={readonly}
             ref={player01Ref}
           />
-          <FormationIcon formation={defaultFormation} onChange={onChange} />
+          <FormationIcon formation={formation} onChange={onChange} readonly={readonly} />
         </FootballField>
       </div>
     </>

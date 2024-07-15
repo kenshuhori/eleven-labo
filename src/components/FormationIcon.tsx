@@ -63,6 +63,7 @@ const baseStyle: CSSProperties = {
 };
 
 const buttonStyle: CSSProperties = {
+  backgroundColor: "#FFFFFF",
   border: "2px solid #E6b422",
   color: "#000000",
   textShadow: "1px 1px 1px #E6b422",
