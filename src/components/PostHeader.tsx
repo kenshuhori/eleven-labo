@@ -25,6 +25,7 @@ export const PostHeader = ({ author, authorImage, createdAt }: PostHeaderProps) 
 const baseStyle: React.CSSProperties = {
   display: "flex",
   gap: "8px",
+  paddingTop: "8px",
   paddingInline: "8px",
   width: "100%",
 };
