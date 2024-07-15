@@ -14,9 +14,9 @@ const meta = {
   },
   args: {
     style: {
-      height: "15rem",
+      height: "17rem",
       position: "relative",
-      width: "15rem",
+      width: "20rem",
     },
   },
 } satisfies Meta<typeof FootballField>;

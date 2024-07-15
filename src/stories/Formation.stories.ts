@@ -15,9 +15,9 @@ const meta = {
   args: {
     formation: "4-3-3",
     style: {
-      height: "35rem",
+      height: "30rem",
       position: "relative",
-      width: "35rem",
+      width: "34rem",
     },
   },
 } satisfies Meta<typeof Formation>;
