@@ -1,3 +1,31 @@
+export const defaultPlayer = ({
+  backgroundColor,
+  borderColor,
+  color,
+  name,
+  number,
+  textShadowColor,
+}: {
+  backgroundColor?: string;
+  borderColor?: string;
+  className?: string;
+  color?: string;
+  name?: string;
+  number?: number;
+  textShadowColor?: string;
+}): Player => ({
+  name: name ?? "???",
+  number: number ?? 99,
+  team: {
+    code: "default",
+    name: "Default",
+    backgroundColor: backgroundColor ?? "#FFFFFF",
+    borderColor: borderColor ?? "#000000",
+    color: color ?? "#000000",
+    textShadowColor: textShadowColor ?? null,
+  },
+});
+
 export const players: Player[] = [
   {
     name: "M.Salah",
