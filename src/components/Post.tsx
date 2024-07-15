@@ -26,7 +26,7 @@ export const Post = ({
   return (
     <div style={baseStyle}>
       <PostHeader author={author} authorImage={authorImage} createdAt={createdAt} />
-      <Formation formation={defaultFormation} style={formationStyle} />
+      <Formation formation={defaultFormation} readonly={true} style={formationStyle} />
       <PostFooter
         commentCount={commentCount}
         description={description}

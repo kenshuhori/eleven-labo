@@ -25,7 +25,8 @@ export const PostFooter = ({ commentCount, description, postUrl, likeCount }: Po
         </div>
       </div>
       <div>
-        <p>{omit(description, 50)}</p>
+        {/* 気持ち1スペース分空ける */}
+        <label style={{ marginRight: "4px" }}>{omit(description, 55)}</label>
         <Link href={postUrl} style={navigateStyle}>
           {"続きを読む"}
         </Link>
