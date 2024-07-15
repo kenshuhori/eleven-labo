@@ -29,8 +29,10 @@ export const MenuButton = ({ iconBoxSize = "1.2rem" }: MenuProps) => {
         <Link href="/themes" passHref>
           <MenuItem icon={<FaBook size={iconBoxSize} />}>テーマ ~Themes~</MenuItem>
         </Link>
-        <Link href="/teams" passHref>
-          <MenuItem icon={<GiSoccerBall size={iconBoxSize} />}>チーム ~Teams~</MenuItem>
+        <Link href="/formations" passHref>
+          <MenuItem icon={<GiSoccerBall size={iconBoxSize} />}>
+            フォーメーション ~Formation~
+          </MenuItem>
         </Link>
         <Link href="/aboutUs" passHref>
           <MenuItem icon={<RiTeamFill size={iconBoxSize} />}>About Us</MenuItem>
