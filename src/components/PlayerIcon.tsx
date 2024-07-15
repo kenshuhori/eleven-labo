@@ -48,7 +48,7 @@ const contentStyle: CSSProperties = {
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
-  gap: "4px",
+  gap: "2px",
 };
 
 const playerIconStyle = (team: Team): CSSProperties => {
