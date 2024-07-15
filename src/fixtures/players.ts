@@ -28,8 +28,44 @@ export const defaultPlayer = ({
 
 export const players: Player[] = [
   {
+    name: "T.Alexander-Arnold",
+    number: 66,
+    team: {
+      code: "liverpool",
+      name: "Liverpool",
+      backgroundColor: "#C8102E",
+      borderColor: "#00B2A9",
+      color: "#F6EB61",
+      textShadowColor: null,
+    },
+  },
+  {
     name: "M.Salah",
     number: 11,
+    team: {
+      code: "liverpool",
+      name: "Liverpool",
+      backgroundColor: "#C8102E",
+      borderColor: "#00B2A9",
+      color: "#F6EB61",
+      textShadowColor: null,
+    },
+  },
+  {
+    name: "V.van Dijk",
+    number: 4,
+    team: {
+      code: "liverpool",
+      name: "Liverpool",
+      backgroundColor: "#C8102E",
+      borderColor: "#00B2A9",
+      color: "#F6EB61",
+      textShadowColor: null,
+    },
+  },
+  {
+    name: "A.Becker",
+    number: 1,
     team: {
       code: "liverpool",
       name: "Liverpool",

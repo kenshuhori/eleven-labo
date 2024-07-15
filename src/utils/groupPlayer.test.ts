@@ -3,7 +3,7 @@ import { teams } from "@/fixtures/teams";
 import { expect, test } from "vitest";
 import { groupedPlayers } from "./groupPlayer";
 
-test("グループ化されたフォーメーション配列が返ること", () => {
+test("グループ化された選手配列が返ること", () => {
   const result = groupedPlayers(players, teams);
   expect(result).toStrictEqual([
     {
@@ -118,6 +118,20 @@ test("グループ化されたフォーメーション配列が返ること", ()
       category: "Liverpool",
       options: [
         {
+          label: "T.Alexander-Arnold",
+          name: "T.Alexander-Arnold",
+          number: 66,
+          team: {
+            backgroundColor: "#C8102E",
+            borderColor: "#00B2A9",
+            code: "liverpool",
+            color: "#F6EB61",
+            name: "Liverpool",
+            textShadowColor: null,
+          },
+          value: "T.Alexander-Arnold",
+        },
+        {
           label: "M.Salah",
           name: "M.Salah",
           number: 11,
@@ -130,6 +144,34 @@ test("グループ化されたフォーメーション配列が返ること", ()
             textShadowColor: null,
           },
           value: "M.Salah",
+        },
+        {
+          label: "V.van Dijk",
+          name: "V.van Dijk",
+          number: 4,
+          team: {
+            backgroundColor: "#C8102E",
+            borderColor: "#00B2A9",
+            code: "liverpool",
+            color: "#F6EB61",
+            name: "Liverpool",
+            textShadowColor: null,
+          },
+          value: "V.van Dijk",
+        },
+        {
+          label: "A.Becker",
+          name: "A.Becker",
+          number: 1,
+          team: {
+            backgroundColor: "#C8102E",
+            borderColor: "#00B2A9",
+            code: "liverpool",
+            color: "#F6EB61",
+            name: "Liverpool",
+            textShadowColor: null,
+          },
+          value: "A.Becker",
         },
       ],
     },

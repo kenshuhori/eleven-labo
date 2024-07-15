@@ -1,6 +1,7 @@
 import { players } from "@/fixtures/players";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
+import { isNotFoundError } from "next/dist/client/components/not-found";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
@@ -61,6 +62,16 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         onChange={onChange}
         options={groupedOptions}
         placeholder="選手を選択"
+        styles={{
+          control: (base) => ({ ...base }),
+          option: (base, { data, isFocused }) => ({
+            ...base,
+            backgroundColor: data.team.backgroundColor,
+            color: data.team.color,
+            textShadow: `1px 1px ${data.team.textShadowColor}`,
+            border: isFocused ? `3px solid ${data.team.borderColor}` : "none",
+          }),
+        }}
       />
     </div>
   );
