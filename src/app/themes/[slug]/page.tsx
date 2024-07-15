@@ -30,7 +30,7 @@ const baseStyle: CSSProperties = {
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "28px",
   justifyContent: "center",
   paddingTop: "8px",
   paddingBottom: "8px",

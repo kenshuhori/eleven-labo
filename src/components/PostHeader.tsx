@@ -27,5 +27,6 @@ const baseStyle: React.CSSProperties = {
   gap: "8px",
   paddingTop: "8px",
   paddingInline: "8px",
+  marginBottom: "-10px",
   width: "100%",
 };
