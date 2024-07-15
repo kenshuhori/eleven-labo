@@ -1,7 +1,6 @@
 import { players } from "@/fixtures/players";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
-import { isNotFoundError } from "next/dist/client/components/not-found";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 

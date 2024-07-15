@@ -5,10 +5,14 @@ import { PlayerSelect } from "./PlayerSelect";
 interface PlayerIconProps {
   player: Player;
   className?: string;
+  readonly?: boolean;
 }
 
 export const PlayerIcon = forwardRef(
-  ({ player: initialPlayer, className }: PlayerIconProps, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { player: initialPlayer, className, readonly = false }: PlayerIconProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const [player, setPlayer] = useState<Player>(initialPlayer);
@@ -30,15 +34,16 @@ export const PlayerIcon = forwardRef(
           </button>
           <label style={playerNameStyle}>{player.name}</label>
         </div>
-
-        <Modal isOpen={isOpen} onClose={onClose} size="md">
-          <ModalOverlay />
-          <ModalContent style={{ top: "15vh" }}>
-            <ModalBody>
-              <PlayerSelect onChange={onChange} />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+        {readonly === false && (
+          <Modal isOpen={isOpen} onClose={onClose} size="md">
+            <ModalOverlay />
+            <ModalContent style={{ top: "15vh" }}>
+              <ModalBody>
+                <PlayerSelect onChange={onChange} />
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+        )}
       </div>
     );
   },
