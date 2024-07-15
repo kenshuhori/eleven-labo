@@ -1,4 +1,11 @@
-import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { type CSSProperties, useCallback, useState } from "react";
 import { FormationSelect } from "./FormationSelect";
 
@@ -30,9 +37,9 @@ export const FormationIcon = ({
   return (
     <div style={baseStyle}>
       <div>
-        <button onClick={onOpen} type="button">
+        <Button onClick={onOpen} style={buttonStyle} type="button">
           {formation.name}
-        </button>
+        </Button>
       </div>
       {readonly === false && (
         <Modal isOpen={isOpen} onClose={onClose} size="md">
@@ -49,7 +56,15 @@ export const FormationIcon = ({
 };
 
 const baseStyle: CSSProperties = {
-  bottom: "4px",
+  bottom: "0.7rem",
   position: "absolute",
-  right: "4px",
+  right: "0.7rem",
+  filter: "drop-shadow(4px 4px 4px #000000)",
+};
+
+const buttonStyle: CSSProperties = {
+  border: "2px solid #E6b422",
+  color: "#000000",
+  textShadow: "1px 1px 1px #E6b422",
+  width: "12rem",
 };
