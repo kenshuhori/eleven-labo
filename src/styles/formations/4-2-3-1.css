@@ -1,80 +1,79 @@
-/* ToDo: 4-2-3-1 フォーメーションを作成 */
 .formation-4-2-3-1 {
-  .player-no11 {
-    display: inline-block;
-    top: 10%;
-    left: 30%;
-    position: absolute;
-  }
-
-  .player-no10 {
+    .player-no11 {
       display: inline-block;
-      top: 35%;
+      top: 25%;
       left: 10%;
       position: absolute;
-  }
-
-  .player-no09 {
-      display: inline-block;
-      top: 10%;
-      left: 50%;
-      position: absolute;
-  }
-
-  .player-no08 {
-      display: inline-block;
-      top: 35%;
-      left: 50%;
-      position: absolute;
-  }
-
-  .player-no07 {
-      display: inline-block;
-      top: 35%;
-      left: 70%;
-      position: absolute;
-  }
-
-  .player-no06 {
-      display: inline-block;
-      top: 35%;
-      left: 30%;
-      position: absolute;
-  }
-
-  .player-no05 {
-      display: inline-block;
-      top: 60%;
-      left: 10%;
-      position: absolute;
-  }
-
-  .player-no04 {
-      display: inline-block;
-      top: 60%;
-      left: 30%;
-      position: absolute;
-  }
-
-  .player-no03 {
-      display: inline-block;
-      top: 60%;
-      left: 50%;
-      position: absolute;
-  }
-
-  .player-no02 {
-      display: inline-block;
-      top: 60%;
-      left: 70%;
-      position: absolute;
-  }
-
-  .player-no01 {
-      display: inline-block;
-      top: 80%;
-      left: 40%;
-      position: absolute;
-  }
-}
+    }
   
+    .player-no10 {
+        display: inline-block;
+        top: 25%;
+        left: 40%;
+        position: absolute;
+    }
+  
+    .player-no09 {
+        display: inline-block;
+        top: 7%;
+        left: 40%;
+        position: absolute;
+    }
+  
+    .player-no08 {
+        display: inline-block;
+        top: 40%;
+        left: 55%;
+        position: absolute;
+    }
+  
+    .player-no07 {
+        display: inline-block;
+        top: 25%;
+        left: 70%;
+        position: absolute;
+    }
+  
+    .player-no06 {
+        display: inline-block;
+        top: 40%;
+        left: 25%;
+        position: absolute;
+    }
+  
+    .player-no05 {
+        display: inline-block;
+        top: 60%;
+        left: 10%;
+        position: absolute;
+    }
+  
+    .player-no04 {
+        display: inline-block;
+        top: 60%;
+        left: 30%;
+        position: absolute;
+    }
+  
+    .player-no03 {
+        display: inline-block;
+        top: 60%;
+        left: 50%;
+        position: absolute;
+    }
+  
+    .player-no02 {
+        display: inline-block;
+        top: 60%;
+        left: 70%;
+        position: absolute;
+    }
+  
+    .player-no01 {
+        display: inline-block;
+        top: 80%;
+        left: 40%;
+        position: absolute;
+    }
+  }
+    
