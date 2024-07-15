@@ -1,3 +1,8 @@
+export const defaultFormation: Formation = {
+  code: "4-4-2",
+  name: "4-4-2（フラット）",
+};
+
 export const formations: Formation[] = [
   {
     code: "3-4-1-2",

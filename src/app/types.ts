@@ -38,6 +38,12 @@ type PlayerSelectOption = {
   label: string;
 } & Player;
 
+type Post = {
+  id: number;
+  description: string;
+  formation: Formation;
+};
+
 type GroupedPlayerSelectOption = {
   category: string;
   options: PlayerSelectOption[];
