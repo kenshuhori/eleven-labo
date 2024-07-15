@@ -1,10 +1,11 @@
 import type React from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
+import { FormationIcon } from "@/components/FormationIcon";
+import { defaultFormation } from "@/fixtures/formations";
 import { defaultPlayer } from "@/fixtures/players";
-import { FormationSelect } from "./FormationSelect";
 
 interface FormationProps {
   formation?: Formation["code"];
@@ -131,9 +132,9 @@ export const Formation = ({ formation, style }: FormationProps) => {
             player={defaultPlayer({ number: 1 })}
             ref={player01Ref}
           />
+          <FormationIcon formation={defaultFormation} onChange={onChange} />
         </FootballField>
       </div>
-      <FormationSelect onChange={onChange} />
     </>
   );
 };

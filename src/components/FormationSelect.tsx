@@ -26,12 +26,12 @@ export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
     return context === "menu" ? (
       <div
         style={{
-          padding: "2px",
+          alignItems: "flex-start",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "flex-start",
           gap: "2px",
+          justifyContent: "center",
+          padding: "2px",
         }}
       >
         <div>
@@ -56,6 +56,7 @@ export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
       <Select<FormationSelectOption, false, GroupedFormationSelectOption>
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
+        menuIsOpen={true}
         onChange={onChange}
         options={groupedOptions}
         placeholder="フォーメーションを選択"
