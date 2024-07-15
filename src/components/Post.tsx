@@ -38,7 +38,6 @@ export const Post = ({
 };
 
 const baseStyle: React.CSSProperties = {
-  backgroundColor: "#FFFFFF",
   width: "34rem",
 };
 

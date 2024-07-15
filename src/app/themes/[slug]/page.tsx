@@ -28,7 +28,6 @@ export default function Page({ params }: { params: PageProps }) {
 
 const baseStyle: CSSProperties = {
   alignItems: "center",
-  backgroundColor: "#EEEEEE",
   display: "flex",
   flexDirection: "column",
   gap: "10px",

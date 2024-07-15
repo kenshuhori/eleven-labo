@@ -1,4 +1,4 @@
-import fieldJpg from "@public/field.jpg";
+import fieldSvg from "@public/field.svg";
 import type React from "react";
 
 interface FootballFieldProps {
@@ -10,7 +10,7 @@ export const FootballField = ({ children, style }: FootballFieldProps) => (
   <div
     style={{
       alignItems: "center",
-      backgroundImage: `url(${fieldJpg.src})`,
+      backgroundImage: `url(${fieldSvg.src})`,
       backgroundSize: "cover",
       display: "flex",
       height: "30rem",
