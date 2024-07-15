@@ -1,4 +1,5 @@
 import { transformAgo } from "@/utils/ago";
+import { omit } from "@/utils/omitText";
 import { HeartIcon } from "@public/heartIcon";
 import { PostIcon } from "@public/postIcon";
 import Link from "next/link";
@@ -34,8 +35,10 @@ export const PostFooter = ({
         </div>
       </div>
       <div>
-        {description}
-        <Link href={postUrl} />
+        {omit(description, 50)}
+        <Link href={postUrl} style={navigateStyle}>
+          {"続きを読む"}
+        </Link>
       </div>
     </>
   );
@@ -51,4 +54,9 @@ const iconStyle: CSSProperties = {
   fill: "#FFFFFF",
   height: "16px",
   width: "16px",
+};
+
+const navigateStyle: CSSProperties = {
+  borderBottom: "1px dotted",
+  color: "#E06E05",
 };
