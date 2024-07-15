@@ -14,7 +14,7 @@ interface PostFooterProps {
 export const PostFooter = ({ commentCount, description, postUrl, likeCount }: PostFooterProps) => {
   return (
     <div style={baseStyle}>
-      <div style={{ display: "flex", gap: "8px" }}>
+      <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
         <div style={{ display: "flex", gap: "4px" }}>
           <HeartIcon style={iconStyle} />
           <div className="likeCount">{likeCount} likes</div>

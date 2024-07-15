@@ -15,9 +15,12 @@ const meta = {
     },
   },
   argTypes: {
+    formation: { control: "object" },
     onChange: { control: "text" },
+    style: { control: "object" },
   },
   args: {
+    formation: undefined,
     onChange: () => {},
     style: {
       width: "20rem",

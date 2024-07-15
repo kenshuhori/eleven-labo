@@ -46,7 +46,7 @@ export const FormationIcon = ({
           <ModalOverlay />
           <ModalContent style={{ top: "15vh" }}>
             <ModalBody>
-              <FormationSelect onChange={onChangeFormation} />
+              <FormationSelect formation={formation} onChange={onChangeFormation} />
             </ModalBody>
           </ModalContent>
         </Modal>

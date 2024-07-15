@@ -4,11 +4,12 @@ import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
 interface FormationSelectProps {
+  formation: Formation;
   onChange: (selected: FormationSelectOption | null) => void;
   style?: CSSProperties;
 }
 
-export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
+export const FormationSelect = ({ formation, onChange, style }: FormationSelectProps) => {
   const groupedOptions: GroupedFormationSelectOption[] = groupedFormations(formations);
 
   const formatGroupLabel = (group: GroupedFormationSelectOption) => {
@@ -51,9 +52,16 @@ export const FormationSelect = ({ onChange, style }: FormationSelectProps) => {
     );
   };
 
+  const defaultFormation: FormationSelectOption = {
+    label: formation.name,
+    value: formation.code,
+    ...formation,
+  };
+
   return (
     <div style={{ ...style }}>
       <Select<FormationSelectOption, false, GroupedFormationSelectOption>
+        defaultValue={defaultFormation}
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
         menuIsOpen={true}
