@@ -33,6 +33,6 @@ const baseStyle: CSSProperties = {
   flexDirection: "column",
   gap: "10px",
   justifyContent: "center",
-  paddingTop: "4px",
-  paddingBottom: "4px",
+  paddingTop: "8px",
+  paddingBottom: "8px",
 };
