@@ -1,4 +1,3 @@
-import { transformAgo } from "@/utils/ago";
 import { omit } from "@/utils/omitText";
 import { HeartIcon } from "@public/heartIcon";
 import { PostIcon } from "@public/postIcon";
@@ -7,21 +6,12 @@ import React, { type CSSProperties } from "react";
 
 interface PostFooterProps {
   commentCount: number;
-  createdAt: string;
   description: string;
   postUrl: string;
   likeCount: number;
 }
 
-export const PostFooter = ({
-  commentCount,
-  createdAt,
-  description,
-  postUrl,
-  likeCount,
-}: PostFooterProps) => {
-  const createdAgo = transformAgo(createdAt);
-
+export const PostFooter = ({ commentCount, description, postUrl, likeCount }: PostFooterProps) => {
   return (
     <>
       <div style={baseStyle}>

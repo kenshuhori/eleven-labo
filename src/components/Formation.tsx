@@ -4,11 +4,10 @@ import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
-import { defaultFormation } from "@/fixtures/formations";
 import { defaultPlayer } from "@/fixtures/players";
 
 interface FormationProps {
-  formation?: Formation["code"];
+  formation: Formation;
   style?: React.CSSProperties;
 }
 
@@ -71,7 +70,7 @@ export const Formation = ({ formation, style }: FormationProps) => {
     setFormationClass(`formation-${selected?.code}`);
   }, []);
 
-  const [formationClass, setFormationClass] = useState<string>(`formation-${formation}`);
+  const [formationClass, setFormationClass] = useState<string>(`formation-${formation.code}`);
 
   return (
     <>
@@ -132,7 +131,7 @@ export const Formation = ({ formation, style }: FormationProps) => {
             player={defaultPlayer({ number: 1 })}
             ref={player01Ref}
           />
-          <FormationIcon formation={defaultFormation} onChange={onChange} />
+          <FormationIcon formation={formation} onChange={onChange} />
         </FootballField>
       </div>
     </>
