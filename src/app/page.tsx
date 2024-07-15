@@ -1,11 +1,12 @@
 "use client";
 
 import { Formation } from "@/components/Formation";
+import { defaultFormation } from "@/fixtures/formations";
 
 export default function Page() {
   return (
     <main>
-      <Formation formation="4-3-3" />
+      <Formation formation={defaultFormation} />
     </main>
   );
 }
