@@ -38,11 +38,9 @@ export const Post = ({
 };
 
 const baseStyle: React.CSSProperties = {
-  width: "100%",
+  width: "34rem",
 };
 
 const formationStyle: React.CSSProperties = {
-  height: "30rem",
   position: "relative",
-  width: "34rem",
 };

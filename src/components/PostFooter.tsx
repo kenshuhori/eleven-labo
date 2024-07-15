@@ -13,8 +13,8 @@ interface PostFooterProps {
 
 export const PostFooter = ({ commentCount, description, postUrl, likeCount }: PostFooterProps) => {
   return (
-    <>
-      <div style={baseStyle}>
+    <div style={baseStyle}>
+      <div style={{ display: "flex", gap: "8px" }}>
         <div style={{ display: "flex", gap: "4px" }}>
           <HeartIcon style={iconStyle} />
           <div className="likeCount">{likeCount} likes</div>
@@ -25,18 +25,20 @@ export const PostFooter = ({ commentCount, description, postUrl, likeCount }: Po
         </div>
       </div>
       <div>
-        {omit(description, 50)}
+        <p>{omit(description, 50)}</p>
         <Link href={postUrl} style={navigateStyle}>
           {"続きを読む"}
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 
 const baseStyle: CSSProperties = {
   display: "flex",
-  gap: "8px",
+  flexDirection: "column",
+  gap: "4px",
+  padding: "8px",
   width: "100%",
 };
 
