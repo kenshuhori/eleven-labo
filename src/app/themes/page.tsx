@@ -3,7 +3,7 @@
 import { Theme } from "@/components/Theme";
 import { themes } from "@/fixtures/themes";
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       {themes.map((theme) => {

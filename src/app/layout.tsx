@@ -4,10 +4,25 @@ import "@/styles/globals.css";
 import { inter } from "@/app/fonts";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { serviceDescription, serviceImageUrl, serviceTitleLong, serviceUrl } from "@/constants";
 
 export const metadata: Metadata = {
-  title: "ベストイレブン研究所 | Eleven Labo",
-  description: "君が考えるベストイレブンを全世界に発信しよう！",
+  title: serviceTitleLong,
+  description: serviceDescription,
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: serviceUrl,
+    siteName: serviceTitleLong,
+    images: [
+      {
+        url: serviceImageUrl,
+        width: 1200,
+        height: 630,
+        alt: serviceTitleLong,
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {

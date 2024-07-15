@@ -1,5 +1,7 @@
 import React, { type CSSProperties } from "react";
 
+import { MenuButton } from "@/components/MenuButton";
+import { serviceTitleShort } from "@/constants";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -7,7 +9,7 @@ export const Header = () => {
   return (
     <header style={HeaderStyle}>
       <Link href="/" passHref>
-        <h1 style={HeaderH1Style}>Eleven Labo</h1>
+        <h1 style={HeaderH1Style}>{serviceTitleShort}</h1>
       </Link>
       <div style={HeaderRightStyle}>
         <SignedOut>
@@ -16,6 +18,7 @@ export const Header = () => {
         <SignedIn>
           <UserButton />
         </SignedIn>
+        <MenuButton />
       </div>
     </header>
   );

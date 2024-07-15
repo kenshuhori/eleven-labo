@@ -1,3 +1,4 @@
+import { serviceDescriptionShort, serviceTitle } from "@/constants";
 import { EyeCatchImage } from "@public/ogp/eyeCatchImage";
 import { ServiceLogo } from "@public/ogp/serviceLogo";
 import { ImageResponse } from "next/og";
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : "ベストイレブン研究所 最高のベストイレブンを創ろう!";
+      : `${serviceTitle} ${serviceDescriptionShort}`;
 
     return new ImageResponse(
       <div style={baseStyle}>
