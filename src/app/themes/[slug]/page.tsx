@@ -1,5 +1,6 @@
 "use client";
 
+import { BottomButton } from "@/components/BottomButton";
 import { Post } from "@/components/Post";
 import type { CSSProperties } from "react";
 
@@ -8,6 +9,8 @@ interface PageProps {
 }
 
 export default function Page({ params }: { params: PageProps }) {
+  const themeSlug = params.slug;
+
   const postProps = {
     author: "John Doe",
     authorImage: "https://example.com/john-doe.png",
@@ -22,6 +25,7 @@ export default function Page({ params }: { params: PageProps }) {
     <main style={baseStyle}>
       <Post {...postProps} />
       <Post {...postProps} />
+      <BottomButton label={"投稿"} href={`${themeSlug}/posts/new`} />
     </main>
   );
 }
