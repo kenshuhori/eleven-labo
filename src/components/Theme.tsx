@@ -7,14 +7,15 @@ import type { CSSProperties } from "react";
 
 interface ThemeProps {
   createdAt: string;
+  id: number;
   likeCount: number;
   postCount: number;
   title: string;
-  url: string;
 }
 
-export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProps) => {
+export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps) => {
   const createdAgo = transformAgo(createdAt);
+  const url = `/themes/${id}`;
 
   return (
     <Link href={url}>
