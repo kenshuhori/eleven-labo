@@ -67,6 +67,7 @@ type Theme = {
   createdAt: string;
   likeCount: number;
   postCount: number;
+  id: number;
   title: string;
   url: string;
 };
