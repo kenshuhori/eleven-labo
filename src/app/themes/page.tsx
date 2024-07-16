@@ -10,11 +10,11 @@ export default function Page() {
         return (
           <Theme
             createdAt={theme.createdAt}
+            id={theme.id}
             likeCount={theme.likeCount}
             postCount={theme.postCount}
             title={theme.title}
-            url={theme.url}
-            key={theme.url}
+            key={theme.id}
           />
         );
       })}

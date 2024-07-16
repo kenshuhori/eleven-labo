@@ -39,9 +39,14 @@ type PlayerSelectOption = {
 } & Player;
 
 type Post = {
-  id: number;
+  author: string;
+  authorImage: string;
+  commentCount: number;
+  createdAt: string;
   description: string;
   formation: Formation;
+  id: number;
+  likeCount: number;
 };
 
 type GroupedPlayerSelectOption = {
@@ -62,6 +67,6 @@ type Theme = {
   createdAt: string;
   likeCount: number;
   postCount: number;
+  id: number;
   title: string;
-  url: string;
 };

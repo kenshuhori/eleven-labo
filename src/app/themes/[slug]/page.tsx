@@ -2,7 +2,11 @@
 
 import { BottomButton } from "@/components/BottomButton";
 import { Post } from "@/components/Post";
+import { ThemeHeader } from "@/components/ThemeHeader";
+import { posts } from "@/fixtures/posts";
+import { defaultTheme } from "@/fixtures/themes";
 import type { CSSProperties } from "react";
+import { Fragment } from "react";
 
 interface PageProps {
   slug: string;
@@ -11,31 +15,34 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   const themeSlug = params.slug;
 
-  const postProps = {
-    author: "John Doe",
-    authorImage: "https://example.com/john-doe.png",
-    createdAt: "2024-01-01T00:00:00Z",
-    commentCount: 8,
-    description:
-      "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
-    postUrl: "/posts/1",
-    likeCount: 12,
-  };
+  const theme: Theme = defaultTheme;
+
   return (
     <main style={baseStyle}>
-      <Post {...postProps} />
-      <Post {...postProps} />
-      <BottomButton label={"投稿"} href={`${themeSlug}/posts/new`} />
+      <ThemeHeader title={theme.title} />
+      <div style={timelineStyle}>
+        {posts.map((post) => {
+          return (
+            <Fragment key={post.id}>
+              <Post {...post} />
+            </Fragment>
+          );
+        })}
+        <BottomButton label={"投稿"} href={`${themeSlug}/posts/new`} />
+      </div>
     </main>
   );
 }
 
 const baseStyle: CSSProperties = {
+  paddingTop: "8px",
+  paddingBottom: "8px",
+};
+
+const timelineStyle: CSSProperties = {
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
   gap: "28px",
   justifyContent: "center",
-  paddingTop: "8px",
-  paddingBottom: "8px",
 };

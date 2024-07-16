@@ -56,7 +56,7 @@ export const FormationIcon = ({
 };
 
 const baseStyle: CSSProperties = {
-  bottom: "0.7rem",
+  bottom: "1rem",
   position: "absolute",
   right: "0.7rem",
   filter: "drop-shadow(4px 4px 4px #000000)",
@@ -66,6 +66,8 @@ const buttonStyle: CSSProperties = {
   backgroundColor: "#FFFFFF",
   border: "2px solid #E6b422",
   color: "#000000",
+  fontSize: "1.1rem",
+  height: "3.5rem",
   textShadow: "1px 1px 1px #E6b422",
   width: "12rem",
 };

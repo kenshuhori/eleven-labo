@@ -1,35 +1,48 @@
 "use client";
 
 import { Formation } from "@/components/Formation";
+import { ThemeHeader } from "@/components/ThemeHeader";
 import { defaultFormation } from "@/fixtures/formations";
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import type React from "react";
 
 interface PostFormProps {
-  theme: string;
+  theme: Theme;
 }
 
 export const PostForm = ({ theme }: PostFormProps) => {
+  const router = useRouter();
+  const toast = useToast();
+
+  const onSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    router.push(`/themes/${theme.id}`);
+    toast({
+      title: "投稿しました",
+      position: "top",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
+
   const placeholder = "この11人を選んだ理由を伝えてみよう";
+
   return (
-    <div style={baseStyle}>
-      <div style={headerStyle}>{theme}</div>
+    <form onSubmit={onSubmit} style={baseStyle}>
+      <ThemeHeader title={theme.title} />
       <Formation formation={defaultFormation} />
       <textarea placeholder={placeholder} style={textareaStyle} />
-      <Button style={submitType}>投稿</Button>
-    </div>
+      <Button style={submitType} type={"submit"}>
+        投稿
+      </Button>
+    </form>
   );
 };
 
 const baseStyle: React.CSSProperties = {
   width: "34rem",
-};
-
-const headerStyle: React.CSSProperties = {
-  fontSize: "1.6rem",
-  fontWeight: "700",
-  paddingBlock: "8px",
-  paddingInline: "8px",
 };
 
 const submitType: React.CSSProperties = {
