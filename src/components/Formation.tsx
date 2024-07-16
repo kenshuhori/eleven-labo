@@ -1,5 +1,5 @@
 import type React from "react";
-import { useCallback, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
@@ -13,58 +13,6 @@ interface FormationProps {
 }
 
 export const Formation = ({ formation, readonly = false, style }: FormationProps) => {
-  const player01Ref = useRef<HTMLDivElement>(null);
-  const player02Ref = useRef<HTMLDivElement>(null);
-  const player03Ref = useRef<HTMLDivElement>(null);
-  const player04Ref = useRef<HTMLDivElement>(null);
-  const player05Ref = useRef<HTMLDivElement>(null);
-  const player06Ref = useRef<HTMLDivElement>(null);
-  const player07Ref = useRef<HTMLDivElement>(null);
-  const player08Ref = useRef<HTMLDivElement>(null);
-  const player09Ref = useRef<HTMLDivElement>(null);
-  const player10Ref = useRef<HTMLDivElement>(null);
-  const player11Ref = useRef<HTMLDivElement>(null);
-
-  // [
-  //   player01Ref,
-  //   player02Ref,
-  //   player03Ref,
-  //   player04Ref,
-  //   player05Ref,
-  //   player06Ref,
-  //   player07Ref,
-  //   player08Ref,
-  //   player09Ref,
-  //   player10Ref,
-  //   player11Ref,
-  // ].forEach((playerRef, index) => {
-  //   useEffect(() => {
-  //     if (!playerRef.current) return;
-
-  //     // ドラッグ&ドロップで移動する処理は一旦塞ぐ
-  //     const playerIcon = playerRef.current;
-  //     playerIcon.onpointermove = (event) => {
-  //       if (event.buttons) {
-  //         const horizon = playerIcon.offsetLeft + event.movementX;
-  //         const vertical = playerIcon.offsetTop + event.movementY;
-  //         if (horizon < 0 || horizon > window.innerWidth - 100) return;
-  //         if (vertical < 0 || vertical > window.innerHeight - 100) return;
-
-  //         playerIcon.style.left = `${pxToRem(playerIcon.offsetLeft + event.movementX)}rem`;
-  //         playerIcon.style.top = `${pxToRem(playerIcon.offsetTop + event.movementY)}rem`;
-  //         playerIcon.style.position = "absolute";
-  //         playerIcon.draggable = false;
-  //         playerIcon.setPointerCapture(event.pointerId);
-  //       }
-  //     };
-  //   }, [playerRef]);
-  // });
-
-  // const pxToRem = (px: number) => {
-  //   const coefficient = window.innerWidth / 360;
-  //   return px / 10 / coefficient;
-  // };
-
   const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;
 
@@ -77,72 +25,20 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
     <>
       <div className={formationClass}>
         <FootballField style={style}>
-          <PlayerIcon
-            className="player-no11 transition"
-            player={defaultPlayer({ number: 11 })}
-            readonly={readonly}
-            ref={player11Ref}
-          />
-          <PlayerIcon
-            className="player-no10 transition"
-            player={defaultPlayer({ number: 10 })}
-            readonly={readonly}
-            ref={player10Ref}
-          />
-          <PlayerIcon
-            className="player-no09 transition"
-            player={defaultPlayer({ number: 9 })}
-            readonly={readonly}
-            ref={player09Ref}
-          />
-          <PlayerIcon
-            className="player-no08 transition"
-            player={defaultPlayer({ number: 8 })}
-            readonly={readonly}
-            ref={player08Ref}
-          />
-          <PlayerIcon
-            className="player-no07 transition"
-            player={defaultPlayer({ number: 7 })}
-            readonly={readonly}
-            ref={player07Ref}
-          />
-          <PlayerIcon
-            className="player-no06 transition"
-            player={defaultPlayer({ number: 6 })}
-            readonly={readonly}
-            ref={player06Ref}
-          />
-          <PlayerIcon
-            className="player-no05 transition"
-            player={defaultPlayer({ number: 5 })}
-            readonly={readonly}
-            ref={player05Ref}
-          />
-          <PlayerIcon
-            className="player-no04 transition"
-            player={defaultPlayer({ number: 4 })}
-            readonly={readonly}
-            ref={player04Ref}
-          />
-          <PlayerIcon
-            className="player-no03 transition"
-            player={defaultPlayer({ number: 3 })}
-            readonly={readonly}
-            ref={player03Ref}
-          />
-          <PlayerIcon
-            className="player-no02 transition"
-            player={defaultPlayer({ number: 2 })}
-            readonly={readonly}
-            ref={player02Ref}
-          />
-          <PlayerIcon
-            className="player-no01"
-            player={defaultPlayer({ number: 1 })}
-            readonly={readonly}
-            ref={player01Ref}
-          />
+          {[11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((number) => {
+            const playerRef = useRef<HTMLDivElement>(null);
+
+            return (
+              <Fragment key={number}>
+                <PlayerIcon
+                  className={`player-no${number} transition`}
+                  player={defaultPlayer({ number })}
+                  readonly={readonly}
+                  ref={playerRef}
+                />
+              </Fragment>
+            );
+          })}
           <FormationIcon formation={formation} onChange={onChange} readonly={readonly} />
         </FootballField>
       </div>
