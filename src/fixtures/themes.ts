@@ -24,7 +24,7 @@ export const themes: Theme[] = [
     createdAt: "2024-07-01T00:00:00Z",
     likeCount: 10,
     postCount: 11,
-    title: "クロップ政権下でのリヴァプールのベスト11を考えよう!!",
+    title: "クロップ政権下（2015年〜2023年）でのリヴァプールのベスト11を考えよう!!",
     url: "/themes/4",
   },
 ];

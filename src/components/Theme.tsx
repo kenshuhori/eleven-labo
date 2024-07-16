@@ -39,34 +39,33 @@ export const Theme = ({ createdAt, likeCount, postCount, title, url }: ThemeProp
 
 const baseStyle: CSSProperties = {
   borderBottom: "1px solid #DDDDDD",
-  height: "7rem",
+  height: "10rem",
   padding: "12px 18px",
   position: "relative",
   width: "100%",
 };
 
 const titleStyle: CSSProperties = {
-  fontSize: "0.8rem",
+  fontSize: "1.1rem",
   fontWeight: "bold",
 };
 
 const createdAtStyle: CSSProperties = {
-  fontSize: "0.7rem",
+  fontSize: "1rem",
 };
 
 const navigateStyle: CSSProperties = {
   color: "#E06E05",
-  fontSize: "0.7rem",
+  fontSize: "1rem",
   fontWeight: "bold",
 };
 
 const footerStyle: CSSProperties = {
-  alignItems: "flex-end",
   bottom: "8px",
   display: "flex",
-  fontSize: "0.8rem",
+  fontSize: "1.1rem",
   gap: "14px",
-  lineHeight: "normal",
+  lineHeight: "1",
   position: "absolute",
 };
 
