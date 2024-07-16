@@ -1,6 +1,6 @@
 export const defaultFormation: Formation = {
   code: "4-4-2",
-  name: "4-4-2（フラット）",
+  name: "4-4-2 フラット",
 };
 
 export const formations: Formation[] = [
@@ -14,7 +14,7 @@ export const formations: Formation[] = [
   },
   {
     code: "3-4-3-D",
-    name: "3-4-3（ダイヤモンド）",
+    name: "3-4-3 ダイヤモンド",
   },
   {
     code: "3-4-3",
@@ -46,15 +46,15 @@ export const formations: Formation[] = [
   },
   {
     code: "4-4-2-D",
-    name: "4-4-2（ダイヤモンド）",
+    name: "4-4-2 ダイヤモンド",
   },
   {
     code: "4-4-2",
-    name: "4-4-2（フラット）",
+    name: "4-4-2 フラット",
   },
   {
     code: "4-6-0",
-    name: "4-6-0（ゼロトップ）",
+    name: "4-6-0 ゼロトップ",
   },
   {
     code: "5-4-1",
