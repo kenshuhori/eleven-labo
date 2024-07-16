@@ -1,5 +1,6 @@
 "use client";
 
+import { BottomButton } from "@/components/BottomButton";
 import { Post } from "@/components/Post";
 import type { CSSProperties } from "react";
 
@@ -22,6 +23,12 @@ export default function Page({ params }: { params: PageProps }) {
     <main style={baseStyle}>
       <Post {...postProps} />
       <Post {...postProps} />
+      <BottomButton
+        label={"投稿"}
+        onClick={() => {
+          alert("クリック");
+        }}
+      />
     </main>
   );
 }
