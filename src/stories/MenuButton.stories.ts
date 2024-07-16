@@ -14,7 +14,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  args: { iconBoxSize: "1.2rem" },
+  args: {},
 } satisfies Meta<typeof MenuButton>;
 
 export default meta;
