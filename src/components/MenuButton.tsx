@@ -11,11 +11,7 @@ import { GiSoccerBall } from "react-icons/gi";
 import { RiTeamFill } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-interface MenuProps {
-  iconBoxSize?: string;
-}
-
-export const MenuButton = ({ iconBoxSize = "1.2rem" }: MenuProps) => {
+export const MenuButton = () => {
   return (
     <Menu>
       <ChakraMenuButton
@@ -25,17 +21,15 @@ export const MenuButton = ({ iconBoxSize = "1.2rem" }: MenuProps) => {
         border={0}
         variant="outline"
       />
-      <MenuList>
+      <MenuList style={{ fontSize: "1.4rem" }}>
         <Link href="/themes" passHref>
-          <MenuItem icon={<FaBook size={iconBoxSize} />}>テーマ ~Themes~</MenuItem>
+          <MenuItem icon={<FaBook size={"1.4rem"} />}>テーマ ~Themes~</MenuItem>
         </Link>
         <Link href="/formations" passHref>
-          <MenuItem icon={<GiSoccerBall size={iconBoxSize} />}>
-            フォーメーション ~Formation~
-          </MenuItem>
+          <MenuItem icon={<GiSoccerBall size={"1.4rem"} />}>フォーメーション ~Formation~</MenuItem>
         </Link>
         <Link href="/aboutUs" passHref>
-          <MenuItem icon={<RiTeamFill size={iconBoxSize} />}>About Us</MenuItem>
+          <MenuItem icon={<RiTeamFill size={"1.4rem"} />}>About Us</MenuItem>
         </Link>
       </MenuList>
     </Menu>
