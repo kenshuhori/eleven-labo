@@ -1,17 +1,26 @@
+import { PostForm } from "@/components/PostForm";
 import type { CSSProperties } from "react";
 
-export default function Page() {
+interface PageProps {
+  slug: string;
+}
+
+export default function Page({ params }: { params: PageProps }) {
+  const themeId = params.slug;
+
   return (
     <main style={baseStyle}>
-      <h1>New Posts | Eleven Labo</h1>
+      <PostForm theme={"2022年W杯のベスト11を考えよう!"} />
     </main>
   );
 }
 
 const baseStyle: CSSProperties = {
-  display: "flex",
-  justifyContent: "center",
   alignItems: "center",
-  height: "400px",
-  backgroundColor: "#f0f0f0",
+  display: "flex",
+  flexDirection: "column",
+  gap: "28px",
+  justifyContent: "center",
+  paddingTop: "8px",
+  paddingBottom: "8px",
 };
