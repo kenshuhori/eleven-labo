@@ -10,13 +10,11 @@ const meta = {
   },
   argTypes: {
     label: { control: "text" },
-    onClick: { action: "clicked" },
+    href: { control: "text" },
   },
   args: {
     label: "ボタン",
-    onClick: () => {
-      alert("クリックされました！");
-    },
+    href: "themes/1/posts/new",
   },
 } satisfies Meta<typeof BottomButton>;
 

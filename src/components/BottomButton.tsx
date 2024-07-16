@@ -3,13 +3,13 @@ import React, { type CSSProperties } from "react";
 
 interface BottomButtonProps {
   label: string;
-  onClick: () => void;
+  href: string;
 }
 
-export const BottomButton = ({ label, onClick }: BottomButtonProps) => {
+export const BottomButton = ({ label, href }: BottomButtonProps) => {
   return (
     <div style={baseStyle}>
-      <Link href={"/posts/new"} style={buttonStyle}>
+      <Link href={href} style={buttonStyle}>
         {label}
       </Link>
     </div>
