@@ -1,19 +1,20 @@
 "use client";
 
 import { Formation } from "@/components/Formation";
+import { ThemeHeader } from "@/components/ThemeHeader";
 import { defaultFormation } from "@/fixtures/formations";
 import { Button } from "@chakra-ui/react";
 import type React from "react";
 
 interface PostFormProps {
-  theme: string;
+  theme: Theme;
 }
 
 export const PostForm = ({ theme }: PostFormProps) => {
   const placeholder = "この11人を選んだ理由を伝えてみよう";
   return (
     <div style={baseStyle}>
-      <div style={headerStyle}>{theme}</div>
+      <ThemeHeader title={theme.title} />
       <Formation formation={defaultFormation} />
       <textarea placeholder={placeholder} style={textareaStyle} />
       <Button style={submitType}>投稿</Button>

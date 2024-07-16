@@ -1,4 +1,5 @@
 import { PostForm } from "@/components/PostForm";
+import { defaultTheme } from "@/fixtures/themes";
 import type { CSSProperties } from "react";
 
 interface PageProps {
@@ -7,10 +8,11 @@ interface PageProps {
 
 export default function Page({ params }: { params: PageProps }) {
   const themeId = params.slug;
+  const theme: Theme = defaultTheme;
 
   return (
     <main style={baseStyle}>
-      <PostForm theme={"2022年W杯のベスト11を考えよう!"} />
+      <PostForm theme={theme} />
     </main>
   );
 }

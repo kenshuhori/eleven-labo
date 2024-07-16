@@ -1,3 +1,11 @@
+export const defaultTheme: Theme = {
+  createdAt: "2024-04-01T00:00:00Z",
+  likeCount: 0,
+  postCount: 0,
+  title: "23-24のマンチェスターシティのベスト11を考えよう!!",
+  url: "/themes/1",
+};
+
 export const themes: Theme[] = [
   {
     createdAt: "2024-04-01T00:00:00Z",

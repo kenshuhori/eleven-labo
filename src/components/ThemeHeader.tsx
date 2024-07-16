@@ -7,18 +7,20 @@ interface ThemeHeaderProps {
 export const ThemeHeader = ({ title }: ThemeHeaderProps) => {
   return (
     <div style={baseStyle}>
-      <div style={headerStyle}>{title}</div>
+      <h1 style={headerStyle}>{title}</h1>
     </div>
   );
 };
 
 const baseStyle: React.CSSProperties = {
+  paddingBottom: "8px",
+  paddingInline: "8px",
   width: "34rem",
 };
 
 const headerStyle: React.CSSProperties = {
-  fontSize: "1.6rem",
+  background: "linear-gradient(transparent 60%, #E6b422 100%)",
+  display: "inline",
+  fontSize: "1.4rem",
   fontWeight: "700",
-  paddingBlock: "8px",
-  paddingInline: "8px",
 };
