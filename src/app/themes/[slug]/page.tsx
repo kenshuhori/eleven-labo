@@ -22,19 +22,9 @@ export default function Page({ params }: { params: PageProps }) {
       <ThemeHeader title={theme.title} />
       <div style={timelineStyle}>
         {posts.map((post) => {
-          const postProps = {
-            author: post.author,
-            authorImage: post.authorImage,
-            commentCount: post.commentCount,
-            createdAt: post.createdAt,
-            description: post.description,
-            formation: post.formation,
-            id: post.id,
-            likeCount: post.likeCount,
-          };
           return (
             <Fragment key={post.id}>
-              <Post {...postProps} />
+              <Post {...post} />
             </Fragment>
           );
         })}

@@ -14,7 +14,8 @@ const meta = {
     createdAt: { control: "text" },
     commentCount: { control: "number" },
     description: { control: "text" },
-    postUrl: { control: "text" },
+    formation: { control: "text" },
+    id: { control: "number" },
     likeCount: { control: "number" },
   },
   args: {
@@ -24,7 +25,8 @@ const meta = {
     commentCount: 8,
     description:
       "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
-    postUrl: "/posts/1",
+    formation: { name: "4-1-2-3", code: "4-1-2-3" },
+    id: 1,
     likeCount: 12,
   },
 } satisfies Meta<typeof Post>;
