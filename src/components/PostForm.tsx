@@ -20,6 +20,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
     router.push(`/themes/${theme.id}`);
     toast({
       title: "投稿しました",
+      position: "top",
       status: "success",
       duration: 9000,
       isClosable: true,
