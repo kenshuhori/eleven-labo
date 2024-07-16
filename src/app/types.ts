@@ -69,5 +69,4 @@ type Theme = {
   postCount: number;
   id: number;
   title: string;
-  url: string;
 };
