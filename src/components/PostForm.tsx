@@ -22,7 +22,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
       title: "投稿しました",
       position: "top",
       status: "success",
-      duration: 9000,
+      duration: 3000,
       isClosable: true,
     });
   };
