@@ -3,8 +3,10 @@
 import { BottomButton } from "@/components/BottomButton";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
+import { posts } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
 import type { CSSProperties } from "react";
+import { Fragment } from "react";
 
 interface PageProps {
   slug: string;
@@ -15,22 +17,27 @@ export default function Page({ params }: { params: PageProps }) {
 
   const theme: Theme = defaultTheme;
 
-  const postProps = {
-    author: "John Doe",
-    authorImage: "https://example.com/john-doe.png",
-    createdAt: "2024-01-01T00:00:00Z",
-    commentCount: 8,
-    description:
-      "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
-    postUrl: "/posts/1",
-    likeCount: 12,
-  };
   return (
     <main style={baseStyle}>
       <ThemeHeader title={theme.title} />
       <div style={timelineStyle}>
-        <Post {...postProps} />
-        <Post {...postProps} />
+        {posts.map((post) => {
+          const postProps = {
+            author: post.author,
+            authorImage: post.authorImage,
+            commentCount: post.commentCount,
+            createdAt: post.createdAt,
+            description: post.description,
+            formation: post.formation,
+            id: post.id,
+            likeCount: post.likeCount,
+          };
+          return (
+            <Fragment key={post.id}>
+              <Post {...postProps} />
+            </Fragment>
+          );
+        })}
         <BottomButton label={"投稿"} href={`${themeSlug}/posts/new`} />
       </div>
     </main>

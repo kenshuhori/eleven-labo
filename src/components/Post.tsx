@@ -10,7 +10,8 @@ interface PostProps {
   createdAt: string;
   commentCount: number;
   description: string;
-  postUrl: string;
+  formation: Formation;
+  id: number;
   likeCount: number;
 }
 
@@ -20,13 +21,16 @@ export const Post = ({
   createdAt,
   commentCount,
   description,
-  postUrl,
+  formation,
+  id,
   likeCount,
 }: PostProps) => {
+  const postUrl = `/posts/${id}`;
+
   return (
     <div style={baseStyle}>
       <PostHeader author={author} authorImage={authorImage} createdAt={createdAt} />
-      <Formation formation={defaultFormation} readonly={true} style={formationStyle} />
+      <Formation formation={formation} readonly={true} style={formationStyle} />
       <PostFooter
         commentCount={commentCount}
         description={description}
