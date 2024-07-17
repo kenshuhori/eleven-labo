@@ -1,12 +1,15 @@
 "use client";
 
-import { BottomButton } from "@/components/BottomButton";
+import { BottomForm } from "@/components/BottomForm";
 import { Comment } from "@/components/Comment";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
+import { useToast } from "@chakra-ui/react";
+import { useAuth } from "@clerk/clerk-react";
+import { useRouter } from "next/navigation";
 import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
@@ -14,11 +17,28 @@ interface PageProps {
 }
 
 export default function Page({ params }: { params: PageProps }) {
-  const themeSlug = params.slug;
+  const postSlug = params.slug;
+
+  const router = useRouter();
+  const toast = useToast();
+
+  const { isSignedIn } = useAuth();
 
   const theme: Theme = defaultTheme;
 
   const postProps = { ...defaultPost, fullSentence: true };
+
+  const onSubmit = async (formData: FormData) => {
+    console.log(formData.get("comment"));
+    toast({
+      title: "コメントしました",
+      position: "top",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+    router.replace(`/posts/${postSlug}`);
+  };
 
   return (
     <main style={baseStyle}>
@@ -36,19 +56,18 @@ export default function Page({ params }: { params: PageProps }) {
           );
         })}
       </div>
-      {/* <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} /> */}
+      {isSignedIn && <BottomForm label={"投稿"} onSubmit={onSubmit} />}
     </main>
   );
 }
 
 const baseStyle: CSSProperties = {
   paddingTop: "8px",
-  paddingBottom: "8px",
 };
 
 const commentsStyle: CSSProperties = {
   display: "flex",
-  padding: "8px 16px",
+  padding: "1rem 1rem 3rem",
   flexDirection: "column",
   gap: "1.5rem",
 };
