@@ -10,6 +10,7 @@ interface PostProps {
   commentCount: number;
   description: string;
   formation: Formation;
+  fullSentence: boolean;
   id: number;
   likeCount: number;
 }
@@ -21,6 +22,7 @@ export const Post = ({
   commentCount,
   description,
   formation,
+  fullSentence,
   id,
   likeCount,
 }: PostProps) => {
@@ -33,6 +35,7 @@ export const Post = ({
       <PostFooter
         commentCount={commentCount}
         description={description}
+        fullSentence={fullSentence}
         postUrl={postUrl}
         likeCount={likeCount}
       />

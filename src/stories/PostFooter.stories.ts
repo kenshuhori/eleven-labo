@@ -11,6 +11,7 @@ const meta = {
   argTypes: {
     commentCount: { control: "number" },
     description: { control: "text" },
+    fullSentence: { control: "boolean" },
     postUrl: { control: "text" },
     likeCount: { control: "number" },
   },
@@ -26,4 +27,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Full: Story = {
+  args: { fullSentence: true },
+};
+
+export const Omit: Story = {
+  args: { fullSentence: false },
+};
