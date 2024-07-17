@@ -1,10 +1,9 @@
+import { LikeIconButton } from "@/components/LikeIconButton";
+import { PostIconBox } from "@/components/PostIconBox";
 import { transformAgo } from "@/utils/ago";
-import { HeartIcon } from "@public/heartIcon";
-import { PostIcon } from "@public/postIcon";
 import Link from "next/link";
 import type React from "react";
 import type { CSSProperties } from "react";
-import { LikeIconButton } from "./LikeIconButton";
 
 interface ThemeProps {
   createdAt: string;
@@ -26,10 +25,7 @@ export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps
         <div style={navigateStyle}>{"続きを読む >"}</div>
         <div style={footerStyle}>
           <LikeIconButton count={likeCount} liked={false} />
-          <div style={{ display: "flex", gap: "4px" }}>
-            <PostIcon style={iconStyle} />
-            <div>{postCount} posts</div>
-          </div>
+          <PostIconBox count={postCount} />
         </div>
       </div>
     </Link>
