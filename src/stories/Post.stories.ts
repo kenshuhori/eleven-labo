@@ -15,6 +15,7 @@ const meta = {
     commentCount: { control: "number" },
     description: { control: "text" },
     formation: { control: "text" },
+    fullSentence: { control: "boolean" },
     id: { control: "number" },
     likeCount: { control: "number" },
   },
@@ -26,6 +27,7 @@ const meta = {
     description:
       "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
     formation: { name: "4-1-2-3", code: "4-1-2-3" },
+    fullSentence: true,
     id: 1,
     likeCount: 12,
   },
