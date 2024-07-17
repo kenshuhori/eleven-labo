@@ -26,6 +26,7 @@ const meta = {
         textShadowColor: null,
       },
     },
+    position: 99,
   },
 } satisfies Meta<typeof PlayerIcon>;
 

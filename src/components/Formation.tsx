@@ -25,7 +25,7 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
     <>
       <div className={formationClass}>
         <FootballField style={style}>
-          {[11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((number) => {
+          {[11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((position) => {
             const playerRef = useRef<HTMLDivElement>(null);
 
             // useEffect(() => {
@@ -49,11 +49,11 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
             // }, []);
 
             return (
-              <Fragment key={number}>
+              <Fragment key={position}>
                 <PlayerIcon
-                  className={`player-no${number} transition`}
-                  number={number}
-                  player={defaultPlayer({ number })}
+                  className={`player-no${position} transition`}
+                  position={position}
+                  player={defaultPlayer({ number: position })}
                   readonly={readonly}
                   ref={playerRef}
                 />
