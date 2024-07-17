@@ -11,7 +11,6 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     player: { control: "object" },
-    className: { control: "text" },
   },
   args: {
     player: {
@@ -26,6 +25,7 @@ const meta = {
         textShadowColor: null,
       },
     },
+    position: 99,
   },
 } satisfies Meta<typeof PlayerIcon>;
 

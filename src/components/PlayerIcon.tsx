@@ -3,17 +3,19 @@ import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useStat
 import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
+  position: number;
   player: Player;
-  className?: string;
   readonly?: boolean;
 }
 
 export const PlayerIcon = forwardRef(
   (
-    { player: initialPlayer, className, readonly = false }: PlayerIconProps,
+    { position, player: initialPlayer, readonly = false }: PlayerIconProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const className = `player-no${position} transition`;
 
     const [player, setPlayer] = useState<Player>(initialPlayer);
     const onChange = useCallback(
@@ -32,6 +34,10 @@ export const PlayerIcon = forwardRef(
           <button onClick={onOpen} style={playerIconStyle(player.team)} type="button">
             {player.number}
           </button>
+          {/* モーダルで選択した選手をフォームに反映させるために非表示のselect要素を設置 */}
+          <select name={`position${position}`} style={{ display: "none" }}>
+            <option value={player.name} />
+          </select>
           <label style={playerNameStyle}>{player.name}</label>
         </div>
         {readonly === false && (

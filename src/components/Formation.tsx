@@ -5,6 +5,7 @@ import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
 import { defaultPlayer } from "@/fixtures/players";
+import { positionCodes } from "@/fixtures/positionCodes";
 
 interface FormationProps {
   formation: Formation;
@@ -25,7 +26,7 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
     <>
       <div className={formationClass}>
         <FootballField style={style}>
-          {[11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((number) => {
+          {positionCodes.map((position) => {
             const playerRef = useRef<HTMLDivElement>(null);
 
             // useEffect(() => {
@@ -49,10 +50,10 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
             // }, []);
 
             return (
-              <Fragment key={number}>
+              <Fragment key={position}>
                 <PlayerIcon
-                  className={`player-no${number} transition`}
-                  player={defaultPlayer({ number })}
+                  position={position}
+                  player={defaultPlayer({ number: position })}
                   readonly={readonly}
                   ref={playerRef}
                 />
