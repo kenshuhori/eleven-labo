@@ -17,7 +17,7 @@ interface PageProps {
 }
 
 export default function Page({ params }: { params: PageProps }) {
-  const themeSlug = params.slug;
+  const postSlug = params.slug;
 
   const router = useRouter();
   const toast = useToast();
@@ -28,8 +28,8 @@ export default function Page({ params }: { params: PageProps }) {
 
   const postProps = { ...defaultPost, fullSentence: true };
 
-  const onSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+  const onSubmit = async (formData: FormData) => {
+    console.log(formData.get("comment"));
     toast({
       title: "コメントしました",
       position: "top",
@@ -37,6 +37,7 @@ export default function Page({ params }: { params: PageProps }) {
       duration: 3000,
       isClosable: true,
     });
+    router.replace(`/posts/${postSlug}`);
   };
 
   return (

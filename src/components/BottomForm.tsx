@@ -1,16 +1,22 @@
 import { Button } from "@chakra-ui/react";
-import type { CSSProperties } from "react";
+import { type CSSProperties, useRef } from "react";
 
 interface BottomFormProps {
   label: string;
-  onSubmit: (event: React.FormEvent) => void;
+  onSubmit: (formData: FormData) => void;
   style?: CSSProperties;
 }
 
 export const BottomForm = ({ label, onSubmit, style }: BottomFormProps) => {
+  const ref = useRef<HTMLFormElement>(null);
+  const onClick = (formData: FormData) => {
+    onSubmit(formData);
+    ref.current?.reset();
+  };
+
   return (
-    <form onSubmit={onSubmit} style={{ ...baseStyle, ...style }}>
-      <textarea placeholder={"コメントを追加..."} style={textareaStyle} />
+    <form action={onClick} ref={ref} style={{ ...baseStyle, ...style }}>
+      <textarea name={"comment"} placeholder={"コメントを追加..."} style={textareaStyle} />
       <Button style={buttonStyle} type="submit">
         {label}
       </Button>
