@@ -21,7 +21,7 @@ export const PostFooter = ({
 }: PostFooterProps) => {
   return (
     <div style={baseStyle}>
-      <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
+      <div style={iconsStyle}>
         <LikeIconButton count={likeCount} liked={false} />
         <CommentIconBox count={commentCount} />
       </div>
@@ -51,10 +51,10 @@ const baseStyle: CSSProperties = {
   width: "100%",
 };
 
-const iconStyle: CSSProperties = {
-  fill: "#FFFFFF",
-  height: "16px",
-  width: "16px",
+const iconsStyle: CSSProperties = {
+  display: "flex",
+  gap: "16px",
+  lineHeight: "normal",
 };
 
 const navigateStyle: CSSProperties = {
