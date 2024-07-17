@@ -24,11 +24,11 @@ export const PostFooter = ({
       <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
         <div style={{ display: "flex", gap: "4px" }}>
           <HeartIcon style={iconStyle} />
-          <div className="likeCount">{likeCount} likes</div>
+          <div>{likeCount} likes</div>
         </div>
         <div style={{ display: "flex", gap: "4px" }}>
           <PostIcon style={iconStyle} />
-          <div className="postCount">{commentCount} comments</div>
+          <div>{commentCount} comments</div>
         </div>
       </div>
       <div>
