@@ -17,6 +17,7 @@ export const CommentIconBox = ({ count, style }: Props) => {
 };
 
 const baseStyle: CSSProperties = {
+  alignItems: "center",
   display: "flex",
   gap: "8px",
 };
@@ -31,5 +32,4 @@ const iconStyle: CSSProperties = {
 const labelStyle: CSSProperties = {
   fontSize: "1.1rem",
   fontWeight: "500",
-  lineHeight: "18px",
 };

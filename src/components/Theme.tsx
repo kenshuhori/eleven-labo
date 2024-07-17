@@ -59,13 +59,7 @@ const footerStyle: CSSProperties = {
   bottom: "8px",
   display: "flex",
   fontSize: "1.1rem",
-  gap: "14px",
+  gap: "16px",
   lineHeight: "1",
   position: "absolute",
-};
-
-const iconStyle: CSSProperties = {
-  fill: "#FFFFFF",
-  height: "16px",
-  width: "16px",
 };
