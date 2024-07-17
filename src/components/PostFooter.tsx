@@ -7,11 +7,18 @@ import React, { type CSSProperties } from "react";
 interface PostFooterProps {
   commentCount: number;
   description: string;
+  fullSentence: boolean;
   postUrl: string;
   likeCount: number;
 }
 
-export const PostFooter = ({ commentCount, description, postUrl, likeCount }: PostFooterProps) => {
+export const PostFooter = ({
+  commentCount,
+  description,
+  fullSentence,
+  postUrl,
+  likeCount,
+}: PostFooterProps) => {
   return (
     <div style={baseStyle}>
       <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
@@ -26,15 +33,22 @@ export const PostFooter = ({ commentCount, description, postUrl, likeCount }: Po
       </div>
       <div>
         {/* 気持ち1スペース分空ける */}
-        <label style={{ marginRight: "4px" }}>{omit(description, 55)}</label>
-        <Link href={postUrl} style={navigateStyle}>
-          {"続きを読む"}
-        </Link>
+        {fullSentence ? (
+          <>
+            <label style={{ marginRight: "4px" }}>{description}</label>
+          </>
+        ) : (
+          <>
+            <label style={{ marginRight: "4px" }}>{omit(description, 55)}</label>
+            <Link href={postUrl} style={navigateStyle}>
+              {"続きを読む"}
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
 };
-
 const baseStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",

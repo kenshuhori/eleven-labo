@@ -18,11 +18,13 @@ export default function Page({ params }: { params: PageProps }) {
 
   const theme: Theme = defaultTheme;
 
+  const postProps = { ...defaultPost, fullSentence: true };
+
   return (
     <main style={baseStyle}>
       <ThemeHeader title={theme.title} />
       <div style={postStyle}>
-        <Post {...defaultPost} />
+        <Post {...postProps} />
       </div>
       <div style={commentsStyle}>
         {comments.map((comment) => {
