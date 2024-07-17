@@ -27,7 +27,6 @@ const baseStyle: CSSProperties = {
   gap: "1rem",
   padding: "1rem",
   boxShadow: "0 -2px 4px 0 #DDDDDD",
-  marginTop: "2rem",
   width: "100%",
   zIndex: 100,
 };

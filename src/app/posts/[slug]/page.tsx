@@ -7,6 +7,7 @@ import { ThemeHeader } from "@/components/ThemeHeader";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
+import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
@@ -15,6 +16,8 @@ interface PageProps {
 
 export default function Page({ params }: { params: PageProps }) {
   const themeSlug = params.slug;
+
+  const { isSignedIn } = useAuth();
 
   const theme: Theme = defaultTheme;
 
@@ -36,19 +39,18 @@ export default function Page({ params }: { params: PageProps }) {
           );
         })}
       </div>
-      <BottomForm label={"投稿"} />
+      {isSignedIn && <BottomForm label={"投稿"} />}
     </main>
   );
 }
 
 const baseStyle: CSSProperties = {
   paddingTop: "8px",
-  paddingBottom: "8px",
 };
 
 const commentsStyle: CSSProperties = {
   display: "flex",
-  padding: "8px 16px",
+  padding: "1rem 1rem 3rem",
   flexDirection: "column",
   gap: "1.5rem",
 };

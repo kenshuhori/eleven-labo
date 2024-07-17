@@ -37,7 +37,6 @@ export default function Page({ params }: { params: PageProps }) {
 
 const baseStyle: CSSProperties = {
   paddingTop: "8px",
-  paddingBottom: "8px",
 };
 
 const timelineStyle: CSSProperties = {
