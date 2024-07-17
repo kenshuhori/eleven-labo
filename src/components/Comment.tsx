@@ -22,18 +22,20 @@ export const Comment = ({
   return (
     <div style={baseStyle}>
       <CommentHeader author={author} authorImage={authorImage} createdAt={createdAt} />
-      <div>
-        <p>{comment}</p>
+      <div style={indentStyle}>{comment}</div>
+      <div style={indentStyle}>
+        <CommentFooter likeCount={likeCount} />
       </div>
-      <CommentFooter likeCount={likeCount} />
     </div>
   );
 };
 
 const baseStyle: React.CSSProperties = {
-  width: "34rem",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
 };
 
-const formationStyle: React.CSSProperties = {
-  position: "relative",
+const indentStyle: React.CSSProperties = {
+  marginLeft: "2rem",
 };
