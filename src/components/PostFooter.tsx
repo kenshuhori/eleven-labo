@@ -3,6 +3,7 @@ import { HeartIcon } from "@public/heartIcon";
 import { PostIcon } from "@public/postIcon";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
+import { LikeIconButton } from "./LikeIconButton";
 
 interface PostFooterProps {
   commentCount: number;
@@ -22,13 +23,10 @@ export const PostFooter = ({
   return (
     <div style={baseStyle}>
       <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
-        <div style={{ display: "flex", gap: "4px" }}>
-          <HeartIcon style={iconStyle} />
-          <div className="likeCount">{likeCount} likes</div>
-        </div>
+        <LikeIconButton count={likeCount} liked={false} />
         <div style={{ display: "flex", gap: "4px" }}>
           <PostIcon style={iconStyle} />
-          <div className="postCount">{commentCount} comments</div>
+          <div>{commentCount} comments</div>
         </div>
       </div>
       <div>

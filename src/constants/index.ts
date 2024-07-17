@@ -5,3 +5,5 @@ export const serviceDescription = "君が考えるベストイレブンを全世
 export const serviceDescriptionShort = "最高のベストイレブンを発信しよう！";
 export const serviceUrl = "https://eleven-labo.vercel.app/";
 export const serviceImageUrl = "https://eleven-labo.vercel.app/api/og";
+
+export const likedColorCode = "#FF69B4";

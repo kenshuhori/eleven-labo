@@ -24,7 +24,7 @@ export const Comment = ({
       <CommentHeader author={author} authorImage={authorImage} createdAt={createdAt} />
       <div style={indentStyle}>{comment}</div>
       <div style={indentStyle}>
-        <CommentFooter likeCount={likeCount} />
+        <CommentFooter count={likeCount} />
       </div>
     </div>
   );
