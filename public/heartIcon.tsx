@@ -1,8 +1,9 @@
 interface HeartIconProps {
+  className?: string;
   style?: React.CSSProperties;
 }
 
-export const HeartIcon = ({ style }: HeartIconProps) => {
+export const HeartIcon = ({ className, style }: HeartIconProps) => {
   return (
     <svg
       width="18"
@@ -10,6 +11,7 @@ export const HeartIcon = ({ style }: HeartIconProps) => {
       viewBox="0 0 20 18"
       fill="inherit"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       style={style}
     >
       <path
