@@ -3,14 +3,17 @@ import type { CSSProperties } from "react";
 
 interface BottomFormProps {
   label: string;
+  onSubmit: (event: React.FormEvent) => void;
   style?: CSSProperties;
 }
 
-export const BottomForm = ({ label, style }: BottomFormProps) => {
+export const BottomForm = ({ label, onSubmit, style }: BottomFormProps) => {
   return (
-    <form style={{ ...baseStyle, ...style }}>
+    <form onSubmit={onSubmit} style={{ ...baseStyle, ...style }}>
       <textarea placeholder={"コメントを追加..."} style={textareaStyle} />
-      <Button style={buttonStyle}>{label}</Button>
+      <Button style={buttonStyle} type="submit">
+        {label}
+      </Button>
     </form>
   );
 };

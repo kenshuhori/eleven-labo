@@ -7,7 +7,9 @@ import { ThemeHeader } from "@/components/ThemeHeader";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
+import { useToast } from "@chakra-ui/react";
 import { useAuth } from "@clerk/clerk-react";
+import { useRouter } from "next/navigation";
 import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
@@ -17,11 +19,25 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   const themeSlug = params.slug;
 
+  const router = useRouter();
+  const toast = useToast();
+
   const { isSignedIn } = useAuth();
 
   const theme: Theme = defaultTheme;
 
   const postProps = { ...defaultPost, fullSentence: true };
+
+  const onSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    toast({
+      title: "コメントしました",
+      position: "top",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
 
   return (
     <main style={baseStyle}>
@@ -39,7 +55,7 @@ export default function Page({ params }: { params: PageProps }) {
           );
         })}
       </div>
-      {isSignedIn && <BottomForm label={"投稿"} />}
+      {isSignedIn && <BottomForm label={"投稿"} onSubmit={onSubmit} />}
     </main>
   );
 }

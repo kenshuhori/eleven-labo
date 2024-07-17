@@ -10,10 +10,12 @@ const meta = {
   },
   argTypes: {
     label: { control: "text" },
+    onSubmit: { action: "submit" },
     style: { control: "object" },
   },
   args: {
     label: "投稿",
+    onSubmit: () => {},
     style: {
       width: "34rem",
     },
