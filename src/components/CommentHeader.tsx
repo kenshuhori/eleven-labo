@@ -25,6 +25,5 @@ export const CommentHeader = ({ author, authorImage, createdAt }: CommentHeaderP
 const baseStyle: React.CSSProperties = {
   display: "flex",
   gap: "8px",
-  marginBottom: "-10px",
   width: "100%",
 };

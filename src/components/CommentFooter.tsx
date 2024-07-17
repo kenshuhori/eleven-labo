@@ -7,7 +7,7 @@ interface CommentFooterProps {
 
 export const CommentFooter = ({ likeCount }: CommentFooterProps) => {
   return (
-    <div style={baseStyle}>
+    <div>
       <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
         <div style={{ display: "flex", gap: "4px" }}>
           <HeartIcon style={iconStyle} />
@@ -16,14 +16,6 @@ export const CommentFooter = ({ likeCount }: CommentFooterProps) => {
       </div>
     </div>
   );
-};
-
-const baseStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "4px",
-  padding: "8px",
-  width: "100%",
 };
 
 const iconStyle: CSSProperties = {
