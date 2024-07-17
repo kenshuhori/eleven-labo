@@ -17,17 +17,17 @@ export const PostForm = ({ theme }: PostFormProps) => {
 
   const onSubmit = (formData: FormData) => {
     console.log(formData.get("description"));
-    console.log(formData.get("player1"));
-    console.log(formData.get("player2"));
-    console.log(formData.get("player3"));
-    console.log(formData.get("player4"));
-    console.log(formData.get("player5"));
-    console.log(formData.get("player6"));
-    console.log(formData.get("player7"));
-    console.log(formData.get("player8"));
-    console.log(formData.get("player9"));
-    console.log(formData.get("player10"));
-    console.log(formData.get("player11"));
+    console.log(formData.get("position1"));
+    console.log(formData.get("position2"));
+    console.log(formData.get("position3"));
+    console.log(formData.get("position4"));
+    console.log(formData.get("position5"));
+    console.log(formData.get("position6"));
+    console.log(formData.get("position7"));
+    console.log(formData.get("position8"));
+    console.log(formData.get("position9"));
+    console.log(formData.get("position10"));
+    console.log(formData.get("position11"));
     toast({
       title: "投稿しました",
       position: "top",
