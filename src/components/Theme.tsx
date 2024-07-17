@@ -56,7 +56,7 @@ const navigateStyle: CSSProperties = {
 };
 
 const footerStyle: CSSProperties = {
-  bottom: "8px",
+  bottom: "0.6rem",
   display: "flex",
   fontSize: "1.1rem",
   gap: "16px",

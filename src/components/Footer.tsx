@@ -6,8 +6,12 @@ export const Footer = () => (
   <footer style={baseStyle}>
     <div style={logoStyle}>{serviceTitle}</div>
     <div style={linksStyle}>
-      <Link href="/aboutUs">about us</Link>
-      <Link href="/contact">お問い合わせ</Link>
+      <Link href="/aboutUs" style={navigateStyle}>
+        about us
+      </Link>
+      <Link href="/contact" style={navigateStyle}>
+        お問い合わせ
+      </Link>
     </div>
   </footer>
 );
@@ -29,4 +33,9 @@ const linksStyle: CSSProperties = {
 const logoStyle: CSSProperties = {
   fontSize: "1.2rem",
   fontWeight: "bold",
+};
+
+const navigateStyle: CSSProperties = {
+  borderBottom: "1px dotted",
+  width: "fit-content",
 };
