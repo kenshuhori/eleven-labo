@@ -28,6 +28,7 @@ export default function Page({ params }: { params: PageProps }) {
         {comments.map((comment) => {
           return (
             <Fragment key={comment.id}>
+              <div style={{ border: "1px dashed #DDDDDD" }} />
               <Comment {...comment} />
             </Fragment>
           );
@@ -44,7 +45,10 @@ const baseStyle: CSSProperties = {
 };
 
 const commentsStyle: CSSProperties = {
+  display: "flex",
   padding: "8px 16px",
+  flexDirection: "column",
+  gap: "1.5rem",
 };
 
 const postStyle: CSSProperties = {
