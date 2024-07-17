@@ -4,9 +4,10 @@ import { BottomButton } from "@/components/BottomButton";
 import { Comment } from "@/components/Comment";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
+import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
-import type { CSSProperties } from "react";
+import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
   slug: string;
@@ -24,9 +25,15 @@ export default function Page({ params }: { params: PageProps }) {
         <Post {...defaultPost} />
       </div>
       <div style={commentsStyle}>
-        <Comment author={""} authorImage={""} createdAt={""} comment={""} id={0} likeCount={0} />
+        {comments.map((comment) => {
+          return (
+            <Fragment key={comment.id}>
+              <Comment {...comment} />
+            </Fragment>
+          );
+        })}
       </div>
-      <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} />
+      {/* <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} /> */}
     </main>
   );
 }
