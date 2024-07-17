@@ -11,7 +11,6 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     player: { control: "object" },
-    className: { control: "text" },
   },
   args: {
     player: {

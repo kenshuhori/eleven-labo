@@ -3,7 +3,6 @@ import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useStat
 import { PlayerSelect } from "./PlayerSelect";
 
 interface PlayerIconProps {
-  className?: string;
   position: number;
   player: Player;
   readonly?: boolean;
@@ -11,10 +10,12 @@ interface PlayerIconProps {
 
 export const PlayerIcon = forwardRef(
   (
-    { className, position, player: initialPlayer, readonly = false }: PlayerIconProps,
+    { position, player: initialPlayer, readonly = false }: PlayerIconProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const className = `player-no${position} transition`;
 
     const [player, setPlayer] = useState<Player>(initialPlayer);
     const onChange = useCallback(

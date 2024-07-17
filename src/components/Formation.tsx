@@ -51,7 +51,6 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
             return (
               <Fragment key={position}>
                 <PlayerIcon
-                  className={`player-no${position} transition`}
                   position={position}
                   player={defaultPlayer({ number: position })}
                   readonly={readonly}
