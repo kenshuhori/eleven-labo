@@ -1,6 +1,7 @@
 "use client";
 
 import { BottomButton } from "@/components/BottomButton";
+import { Comment } from "@/components/Comment";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { defaultPost } from "@/fixtures/posts";
@@ -19,10 +20,13 @@ export default function Page({ params }: { params: PageProps }) {
   return (
     <main style={baseStyle}>
       <ThemeHeader title={theme.title} />
-      <div style={timelineStyle}>
+      <div style={postStyle}>
         <Post {...defaultPost} />
-        <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} />
       </div>
+      <div style={commentsStyle}>
+        <Comment author={""} authorImage={""} createdAt={""} comment={""} id={0} likeCount={0} />
+      </div>
+      <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} />
     </main>
   );
 }
@@ -32,7 +36,11 @@ const baseStyle: CSSProperties = {
   paddingBottom: "8px",
 };
 
-const timelineStyle: CSSProperties = {
+const commentsStyle: CSSProperties = {
+  padding: "8px 16px",
+};
+
+const postStyle: CSSProperties = {
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
