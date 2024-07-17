@@ -52,6 +52,7 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
               <Fragment key={number}>
                 <PlayerIcon
                   className={`player-no${number} transition`}
+                  number={number}
                   player={defaultPlayer({ number })}
                   readonly={readonly}
                   ref={playerRef}

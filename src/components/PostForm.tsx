@@ -15,9 +15,19 @@ export const PostForm = ({ theme }: PostFormProps) => {
   const router = useRouter();
   const toast = useToast();
 
-  const onSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    router.push(`/themes/${theme.id}`);
+  const onSubmit = (formData: FormData) => {
+    console.log(formData.get("description"));
+    console.log(formData.get("player1"));
+    console.log(formData.get("player2"));
+    console.log(formData.get("player3"));
+    console.log(formData.get("player4"));
+    console.log(formData.get("player5"));
+    console.log(formData.get("player6"));
+    console.log(formData.get("player7"));
+    console.log(formData.get("player8"));
+    console.log(formData.get("player9"));
+    console.log(formData.get("player10"));
+    console.log(formData.get("player11"));
     toast({
       title: "投稿しました",
       position: "top",
@@ -25,15 +35,16 @@ export const PostForm = ({ theme }: PostFormProps) => {
       duration: 3000,
       isClosable: true,
     });
+    router.push(`/themes/${theme.id}`);
   };
 
   const placeholder = "この11人を選んだ理由を伝えてみよう";
 
   return (
-    <form onSubmit={onSubmit} style={baseStyle}>
+    <form action={onSubmit} style={baseStyle}>
       <ThemeHeader title={theme.title} />
       <Formation formation={defaultFormation} />
-      <textarea placeholder={placeholder} style={textareaStyle} />
+      <textarea name="description" placeholder={placeholder} style={textareaStyle} />
       <Button style={submitType} type={"submit"}>
         投稿
       </Button>
