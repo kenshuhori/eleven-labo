@@ -10,12 +10,10 @@ const meta = {
   },
   argTypes: {
     label: { control: "text" },
-    href: { control: "text" },
     style: { control: "object" },
   },
   args: {
     label: "投稿",
-    href: "themes/1/posts/new",
     style: {
       width: "34rem",
     },

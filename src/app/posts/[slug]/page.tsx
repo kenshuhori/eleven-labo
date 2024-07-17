@@ -1,6 +1,6 @@
 "use client";
 
-import { BottomButton } from "@/components/BottomButton";
+import { BottomForm } from "@/components/BottomForm";
 import { Comment } from "@/components/Comment";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
@@ -36,7 +36,7 @@ export default function Page({ params }: { params: PageProps }) {
           );
         })}
       </div>
-      {/* <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} /> */}
+      <BottomForm label={"投稿"} />
     </main>
   );
 }

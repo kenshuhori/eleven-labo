@@ -1,13 +1,12 @@
-import { Button, Textarea } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
 
 interface BottomFormProps {
   label: string;
-  href: string;
   style?: CSSProperties;
 }
 
-export const BottomForm = ({ label, href, style }: BottomFormProps) => {
+export const BottomForm = ({ label, style }: BottomFormProps) => {
   return (
     <form style={{ ...baseStyle, ...style }}>
       <textarea placeholder={"コメントを追加..."} style={textareaStyle} />
@@ -18,6 +17,7 @@ export const BottomForm = ({ label, href, style }: BottomFormProps) => {
 
 const baseStyle: CSSProperties = {
   alignItems: "center",
+  backgroundColor: "#FFFFFF",
   position: "sticky",
   left: 0,
   right: 0,
@@ -27,6 +27,7 @@ const baseStyle: CSSProperties = {
   gap: "1rem",
   padding: "1rem",
   boxShadow: "0 -2px 4px 0 #DDDDDD",
+  marginTop: "2rem",
   width: "100%",
   zIndex: 100,
 };
