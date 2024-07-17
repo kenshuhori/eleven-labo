@@ -18,7 +18,6 @@ const baseStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   padding: "20px",
-  marginTop: "20px",
   width: "auto",
 };
 
