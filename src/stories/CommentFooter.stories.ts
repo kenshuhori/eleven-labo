@@ -9,10 +9,10 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    likeCount: { control: "number" },
+    count: { control: "number" },
   },
   args: {
-    likeCount: 12,
+    count: 12,
   },
 } satisfies Meta<typeof CommentFooter>;
 
