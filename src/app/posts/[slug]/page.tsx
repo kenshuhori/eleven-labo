@@ -1,3 +1,10 @@
+"use client";
+
+import { BottomButton } from "@/components/BottomButton";
+import { Post } from "@/components/Post";
+import { ThemeHeader } from "@/components/ThemeHeader";
+import { defaultPost } from "@/fixtures/posts";
+import { defaultTheme } from "@/fixtures/themes";
 import type { CSSProperties } from "react";
 
 interface PageProps {
@@ -5,17 +12,30 @@ interface PageProps {
 }
 
 export default function Page({ params }: { params: PageProps }) {
+  const themeSlug = params.slug;
+
+  const theme: Theme = defaultTheme;
+
   return (
     <main style={baseStyle}>
-      <h1>Posts | Eleven Labo</h1>
+      <ThemeHeader title={theme.title} />
+      <div style={timelineStyle}>
+        <Post {...defaultPost} />
+        <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} />
+      </div>
     </main>
   );
 }
 
 const baseStyle: CSSProperties = {
-  display: "flex",
-  justifyContent: "center",
+  paddingTop: "8px",
+  paddingBottom: "8px",
+};
+
+const timelineStyle: CSSProperties = {
   alignItems: "center",
-  height: "400px",
-  backgroundColor: "#f0f0f0",
+  display: "flex",
+  flexDirection: "column",
+  gap: "28px",
+  justifyContent: "center",
 };
