@@ -1,9 +1,8 @@
+import { CommentIconBox } from "@/components/CommentIconBox";
+import { LikeIconButton } from "@/components/LikeIconButton";
 import { omit } from "@/utils/omitText";
-import { HeartIcon } from "@public/heartIcon";
-import { PostIcon } from "@public/postIcon";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
-import { LikeIconButton } from "./LikeIconButton";
 
 interface PostFooterProps {
   commentCount: number;
@@ -22,12 +21,9 @@ export const PostFooter = ({
 }: PostFooterProps) => {
   return (
     <div style={baseStyle}>
-      <div style={{ display: "flex", gap: "8px", lineHeight: "normal" }}>
+      <div style={iconsStyle}>
         <LikeIconButton count={likeCount} liked={false} />
-        <div style={{ display: "flex", gap: "4px" }}>
-          <PostIcon style={iconStyle} />
-          <div>{commentCount} comments</div>
-        </div>
+        <CommentIconBox count={commentCount} />
       </div>
       <div>
         {/* 気持ち1スペース分空ける */}
@@ -55,10 +51,10 @@ const baseStyle: CSSProperties = {
   width: "100%",
 };
 
-const iconStyle: CSSProperties = {
-  fill: "#FFFFFF",
-  height: "16px",
-  width: "16px",
+const iconsStyle: CSSProperties = {
+  display: "flex",
+  gap: "16px",
+  lineHeight: "normal",
 };
 
 const navigateStyle: CSSProperties = {
