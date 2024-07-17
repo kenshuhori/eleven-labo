@@ -1,3 +1,12 @@
+type PostComment = {
+  author: string;
+  authorImage: string;
+  createdAt: string;
+  comment: string;
+  id: number;
+  likeCount: number;
+};
+
 type Formation = {
   code:
     | "3-4-1-2"

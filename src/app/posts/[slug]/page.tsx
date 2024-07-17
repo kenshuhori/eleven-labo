@@ -1,21 +1,60 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { BottomButton } from "@/components/BottomButton";
+import { Comment } from "@/components/Comment";
+import { Post } from "@/components/Post";
+import { ThemeHeader } from "@/components/ThemeHeader";
+import { comments } from "@/fixtures/comments";
+import { defaultPost } from "@/fixtures/posts";
+import { defaultTheme } from "@/fixtures/themes";
+import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
   slug: string;
 }
 
 export default function Page({ params }: { params: PageProps }) {
+  const themeSlug = params.slug;
+
+  const theme: Theme = defaultTheme;
+
   return (
     <main style={baseStyle}>
-      <h1>Posts | Eleven Labo</h1>
+      <ThemeHeader title={theme.title} />
+      <div style={postStyle}>
+        <Post {...defaultPost} />
+      </div>
+      <div style={commentsStyle}>
+        {comments.map((comment) => {
+          return (
+            <Fragment key={comment.id}>
+              <div style={{ border: "1px dashed #DDDDDD" }} />
+              <Comment {...comment} />
+            </Fragment>
+          );
+        })}
+      </div>
+      {/* <BottomButton label={"コメント"} href={`${themeSlug}/posts/new`} /> */}
     </main>
   );
 }
 
 const baseStyle: CSSProperties = {
+  paddingTop: "8px",
+  paddingBottom: "8px",
+};
+
+const commentsStyle: CSSProperties = {
   display: "flex",
-  justifyContent: "center",
+  padding: "8px 16px",
+  flexDirection: "column",
+  gap: "1.5rem",
+};
+
+const postStyle: CSSProperties = {
   alignItems: "center",
-  height: "400px",
-  backgroundColor: "#f0f0f0",
+  display: "flex",
+  flexDirection: "column",
+  gap: "28px",
+  justifyContent: "center",
 };

@@ -28,3 +28,5 @@ export const posts: Post[] = [
     likeCount: 5,
   },
 ];
+
+export const defaultPost: Post = posts[0];

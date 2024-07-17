@@ -1,7 +1,6 @@
 import { Formation } from "@/components/Formation";
 import { PostFooter } from "@/components/PostFooter";
 import { PostHeader } from "@/components/PostHeader";
-import { defaultFormation } from "@/fixtures/formations";
 import type React from "react";
 
 interface PostProps {
