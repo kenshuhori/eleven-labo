@@ -36,6 +36,12 @@ type GroupedFormationSelectOption = {
   options: FormationSelectOption[];
 };
 
+type League = {
+  id: number;
+  name: string;
+  logo: string;
+};
+
 type Player = {
   name: string;
   number: number;
