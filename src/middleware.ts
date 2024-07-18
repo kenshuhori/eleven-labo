@@ -1,6 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher(["/themes/(.*)/posts/new"]);
+const isProtectedRoute = createRouteMatcher(["/api/migration/(.*)", "/themes/(.*)/posts/new"]);
 
 export default clerkMiddleware((auth, req) => {
   if (isProtectedRoute(req)) {
