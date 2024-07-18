@@ -81,6 +81,7 @@ const playerNameStyle: CSSProperties = {
   color: "#FFFFFF",
   fontSize: "1.0rem",
   fontWeight: "1000",
+  lineHeight: "1.2",
   textAlign: "center",
   textShadow: "2px 2px #000000",
   width: "7rem",
