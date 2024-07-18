@@ -15,7 +15,7 @@ export const FormationSelect = ({ formation, onChange, style }: FormationSelectP
   const formatGroupLabel = (group: GroupedFormationSelectOption) => {
     return (
       <div>
-        <span>{group.category}</span>
+        <span style={{ fontSize: "1rem" }}>{group.category}</span>
       </div>
     );
   };
@@ -27,28 +27,15 @@ export const FormationSelect = ({ formation, onChange, style }: FormationSelectP
     return context === "menu" ? (
       <div
         style={{
-          alignItems: "flex-start",
-          display: "flex",
-          flexDirection: "column",
-          gap: "2px",
-          justifyContent: "center",
-          padding: "2px",
+          padding: "1px",
         }}
       >
         <div>
-          <span
-            style={{
-              fontSize: "16px",
-              fontWeight: 700,
-              letterSpacing: "1px",
-            }}
-          >
-            {data.name}
-          </span>
+          <span style={optionStyle}>{data.name}</span>
         </div>
       </div>
     ) : (
-      <span>{data.name}</span>
+      <span style={optionStyle}>{data.name}</span>
     );
   };
 
@@ -71,4 +58,10 @@ export const FormationSelect = ({ formation, onChange, style }: FormationSelectP
       />
     </div>
   );
+};
+
+const optionStyle: CSSProperties = {
+  fontSize: "1.2rem",
+  fontWeight: 700,
+  letterSpacing: "1px",
 };

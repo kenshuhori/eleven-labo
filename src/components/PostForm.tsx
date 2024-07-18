@@ -17,6 +17,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
 
   const onSubmit = (formData: FormData) => {
     console.log(formData.get("description"));
+    console.log(formData.get("formation"));
     console.log(formData.get("position1"));
     console.log(formData.get("position2"));
     console.log(formData.get("position3"));

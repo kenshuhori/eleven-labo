@@ -17,7 +17,7 @@ export const MenuButton = () => {
       <ChakraMenuButton
         as={IconButton}
         aria-label="Options"
-        icon={<RxHamburgerMenu size="2rem" />}
+        icon={<RxHamburgerMenu size="2.2rem" />}
         border={0}
         variant="outline"
       />

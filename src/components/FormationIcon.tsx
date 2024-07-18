@@ -40,6 +40,10 @@ export const FormationIcon = ({
         <Button onClick={onOpen} style={buttonStyle} type="button">
           {formation.name}
         </Button>
+        {/* モーダルで選択した選手をフォームに反映させるために非表示のselect要素を設置 */}
+        <select name={"formation"} style={{ display: "none" }}>
+          <option value={formation.code} />
+        </select>
       </div>
       {readonly === false && (
         <Modal isOpen={isOpen} onClose={onClose} size="md">

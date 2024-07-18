@@ -15,7 +15,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const formatGroupLabel = (group: GroupedPlayerSelectOption) => {
     return (
       <div>
-        <span>{group.category}</span>
+        <span style={{ fontSize: "1rem" }}>{group.category}</span>
       </div>
     );
   };
@@ -27,28 +27,15 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
     return context === "menu" ? (
       <div
         style={{
-          padding: "2px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          gap: "2px",
+          padding: "1px",
         }}
       >
         <div>
-          <span
-            style={{
-              fontSize: "16px",
-              fontWeight: 700,
-              letterSpacing: "1px",
-            }}
-          >
-            {`${data.name} #${data.number}`}
-          </span>
+          <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
         </div>
       </div>
     ) : (
-      <span>{`${data.name} #${data.number}`}</span>
+      <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
     );
   };
 
@@ -74,4 +61,10 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
       />
     </div>
   );
+};
+
+const optionStyle: CSSProperties = {
+  fontSize: "1.2rem",
+  fontWeight: 700,
+  letterSpacing: "1px",
 };

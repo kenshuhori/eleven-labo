@@ -36,9 +36,18 @@ type GroupedFormationSelectOption = {
   options: FormationSelectOption[];
 };
 
+type League = {
+  id: number;
+  name: string;
+  logo: string;
+};
+
 type Player = {
+  id: number;
   name: string;
   number: number;
+  photo: string;
+  position: "Goalkeeper" | "Defender" | "Midfielder" | "Attacker";
   team: Team;
 };
 
@@ -66,8 +75,10 @@ type GroupedPlayerSelectOption = {
 };
 
 type Team = {
-  code: string;
+  id: number;
   name: string;
+  code: string;
+  logo: string;
   backgroundColor: string;
   borderColor: string;
   color: string;
