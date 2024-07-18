@@ -13,18 +13,6 @@ const meta = {
     player: { control: "object" },
   },
   args: {
-    player: {
-      name: "Player",
-      number: 99,
-      team: {
-        code: "???",
-        name: "Team",
-        backgroundColor: "#FFFFFF",
-        borderColor: "#000000",
-        color: "#000000",
-        textShadowColor: null,
-      },
-    },
     position: 99,
   },
 } satisfies Meta<typeof PlayerIcon>;
