@@ -16,8 +16,11 @@ export const defaultPlayer = ({
   number?: number;
   textShadowColor?: string;
 }): Player => ({
+  id: 0,
   name: name ?? "???",
   number: number ?? 99,
+  photo: "https://example.com/default.png",
+  position: "Attacker",
   team: defaultTeam({
     backgroundColor,
     borderColor,
@@ -28,87 +31,84 @@ export const defaultPlayer = ({
 
 export const players: Player[] = [
   {
+    id: 280,
+    name: "Alisson Becker",
+    number: 1,
+    photo: "https://media.api-sports.io/football/players/280.png",
+    position: "Goalkeeper",
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    team: teams.find((team) => team.code === "LIV")!,
+  },
+  {
+    id: 290,
+    name: "V. van Dijk",
+    number: 4,
+    photo: "https://media.api-sports.io/football/players/290.png",
+    position: "Defender",
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    team: teams.find((team) => team.code === "LIV")!,
+  },
+  {
+    id: 8500,
+    name: "W. Endo",
+    number: 3,
+    photo: "https://media.api-sports.io/football/players/8500.png",
+    position: "Midfielder",
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    team: teams.find((team) => team.code === "LIV")!,
+  },
+  {
+    id: 283,
     name: "T.Alexander-Arnold",
     number: 66,
+    photo: "https://media.api-sports.io/football/players/283.png",
+    position: "Midfielder",
     // biome-ignore lint/style/noNonNullAssertion: <explanation>
     team: teams.find((team) => team.code === "LIV")!,
   },
   {
-    name: "M.Salah",
+    id: 1096,
+    name: "D. Szoboszlai",
+    number: 8,
+    photo: "https://media.api-sports.io/football/players/1096.png",
+    position: "Midfielder",
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    team: teams.find((team) => team.code === "LIV")!,
+  },
+  {
+    id: 6716,
+    name: "A. Mac Allister",
+    number: 10,
+    photo: "https://media.api-sports.io/football/players/6716.png",
+    position: "Midfielder",
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    team: teams.find((team) => team.code === "LIV")!,
+  },
+  {
+    id: 306,
+    name: "Mohamed Salah",
     number: 11,
+    photo: "https://media.api-sports.io/football/players/306.png",
+    position: "Attacker",
     // biome-ignore lint/style/noNonNullAssertion: <explanation>
     team: teams.find((team) => team.code === "LIV")!,
   },
   {
-    name: "V.van Dijk",
-    number: 4,
+    id: 51617,
+    name: "D. Núñez",
+    number: 9,
+    photo: "https://media.api-sports.io/football/players/51617.png",
+    position: "Attacker",
     // biome-ignore lint/style/noNonNullAssertion: <explanation>
     team: teams.find((team) => team.code === "LIV")!,
   },
   {
-    name: "A.Becker",
-    number: 1,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
-  },
-  {
+    id: 0,
     name: "K.De Bruyne",
     number: 17,
+    photo: "https://media.api-sports.io/football/players/0.png",
+    position: "Midfielder",
     // biome-ignore lint/style/noNonNullAssertion: <explanation>
     team: teams.find((team) => team.code === "MAC")!,
-  },
-  {
-    name: "M.Odegaard",
-    number: 8,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "ARS")!,
-  },
-  {
-    name: "H.Son",
-    number: 7,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "TOT")!,
-  },
-  {
-    name: "T.Silva",
-    number: 6,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "CHE")!,
-  },
-  {
-    name: "B.Fernandes",
-    number: 18,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "MUN")!,
-  },
-  {
-    name: "K.Mitoma",
-    number: 22,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "BRI")!,
-  },
-  {
-    name: "M.Antonio",
-    number: 9,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "WES")!,
-  },
-  {
-    name: "J.Sarr",
-    number: 1,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "WOL")!,
-  },
-  {
-    name: "B.Guimaraes",
-    number: 39,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "NEW")!,
-  },
-  {
-    name: "L.Digne",
-    number: 12,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "AST")!,
   },
 ];
