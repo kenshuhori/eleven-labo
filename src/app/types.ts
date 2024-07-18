@@ -72,8 +72,10 @@ type GroupedPlayerSelectOption = {
 };
 
 type Team = {
-  code: string;
+  id: number;
   name: string;
+  code: string;
+  logo: string;
   backgroundColor: string;
   borderColor: string;
   color: string;
