@@ -1,5 +1,7 @@
 ## Eleven Labo | ベストイレブン研究所
 
+See https://eleven-labo.vercel.app/
+
 <table>
   <tr>
     <td><img src="./public/readme/concept1.gif"></td>
@@ -22,3 +24,10 @@
 </div>
 
 ## Getting Started
+
+## 開発者向け
+
+- [Vercel | Eleven Labo](https://vercel.com/kenshuhoris-projects/eleven-labo)
+- [Clerk | Eleven Labo](https://dashboard.clerk.com/apps/app_2iii3RLAoJrF3EfkSUtBqWRtcGl/instances/ins_2iii3P9Y06xFeEr9Di1hvyPVDGA)
+- [Figma | Eleven Labo](https://www.figma.com/files/team/1378738534124220787/project/239964492?fuid=1378738532096732362)
+
