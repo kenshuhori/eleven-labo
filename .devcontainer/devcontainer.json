@@ -18,5 +18,6 @@
   },
   "name": "eleven-labo",
   "service": "workspace",
-  "workspaceFolder": "/usr/src/app"
+  "workspaceFolder": "/usr/src/app",
+	"postCreateCommand": "yarn install"
 }
