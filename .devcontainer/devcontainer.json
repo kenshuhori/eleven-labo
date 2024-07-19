@@ -1,23 +1,18 @@
 {
   "customizations": {
     "vscode": {
-      "extensions": [
-        "biomejs.biome",
-        "ms-azuretools.vscode-docker"
-      ],
+      "extensions": ["biomejs.biome", "ms-azuretools.vscode-docker"],
       "settings": {
         "files.insertFinalNewline": true
       }
     }
   },
-  "dockerComposeFile": [
-    "compose.yaml"
-  ],
+  "dockerComposeFile": ["compose.yaml"],
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   },
   "name": "eleven-labo",
   "service": "workspace",
   "workspaceFolder": "/usr/src/app",
-	"postCreateCommand": "yarn install"
+  "postCreateCommand": "yarn install"
 }
