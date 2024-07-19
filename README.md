@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Eleven Labo | ベストイレブン研究所
+
+See https://eleven-labo.vercel.app/
+
+<table>
+  <tr>
+    <td><img src="./public/readme/concept1.gif"></td>
+    <td><img src="./public/readme/concept2.jpg"></td>
+  </tr>
+</table>
+
+## 使用技術・利用サービス
+
+<div style="display:flex; gap:8px">
+  <img src="https://img.shields.io/badge/-Vercel-000000?style=flat&logoColor=white&logo=vercel">
+  <img src="https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat&logoColor=white&logo=postgreSQL">
+  <img src="https://img.shields.io/badge/-Clerk-6C47FF?style=flat&logoColor=white&logo=clerk">
+  <img src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat&logoColor=white&logo=typescript">
+  <img src="https://img.shields.io/badge/-Next.js-000000?style=flat&logoColor=white&logo=nextdotjs">
+  <img src="https://img.shields.io/badge/-Figma-F24E1E?style=flat&logoColor=white&logo=figma">
+  <img src="https://img.shields.io/badge/-Storybook-FF4785?style=flat&logoColor=white&logo=storybook">
+  <img src="https://img.shields.io/badge/-Chakura%20UI-319795?style=flat&logoColor=white&logo=chakraui">
+  <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-5C2D91?style=flat&logoColor=white&logo=visual-studio">
+</div>
 
 ## Getting Started
 
-First, run the development server:
+開発には VSCode・devContainer(Docker) を利用しています
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```.sh
+# 1. VScode・devContainer を起動
+
+# 2. .env.local を作成
+$ cp .env.dist .env.local
+
+# 3. 開発環境 起動
+$ yarn dev // http://localhost:3000
+
+# 4. Storybook 起動
+$ yarn storybook // http://localhost:6006
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 環境変数
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+値についてはコードオーナーから受領してください
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Key | Description |
+| ---- | ---- |
+| NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY | Clerkの利用に必要 |
+| CLERK_SECRET_KEY | Clerkの利用に必要 |
+| POSTGRES_URL | Vercel Storage の DB 利用に必要 |
+| POSTGRES_PRISMA_URL | Vercel Storage の DB 利用に必要 |
+| POSTGRES_URL_NO_SSL | Vercel Storage の DB 利用に必要 |
+| POSTGRES_URL_NON_POOLING | Vercel Storage の DB 利用に必要 |
+| POSTGRES_USER | Vercel Storage の DB ユーザ名 |
+| POSTGRES_HOST | Vercel Storage の DB ホスト名 |
+| POSTGRES_PASSWORD | Vercel Storage の DB パスワード |
+| POSTGRES_DATABASE | Vercel Storage の DB 名 |
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 管理者向け
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Vercel | Eleven Labo](https://vercel.com/kenshuhoris-projects/eleven-labo)
+- [Clerk | Eleven Labo](https://dashboard.clerk.com/apps/app_2iii3RLAoJrF3EfkSUtBqWRtcGl/instances/ins_2iii3P9Y06xFeEr9Di1hvyPVDGA)
+- [Figma | Eleven Labo](https://www.figma.com/files/team/1378738534124220787/project/239964492?fuid=1378738532096732362)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
