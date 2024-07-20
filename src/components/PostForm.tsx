@@ -16,7 +16,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
   const toast = useToast();
 
   const onSubmit = (formData: FormData) => {
-    createPost(formData, theme);
+    createPost(formData);
     toast({
       title: "投稿しました",
       position: "top",
@@ -31,6 +31,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
   return (
     <form action={onSubmit} style={baseStyle}>
       <ThemeHeader title={theme.title} />
+      <input name="themeId" style={{ display: "none" }} value={theme.id} />
       <Formation formation={defaultFormation} />
       <textarea name="description" placeholder={placeholder} style={textareaStyle} />
       <Button style={submitType} type={"submit"}>

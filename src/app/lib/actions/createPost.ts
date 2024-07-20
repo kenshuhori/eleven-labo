@@ -3,8 +3,9 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function createPost(formData: FormData, theme: Theme) {
+export async function createPost(formData: FormData) {
   const {
+    themeId,
     description,
     formation,
     position1,
@@ -19,6 +20,7 @@ export async function createPost(formData: FormData, theme: Theme) {
     position10,
     position11,
   } = {
+    themeId: formData.get("themeId"),
     description: formData.get("description"),
     formation: formData.get("formation"),
     position1: formData.get("position1"),
@@ -34,6 +36,7 @@ export async function createPost(formData: FormData, theme: Theme) {
     position11: formData.get("position11"),
   };
 
+  console.log(themeId);
   console.log(description);
   console.log(formation);
   console.log(position1);
@@ -48,6 +51,6 @@ export async function createPost(formData: FormData, theme: Theme) {
   console.log(position10);
   console.log(position11);
 
-  revalidatePath(`/themes/${theme.id}`);
-  redirect(`/themes/${theme.id}`);
+  revalidatePath(`/themes/${themeId}`);
+  redirect(`/themes/${themeId}`);
 }
