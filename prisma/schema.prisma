@@ -11,5 +11,12 @@ model Formation {
   id         Int      @id @default(autoincrement())
   code       String
   name       String
-  created_at DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Theme {
+  id        Int      @id @default(autoincrement())
+  title     String
+  likeCount String
+  createdAt DateTime @default(now())
 }
