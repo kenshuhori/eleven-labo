@@ -31,7 +31,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
   return (
     <form action={onSubmit} style={baseStyle}>
       <ThemeHeader title={theme.title} />
-      <input name="themeId" style={{ display: "none" }} value={theme.id} />
+      <input name="themeId" style={{ display: "none" }} value={theme.id} readOnly />
       <Formation formation={defaultFormation} />
       <textarea name="description" placeholder={placeholder} style={textareaStyle} />
       <Button style={submitType} type={"submit"}>

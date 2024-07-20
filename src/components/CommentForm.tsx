@@ -26,7 +26,7 @@ export const CommentForm = ({ postId, style }: CommentFormProps) => {
 
   return (
     <form action={onSubmit} ref={ref} style={{ ...baseStyle, ...style }}>
-      <input name="postId" style={{ display: "none" }} value={postId} />
+      <input name="postId" style={{ display: "none" }} value={postId} readOnly />
       <textarea name={"comment"} placeholder={"コメントを追加..."} style={textareaStyle} />
       <Button style={buttonStyle} type="submit">
         {"投稿"}
