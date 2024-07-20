@@ -1,25 +1,35 @@
+import { createComment } from "@/app/lib/actions";
 import { colorCode } from "@/constants";
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import { type CSSProperties, useRef } from "react";
 
-interface BottomFormProps {
-  label: string;
-  onSubmit: (formData: FormData) => void;
+interface CommentFormProps {
+  postId: number;
   style?: CSSProperties;
 }
 
-export const BottomForm = ({ label, onSubmit, style }: BottomFormProps) => {
+export const CommentForm = ({ postId, style }: CommentFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
-  const onClick = (formData: FormData) => {
-    onSubmit(formData);
+  const toast = useToast();
+
+  const onSubmit = async (formData: FormData) => {
+    createComment(formData, postId);
     ref.current?.reset();
+    toast({
+      title: "コメントしました",
+      position: "top",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (
-    <form action={onClick} ref={ref} style={{ ...baseStyle, ...style }}>
+    <form action={onSubmit} ref={ref} style={{ ...baseStyle, ...style }}>
+      <input name="postId" style={{ display: "none" }} value={postId} />
       <textarea name={"comment"} placeholder={"コメントを追加..."} style={textareaStyle} />
       <Button style={buttonStyle} type="submit">
-        {label}
+        {"投稿"}
       </Button>
     </form>
   );

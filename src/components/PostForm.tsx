@@ -1,6 +1,6 @@
 "use client";
 
-import { createPost } from "@/app/lib/actions/createPost";
+import { createPost } from "@/app/lib/actions";
 import { Formation } from "@/components/Formation";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";

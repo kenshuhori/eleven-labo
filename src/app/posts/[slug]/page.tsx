@@ -1,7 +1,7 @@
 "use client";
 
-import { BottomForm } from "@/components/BottomForm";
 import { Comment } from "@/components/Comment";
+import { CommentForm } from "@/components/CommentForm";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
@@ -20,26 +20,11 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   const postSlug = params.slug;
 
-  const router = useRouter();
-  const toast = useToast();
-
   const { isSignedIn } = useAuth();
 
   const theme: Theme = defaultTheme;
 
   const postProps = { ...defaultPost, fullSentence: true };
-
-  const onSubmit = async (formData: FormData) => {
-    console.log(formData.get("comment"));
-    toast({
-      title: "コメントしました",
-      position: "top",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-    router.replace(`/posts/${postSlug}`);
-  };
 
   return (
     <main style={baseStyle}>
@@ -57,7 +42,7 @@ export default function Page({ params }: { params: PageProps }) {
           );
         })}
       </div>
-      {isSignedIn && <BottomForm label={"投稿"} onSubmit={onSubmit} />}
+      {isSignedIn && <CommentForm postId={postProps.id} />}
     </main>
   );
 }
