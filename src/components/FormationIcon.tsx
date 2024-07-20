@@ -69,10 +69,10 @@ const baseStyle: CSSProperties = {
 
 const buttonStyle: CSSProperties = {
   backgroundColor: colorCode.white,
-  border: "2px solid #E6b422",
+  border: `2px solid ${colorCode.lightOrange}`,
   color: colorCode.black,
   fontSize: "1.1rem",
   height: "3.5rem",
-  textShadow: "1px 1px 1px #E6b422",
+  textShadow: `1px 1px 1px ${colorCode.lightOrange}`,
   width: "12rem",
 };
