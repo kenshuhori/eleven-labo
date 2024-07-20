@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import { players } from "@/fixtures/players";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
@@ -27,12 +28,12 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
     return context === "menu" ? (
       <div
         style={{
-          padding: "1px",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
-        <div>
-          <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
-        </div>
+        <span style={optionStyle}>{data.name}</span>
+        <span style={numberStyle(data.team)}>{data.number}</span>
       </div>
     ) : (
       <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
@@ -54,8 +55,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
             ...base,
             backgroundColor: data.team.backgroundColor,
             color: data.team.color,
-            textShadow: `1px 1px ${data.team.textShadowColor}`,
-            border: isFocused ? `3px solid ${data.team.borderColor}` : "none",
+            filter: isFocused ? `drop-shadow(0px 1px 3px ${colorCode.black})` : "none",
           }),
         }}
       />
@@ -67,4 +67,19 @@ const optionStyle: CSSProperties = {
   fontSize: "1.2rem",
   fontWeight: 700,
   letterSpacing: "1px",
+};
+
+const numberStyle = (team: Team): CSSProperties => {
+  return {
+    backgroundColor: team.backgroundColor,
+    border: `2px solid ${team.borderColor}`,
+    borderRadius: "50%",
+    color: team.color,
+    fontSize: "1.1rem",
+    fontWeight: "700",
+    height: "2rem",
+    textAlign: "center",
+    filter: `drop-shadow(2px 4px 2px ${colorCode.black})`,
+    width: "2rem",
+  };
 };
