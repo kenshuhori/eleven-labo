@@ -9,8 +9,10 @@ export const serviceImageUrl = "https://eleven-labo.vercel.app/api/og";
 export const colorCode = {
   black: "#000000",
   blue: "#1a75ff",
+  creme: "#FFF6C5",
   darkGray: "#555555",
   gray: "#DDDDDD",
+  green: "#289A0B",
   lightGray: "#F0F0F0",
   lightOrange: "#E6b422",
   liked: "#FF69B4",
