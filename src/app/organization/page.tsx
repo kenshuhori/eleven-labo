@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import { OrganizationList } from "@clerk/nextjs";
 import type { CSSProperties } from "react";
 
@@ -14,5 +15,5 @@ const baseStyle: CSSProperties = {
   justifyContent: "center",
   alignItems: "center",
   height: "500px",
-  backgroundColor: "#f0f0f0",
+  backgroundColor: colorCode.lightGray,
 };
