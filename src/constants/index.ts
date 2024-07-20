@@ -7,6 +7,7 @@ export const serviceUrl = "https://eleven-labo.vercel.app/";
 export const serviceImageUrl = "https://eleven-labo.vercel.app/api/og";
 
 export const colorCode = {
+  black: "#000000",
   liked: "#FF69B4",
   white: "#FFFFFF",
 };

@@ -59,7 +59,7 @@ const baseStyle: React.CSSProperties = {
 };
 
 const submitType: React.CSSProperties = {
-  backgroundColor: "#000000",
+  backgroundColor: colorCode.black,
   color: colorCode.white,
   fontSize: "1.2rem",
   fontWeight: "700",

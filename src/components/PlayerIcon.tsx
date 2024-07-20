@@ -73,7 +73,7 @@ const playerIconStyle = (team: Team): CSSProperties => {
     fontWeight: "1000",
     height: "3.5rem",
     textShadow: team.textShadowColor ? `1px 1px ${team.textShadowColor}` : "unset",
-    filter: "drop-shadow(2px 4px 2px #000000)",
+    filter: `drop-shadow(2px 4px 2px ${colorCode.black})`,
     width: "3.5rem",
   };
 };
@@ -84,6 +84,6 @@ const playerNameStyle: CSSProperties = {
   fontWeight: "1000",
   lineHeight: "1.2",
   textAlign: "center",
-  textShadow: "2px 2px #000000",
+  textShadow: `2px 2px ${colorCode.black}`,
   width: "7rem",
 };

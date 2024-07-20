@@ -42,7 +42,7 @@ const baseStyle: CSSProperties = {
 
 const likedIconStyle: CSSProperties = {
   borderColor: colorCode.liked,
-  filter: "drop-shadow(0 0 2px #000000)",
+  filter: `drop-shadow(0 0 2px ${colorCode.black})`,
   fill: colorCode.liked,
   height: "1.2rem",
   width: "1.2rem",
@@ -50,7 +50,7 @@ const likedIconStyle: CSSProperties = {
 
 const iconStyle: CSSProperties = {
   fill: colorCode.white,
-  filter: "drop-shadow(0 0 2px #000000)",
+  filter: `drop-shadow(0 0 2px ${colorCode.black})`,
   height: "1.2rem",
   width: "1.2rem",
 };

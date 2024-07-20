@@ -42,7 +42,7 @@ const baseStyle: CSSProperties = {
 };
 
 const buttonStyle: CSSProperties = {
-  backgroundColor: "#000000",
+  backgroundColor: colorCode.black,
   color: colorCode.white,
   fontSize: "1.2rem",
   fontWeight: "700",

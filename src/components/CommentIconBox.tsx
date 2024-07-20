@@ -25,7 +25,7 @@ const baseStyle: CSSProperties = {
 
 const iconStyle: CSSProperties = {
   fill: colorCode.white,
-  filter: "drop-shadow(0 0 1px #000000)",
+  filter: `drop-shadow(0 0 1px ${colorCode.black})`,
   height: "1.2rem",
   width: "1.2rem",
 };
