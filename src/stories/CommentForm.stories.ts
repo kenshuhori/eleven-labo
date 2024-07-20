@@ -9,12 +9,10 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    onSubmit: { action: "submit" },
     postId: { control: "number" },
     style: { control: "object" },
   },
   args: {
-    onSubmit: () => {},
     postId: 0,
     style: {
       width: "34rem",
