@@ -7,18 +7,9 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Team {
-  code              String
-  name              String
-  background_color  String
-  border_color      String
-  color             String
-  text_shadow_color String
-}
-
-model Themes {
-  title      String
-  like_count Int
-  post_count Int
+model Formation {
+  id         Int      @id @default(autoincrement())
+  code       String
+  name       String
   created_at DateTime @default(now())
 }
