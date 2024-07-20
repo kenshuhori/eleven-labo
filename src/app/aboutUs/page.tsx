@@ -12,6 +12,6 @@ const baseStyle: CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "400px",
+  height: "500px",
   backgroundColor: "#f0f0f0",
 };

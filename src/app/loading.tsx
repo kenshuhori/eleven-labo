@@ -1,12 +1,9 @@
+import { Skeleton } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
 
-export default function Page() {
-  return (
-    <main style={baseStyle}>
-      <h1>Contact | Eleven Labo</h1>
-    </main>
-  );
-}
+const Loading = () => {
+  return <Skeleton style={baseStyle} />;
+};
 
 const baseStyle: CSSProperties = {
   display: "flex",
@@ -15,3 +12,5 @@ const baseStyle: CSSProperties = {
   height: "500px",
   backgroundColor: "#f0f0f0",
 };
+
+export default Loading;
