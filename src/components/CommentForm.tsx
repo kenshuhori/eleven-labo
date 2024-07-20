@@ -13,7 +13,7 @@ export const CommentForm = ({ postId, style }: CommentFormProps) => {
   const toast = useToast();
 
   const onSubmit = async (formData: FormData) => {
-    createComment(formData, postId);
+    createComment(formData);
     ref.current?.reset();
     toast({
       title: "コメントしました",

@@ -11,6 +11,10 @@ export async function createTheme(formData: FormData) {
     post_count: formData.get("post_count") || 0,
   };
 
+  console.log(title);
+  console.log(like_count);
+  console.log(post_count);
+
   if (title === null) {
     return;
   }
