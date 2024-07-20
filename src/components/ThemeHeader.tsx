@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import type React from "react";
 
 interface ThemeHeaderProps {
