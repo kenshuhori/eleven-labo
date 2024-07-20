@@ -1,5 +1,4 @@
 import { colorCode } from "@/constants";
-import { color } from "framer-motion";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
 
@@ -34,7 +33,7 @@ const baseStyle: CSSProperties = {
 };
 
 const buttonStyle: CSSProperties = {
-  backgroundColor: "#1a75ff",
+  backgroundColor: colorCode.blue,
   color: colorCode.white,
   fontSize: "1.2rem",
   fontWeight: "700",
