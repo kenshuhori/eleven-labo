@@ -20,7 +20,10 @@ const meta = {
     style: { control: "object" },
   },
   args: {
-    formation: undefined,
+    formation: {
+      name: "4-4-2",
+      code: "4-4-2",
+    },
     onChange: () => {},
     style: {
       width: "20rem",
