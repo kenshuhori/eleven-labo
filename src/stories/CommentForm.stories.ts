@@ -1,26 +1,24 @@
+import { CommentForm } from "@/components/CommentForm";
 import type { Meta, StoryObj } from "@storybook/react";
-import { BottomForm } from "../components/BottomForm";
 
 const meta = {
-  title: "ElevenLabo/BottomForm",
-  component: BottomForm,
+  title: "ElevenLabo/CommentForm",
+  component: CommentForm,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
   argTypes: {
-    label: { control: "text" },
-    onSubmit: { action: "submit" },
+    postId: { control: "number" },
     style: { control: "object" },
   },
   args: {
-    label: "投稿",
-    onSubmit: () => {},
+    postId: 0,
     style: {
       width: "34rem",
     },
   },
-} satisfies Meta<typeof BottomForm>;
+} satisfies Meta<typeof CommentForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
