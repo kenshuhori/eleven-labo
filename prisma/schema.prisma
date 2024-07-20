@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Formation {
-  id         Int      @id @default(autoincrement())
+  id         Int     @id @default(autoincrement())
   code       String
   name       String
   createdAt DateTime @default(now())
@@ -19,4 +19,16 @@ model Theme {
   title     String
   likeCount String
   createdAt DateTime @default(now())
+}
+
+model Team {
+  id              Int      @id @default(autoincrement())
+  name            String
+  code            String
+  logo            String
+  backgroundColor String   @default("#FFFFFF")
+  color           String   @default("#000000")
+  borderColor     String   @default("#000000")
+  textShadowColor String
+  createdAt       DateTime @default(now())
 }
