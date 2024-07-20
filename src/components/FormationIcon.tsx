@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import {
   Button,
   Modal,
@@ -67,7 +68,7 @@ const baseStyle: CSSProperties = {
 };
 
 const buttonStyle: CSSProperties = {
-  backgroundColor: "#FFFFFF",
+  backgroundColor: colorCode.white,
   border: "2px solid #E6b422",
   color: "#000000",
   fontSize: "1.1rem",

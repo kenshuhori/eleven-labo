@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import { Button } from "@chakra-ui/react";
 import { type CSSProperties, useRef } from "react";
 
@@ -26,7 +27,7 @@ export const BottomForm = ({ label, onSubmit, style }: BottomFormProps) => {
 
 const baseStyle: CSSProperties = {
   alignItems: "center",
-  backgroundColor: "#FFFFFF",
+  backgroundColor: colorCode.white,
   position: "sticky",
   left: 0,
   right: 0,
@@ -42,7 +43,7 @@ const baseStyle: CSSProperties = {
 
 const buttonStyle: CSSProperties = {
   backgroundColor: "#000000",
-  color: "#FFFFFF",
+  color: colorCode.white,
   fontSize: "1.2rem",
   fontWeight: "700",
   lineHeight: "38px",

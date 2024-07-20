@@ -1,4 +1,5 @@
 import { serviceTitle } from "@/constants";
+import { colorCode } from "@/constants";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
 
@@ -18,7 +19,7 @@ export const Footer = () => (
 
 const baseStyle: CSSProperties = {
   backgroundColor: "#555555",
-  color: "#ffffff",
+  color: colorCode.white,
   display: "flex",
   flexDirection: "column",
   padding: "20px",

@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import { PostIcon } from "@public/postIcon";
 import type React from "react";
 import type { CSSProperties } from "react";
@@ -23,7 +24,7 @@ const baseStyle: CSSProperties = {
 };
 
 const iconStyle: CSSProperties = {
-  fill: "#FFFFFF",
+  fill: colorCode.white,
   filter: "drop-shadow(0 0 1px #000000)",
   height: "1.2rem",
   width: "1.2rem",

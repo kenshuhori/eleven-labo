@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "./PlayerSelect";
@@ -78,7 +79,7 @@ const playerIconStyle = (team: Team): CSSProperties => {
 };
 
 const playerNameStyle: CSSProperties = {
-  color: "#FFFFFF",
+  color: colorCode.white,
   fontSize: "1.0rem",
   fontWeight: "1000",
   lineHeight: "1.2",
