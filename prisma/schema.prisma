@@ -29,6 +29,6 @@ model Team {
   backgroundColor String   @default("#FFFFFF")
   color           String   @default("#000000")
   borderColor     String   @default("#000000")
-  textShadowColor String
+  textShadowColor String   @default("")
   createdAt       DateTime @default(now())
 }
