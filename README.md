@@ -73,7 +73,10 @@ $ yarn storybook // http://localhost:6006
 #### データベース管理
 
 ```sh
-# DB構成の変更
+# 現在のDB構成を prisma/schema.prisma に反映する
+$ npx prisma db pull
+
+# DB構成の変更、反映
 # prisma/schema.prisma を変更する
 $ npx prisma db push
 
