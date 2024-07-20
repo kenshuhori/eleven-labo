@@ -1,5 +1,6 @@
 import { LikeIconButton } from "@/components/LikeIconButton";
 import { PostIconBox } from "@/components/PostIconBox";
+import { colorCode } from "@/constants";
 import { transformAgo } from "@/utils/ago";
 import Link from "next/link";
 import type React from "react";
@@ -50,7 +51,7 @@ const createdAtStyle: CSSProperties = {
 };
 
 const navigateStyle: CSSProperties = {
-  color: "#E06E05",
+  color: colorCode.orange,
   fontSize: "1rem",
   fontWeight: "bold",
 };

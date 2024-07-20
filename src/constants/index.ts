@@ -11,5 +11,6 @@ export const colorCode = {
   gray: "#DDDDDD",
   lightGray: "#F0F0F0",
   liked: "#FF69B4",
+  orange: "#E06E05",
   white: "#FFFFFF",
 };

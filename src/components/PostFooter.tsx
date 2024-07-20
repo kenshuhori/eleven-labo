@@ -1,5 +1,6 @@
 import { CommentIconBox } from "@/components/CommentIconBox";
 import { LikeIconButton } from "@/components/LikeIconButton";
+import { colorCode } from "@/constants";
 import { omit } from "@/utils/omitText";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
@@ -59,5 +60,5 @@ const iconsStyle: CSSProperties = {
 
 const navigateStyle: CSSProperties = {
   borderBottom: "1px dotted",
-  color: "#E06E05",
+  color: colorCode.orange,
 };
