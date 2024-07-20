@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import {
   Button,
   Modal,
@@ -63,15 +64,15 @@ const baseStyle: CSSProperties = {
   bottom: "1rem",
   position: "absolute",
   right: "0.7rem",
-  filter: "drop-shadow(4px 4px 4px #000000)",
+  filter: `drop-shadow(4px 4px 4px ${colorCode.black})`,
 };
 
 const buttonStyle: CSSProperties = {
-  backgroundColor: "#FFFFFF",
-  border: "2px solid #E6b422",
-  color: "#000000",
+  backgroundColor: colorCode.white,
+  border: `2px solid ${colorCode.lightOrange}`,
+  color: colorCode.black,
   fontSize: "1.1rem",
   height: "3.5rem",
-  textShadow: "1px 1px 1px #E6b422",
+  textShadow: `1px 1px 1px ${colorCode.lightOrange}`,
   width: "12rem",
 };

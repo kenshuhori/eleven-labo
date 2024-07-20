@@ -1,4 +1,4 @@
-import { likedColorCode } from "@/constants";
+import { colorCode } from "@/constants";
 import { HeartIcon } from "@public/heartIcon";
 import type React from "react";
 import { type CSSProperties, useCallback, useState } from "react";
@@ -41,16 +41,16 @@ const baseStyle: CSSProperties = {
 };
 
 const likedIconStyle: CSSProperties = {
-  borderColor: likedColorCode,
-  filter: "drop-shadow(0 0 2px #000000)",
-  fill: likedColorCode,
+  borderColor: colorCode.liked,
+  filter: `drop-shadow(0 0 2px ${colorCode.black})`,
+  fill: colorCode.liked,
   height: "1.2rem",
   width: "1.2rem",
 };
 
 const iconStyle: CSSProperties = {
-  fill: "#FFFFFF",
-  filter: "drop-shadow(0 0 2px #000000)",
+  fill: colorCode.white,
+  filter: `drop-shadow(0 0 2px ${colorCode.black})`,
   height: "1.2rem",
   width: "1.2rem",
 };

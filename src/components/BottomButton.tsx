@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
 
@@ -18,7 +19,7 @@ export const BottomButton = ({ label, href, style }: BottomButtonProps) => {
 };
 
 const baseStyle: CSSProperties = {
-  backgroundColor: "#FFFFFF",
+  backgroundColor: colorCode.white,
   position: "sticky",
   left: 0,
   right: 0,
@@ -26,14 +27,14 @@ const baseStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   padding: "12px",
-  boxShadow: "0 -2px 4px 0 #DDDDDD",
+  boxShadow: `0 -2px 4px 0 ${colorCode.gray}`,
   width: "100%",
   zIndex: 100,
 };
 
 const buttonStyle: CSSProperties = {
-  backgroundColor: "#1a75ff",
-  color: "#FFFFFF",
+  backgroundColor: colorCode.blue,
+  color: colorCode.white,
   fontSize: "1.2rem",
   fontWeight: "700",
   lineHeight: "38px",

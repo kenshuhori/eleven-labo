@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import type { CSSProperties } from "react";
 
 export default function Page() {
@@ -12,6 +13,6 @@ const baseStyle: CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "400px",
-  backgroundColor: "#f0f0f0",
+  height: "500px",
+  backgroundColor: colorCode.lightGray,
 };

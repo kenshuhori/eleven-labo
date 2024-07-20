@@ -1,3 +1,4 @@
+import { colorCode } from "@/constants";
 import type React from "react";
 
 interface ThemeHeaderProps {
@@ -19,7 +20,7 @@ const baseStyle: React.CSSProperties = {
 };
 
 const headerStyle: React.CSSProperties = {
-  background: "linear-gradient(transparent 60%, #E6b422 100%)",
+  background: `linear-gradient(transparent 60%, ${colorCode.lightOrange} 100%)`,
   display: "inline",
   fontSize: "1.4rem",
   fontWeight: "700",

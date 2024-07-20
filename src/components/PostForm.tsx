@@ -2,6 +2,7 @@
 
 import { Formation } from "@/components/Formation";
 import { ThemeHeader } from "@/components/ThemeHeader";
+import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
 import { Button, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
@@ -58,8 +59,8 @@ const baseStyle: React.CSSProperties = {
 };
 
 const submitType: React.CSSProperties = {
-  backgroundColor: "#000000",
-  color: "#FFFFFF",
+  backgroundColor: colorCode.black,
+  color: colorCode.white,
   fontSize: "1.2rem",
   fontWeight: "700",
   padding: "1.8rem",

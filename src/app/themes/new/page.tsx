@@ -1,4 +1,5 @@
 import { createTheme } from "@/app/lib/actions";
+import { colorCode } from "@/constants";
 import type { CSSProperties } from "react";
 
 export default async function Page() {
@@ -25,7 +26,7 @@ export default async function Page() {
 
 const baseStyle: CSSProperties = {
   alignItems: "center",
-  backgroundColor: "#EEEEEE",
+  backgroundColor: colorCode.lightGray,
   display: "flex",
   flexDirection: "column",
   gap: "8px",

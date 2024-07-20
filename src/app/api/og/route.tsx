@@ -1,4 +1,5 @@
 import { serviceDescriptionShort, serviceTitle } from "@/constants";
+import { colorCode } from "@/constants";
 import { EyeCatchImage } from "@public/ogp/eyeCatchImage";
 import { ServiceLogo } from "@public/ogp/serviceLogo";
 import { ImageResponse } from "next/og";
@@ -39,7 +40,7 @@ export async function GET(request: NextRequest) {
 
 const baseStyle: CSSProperties = {
   alignItems: "center",
-  background: "#289A0B",
+  background: colorCode.green,
   display: "flex",
   height: "100%",
   justifyContent: "center",
@@ -47,9 +48,9 @@ const baseStyle: CSSProperties = {
 };
 
 const mainStyle: CSSProperties = {
-  background: "#FFF6C5",
+  background: colorCode.creme,
   borderRadius: "20px",
-  boxShadow: "0 0 8px #777777",
+  boxShadow: `0 0 8px ${colorCode.darkGray}`,
   display: "flex",
   gap: "30px",
   height: "570px",
