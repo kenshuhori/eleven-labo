@@ -18,7 +18,7 @@ export const Footer = () => (
 );
 
 const baseStyle: CSSProperties = {
-  backgroundColor: "#555555",
+  backgroundColor: colorCode.darkGray,
   color: colorCode.white,
   display: "flex",
   flexDirection: "column",
