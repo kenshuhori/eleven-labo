@@ -36,7 +36,7 @@ const baseStyle: CSSProperties = {
   flexDirection: "row",
   gap: "1rem",
   padding: "1rem",
-  boxShadow: "0 -2px 4px 0 #DDDDDD",
+  boxShadow: `0 -2px 4px 0 ${colorCode.gray}`,
   width: "100%",
   zIndex: 100,
 };

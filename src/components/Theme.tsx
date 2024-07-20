@@ -33,7 +33,7 @@ export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps
 };
 
 const baseStyle: CSSProperties = {
-  borderBottom: "1px solid #DDDDDD",
+  borderBottom: `1px solid ${colorCode.gray}`,
   height: "10rem",
   padding: "12px 18px",
   position: "relative",

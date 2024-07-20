@@ -28,7 +28,7 @@ const baseStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   padding: "12px",
-  boxShadow: "0 -2px 4px 0 #DDDDDD",
+  boxShadow: `0 -2px 4px 0 ${colorCode.gray}`,
   width: "100%",
   zIndex: 100,
 };

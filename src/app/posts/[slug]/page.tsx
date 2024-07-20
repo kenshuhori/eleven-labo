@@ -4,6 +4,7 @@ import { BottomForm } from "@/components/BottomForm";
 import { Comment } from "@/components/Comment";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
+import { colorCode } from "@/constants";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
@@ -50,7 +51,7 @@ export default function Page({ params }: { params: PageProps }) {
         {comments.map((comment) => {
           return (
             <Fragment key={comment.id}>
-              <div style={{ border: "1px dashed #DDDDDD" }} />
+              <div style={{ border: `1px dashed ${colorCode.gray}` }} />
               <Comment {...comment} />
             </Fragment>
           );
