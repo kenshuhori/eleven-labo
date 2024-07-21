@@ -1,4 +1,5 @@
 import { colorCode } from "@/constants";
+import { serviceTitleShort } from "@/constants";
 import { Flex } from "@chakra-ui/react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
@@ -12,7 +13,9 @@ export default function Layout({
   return (
     <div>
       <Flex style={headerStyle}>
-        <div>{"Header"}</div>
+        <Link href="/admin" passHref>
+          <h1 style={headerH1Style}>{serviceTitleShort}</h1>
+        </Link>
         <SignedOut>
           <SignInButton />
         </SignedOut>
@@ -46,6 +49,13 @@ const headerStyle: CSSProperties = {
   height: "70px",
   justifyContent: "space-between",
   padding: "10px 20px",
+};
+
+const headerH1Style: CSSProperties = {
+  fontWeight: 700,
+  fontSize: "1.7rem",
+  lineHeight: 1,
+  margin: "6px 0 6px 6px",
 };
 
 const bodyStyle: CSSProperties = {
