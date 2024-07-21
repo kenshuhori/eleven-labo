@@ -2,6 +2,7 @@ import { LikeIconButton } from "@/components/LikeIconButton";
 import { PostIconBox } from "@/components/PostIconBox";
 import { colorCode } from "@/constants";
 import { transformAgo } from "@/utils/ago";
+import { Skeleton } from "@chakra-ui/react";
 import Link from "next/link";
 import type React from "react";
 import type { CSSProperties } from "react";
@@ -30,6 +31,22 @@ export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps
         </div>
       </div>
     </Link>
+  );
+};
+
+export const SkeletonTheme = () => {
+  return (
+    <>
+      <div style={baseStyle}>
+        <Skeleton style={{ height: "3rem", width: "100%" }} />
+        <Skeleton style={{ height: "1.2rem", width: "6rem" }} />
+        <Skeleton style={{ height: "1.2rem", width: "6rem" }} />
+        <div style={footerStyle}>
+          <Skeleton style={{ height: "1.2rem", width: "6rem" }} />
+          <Skeleton style={{ height: "1.2rem", width: "6rem" }} />
+        </div>
+      </div>
+    </>
   );
 };
 
