@@ -65,7 +65,7 @@ $ yarn storybook // http://localhost:6006
 
 #### 各種管理コンソール・開発資料
 
-- [Vercel | Eleven Labo](https://vercel.com/kenshuhoris-projects/eleven-labo)
+- [Vercel | Eleven Labo](https://vercel.com/eleven-labo/eleven-labo)
 - [Clerk | Eleven Labo](https://dashboard.clerk.com/apps/app_2iii3RLAoJrF3EfkSUtBqWRtcGl/instances/ins_2iii3P9Y06xFeEr9Di1hvyPVDGA)
 - [Figma | Eleven Labo](https://www.figma.com/files/team/1378738534124220787/project/239964492?fuid=1378738532096732362)
 - [Slack | Eleven Labo](https://app.slack.com/client/T07DC044G0K/C07DEHMA1V2)
