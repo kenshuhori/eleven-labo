@@ -1,20 +1,28 @@
 "use client";
 
+import { listTheme } from "@/app/actions";
 import { Theme } from "@/components/Theme";
+import type { Theme as ThemeModel } from "@prisma/client";
+import { useCallback, useEffect, useState } from "react";
 
-export default async function Page() {
-  const response = await fetch("http://localhost:3000/api/themes", {
-    cache: "no-store",
-  });
+export default function Page() {
+  const [themes, setThemes] = useState<ThemeModel[]>([]);
 
-  const { themes }: { themes: Theme[] } = await response.json();
+  const fetch = useCallback(async () => {
+    const res = await listTheme();
+    setThemes(res);
+  }, []);
+
+  useEffect(() => {
+    fetch();
+  }, [fetch]);
 
   return (
     <main>
       {themes.map((theme) => {
         return (
           <Theme
-            createdAt={theme.createdAt}
+            createdAt={theme.createdAt.toISOString()}
             id={theme.id}
             likeCount={theme.likeCount}
             postCount={0}
