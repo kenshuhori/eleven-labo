@@ -1,8 +1,7 @@
 "use client";
 
 import { listTheme } from "@/app/actions";
-import { Theme } from "@/components/Theme";
-import { Skeleton } from "@chakra-ui/react";
+import { SkeletonTheme, Theme } from "@/components/Theme";
 import type { Theme as ThemeModel } from "@prisma/client";
 import { useCallback, useEffect, useState } from "react";
 
@@ -20,7 +19,7 @@ export default function Page() {
 
   return (
     <main>
-      {themes.length === 0 && <Skeleton style={{ height: "500px" }} />}
+      {themes.length === 0 && [...Array(4)].map((i) => <SkeletonTheme key={i} />)}
       {themes.map((theme) => {
         return (
           <Theme

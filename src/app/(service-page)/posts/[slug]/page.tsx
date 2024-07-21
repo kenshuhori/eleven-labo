@@ -8,9 +8,7 @@ import { colorCode } from "@/constants";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
 import { defaultTheme } from "@/fixtures/themes";
-import { useToast } from "@chakra-ui/react";
 import { useAuth } from "@clerk/clerk-react";
-import { useRouter } from "next/navigation";
 import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
