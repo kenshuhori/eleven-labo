@@ -35,11 +35,11 @@ See https://eleven-labo.vercel.app/
 # 2. .env.local を作成
 $ cp .env.dist .env.local
 
-# 3. 開発環境 起動
-$ yarn dev // http://localhost:3000
+# 3. 開発環境 起動 (http://localhost:3000)
+$ yarn dev
 
-# 4. Storybook 起動
-$ yarn storybook // http://localhost:6006
+# 4. Storybook 起動 (http://localhost:6006)
+$ yarn storybook
 ```
 
 
@@ -89,6 +89,6 @@ $ yarn prisma db seed
 # マイグレーションの実行
 $ npx prisma migrate deploy
 
-# DB管理コンソールの起動 localhost:5555
+# DB管理コンソールの起動 (http://localhost:5555)
 $ npx prisma studio
 ```
