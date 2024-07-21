@@ -68,6 +68,8 @@ $ yarn storybook // http://localhost:6006
 - [Vercel | Eleven Labo](https://vercel.com/kenshuhoris-projects/eleven-labo)
 - [Clerk | Eleven Labo](https://dashboard.clerk.com/apps/app_2iii3RLAoJrF3EfkSUtBqWRtcGl/instances/ins_2iii3P9Y06xFeEr9Di1hvyPVDGA)
 - [Figma | Eleven Labo](https://www.figma.com/files/team/1378738534124220787/project/239964492?fuid=1378738532096732362)
+- [Slack | Eleven Labo](https://app.slack.com/client/T07DC044G0K/C07DEHMA1V2)
+- [Notion | Eleven Labo](https://www.notion.so/8a1c7f326a074d19b8ea66bc5bd22937)
 
 
 #### データベース管理
