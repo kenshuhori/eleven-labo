@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model Formation {
+  id        Int      @id @default(autoincrement())
+  code      String
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Theme {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+  likeCount Int
+}
+
+model Team {
+  id              Int      @id @default(autoincrement())
+  name            String
+  code            String
+  logo            String
+  backgroundColor String   @default("#FFFFFF")
+  color           String   @default("#000000")
+  borderColor     String   @default("#000000")
+  textShadowColor String   @default("")
+  createdAt       DateTime @default(now())
+}

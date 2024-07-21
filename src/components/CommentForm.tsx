@@ -1,4 +1,4 @@
-import { createComment } from "@/app/lib/actions";
+import { createComment } from "@/app/actions";
 import { colorCode } from "@/constants";
 import { Button, useToast } from "@chakra-ui/react";
 import { type CSSProperties, useRef } from "react";

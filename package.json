@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "format": "biome format --write .",
     "format:check": "biome format .",
@@ -15,12 +15,16 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "prisma": {
+    "seed": "ts-node -r tsconfig-paths/register --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
     "@clerk/nextjs": "^5.2.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@prisma/client": "5.17.0",
     "@vercel/og": "^0.6.2",
     "@vercel/postgres": "^0.9.0",
     "dayjs": "^1.11.11",
@@ -46,7 +50,10 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "prisma": "^5.17.0",
     "storybook": "^8.1.10",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5",
     "vitest": "^2.0.2"
   }

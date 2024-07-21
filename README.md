@@ -9,6 +9,7 @@ See https://eleven-labo.vercel.app/
   </tr>
 </table>
 
+
 ## 使用技術・利用サービス
 
 <div style="display:flex; gap:8px">
@@ -23,11 +24,12 @@ See https://eleven-labo.vercel.app/
   <img src="https://img.shields.io/badge/-Visual%20Studio%20Code-5C2D91?style=flat&logoColor=white&logo=visual-studio">
 </div>
 
+
 ## Getting Started
 
 開発には VSCode・devContainer(Docker) を利用しています
 
-```.sh
+```sh
 # 1. VScode・devContainer を起動
 
 # 2. .env.local を作成
@@ -39,6 +41,7 @@ $ yarn dev // http://localhost:3000
 # 4. Storybook 起動
 $ yarn storybook // http://localhost:6006
 ```
+
 
 ## 環境変数
 
@@ -60,7 +63,28 @@ $ yarn storybook // http://localhost:6006
 
 ## 管理者向け
 
+#### 各種管理コンソール・開発資料
+
 - [Vercel | Eleven Labo](https://vercel.com/kenshuhoris-projects/eleven-labo)
 - [Clerk | Eleven Labo](https://dashboard.clerk.com/apps/app_2iii3RLAoJrF3EfkSUtBqWRtcGl/instances/ins_2iii3P9Y06xFeEr9Di1hvyPVDGA)
 - [Figma | Eleven Labo](https://www.figma.com/files/team/1378738534124220787/project/239964492?fuid=1378738532096732362)
 
+
+#### データベース管理
+
+```sh
+# 現在のDB構成を prisma/schema.prisma に反映する
+$ npx prisma db pull
+
+# DB構成の変更、反映
+# prisma/schema.prisma を変更する
+$ npx prisma db push
+
+$ npx prisma generate
+
+# 初期データ（Seed）の更新
+$ yarn prisma db seed
+
+# DB管理コンソールの起動 localhost:5555
+$ npx prisma studio
+```

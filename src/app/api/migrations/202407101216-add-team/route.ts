@@ -6,8 +6,8 @@ export async function GET(request: Request) {
   try {
     teams.map(async (team) => {
       await sql`
-        INSERT INTO teams (code, name, color, background_color, border_color, text_shadow_color)
-        VALUES (${team.code}, ${team.name}, ${team.color}, ${team.backgroundColor}, ${team.borderColor}, ${team.textShadowColor})
+        INSERT INTO teams (name, code, logo, backgroundColor, borderColor, color, textShadowColor)
+        VALUES (${team.name}, ${team.code}, ${team.logo}, ${team.backgroundColor}, ${team.borderColor}, ${team.color}, ${team.textShadowColor})
       `;
     });
     return NextResponse.json({ status: 200 });
