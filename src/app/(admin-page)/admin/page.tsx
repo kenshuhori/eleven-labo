@@ -1,14 +1,22 @@
 import { colorCode } from "@/constants";
-import { OrganizationList } from "@clerk/nextjs";
 import type { CSSProperties } from "react";
 
 export default function Page() {
   return (
     <main style={baseStyle}>
-      <OrganizationList afterSelectOrganizationUrl={"/"} afterSelectPersonalUrl={"/"} />
+      <h1>Admin | Eleven Labo</h1>
     </main>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => {
+  return (
+    <div>
+      {"あいうえお"}
+      {page}
+    </div>
+  );
+};
 
 const baseStyle: CSSProperties = {
   display: "flex",

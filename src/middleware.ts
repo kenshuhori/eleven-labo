@@ -3,7 +3,11 @@ import { NextResponse } from "next/server";
 
 const isProtectedRoute = createRouteMatcher(["/themes/(.*)/posts/new"]);
 
-const isAdministratordRoute = createRouteMatcher(["/api/jobs/(.*)", "/api/migration/(.*)"]);
+const isAdministratordRoute = createRouteMatcher([
+  "/admin/(.*)",
+  "/api/jobs/(.*)",
+  "/api/migration/(.*)",
+]);
 
 const ORGANIZATION_NAME = "administrator";
 

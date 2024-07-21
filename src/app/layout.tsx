@@ -1,9 +1,8 @@
+import { ChakraProvider } from "@chakra-ui/react";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
-import { Providers } from "./providers";
 import "@/styles/globals.css";
 import { inter } from "@/app/fonts";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { serviceDescription, serviceImageUrl, serviceTitleLong, serviceUrl } from "@/constants";
 
 export const metadata: Metadata = {
@@ -39,13 +38,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <Providers>
-          <div className="global-container">
-            <Header />
-            {children}
-            <Footer />
-          </div>
-        </Providers>
+        <ClerkProvider>
+          <ChakraProvider>{children}</ChakraProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
