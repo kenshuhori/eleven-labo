@@ -1,9 +1,14 @@
 "use client";
 
 import { Theme } from "@/components/Theme";
-import { themes } from "@/fixtures/themes";
 
-export default function Page() {
+export default async function Page() {
+  const response = await fetch("http://localhost:3000/api/themes", {
+    cache: "no-store",
+  });
+
+  const { themes }: { themes: Theme[] } = await response.json();
+
   return (
     <main>
       {themes.map((theme) => {
@@ -12,7 +17,7 @@ export default function Page() {
             createdAt={theme.createdAt}
             id={theme.id}
             likeCount={theme.likeCount}
-            postCount={theme.postCount}
+            postCount={0}
             title={theme.title}
             key={theme.id}
           />
