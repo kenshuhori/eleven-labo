@@ -2,6 +2,7 @@
 
 import { listTheme } from "@/app/actions";
 import { Theme } from "@/components/Theme";
+import { Skeleton } from "@chakra-ui/react";
 import type { Theme as ThemeModel } from "@prisma/client";
 import { useCallback, useEffect, useState } from "react";
 
@@ -19,6 +20,7 @@ export default function Page() {
 
   return (
     <main>
+      {themes.length === 0 && <Skeleton style={{ height: "500px" }} />}
       {themes.map((theme) => {
         return (
           <Theme

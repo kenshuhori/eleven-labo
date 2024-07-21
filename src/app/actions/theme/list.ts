@@ -9,9 +9,6 @@ export const listTheme = async () => {
         createdAt: "desc",
       },
     });
-
-    console.log(themes);
-
     return themes;
   } catch (error) {
     console.error(error);
