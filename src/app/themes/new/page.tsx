@@ -1,4 +1,4 @@
-import { createTheme } from "@/app/lib/actions";
+import { createTheme } from "@/app/actions";
 import { colorCode } from "@/constants";
 import type { CSSProperties } from "react";
 
