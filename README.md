@@ -80,6 +80,8 @@ $ npx prisma db pull
 # prisma/schema.prisma を変更する
 $ npx prisma db push
 
+$ npx prisma generate
+
 # 初期データ（Seed）の更新
 $ yarn prisma db seed
 
