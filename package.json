@@ -12,7 +12,6 @@
     "lint:check": "biome lint .",
     "test": "vitest",
     "tsc": "tsc",
-    "check:all": "yarn format:check && yarn lint:check && yarn tsc && yarn test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
