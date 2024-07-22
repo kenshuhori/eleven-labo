@@ -1,5 +1,6 @@
 "use client";
 
+import { getTheme } from "@/app/actions";
 import { Comment } from "@/components/Comment";
 import { CommentForm } from "@/components/CommentForm";
 import { Post } from "@/components/Post";
@@ -7,44 +8,51 @@ import { ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
-import { defaultTheme } from "@/fixtures/themes";
 import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
+import useSWR from "swr";
 
 interface PageProps {
   postId: string;
+  themeId: string;
 }
 
 export default function Page({ params }: { params: PageProps }) {
-  const postId = params.postId;
-
-  console.log("postId", postId);
+  const { postId, themeId } = params;
 
   const { isSignedIn } = useAuth();
 
-  // const { data: theme, error, isLoading } = useSWR(`themes/${themeSlug}`, getTheme);
+  const { data: theme, error, isLoading } = useSWR(`themes/${themeId}`, getTheme);
 
-  const theme: Theme = defaultTheme;
+  const postProps = { ...defaultPost, fullSentence: true, themeId };
 
-  const postProps = { ...defaultPost, fullSentence: true, themeId: "2" };
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <main style={baseStyle}>
-      <ThemeHeader title={theme.title} />
-      <div style={postStyle}>
-        <Post {...postProps} />
-      </div>
-      <div style={commentsStyle}>
-        {comments.map((comment) => {
-          return (
-            <Fragment key={comment.id}>
-              <div style={{ border: `1px dashed ${colorCode.gray}` }} />
-              <Comment {...comment} />
-            </Fragment>
-          );
-        })}
-      </div>
-      {isSignedIn && <CommentForm postId={postProps.id} />}
+      {isLoading || theme === undefined ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <ThemeHeader title={theme.title} />
+          <div style={postStyle}>
+            <Post {...postProps} />
+          </div>
+          <div style={commentsStyle}>
+            {comments.map((comment) => {
+              return (
+                <Fragment key={comment.id}>
+                  <div style={{ border: `1px dashed ${colorCode.gray}` }} />
+                  <Comment {...comment} />
+                </Fragment>
+              );
+            })}
+          </div>
+          {isSignedIn && <CommentForm postId={postProps.id} />}
+        </>
+      )}
     </main>
   );
 }

@@ -1,6 +1,9 @@
+"use client";
+
+import { getTheme } from "@/app/actions";
 import { PostForm } from "@/components/PostForm";
-import { defaultTheme } from "@/fixtures/themes";
 import type { CSSProperties } from "react";
+import useSWR from "swr";
 
 interface PageProps {
   themeId: string;
@@ -12,7 +15,7 @@ export default function Page({ params }: { params: PageProps }) {
 
   return (
     <main style={baseStyle}>
-      <PostForm theme={theme} />
+      {isLoading || theme === undefined ? <div>Loading...</div> : <PostForm theme={theme} />}
     </main>
   );
 }

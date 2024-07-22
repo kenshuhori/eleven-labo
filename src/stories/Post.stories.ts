@@ -18,6 +18,7 @@ const meta = {
     fullSentence: { control: "boolean" },
     id: { control: "number" },
     likeCount: { control: "number" },
+    themeId: { control: "text" },
   },
   args: {
     author: "John Doe",
@@ -30,6 +31,7 @@ const meta = {
     fullSentence: true,
     id: 1,
     likeCount: 12,
+    themeId: "1",
   },
 } satisfies Meta<typeof Post>;
 
