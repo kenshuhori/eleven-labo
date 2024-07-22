@@ -1,3 +1,4 @@
+import { organizationName } from "@/constants";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
@@ -10,15 +11,13 @@ const isAdministratordRoute = createRouteMatcher([
   "/api/migration/(.*)",
 ]);
 
-const ORGANIZATION_NAME = "administrator";
-
 export default clerkMiddleware((auth, req) => {
   const { orgSlug } = auth();
 
   if (isProtectedRoute(req)) {
     auth().protect();
   }
-  if (isAdministratordRoute(req) && orgSlug !== ORGANIZATION_NAME) {
+  if (isAdministratordRoute(req) && orgSlug !== organizationName) {
     const root = new URL("/", req.url);
     return NextResponse.redirect(root);
   }

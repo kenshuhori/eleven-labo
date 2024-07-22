@@ -7,11 +7,22 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Formation {
-  id        Int      @id @default(autoincrement())
-  code      String
-  name      String
-  createdAt DateTime @default(now())
+model Player {
+  id       Int      @id
+  name     String
+  age      Int
+  number   Int?
+  position Position
+  photo    String
+  teamId   Int
+  team     Team     @relation(fields: [teamId], references: [id])
+}
+
+enum Position {
+  Goalkeeper
+  Defender
+  Midfielder
+  Attacker
 }
 
 model Theme {
@@ -22,13 +33,14 @@ model Theme {
 }
 
 model Team {
-  id              Int      @id @default(autoincrement())
+  id              Int      @id
   name            String
   code            String
   logo            String
   backgroundColor String   @default("#FFFFFF")
   color           String   @default("#000000")
   borderColor     String   @default("#000000")
-  textShadowColor String   @default("")
+  textShadowColor String?
   createdAt       DateTime @default(now())
+  Player          Player[]
 }

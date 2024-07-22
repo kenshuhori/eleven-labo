@@ -19,6 +19,7 @@ async function main() {
         textShadowColor: team.textShadowColor || "",
       },
       create: {
+        id: team.id,
         code: team.code,
         name: team.name,
         logo: team.logo,

@@ -59,6 +59,7 @@ $ yarn storybook
 | POSTGRES_HOST | Vercel Storage の DB ホスト名 |
 | POSTGRES_PASSWORD | Vercel Storage の DB パスワード |
 | POSTGRES_DATABASE | Vercel Storage の DB 名 |
+| API_FOOTBALL_API_KEY | API Football の API KEY |
 
 
 ## 管理者向け
@@ -91,4 +92,7 @@ $ npx prisma migrate deploy
 
 # DB管理コンソールの起動 (http://localhost:5555)
 $ npx prisma studio
+
+# prisma.schema の format
+$ npx prisma format
 ```

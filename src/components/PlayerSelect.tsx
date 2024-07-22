@@ -1,9 +1,11 @@
+import { listPlayer } from "@/app/actions";
 import { colorCode } from "@/constants";
-import { players } from "@/fixtures/players";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
+import type { Team } from "@prisma/client";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
+import useSWR from "swr";
 
 interface PlayerSelectProps {
   onChange: (selected: PlayerSelectOption | null) => void;
@@ -11,6 +13,12 @@ interface PlayerSelectProps {
 }
 
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
+  const { data: players, error, isLoading } = useSWR("/players", listPlayer);
+
+  if (players === undefined || isLoading) {
+    return <div>Loading...</div>;
+  }
+
   const groupedOptions: GroupedPlayerSelectOption[] = groupedPlayers(players, teams);
 
   const formatGroupLabel = (group: GroupedPlayerSelectOption) => {

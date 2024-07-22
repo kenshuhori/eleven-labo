@@ -5,6 +5,7 @@ export const serviceDescription = "君が考えるベストイレブンを全世
 export const serviceDescriptionShort = "最高のベストイレブンを発信しよう！";
 export const serviceUrl = "https://eleven-labo.vercel.app/";
 export const serviceImageUrl = "https://eleven-labo.vercel.app/api/og";
+export const organizationName = "administrator";
 
 export const colorCode = {
   black: "#000000",

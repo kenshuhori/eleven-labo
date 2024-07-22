@@ -1,3 +1,5 @@
+import type { Team } from "@prisma/client";
+
 export const defaultTeam = ({
   backgroundColor,
   borderColor,
@@ -18,6 +20,7 @@ export const defaultTeam = ({
   borderColor: borderColor ?? "#000000",
   color: color ?? "#000000",
   textShadowColor: textShadowColor ?? null,
+  createdAt: new Date("2021-08-08T00:00:00.000Z"),
 });
 
 export const teams: Team[] = [
@@ -30,6 +33,7 @@ export const teams: Team[] = [
     borderColor: "#063672",
     color: "#FFFFFF",
     textShadowColor: "#9C824A",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 66,
@@ -40,6 +44,7 @@ export const teams: Team[] = [
     backgroundColor: "#95BFE5",
     borderColor: "#FEE505",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 35,
@@ -50,6 +55,7 @@ export const teams: Team[] = [
     backgroundColor: "#DA291C",
     borderColor: "#000000",
     textShadowColor: "#FFFFFF",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 51,
@@ -60,6 +66,7 @@ export const teams: Team[] = [
     backgroundColor: "#0057B8",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 55,
@@ -70,6 +77,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#D20000",
     textShadowColor: "#000000",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 44,
@@ -80,6 +88,7 @@ export const teams: Team[] = [
     backgroundColor: "#6C1D45",
     borderColor: "#99D6EA",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 49,
@@ -90,6 +99,7 @@ export const teams: Team[] = [
     backgroundColor: "#034694",
     borderColor: "#DBA111",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -101,6 +111,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -112,6 +123,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -123,6 +135,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -134,6 +147,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -145,6 +159,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 40,
@@ -155,6 +170,7 @@ export const teams: Team[] = [
     borderColor: "#00B2A9",
     color: "#F6EB61",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 1359,
@@ -165,6 +181,7 @@ export const teams: Team[] = [
     borderColor: "#00B2A9",
     color: "#F6EB61",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 50,
@@ -175,6 +192,7 @@ export const teams: Team[] = [
     borderColor: "#FFFFFF",
     color: "#1C2C5B",
     textShadowColor: "#FFFFFF",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 33,
@@ -185,6 +203,7 @@ export const teams: Team[] = [
     backgroundColor: "#DA291C",
     borderColor: "#000000",
     textShadowColor: "#FBE122",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 34,
@@ -195,6 +214,7 @@ export const teams: Team[] = [
     backgroundColor: "#241F20",
     borderColor: "#41B6E6",
     textShadowColor: "#FFFFFF",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -206,6 +226,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -217,6 +238,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -228,6 +250,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -239,6 +262,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 47,
@@ -249,6 +273,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#132257",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     // ToDo: Fix the color
@@ -260,6 +285,7 @@ export const teams: Team[] = [
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 48,
@@ -270,6 +296,7 @@ export const teams: Team[] = [
     backgroundColor: "#7A263A",
     borderColor: "#1BB1E7",
     textShadowColor: null,
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
   {
     id: 39,
@@ -280,5 +307,6 @@ export const teams: Team[] = [
     backgroundColor: "#FDB913",
     borderColor: "#231F20",
     textShadowColor: "#FFFFFF",
+    createdAt: new Date("2021-08-08T00:00:00.000Z"),
   },
 ];

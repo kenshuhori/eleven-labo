@@ -1,11 +1,14 @@
 import { colorCode } from "@/constants";
 import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import type { Player, Team } from "@prisma/client";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "./PlayerSelect";
 
+type PlayerTeam = Player & { team: Team };
+
 interface PlayerIconProps {
   position: number;
-  player: Player;
+  player: PlayerTeam;
   readonly?: boolean;
 }
 
@@ -18,7 +21,7 @@ export const PlayerIcon = forwardRef(
 
     const className = `player-no${position} transition`;
 
-    const [player, setPlayer] = useState<Player>(initialPlayer);
+    const [player, setPlayer] = useState<PlayerTeam>(initialPlayer);
     const onChange = useCallback(
       (selected: PlayerSelectOption | null) => {
         if (selected !== null) {

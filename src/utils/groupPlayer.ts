@@ -1,6 +1,13 @@
-export const groupedPlayers = (players: Player[], teams: Team[]): GroupedPlayerSelectOption[] => {
+import type { Player, Team } from "@prisma/client";
+
+type PlayerTeam = Player & { team: Team };
+
+export const groupedPlayers = (
+  players: PlayerTeam[],
+  teams: Team[],
+): GroupedPlayerSelectOption[] => {
   const groupedOptions: GroupedPlayerSelectOption[] = sortedTeams(teams).map((team) => {
-    const options = players.filter((player) => player.team.code === team.code);
+    const options = players.filter((player) => player.teamId === team.id);
     return {
       category: team.name,
       options: options.map((player) => ({
@@ -26,3 +33,23 @@ const sortedTeams = (teams: Team[]) => {
     return 0;
   });
 };
+
+// export const groupedPlayers2 = (players: PlayerTeam[] | undefined, teams: any) => {
+//   if (!players) {
+//     return [];
+//   }
+
+//   const groupedOptions = sortedTeams(teams).map((team) => {
+//     const options = players.filter((player) => player.team.code === team.code);
+//     return {
+//       category: team.name,
+//       options: options.map((player) => ({
+//         value: player.id,
+//         label: player.name,
+//         ...player,
+//       })),
+//     };
+//   });
+
+//   return groupedOptions;
+// };

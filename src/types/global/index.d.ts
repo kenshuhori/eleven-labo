@@ -42,15 +42,6 @@ type League = {
   logo: string;
 };
 
-type Player = {
-  id: number;
-  name: string;
-  number: number;
-  photo: string;
-  position: "Goalkeeper" | "Defender" | "Midfielder" | "Attacker";
-  team: Team;
-};
-
 type PlayerSelectOption = {
   value: string;
   label: string;
@@ -72,17 +63,6 @@ type PositionCode = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 type GroupedPlayerSelectOption = {
   category: string;
   options: PlayerSelectOption[];
-};
-
-type Team = {
-  id: number;
-  name: string;
-  code: string;
-  logo: string;
-  backgroundColor: string;
-  borderColor: string;
-  color: string;
-  textShadowColor: string | null;
 };
 
 type Theme = {
