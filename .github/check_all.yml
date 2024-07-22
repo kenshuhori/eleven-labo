@@ -1,11 +1,11 @@
-name: Check source code
+name: Check All
 on:
   pull_request:
     branches:
       - main
 jobs:
   test:
-    name: Check source code
+    name: Check All
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: yarn install --frozen-lockfile
-      - name: Lint & Build Check
+      - name: Formatter & Lint & Type check & Test
         shell: bash
         run: |
-          yarn check
+          yarn check:all
