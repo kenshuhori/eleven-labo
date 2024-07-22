@@ -2,7 +2,7 @@ import { listPlayer } from "@/app/actions";
 import { colorCode } from "@/constants";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
-import { Skeleton } from "@chakra-ui/react";
+import { Avatar, Skeleton } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
@@ -37,7 +37,15 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
           justifyContent: "space-between",
         }}
       >
-        <span style={optionStyle}>{data.name}</span>
+        <div
+          style={{
+            display: "flex",
+            gap: "0.5rem",
+          }}
+        >
+          <Avatar name={data.name} src={data.photo} style={{ height: "2rem", width: "2rem" }} />
+          <span style={optionStyle}>{data.name}</span>
+        </div>
         <span style={numberStyle(data.team)}>{data.number}</span>
       </div>
     ) : (
