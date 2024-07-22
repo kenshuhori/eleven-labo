@@ -42,15 +42,6 @@ type League = {
   logo: string;
 };
 
-type Player = {
-  id: number;
-  name: string;
-  number: number;
-  photo: string;
-  position: "Goalkeeper" | "Defender" | "Midfielder" | "Attacker";
-  team: Team;
-};
-
 type PlayerSelectOption = {
   value: string;
   label: string;

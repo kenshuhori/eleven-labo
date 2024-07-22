@@ -1,6 +1,8 @@
+import type { Player } from "@prisma/client";
+
 export const groupedPlayers = (players: Player[], teams: Team[]): GroupedPlayerSelectOption[] => {
   const groupedOptions: GroupedPlayerSelectOption[] = sortedTeams(teams).map((team) => {
-    const options = players.filter((player) => player.team.code === team.code);
+    const options = players.filter((player) => player.teamId === team.id);
     return {
       category: team.name,
       options: options.map((player) => ({
