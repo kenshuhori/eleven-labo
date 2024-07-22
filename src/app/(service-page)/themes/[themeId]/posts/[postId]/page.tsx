@@ -16,23 +16,15 @@ interface PageProps {
 }
 
 export default function Page({ params }: { params: PageProps }) {
-<<<<<<<< HEAD:src/app/(service-page)/posts/[postId]/page.tsx
   const postId = params.postId;
 
-  const { isSignedIn } = useAuth();
-
-  const theme = defaultTheme;
-========
-  const postSlug = params.postId;
-
-  console.log("postSlug", postSlug);
+  console.log("postId", postId);
 
   const { isSignedIn } = useAuth();
 
   // const { data: theme, error, isLoading } = useSWR(`themes/${themeSlug}`, getTheme);
 
   const theme: Theme = defaultTheme;
->>>>>>>> a43dbfe (feat: slug を xxxIdへ):src/app/(service-page)/themes/[themeId]/posts/[postId]/page.tsx
 
   const postProps = { ...defaultPost, fullSentence: true, themeId: "2" };
 

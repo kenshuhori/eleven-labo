@@ -33,7 +33,7 @@ export default function Page({ params }: { params: PageProps }) {
         })}
         <BottomButton label={"投稿"} href={`${themeId}/posts/new`} />
       </div>
-    </main>
+    </main >
   );
 }
 
