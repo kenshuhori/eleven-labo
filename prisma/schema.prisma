@@ -11,7 +11,7 @@ model Player {
   id       Int    @id
   name     String
   age      Int
-  number   Int
+  number   Int?
   position String
   photo    String
   teamId   Int
