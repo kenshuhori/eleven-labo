@@ -26,3 +26,23 @@ const sortedTeams = (teams: Team[]) => {
     return 0;
   });
 };
+
+// export const groupedPlayers2 = (players: PlayerTeam[] | undefined, teams: any) => {
+//   if (!players) {
+//     return [];
+//   }
+
+//   const groupedOptions = sortedTeams(teams).map((team) => {
+//     const options = players.filter((player) => player.team.code === team.code);
+//     return {
+//       category: team.name,
+//       options: options.map((player) => ({
+//         value: player.id,
+//         label: player.name,
+//         ...player,
+//       })),
+//     };
+//   });
+
+//   return groupedOptions;
+// };
