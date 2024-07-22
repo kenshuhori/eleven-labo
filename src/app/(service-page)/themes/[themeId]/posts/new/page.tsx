@@ -3,12 +3,12 @@ import { defaultTheme } from "@/fixtures/themes";
 import type { CSSProperties } from "react";
 
 interface PageProps {
-  slug: string;
+  themeId: string;
 }
 
 export default function Page({ params }: { params: PageProps }) {
-  const themeId = params.slug;
-  const theme: Theme = defaultTheme;
+  const themeId = params.themeId;
+  const theme = defaultTheme;
 
   return (
     <main style={baseStyle}>
