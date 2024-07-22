@@ -9,11 +9,11 @@ import type { CSSProperties } from "react";
 import { Fragment } from "react";
 
 interface PageProps {
-  slug: string;
+  themeId: string;
 }
 
 export default function Page({ params }: { params: PageProps }) {
-  const themeSlug = params.slug;
+  const themeId = params.themeId;
 
   const theme: Theme = defaultTheme;
 
@@ -29,7 +29,7 @@ export default function Page({ params }: { params: PageProps }) {
             </Fragment>
           );
         })}
-        <BottomButton label={"投稿"} href={`${themeSlug}/posts/new`} />
+        <BottomButton label={"投稿"} href={`${themeId}/posts/new`} />
       </div>
     </main>
   );
