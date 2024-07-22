@@ -12,6 +12,7 @@
     "lint:check": "biome lint .",
     "test": "vitest",
     "tsc": "tsc",
+    "check": "format:check && lint:check && tsc && test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

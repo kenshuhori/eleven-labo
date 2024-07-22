@@ -1,0 +1,22 @@
+name: Check source code
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    name: Check source code
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        shell: bash
+        run: yarn install --frozen-lockfile
+      - name: Lint & Build Check
+        shell: bash
+        run: |
+          yarn check
