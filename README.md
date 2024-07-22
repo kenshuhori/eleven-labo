@@ -92,4 +92,7 @@ $ npx prisma migrate deploy
 
 # DB管理コンソールの起動 (http://localhost:5555)
 $ npx prisma studio
+
+# prisma.schema の format
+$ npx prisma format
 ```

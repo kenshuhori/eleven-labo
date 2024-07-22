@@ -8,14 +8,21 @@ datasource db {
 }
 
 model Player {
-  id       Int    @id
+  id       Int      @id
   name     String
   age      Int
   number   Int?
-  position String
+  position Position
   photo    String
   teamId   Int
-  team     Team   @relation(fields: [teamId], references: [id])
+  team     Team     @relation(fields: [teamId], references: [id])
+}
+
+enum Position {
+  Goalkeeper
+  Defender
+  Midfielder
+  Attacker
 }
 
 model Theme {
