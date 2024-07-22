@@ -7,13 +7,6 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Formation {
-  id        Int      @id @default(autoincrement())
-  code      String
-  name      String
-  createdAt DateTime @default(now())
-}
-
 model Theme {
   id        Int      @id @default(autoincrement())
   title     String
@@ -22,7 +15,7 @@ model Theme {
 }
 
 model Team {
-  id              Int      @id @default(autoincrement())
+  id              Int      @id
   name            String
   code            String
   logo            String
