@@ -27,9 +27,6 @@ export async function GET(request: Request) {
     const data = await response.json();
     const { team, players } = data.response[0];
 
-    console.log("team", team);
-    console.log("players", players);
-
     for (const player of players) {
       await prisma.player.upsert({
         where: { id: player.id },
