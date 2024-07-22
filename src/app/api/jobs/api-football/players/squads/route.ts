@@ -1,3 +1,4 @@
+import { organizationName } from "@/constants";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
@@ -37,7 +38,7 @@ const checkPermission = (request: Request) => {
     return true;
   }
 
-  if (orgSlug === "administrator") {
+  if (orgSlug === organizationName) {
     return true;
   }
 
