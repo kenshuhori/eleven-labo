@@ -2,36 +2,32 @@
 
 import { listTheme } from "@/app/actions";
 import { SkeletonTheme, Theme } from "@/components/Theme";
-import type { Theme as ThemeModel } from "@prisma/client";
-import { useCallback, useEffect, useState } from "react";
+import useSWR from "swr";
 
 export default function Page() {
-  const [themes, setThemes] = useState<ThemeModel[]>([]);
-
-  const fetch = useCallback(async () => {
-    const res = await listTheme();
-    setThemes(res);
-  }, []);
-
-  useEffect(() => {
-    fetch();
-  }, [fetch]);
+  const { data: themes, error, isLoading } = useSWR("/themes", listTheme);
 
   return (
     <main>
-      {themes.length === 0 && [...Array(4)].map((i) => <SkeletonTheme key={i} />)}
-      {themes.map((theme) => {
-        return (
-          <Theme
-            createdAt={theme.createdAt.toISOString()}
-            id={theme.id}
-            likeCount={theme.likeCount}
-            postCount={0}
-            title={theme.title}
-            key={theme.id}
-          />
-        );
-      })}
+      <>
+        {isLoading
+          ? [1, 2, 3, 4].map((i) => {
+              // ざっくり4つ分のスケルトンを表示
+              return <SkeletonTheme key={i} />;
+            })
+          : themes?.map((theme) => {
+              return (
+                <Theme
+                  createdAt={theme.createdAt.toISOString()}
+                  id={theme.id}
+                  likeCount={theme.likeCount}
+                  postCount={0}
+                  title={theme.title}
+                  key={theme.id}
+                />
+              );
+            })}
+      </>
     </main>
   );
 }
