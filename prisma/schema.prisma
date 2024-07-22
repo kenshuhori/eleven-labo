@@ -40,7 +40,7 @@ model Team {
   backgroundColor String   @default("#FFFFFF")
   color           String   @default("#000000")
   borderColor     String   @default("#000000")
-  textShadowColor String   @default("")
+  textShadowColor String?
   createdAt       DateTime @default(now())
   Player          Player[]
 }

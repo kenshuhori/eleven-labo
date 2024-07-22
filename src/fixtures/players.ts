@@ -1,4 +1,4 @@
-import type { Player } from "@prisma/client";
+import type { Player, Team } from "@prisma/client";
 import { defaultTeam, teams } from "./teams";
 
 type PlayerTeam = Player & { team: Team };
@@ -130,7 +130,7 @@ export const players: PlayerTeam[] = [
     number: 17,
     photo: "https://media.api-sports.io/football/players/0.png",
     position: "Midfielder",
-    teamId: 40,
+    teamId: 50,
     // biome-ignore lint/style/noNonNullAssertion: <explanation>
     team: teams.find((team) => team.code === "MAC")!,
   },

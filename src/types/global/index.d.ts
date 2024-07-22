@@ -65,17 +65,6 @@ type GroupedPlayerSelectOption = {
   options: PlayerSelectOption[];
 };
 
-type Team = {
-  id: number;
-  name: string;
-  code: string;
-  logo: string;
-  backgroundColor: string;
-  borderColor: string;
-  color: string;
-  textShadowColor: string | null;
-};
-
 type Theme = {
   createdAt: string;
   likeCount: number;

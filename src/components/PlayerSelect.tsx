@@ -2,6 +2,7 @@ import { colorCode } from "@/constants";
 import { players } from "@/fixtures/players";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
+import type { Team } from "@prisma/client";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 

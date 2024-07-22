@@ -1,4 +1,4 @@
-import type { Player } from "@prisma/client";
+import type { Player, Team } from "@prisma/client";
 
 export const groupedPlayers = (players: Player[], teams: Team[]): GroupedPlayerSelectOption[] => {
   const groupedOptions: GroupedPlayerSelectOption[] = sortedTeams(teams).map((team) => {
