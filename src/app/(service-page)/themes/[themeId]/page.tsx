@@ -1,12 +1,14 @@
 "use client";
 
+import { getTheme } from "@/app/actions";
 import { BottomButton } from "@/components/BottomButton";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { posts } from "@/fixtures/posts";
-import { defaultTheme } from "@/fixtures/themes";
+import { Skeleton } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
+import useSWR from "swr";
 
 interface PageProps {
   themeId: string;
