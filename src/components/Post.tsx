@@ -13,6 +13,7 @@ interface PostProps {
   fullSentence: boolean;
   id: number;
   likeCount: number;
+  themeId: string;
 }
 
 export const Post = ({
@@ -25,8 +26,9 @@ export const Post = ({
   fullSentence,
   id,
   likeCount,
+  themeId,
 }: PostProps) => {
-  const postUrl = `/posts/${id}`;
+  const postUrl = `${themeId}/posts/${id}`;
 
   return (
     <div style={baseStyle}>
