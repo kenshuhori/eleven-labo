@@ -2,6 +2,7 @@ import { listPlayer } from "@/app/actions";
 import { colorCode } from "@/constants";
 import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
+import { Avatar, Skeleton } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
@@ -14,10 +15,6 @@ interface PlayerSelectProps {
 
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const { data: players, error, isLoading } = useSWR("/players", listPlayer);
-
-  if (players === undefined || isLoading) {
-    return <div>Loading...</div>;
-  }
 
   const groupedOptions: GroupedPlayerSelectOption[] = groupedPlayers(players, teams);
 
@@ -40,7 +37,15 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
           justifyContent: "space-between",
         }}
       >
-        <span style={optionStyle}>{data.name}</span>
+        <div
+          style={{
+            display: "flex",
+            gap: "0.5rem",
+          }}
+        >
+          <Avatar name={data.name} src={data.photo} style={{ height: "2rem", width: "2rem" }} />
+          <span style={optionStyle}>{data.name}</span>
+        </div>
         <span style={numberStyle(data.team)}>{data.number}</span>
       </div>
     ) : (
@@ -48,26 +53,36 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
     );
   };
 
+  if (error) {
+    return <div>Error...</div>;
+  }
+
   return (
-    <div style={{ ...style }}>
-      <Select<PlayerSelectOption, false, GroupedPlayerSelectOption>
-        formatGroupLabel={formatGroupLabel}
-        formatOptionLabel={formatOptionLabel}
-        menuIsOpen={true}
-        onChange={onChange}
-        options={groupedOptions}
-        placeholder="選手を選択"
-        styles={{
-          control: (base) => ({ ...base }),
-          option: (base, { data, isFocused }) => ({
-            ...base,
-            backgroundColor: data.team.backgroundColor,
-            color: data.team.color,
-            filter: isFocused ? `drop-shadow(0px 1px 3px ${colorCode.black})` : "none",
-          }),
-        }}
-      />
-    </div>
+    <>
+      {isLoading ? (
+        <Skeleton style={{ height: "2rem" }} />
+      ) : (
+        <div style={{ ...style }}>
+          <Select<PlayerSelectOption, false, GroupedPlayerSelectOption>
+            formatGroupLabel={formatGroupLabel}
+            formatOptionLabel={formatOptionLabel}
+            menuIsOpen={true}
+            onChange={onChange}
+            options={groupedOptions}
+            placeholder="選手を選択"
+            styles={{
+              control: (base) => ({ ...base }),
+              option: (base, { data, isFocused }) => ({
+                ...base,
+                backgroundColor: data.team.backgroundColor,
+                color: data.team.color,
+                filter: isFocused ? `drop-shadow(0px 1px 3px ${colorCode.black})` : "none",
+              }),
+            }}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
