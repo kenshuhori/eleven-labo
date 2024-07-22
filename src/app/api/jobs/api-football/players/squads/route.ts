@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "f5caed64f266d47cb48b4f229f56d0c4",
+        "x-rapidapi-key": process.env.API_FOOTBALL_API_KEY || "",
         "x-rapidapi-host": "v3.football.api-sports.io",
       },
       redirect: "follow",
@@ -33,7 +33,6 @@ const checkPermission = (request: Request) => {
   const authHeader = request.headers.get("authorization");
   const { orgSlug } = auth();
 
-  // ※ authorization ヘッダーには “Bearer ” がプレフィクスにつくことに注意
   if (authHeader === `Bearer ${process.env.CRON_SECRET}`) {
     return true;
   }
