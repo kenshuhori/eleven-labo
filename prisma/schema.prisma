@@ -7,6 +7,17 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
+model Player {
+  id       Int    @id
+  name     String
+  age      Int
+  number   Int
+  position String
+  photo    String
+  teamId   Int
+  team     Team   @relation(fields: [teamId], references: [id])
+}
+
 model Theme {
   id        Int      @id @default(autoincrement())
   title     String
@@ -24,4 +35,5 @@ model Team {
   borderColor     String   @default("#000000")
   textShadowColor String   @default("")
   createdAt       DateTime @default(now())
+  Player          Player[]
 }
