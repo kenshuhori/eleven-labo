@@ -1,17 +1,12 @@
 "use server";
 
 import { prisma } from "@/prisma";
+import type { Theme } from "@prisma/client";
 
-export const listTheme = async () => {
-  try {
-    const themes = await prisma.theme.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
-    return themes;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
+export const listTheme = async (_key: string) => {
+  return prisma.theme.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  }) as Promise<Theme[]>;
 };
