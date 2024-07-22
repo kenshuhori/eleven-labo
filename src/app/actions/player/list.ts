@@ -8,11 +8,7 @@ export const listPlayer = async (_key: string) => {
       team: true,
     },
     orderBy: {
-      team: {
-        name: "asc",
-      },
       position: "asc",
-      number: "asc",
     },
   });
 };
