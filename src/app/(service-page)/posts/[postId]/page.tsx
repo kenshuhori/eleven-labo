@@ -12,11 +12,11 @@ import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
 
 interface PageProps {
-  slug: string;
+  postId: string;
 }
 
 export default function Page({ params }: { params: PageProps }) {
-  const postSlug = params.slug;
+  const postId = params.postId;
 
   const { isSignedIn } = useAuth();
 
