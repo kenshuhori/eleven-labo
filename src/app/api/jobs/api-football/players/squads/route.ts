@@ -1,6 +1,9 @@
 import { organizationName } from "@/constants";
 import { auth } from "@clerk/nextjs/server";
+import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+
+const prisma = new PrismaClient();
 
 export async function GET(request: Request) {
   try {
@@ -10,9 +13,9 @@ export async function GET(request: Request) {
 
     // ここに処理を記述
     const { searchParams } = new URL(request.url);
-    const team = searchParams.get("team") || 40;
+    const teamId = searchParams.get("teamId") || 40;
 
-    const url = `https://v3.football.api-sports.io/players/squads?team=${team}`;
+    const url = `https://v3.football.api-sports.io/players/squads?team=${teamId}`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -21,9 +24,36 @@ export async function GET(request: Request) {
       },
       redirect: "follow",
     });
-    const players = await response.json();
+    const data = await response.json();
+    const { team, players } = data.response[0];
 
-    return NextResponse.json({ result: players }, { status: 200 });
+    console.log("team", team);
+    console.log("players", players);
+
+    for (const player of players) {
+      await prisma.player.upsert({
+        where: { id: player.id },
+        update: {
+          name: player.name,
+          age: player.age,
+          number: player.number,
+          position: player.position,
+          photo: player.photo,
+          teamId: team.id,
+        },
+        create: {
+          id: player.id,
+          name: player.name,
+          age: player.age,
+          number: player.number,
+          position: player.position,
+          photo: player.photo,
+          teamId: team.id,
+        },
+      });
+    }
+
+    return NextResponse.json({ result: "success" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
