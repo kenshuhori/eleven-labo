@@ -64,11 +64,3 @@ type GroupedPlayerSelectOption = {
   category: string;
   options: PlayerSelectOption[];
 };
-
-type Theme = {
-  createdAt: string;
-  likeCount: number;
-  postCount: number;
-  id: number;
-  title: string;
-};

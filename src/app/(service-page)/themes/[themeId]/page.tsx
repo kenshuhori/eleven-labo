@@ -15,7 +15,7 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   const themeId = params.themeId;
 
-  const theme: Theme = defaultTheme;
+  const theme = defaultTheme;
 
   return (
     <main style={baseStyle}>

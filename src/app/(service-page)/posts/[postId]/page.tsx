@@ -20,7 +20,7 @@ export default function Page({ params }: { params: PageProps }) {
 
   const { isSignedIn } = useAuth();
 
-  const theme: Theme = defaultTheme;
+  const theme = defaultTheme;
 
   const postProps = { ...defaultPost, fullSentence: true };
 

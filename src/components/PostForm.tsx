@@ -6,6 +6,7 @@ import { ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
 import { Button, useToast } from "@chakra-ui/react";
+import type { Theme } from "@prisma/client";
 import type React from "react";
 
 interface PostFormProps {
