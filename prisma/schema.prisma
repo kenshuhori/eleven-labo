@@ -10,7 +10,7 @@ datasource db {
 model Player {
   id       Int      @id
   name     String
-  age      Int
+  age      Int?
   number   Int?
   position Position
   photo    String
