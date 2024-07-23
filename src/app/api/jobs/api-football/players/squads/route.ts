@@ -1,4 +1,5 @@
 import { organizationName } from "@/constants";
+import { teams } from "@/fixtures/teams";
 import { auth } from "@clerk/nextjs/server";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
@@ -12,42 +13,46 @@ export async function GET(request: Request) {
     }
 
     // ここに処理を記述
-    const { searchParams } = new URL(request.url);
-    const teamId = searchParams.get("teamId") || 40;
+    // const { searchParams } = new URL(request.url);
+    // const teamId = searchParams.get("teamId") || 50;
 
-    const url = `https://v3.football.api-sports.io/players/squads?team=${teamId}`;
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": process.env.API_FOOTBALL_API_KEY || "",
-        "x-rapidapi-host": "v3.football.api-sports.io",
-      },
-      redirect: "follow",
-    });
-    const data = await response.json();
-    const { team, players } = data.response[0];
+    for (const t of teams) {
+      console.log(`================ ${t.name} ================`);
 
-    for (const player of players) {
-      await prisma.player.upsert({
-        where: { id: player.id },
-        update: {
-          name: player.name,
-          age: player.age,
-          number: player.number,
-          position: player.position,
-          photo: player.photo,
-          teamId: team.id,
+      const url = `https://v3.football.api-sports.io/players/squads?team=${t.id}`;
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": process.env.API_FOOTBALL_API_KEY || "",
+          "x-rapidapi-host": "v3.football.api-sports.io",
         },
-        create: {
-          id: player.id,
-          name: player.name,
-          age: player.age,
-          number: player.number,
-          position: player.position,
-          photo: player.photo,
-          teamId: team.id,
-        },
+        redirect: "follow",
       });
+      const data = await response.json();
+      const { team, players } = data.response[0];
+
+      for (const player of players) {
+        await prisma.player.upsert({
+          where: { id: player.id },
+          update: {
+            name: player.name,
+            age: player.age,
+            number: player.number,
+            position: player.position,
+            photo: player.photo,
+            teamId: team.id,
+          },
+          create: {
+            id: player.id,
+            name: player.name,
+            age: player.age,
+            number: player.number,
+            position: player.position,
+            photo: player.photo,
+            teamId: team.id,
+          },
+        });
+      }
     }
 
     return NextResponse.json({ result: "success" }, { status: 200 });
