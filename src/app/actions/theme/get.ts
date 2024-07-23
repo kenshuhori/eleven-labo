@@ -4,9 +4,10 @@ import { prisma } from "@/prisma";
 import type { Theme } from "@prisma/client";
 
 export const getTheme = async (key: string) => {
-  const idStr = key.split("/")[1];
+  const pathStr = key.split("/")[1];
+  const idStr = key.split("/")[2];
 
-  if (idStr === undefined) {
+  if (pathStr !== "themes" || idStr === undefined) {
     throw new Error("Key not found");
   }
 
