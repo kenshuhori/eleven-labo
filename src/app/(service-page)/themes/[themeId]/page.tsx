@@ -2,10 +2,9 @@
 
 import { getTheme } from "@/app/actions";
 import { BottomButton } from "@/components/BottomButton";
-import { Post } from "@/components/Post";
-import { ThemeHeader } from "@/components/ThemeHeader";
+import { Post, SkeletonPost } from "@/components/Post";
+import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { posts } from "@/fixtures/posts";
-import { Skeleton } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
 import useSWR from "swr";
@@ -24,11 +23,22 @@ export default function Page({ params }: { params: PageProps }) {
   }
 
   return (
-    <>
+    <main style={baseStyle}>
       {isLoading || theme === undefined ? (
-        <Skeleton style={{ height: "5rem" }} />
+        <>
+          <SkeletonThemeHeader />
+          <div style={timelineStyle}>
+            {[1, 2].map((i) => {
+              return (
+                <Fragment key={i}>
+                  <SkeletonPost />
+                </Fragment>
+              );
+            })}
+          </div>
+        </>
       ) : (
-        <main style={baseStyle}>
+        <>
           <ThemeHeader title={theme.title} />
           <div style={timelineStyle}>
             {posts.map((post) => {
@@ -41,9 +51,9 @@ export default function Page({ params }: { params: PageProps }) {
             })}
             <BottomButton label={"投稿"} href={`${themeId}/posts/new`} />
           </div>
-        </main>
+        </>
       )}
-    </>
+    </main>
   );
 }
 

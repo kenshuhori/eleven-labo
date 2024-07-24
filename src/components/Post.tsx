@@ -1,6 +1,6 @@
-import { Formation } from "@/components/Formation";
-import { PostFooter } from "@/components/PostFooter";
-import { PostHeader } from "@/components/PostHeader";
+import { Formation, SkeletonFormation } from "@/components/Formation";
+import { PostFooter, SkeletonPostFooter } from "@/components/PostFooter";
+import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
 import type React from "react";
 
 interface PostProps {
@@ -37,6 +37,16 @@ export const Post = ({
         postUrl={postUrl}
         likeCount={likeCount}
       />
+    </div>
+  );
+};
+
+export const SkeletonPost = () => {
+  return (
+    <div style={baseStyle}>
+      <SkeletonPostHeader />
+      <SkeletonFormation />
+      <SkeletonPostFooter />
     </div>
   );
 };

@@ -1,11 +1,11 @@
 "use client";
 
 import { createPost } from "@/app/actions";
-import { Formation } from "@/components/Formation";
-import { ThemeHeader } from "@/components/ThemeHeader";
+import { Formation, SkeletonFormation } from "@/components/Formation";
+import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
-import { Button, useToast } from "@chakra-ui/react";
+import { Button, Skeleton, useToast } from "@chakra-ui/react";
 import type { Theme } from "@prisma/client";
 import type React from "react";
 
@@ -39,6 +39,17 @@ export const PostForm = ({ theme }: PostFormProps) => {
         投稿
       </Button>
     </form>
+  );
+};
+
+export const SkeletonPostForm = () => {
+  return (
+    <div style={baseStyle}>
+      <SkeletonThemeHeader />
+      <SkeletonFormation />
+      <Skeleton style={{ height: "9rem", marginTop: "1rem" }} />
+      <Skeleton style={{ height: "3rem", marginTop: "1rem" }} />
+    </div>
   );
 };
 

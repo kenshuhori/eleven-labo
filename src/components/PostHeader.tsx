@@ -1,5 +1,5 @@
 import { transformAgo } from "@/utils/ago";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar, Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import type React from "react";
 
 interface PostHeaderProps {
@@ -18,6 +18,15 @@ export const PostHeader = ({ author, authorImage, createdAt }: PostHeaderProps) 
         <div>{author}</div>
         <div>{createdAgo}</div>
       </div>
+    </div>
+  );
+};
+
+export const SkeletonPostHeader = () => {
+  return (
+    <div style={baseStyle}>
+      <SkeletonCircle size="3rem" />
+      <SkeletonText alignContent={"center"} skeletonHeight="4" noOfLines={2} width={"8rem"} />
     </div>
   );
 };

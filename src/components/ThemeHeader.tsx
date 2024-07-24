@@ -1,4 +1,5 @@
 import { colorCode } from "@/constants";
+import { Skeleton } from "@chakra-ui/react";
 import type React from "react";
 
 interface ThemeHeaderProps {
@@ -13,10 +14,18 @@ export const ThemeHeader = ({ title }: ThemeHeaderProps) => {
   );
 };
 
+export const SkeletonThemeHeader = () => {
+  return (
+    <div style={baseStyle}>
+      <Skeleton style={{ height: "4rem" }} />
+    </div>
+  );
+};
+
 const baseStyle: React.CSSProperties = {
   paddingBottom: "8px",
   paddingInline: "8px",
-  width: "34rem",
+  maxWidth: "36rem",
 };
 
 const headerStyle: React.CSSProperties = {
