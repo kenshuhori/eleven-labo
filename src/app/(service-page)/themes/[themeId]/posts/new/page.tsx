@@ -1,7 +1,7 @@
 "use client";
 
 import { getTheme } from "@/app/actions";
-import { PostForm } from "@/components/PostForm";
+import { PostForm, SkeletonPostForm } from "@/components/PostForm";
 import type { CSSProperties } from "react";
 import useSWR from "swr";
 
@@ -19,7 +19,7 @@ export default function Page({ params }: { params: PageProps }) {
 
   return (
     <main style={baseStyle}>
-      {isLoading || theme === undefined ? <p>Loading...</p> : <PostForm theme={theme} />}
+      {isLoading || theme === undefined ? <SkeletonPostForm /> : <PostForm theme={theme} />}
     </main>
   );
 }
