@@ -5,9 +5,9 @@ import { CommentForm } from "@/components/CommentForm";
 import { Post } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
+import { defaultTheme } from "@/constants";
 import { comments } from "@/fixtures/comments";
 import { defaultPost } from "@/fixtures/posts";
-import { defaultTheme } from "@/fixtures/themes";
 import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
 

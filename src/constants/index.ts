@@ -1,3 +1,5 @@
+import type { Theme } from "@prisma/client";
+
 export const serviceTitle = "ベストイレブン研究所";
 export const serviceTitleShort = "Eleven Labo";
 export const serviceTitleLong = "ベストイレブン研究所 | Eleven Labo";
@@ -19,4 +21,11 @@ export const colorCode = {
   liked: "#F0566E",
   orange: "#E06E05",
   white: "#FFFFFF",
+};
+
+export const defaultTheme: Theme = {
+  createdAt: new Date("2024-04-01T00:00:00Z"),
+  likeCount: 0,
+  id: 1,
+  title: "23-24のマンチェスターシティのベスト11を考えよう!!",
 };
