@@ -9,17 +9,13 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    author: { control: "text" },
-    authorImage: { control: "text" },
     createdAt: { control: "text" },
     comment: { control: "text" },
     id: { control: "number" },
     likeCount: { control: "number" },
   },
   args: {
-    author: "John Doe",
-    authorImage: "https://example.com/john-doe.png",
-    createdAt: "2024-01-01T00:00:00Z",
+    createdAt: new Date("2024-01-01T00:00:00Z"),
     comment:
       "僕が考えてたものとほとんど同じです！1点だけ、右WGはサラーでもいいのかなと思ってます！あとCBはファンダイクにするかも悩みどころですよねー",
     id: 1,

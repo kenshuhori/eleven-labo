@@ -5,7 +5,7 @@ import type React from "react";
 interface CommentHeaderProps {
   author: string;
   authorImage: string;
-  createdAt: string;
+  createdAt: Date;
 }
 
 export const CommentHeader = ({ author, authorImage, createdAt }: CommentHeaderProps) => {
