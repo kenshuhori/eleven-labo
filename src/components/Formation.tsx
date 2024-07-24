@@ -1,11 +1,12 @@
 import type React from "react";
-import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useRef, useState } from "react";
 import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
 import { defaultPlayer } from "@/fixtures/players";
 import { positionCodes } from "@/fixtures/positionCodes";
+import { Skeleton } from "@chakra-ui/react";
 
 interface FormationProps {
   formationCode: Formation["code"];
@@ -29,26 +30,6 @@ export const Formation = ({ formationCode, readonly = false, style }: FormationP
           {positionCodes.map((position) => {
             const playerRef = useRef<HTMLDivElement>(null);
 
-            // useEffect(() => {
-            //   if (!playerRef.current) return;
-
-            //   const playerIcon = playerRef.current;
-            //   playerIcon.onpointermove = (event) => {
-            //     if (event.buttons) {
-            //       const horizon = playerIcon.offsetLeft + event.movementX;
-            //       const vertical = playerIcon.offsetTop + event.movementY;
-            //       if (horizon < 0 || horizon > window.innerWidth - 100) return;
-            //       if (vertical < 0 || vertical > window.innerHeight - 100) return;
-
-            //       playerIcon.style.left = `${playerIcon.offsetLeft + event.movementX}px`;
-            //       playerIcon.style.top = `${playerIcon.offsetTop + event.movementY}px`;
-            //       playerIcon.style.position = "absolute";
-            //       playerIcon.draggable = false;
-            //       playerIcon.setPointerCapture(event.pointerId);
-            //     }
-            //   };
-            // }, []);
-
             return (
               <Fragment key={position}>
                 <PlayerIcon
@@ -65,4 +46,8 @@ export const Formation = ({ formationCode, readonly = false, style }: FormationP
       </div>
     </>
   );
+};
+
+export const SkeletonFormation = () => {
+  return <Skeleton style={{ height: "29rem", marginTop: "1rem" }} />;
 };

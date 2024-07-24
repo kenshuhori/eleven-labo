@@ -5,7 +5,6 @@ import { BottomButton } from "@/components/BottomButton";
 import { Post, SkeletonPost } from "@/components/Post";
 import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { posts } from "@/fixtures/posts";
-import { Skeleton } from "@chakra-ui/react";
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
 import useSWR from "swr";

@@ -1,7 +1,6 @@
-import { Formation } from "@/components/Formation";
+import { Formation, SkeletonFormation } from "@/components/Formation";
 import { PostFooter, SkeletonPostFooter } from "@/components/PostFooter";
 import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
-import { Skeleton } from "@chakra-ui/react";
 import type React from "react";
 
 interface PostProps {
@@ -46,7 +45,7 @@ export const SkeletonPost = () => {
   return (
     <div style={baseStyle}>
       <SkeletonPostHeader />
-      <Skeleton style={{ height: "29rem", marginTop: "1rem" }} />
+      <SkeletonFormation />
       <SkeletonPostFooter />
     </div>
   );
