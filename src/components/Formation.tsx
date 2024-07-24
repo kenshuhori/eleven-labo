@@ -8,19 +8,19 @@ import { defaultPlayer } from "@/fixtures/players";
 import { positionCodes } from "@/fixtures/positionCodes";
 
 interface FormationProps {
-  formation: Formation;
+  formationCode: Formation["code"];
   readonly?: boolean;
   style?: React.CSSProperties;
 }
 
-export const Formation = ({ formation, readonly = false, style }: FormationProps) => {
+export const Formation = ({ formationCode, readonly = false, style }: FormationProps) => {
   const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;
 
     setFormationClass(`formation-${selected?.code}`);
   }, []);
 
-  const [formationClass, setFormationClass] = useState<string>(`formation-${formation.code}`);
+  const [formationClass, setFormationClass] = useState<string>(`formation-${formationCode}`);
 
   return (
     <>
@@ -60,7 +60,7 @@ export const Formation = ({ formation, readonly = false, style }: FormationProps
               </Fragment>
             );
           })}
-          <FormationIcon formation={formation} onChange={onChange} readonly={readonly} />
+          <FormationIcon formationCode={formationCode} onChange={onChange} readonly={readonly} />
         </FootballField>
       </div>
     </>

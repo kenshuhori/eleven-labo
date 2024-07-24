@@ -16,7 +16,7 @@ const meta = {
   args: {
     author: "John Doe",
     authorImage: "https://example.com/john-doe.png",
-    createdAt: "2024-01-01T00:00:00Z",
+    createdAt: new Date("2024-01-01T00:00:00Z"),
   },
 } satisfies Meta<typeof PostHeader>;
 
