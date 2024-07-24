@@ -2,6 +2,7 @@ import { CommentIconBox } from "@/components/CommentIconBox";
 import { LikeIconButton } from "@/components/LikeIconButton";
 import { colorCode } from "@/constants";
 import { omit } from "@/utils/omitText";
+import { Skeleton, SkeletonText } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
 
@@ -44,6 +45,21 @@ export const PostFooter = ({
     </div>
   );
 };
+
+export const SkeletonPostFooter = () => {
+  return (
+    <div style={baseStyle}>
+      <div style={iconsStyle}>
+        <Skeleton style={{ height: "1rem", width: "6rem" }} />
+        <Skeleton style={{ height: "1rem", width: "8rem" }} />
+      </div>
+      <div>
+        <SkeletonText skeletonHeight="4" noOfLines={2} flex={1} />
+      </div>
+    </div>
+  );
+};
+
 const baseStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
