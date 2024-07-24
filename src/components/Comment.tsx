@@ -3,25 +3,20 @@ import { CommentHeader } from "@/components/CommentHeader";
 import type React from "react";
 
 interface CommentProps {
-  author: string;
-  authorImage: string;
-  createdAt: string;
+  createdAt: Date;
   comment: string;
   id: number;
   likeCount: number;
 }
 
-export const Comment = ({
-  author,
-  authorImage,
-  createdAt,
-  comment,
-  id,
-  likeCount,
-}: CommentProps) => {
+export const Comment = ({ createdAt, comment, id, likeCount }: CommentProps) => {
   return (
     <div style={baseStyle}>
-      <CommentHeader author={author} authorImage={authorImage} createdAt={createdAt} />
+      <CommentHeader
+        author={"John Doe"}
+        authorImage={"https://example.com/john-doe.png"}
+        createdAt={createdAt}
+      />
       <div style={indentStyle}>{comment}</div>
       <div style={indentStyle}>
         <CommentFooter count={likeCount} />

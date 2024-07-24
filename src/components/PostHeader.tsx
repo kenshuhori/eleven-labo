@@ -5,7 +5,7 @@ import type React from "react";
 interface PostHeaderProps {
   author: string;
   authorImage: string;
-  createdAt: string;
+  createdAt: Date;
 }
 
 export const PostHeader = ({ author, authorImage, createdAt }: PostHeaderProps) => {

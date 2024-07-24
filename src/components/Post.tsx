@@ -4,24 +4,18 @@ import { PostHeader } from "@/components/PostHeader";
 import type React from "react";
 
 interface PostProps {
-  author: string;
-  authorImage: string;
-  createdAt: string;
-  commentCount: number;
+  createdAt: Date;
   description: string;
-  formation: Formation;
+  formationCode: Formation["code"];
   fullSentence: boolean;
   id: number;
   likeCount: number;
 }
 
 export const Post = ({
-  author,
-  authorImage,
   createdAt,
-  commentCount,
   description,
-  formation,
+  formationCode,
   fullSentence,
   id,
   likeCount,
@@ -30,10 +24,14 @@ export const Post = ({
 
   return (
     <div style={baseStyle}>
-      <PostHeader author={author} authorImage={authorImage} createdAt={createdAt} />
-      <Formation formation={formation} readonly={true} style={formationStyle} />
+      <PostHeader
+        author={"John Doe"}
+        authorImage={"https://example.com/john-doe.png"}
+        createdAt={createdAt}
+      />
+      <Formation formationCode={formationCode} readonly={true} style={formationStyle} />
       <PostFooter
-        commentCount={commentCount}
+        commentCount={3}
         description={description}
         fullSentence={fullSentence}
         postUrl={postUrl}

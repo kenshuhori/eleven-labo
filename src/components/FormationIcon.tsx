@@ -1,4 +1,5 @@
 import { colorCode } from "@/constants";
+import { defaultFormation } from "@/fixtures/formations";
 import {
   Button,
   Modal,
@@ -11,19 +12,19 @@ import { type CSSProperties, useCallback, useState } from "react";
 import { FormationSelect } from "./FormationSelect";
 
 interface FormationIconProps {
-  formation: Formation;
+  formationCode: Formation["code"];
   onChange: (selected: FormationSelectOption | null) => void;
   readonly?: boolean;
 }
 
 export const FormationIcon = ({
-  formation: initialFormation,
+  formationCode,
   onChange,
   readonly = false,
 }: FormationIconProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [formation, setFormation] = useState<Formation>(initialFormation);
+  const [formation, setFormation] = useState<Formation>(defaultFormation);
   const onChangeFormation = useCallback(
     (selected: FormationSelectOption | null) => {
       if (selected !== null) {

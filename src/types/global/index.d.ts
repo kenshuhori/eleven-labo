@@ -1,12 +1,3 @@
-type PostComment = {
-  author: string;
-  authorImage: string;
-  createdAt: string;
-  comment: string;
-  id: number;
-  likeCount: number;
-};
-
 type Formation = {
   code:
     | "3-4-1-2"
@@ -22,7 +13,8 @@ type Formation = {
     | "4-4-2-D"
     | "4-4-2"
     | "4-6-0"
-    | "5-4-1";
+    | "5-4-1"
+    | string;
   name: string;
 };
 
@@ -46,17 +38,6 @@ type PlayerSelectOption = {
   value: string;
   label: string;
 } & Player;
-
-type Post = {
-  author: string;
-  authorImage: string;
-  commentCount: number;
-  createdAt: string;
-  description: string;
-  formation: Formation;
-  id: number;
-  likeCount: number;
-};
 
 type PositionCode = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
