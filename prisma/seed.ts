@@ -1,6 +1,6 @@
 import { teams } from "@/fixtures/teams";
-import { themes } from "@/fixtures/themes";
 import { PrismaClient } from "@prisma/client";
+import { themes } from "./seeds/themes";
 
 const prisma = new PrismaClient();
 

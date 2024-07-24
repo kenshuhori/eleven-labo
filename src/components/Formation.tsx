@@ -29,26 +29,6 @@ export const Formation = ({ formationCode, readonly = false, style }: FormationP
           {positionCodes.map((position) => {
             const playerRef = useRef<HTMLDivElement>(null);
 
-            // useEffect(() => {
-            //   if (!playerRef.current) return;
-
-            //   const playerIcon = playerRef.current;
-            //   playerIcon.onpointermove = (event) => {
-            //     if (event.buttons) {
-            //       const horizon = playerIcon.offsetLeft + event.movementX;
-            //       const vertical = playerIcon.offsetTop + event.movementY;
-            //       if (horizon < 0 || horizon > window.innerWidth - 100) return;
-            //       if (vertical < 0 || vertical > window.innerHeight - 100) return;
-
-            //       playerIcon.style.left = `${playerIcon.offsetLeft + event.movementX}px`;
-            //       playerIcon.style.top = `${playerIcon.offsetTop + event.movementY}px`;
-            //       playerIcon.style.position = "absolute";
-            //       playerIcon.draggable = false;
-            //       playerIcon.setPointerCapture(event.pointerId);
-            //     }
-            //   };
-            // }, []);
-
             return (
               <Fragment key={position}>
                 <PlayerIcon
