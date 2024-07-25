@@ -1,11 +1,10 @@
 "use client";
 
-import { getTheme } from "@/app/actions";
+import { getThemeWithPosts } from "@/app/actions";
 import { BottomButton } from "@/components/BottomButton";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
 import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
-import { posts } from "@/fixtures/posts";
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
 import useSWR from "swr";
@@ -17,7 +16,7 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   const themeId = params.themeId;
 
-  const { data: theme, error, isLoading } = useSWR(`/themes/${themeId}`, getTheme);
+  const { data: theme, error, isLoading } = useSWR(`/themes/${themeId}`, getThemeWithPosts);
 
   if (error) {
     return <ErrorComponent />;
@@ -42,7 +41,7 @@ export default function Page({ params }: { params: PageProps }) {
         <>
           <ThemeHeader title={theme.title} />
           <div style={timelineStyle}>
-            {posts.map((post) => {
+            {theme.posts.map((post) => {
               const postProps = { ...post, fullSentence: false };
               return (
                 <Fragment key={post.id}>

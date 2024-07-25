@@ -4,7 +4,7 @@ import { prisma } from "@/prisma";
 import type { Post, Theme } from "@prisma/client";
 
 export type ThemeWithPostsResult = {
-  Posts: Post[];
+  posts: Post[];
 } & Theme;
 
 export const getTheme = async (key: string) => {
@@ -44,7 +44,7 @@ export const getThemeWithPosts = async (key: string) => {
 
   return prisma.theme.findUnique({
     include: {
-      Posts: true,
+      posts: true,
     },
     where: {
       id,

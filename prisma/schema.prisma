@@ -74,14 +74,14 @@ model Post {
   likeCount     Int       @default(0)
   themeId       Int
   theme         Theme     @relation(fields: [themeId], references: [id])
-  Comments      Comment[]
+  comments      Comment[]
   createdAt     DateTime  @default(now())
 }
 
 model Theme {
   id        Int      @id @default(autoincrement())
   title     String
-  Posts     Post[]
+  posts     Post[]
   likeCount Int      @default(0)
   createdAt DateTime @default(now())
 }
@@ -96,5 +96,5 @@ model Team {
   borderColor     String   @default("#000000")
   textShadowColor String?
   createdAt       DateTime @default(now())
-  Player          Player[]
+  player          Player[]
 }
