@@ -1,9 +1,9 @@
+import { PlayerSelectOptionsContext } from "@/components/Formation";
 import { colorCode } from "@/constants";
 import { Image } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import React, { useContext, type CSSProperties } from "react";
 import Select from "react-select";
-import { PlayerSelectOptionsContext } from "./Formation";
 
 interface PlayerSelectProps {
   onChange: (selected: PlayerSelectOption | null) => void;
@@ -38,7 +38,12 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
             gap: "0.5rem",
           }}
         >
-          <Image src={data.photo} loading={"lazy"} style={{ height: "2rem", width: "2rem" }} />
+          <Image
+            alt={data.name}
+            src={data.photo}
+            loading={"lazy"}
+            style={{ height: "2rem", width: "2rem" }}
+          />
           <span style={optionStyle}>{data.name}</span>
         </div>
         <span style={numberStyle(data.team)}>{data.number}</span>
