@@ -1,16 +1,12 @@
 import { Formation, SkeletonFormation } from "@/components/Formation";
 import { PostFooter, SkeletonPostFooter } from "@/components/PostFooter";
 import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
+import type { Post as PrismaPost } from "@prisma/client";
 import type React from "react";
 
-interface PostProps {
-  createdAt: Date;
-  description: string;
-  formationCode: Formation["code"];
+type PostProps = {
   fullSentence: boolean;
-  id: number;
-  likeCount: number;
-}
+} & PrismaPost;
 
 export const Post = ({
   createdAt,
@@ -19,6 +15,17 @@ export const Post = ({
   fullSentence,
   id,
   likeCount,
+  pos1PlayerId,
+  pos2PlayerId,
+  pos3PlayerId,
+  pos4PlayerId,
+  pos5PlayerId,
+  pos6PlayerId,
+  pos7PlayerId,
+  pos8PlayerId,
+  pos9PlayerId,
+  pos10PlayerId,
+  pos11PlayerId,
 }: PostProps) => {
   const postUrl = `/posts/${id}`;
 
