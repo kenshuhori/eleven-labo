@@ -1,6 +1,7 @@
 "use client";
 
 import { listTheme } from "@/app/actions";
+import { ErrorComponent } from "@/components/ErrorComponent";
 import { SkeletonTheme, Theme } from "@/components/Theme";
 import useSWR from "swr";
 
@@ -8,7 +9,7 @@ export default function Page() {
   const { data: themes, error, isLoading } = useSWR("/themes", listTheme);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <ErrorComponent />;
   }
 
   return (

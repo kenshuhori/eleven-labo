@@ -1,6 +1,7 @@
 "use client";
 
 import { getTheme } from "@/app/actions";
+import { ErrorComponent } from "@/components/ErrorComponent";
 import { PostForm, SkeletonPostForm } from "@/components/PostForm";
 import type { CSSProperties } from "react";
 import useSWR from "swr";
@@ -14,7 +15,7 @@ export default function Page({ params }: { params: PageProps }) {
   const { data: theme, error, isLoading } = useSWR(`/themes/${themeId}`, getTheme);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <ErrorComponent />;
   }
 
   return (

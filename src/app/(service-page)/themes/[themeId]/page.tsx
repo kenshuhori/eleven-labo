@@ -2,6 +2,7 @@
 
 import { getTheme } from "@/app/actions";
 import { BottomButton } from "@/components/BottomButton";
+import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
 import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { posts } from "@/fixtures/posts";
@@ -19,7 +20,7 @@ export default function Page({ params }: { params: PageProps }) {
   const { data: theme, error, isLoading } = useSWR(`/themes/${themeId}`, getTheme);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <ErrorComponent />;
   }
 
   return (
