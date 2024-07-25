@@ -96,3 +96,47 @@ $ npx prisma studio
 # prisma.schema の format
 $ npx prisma format
 ```
+
+#### ディレクトリ構成
+
+```
+eleven-labo
+├── .devcontainer           # 開発環境の設定ファイル群
+│   ├── compose.yaml
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── .storybook              # storybookの設定ファイル群
+│   ├── main.ts
+│   └── preview.tsx
+├── prisma                  # データベースの設定ファイル群
+│   ├── schema.prisma       # データベーススキーマ設定
+│   └── seed.ts             # 初期データの生成処理
+├── public                  # 静的ファイル置き場（基本はルートに平置き）
+│   ├── ogp                 # OGPに関する静的ファイル置き場
+│   └── readme              # READMEに関する静的ファイル置き場
+├── src
+│   ├── app
+│   ├── components          # コンポーネント
+│   ├── constants           # 定数
+│   ├── fixtures            # 固定データ
+│   ├── stories             # storybook
+│   ├── styles              # CSS
+│   ├── types               # 型定義
+│   ├── utils               # 汎用処理
+│   ├── middleware.ts       # Clerk認証の設定ファイル
+│   └── prisma.ts           # Prisma(ORM)の設定ファイル
+├── .env.dist               # 環境変数のキー一覧
+├── .env.local              # 環境変数の設定（開発環境）
+├── biome.json
+├── next.config.mjs
+├── package.json
+├── tsconfig.json
+├── vercel-ignore-build-step.sh # Next.js で PullRequest のたびにデプロイされるのを防ぐ設定
+├── vitest.config.ts
+└── yarn.lock
+```
+
+#### ページレンタリングの流れ
+
+```mermaid
+```

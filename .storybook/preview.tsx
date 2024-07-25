@@ -1,6 +1,6 @@
+import { theme } from "@chakra-ui/react";
 import type { Preview } from "@storybook/react";
 import React from "react";
-import theme from "./theme";
 
 const preview: Preview = {
   parameters: {
@@ -16,5 +16,4 @@ const preview: Preview = {
   },
   decorators: [(Story) => <Story />],
 };
-
 export default preview;
