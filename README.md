@@ -139,4 +139,15 @@ eleven-labo
 #### ページレンタリングの流れ
 
 ```mermaid
+  flowchart LR;
+    a1[app/layout.tsx]-->|管理画面|a2["(admin-page)"]
+    a1[app/layout.tsx]-->|サービス画面|a3["(service-page)"]
+
+    a2-->a4[layout.tsx]
+    a3-->a5[layout.tsx]
+
+    a4-->a6[各ページの page.tsx]
+    a5-->a7[template.tsx]
+
+    a7-->a8[各ページの page.tsx]
 ```
