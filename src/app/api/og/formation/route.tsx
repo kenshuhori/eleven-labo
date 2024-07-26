@@ -1,10 +1,9 @@
 import { getPost } from "@/app/actions";
-import { serviceDescriptionShort, serviceTitle } from "@/constants";
+import { colorCode } from "@/constants";
 import { EyeCatchImage } from "@public/ogp/eyeCatchImage";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
-
-export const runtime = "edge";
+import type { CSSProperties } from "react";
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,12 +13,12 @@ export async function GET(request: NextRequest) {
 
     if (postId === null) {
       return new ImageResponse(
-        <div>
+        <div style={baseStyle}>
           <EyeCatchImage />
         </div>,
         {
-          width: 1200,
-          height: 630,
+          width: 400,
+          height: 400,
         },
       );
     }
@@ -28,12 +27,12 @@ export async function GET(request: NextRequest) {
     console.log("post", post);
 
     return new ImageResponse(
-      <div>
+      <div style={baseStyle}>
         <EyeCatchImage />
       </div>,
       {
-        width: 1200,
-        height: 630,
+        width: 400,
+        height: 4000,
       },
     );
   } catch (e) {
@@ -42,3 +41,12 @@ export async function GET(request: NextRequest) {
     });
   }
 }
+
+const baseStyle: CSSProperties = {
+  alignItems: "center",
+  background: colorCode.green,
+  display: "flex",
+  height: "100%",
+  justifyContent: "center",
+  width: "100%",
+};
