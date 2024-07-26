@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import path from "node:path";
 import { serviceDescriptionShort, serviceTitle } from "@/constants";
 import { colorCode } from "@/constants";
 import { EyeCatchImage } from "@public/ogp/eyeCatchImage";
@@ -7,8 +8,6 @@ import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import type { CSSProperties } from "react";
 
-const fontData = fs.readFileSync("./src/fonts/NotoSansJP-Bold.ttf");
-
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -16,6 +15,9 @@ export async function GET(request: NextRequest) {
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : `${serviceTitle} ${serviceDescriptionShort}`;
+
+    const fontFilePath = path.join(process.cwd(), "/src/app/api/og/NotoSansJP-Bold.ttf");
+    const fontData = fs.readFileSync(fontFilePath);
 
     return new ImageResponse(
       <div style={baseStyle}>
