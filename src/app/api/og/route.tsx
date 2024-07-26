@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
       ? searchParams.get("title")?.slice(0, 100)
       : `${serviceTitle} ${serviceDescriptionShort}`;
 
-    const fontData = fs.readFileSync("./src/assets/inter.ttf");
+    const fontData = fs.readFileSync("./src/fonts/NotoSansJP-Bold.ttf");
 
     return new ImageResponse(
       <div style={baseStyle}>
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
         height: 630,
         fonts: [
           {
-            name: "Inter",
+            name: "Notosans",
             data: fontData,
             weight: 700,
             style: "normal",
