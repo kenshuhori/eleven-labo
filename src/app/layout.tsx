@@ -2,7 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
-import { inter } from "@/app/fonts";
+import { inter, noto_sans_jp } from "@/app/fonts";
 import { serviceDescription, serviceImageUrl, serviceTitleLong, serviceUrl } from "@/constants";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${noto_sans_jp.className}`}>
         <ClerkProvider>
           <ChakraProvider>{children}</ChakraProvider>
         </ClerkProvider>

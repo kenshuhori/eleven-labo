@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { serviceDescriptionShort, serviceTitle } from "@/constants";
 import { colorCode } from "@/constants";
 import { EyeCatchImage } from "@public/ogp/eyeCatchImage";
@@ -6,7 +7,7 @@ import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import type { CSSProperties } from "react";
 
-export const runtime = "edge";
+const fontData = fs.readFileSync("./src/fonts/NotoSansJP-Bold.ttf");
 
 export async function GET(request: NextRequest) {
   try {
@@ -29,6 +30,14 @@ export async function GET(request: NextRequest) {
       {
         width: 1200,
         height: 630,
+        fonts: [
+          {
+            name: "Notosans",
+            data: fontData,
+            weight: 700,
+            style: "normal",
+          },
+        ],
       },
     );
   } catch (e) {
@@ -61,7 +70,7 @@ const mainStyle: CSSProperties = {
 
 const titleStyle: CSSProperties = {
   fontSize: "60px",
-  fontWeight: "bold",
+  fontWeight: "700",
 };
 
 const logoStyle: CSSProperties = {
