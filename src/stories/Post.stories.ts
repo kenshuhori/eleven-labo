@@ -24,6 +24,18 @@ const meta = {
     fullSentence: true,
     id: 1,
     likeCount: 12,
+    pos1PlayerId: 1,
+    pos2PlayerId: 2,
+    pos3PlayerId: 3,
+    pos4PlayerId: 4,
+    pos5PlayerId: 5,
+    pos6PlayerId: 6,
+    pos7PlayerId: 7,
+    pos8PlayerId: 8,
+    pos9PlayerId: 9,
+    pos10PlayerId: 10,
+    pos11PlayerId: 11,
+    themeId: 1,
   },
 } satisfies Meta<typeof Post>;
 
