@@ -72,6 +72,7 @@ const playerIconStyle = (team: Team): CSSProperties => {
     border: `3px solid ${team.borderColor}`,
     borderRadius: "50%",
     color: team.color,
+    fontFamily: "__Inter_aaf875",
     fontSize: "1.4rem",
     fontWeight: "1000",
     height: "3.5rem",
