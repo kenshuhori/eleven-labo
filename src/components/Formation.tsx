@@ -11,7 +11,6 @@ import { teams } from "@/fixtures/teams";
 import { groupedPlayers } from "@/utils/groupPlayer";
 import { Skeleton } from "@chakra-ui/react";
 import useSWR from "swr";
-import { ErrorComponent } from "./ErrorComponent";
 
 interface FormationProps {
   formationCode: Formation["code"];
