@@ -7,6 +7,8 @@ import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import type { CSSProperties } from "react";
 
+const fontData = fs.readFileSync("./src/fonts/NotoSansJP-Bold.ttf");
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -14,8 +16,6 @@ export async function GET(request: NextRequest) {
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : `${serviceTitle} ${serviceDescriptionShort}`;
-
-    const fontData = fs.readFileSync("./src/fonts/NotoSansJP-Bold.ttf");
 
     return new ImageResponse(
       <div style={baseStyle}>
