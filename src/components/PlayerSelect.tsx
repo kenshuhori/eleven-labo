@@ -63,15 +63,6 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         onChange={onChange}
         options={groupedOptions}
         placeholder="選手を選択"
-        styles={{
-          control: (base) => ({ ...base }),
-          option: (base, { data, isFocused }) => ({
-            ...base,
-            // backgroundColor: data.team.backgroundColor,
-            // color: data.team.color,
-            filter: isFocused ? `drop-shadow(0px 1px 3px ${colorCode.black})` : "none",
-          }),
-        }}
       />
     </div>
   );
