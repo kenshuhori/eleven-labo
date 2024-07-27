@@ -14,7 +14,7 @@ const meta = {
   },
   args: {
     formationCode: "4-3-3",
-    players: [],
+    eleven: [],
     style: {
       height: "30rem",
       position: "relative",

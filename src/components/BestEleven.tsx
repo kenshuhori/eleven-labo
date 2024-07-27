@@ -3,29 +3,27 @@ import type { CSSProperties } from "react";
 import { FootballField } from "./FootballField";
 import "@/styles/formations.css";
 import { colorCode } from "@/constants";
-import { defaultPlayer } from "@/fixtures/players";
-import { positionCodes } from "@/fixtures/positionCodes";
+import type { Eleven } from "@/types";
 import { Button } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
   formationCode: Formation["code"];
-  players: BestPlayer[];
+  eleven: Eleven;
   style?: React.CSSProperties;
 }
 
-export const BestEleven = ({ formationCode, players, style }: BestElevenProps) => {
+export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) => {
   const formationClass = `formation-${formationCode}`;
 
   return (
     <div className={formationClass}>
       <FootballField style={style}>
-        {positionCodes.map((position) => {
-          const className = `player-no${position} transition`;
-          const player = defaultPlayer({ number: position });
+        {eleven.map(({ positionCode, player }) => {
+          const className = `player-no${positionCode} transition`;
 
           return (
-            <div className={className} key={position}>
+            <div className={className} key={player.id}>
               <div style={contentStyle}>
                 <button style={playerIconStyle(player.team)} type="button">
                   {player.number}

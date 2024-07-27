@@ -1,7 +1,3 @@
-type BestPlayer = {
-  [key: PositionCode]: Player;
-};
-
 type Formation = {
   code:
     | "3-4-1-2"

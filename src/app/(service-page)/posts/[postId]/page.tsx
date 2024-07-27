@@ -5,7 +5,7 @@ import { Comment } from "@/components/Comment";
 import { CommentForm } from "@/components/CommentForm";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
-import { ThemeHeader } from "@/components/ThemeHeader";
+import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
 import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
@@ -28,7 +28,12 @@ export default function Page({ params }: { params: PageProps }) {
   return (
     <main style={baseStyle}>
       {isLoading || data === undefined ? (
-        <SkeletonPost />
+        <>
+          <SkeletonThemeHeader />
+          <div style={postStyle}>
+            <SkeletonPost />
+          </div>
+        </>
       ) : (
         <>
           <ThemeHeader title={data.theme.title} />

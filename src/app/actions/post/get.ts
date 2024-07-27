@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Comment, Player, Post, Theme } from "@prisma/client";
+import type { Comment, Player, Post, Team, Theme } from "@prisma/client";
 
 export const getPost = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -21,17 +21,61 @@ export const getPost = async (key: string) => {
     include: {
       comments: true,
       theme: true,
-      pos1Player: true,
-      pos2Player: true,
-      pos3Player: true,
-      pos4Player: true,
-      pos5Player: true,
-      pos6Player: true,
-      pos7Player: true,
-      pos8Player: true,
-      pos9Player: true,
-      pos10Player: true,
-      pos11Player: true,
+      pos1Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos2Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos3Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos4Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos5Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos6Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos7Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos8Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos9Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos10Player: {
+        include: {
+          team: true,
+        },
+      },
+      pos11Player: {
+        include: {
+          team: true,
+        },
+      },
     },
     where: {
       id,
@@ -44,25 +88,47 @@ export type PostWithRelation = {
 } & {
   theme: Theme;
 } & {
-  pos1Player: Player;
+  pos1Player: Player & {
+    team: Team;
+  };
 } & {
-  pos2Player: Player;
+  pos2Player: Player & {
+    team: Team;
+  };
 } & {
-  pos3Player: Player;
+  pos3Player: Player & {
+    team: Team;
+  };
 } & {
-  pos4Player: Player;
+  pos4Player: Player & {
+    team: Team;
+  };
 } & {
-  pos5Player: Player;
+  pos5Player: Player & {
+    team: Team;
+  };
 } & {
-  pos6Player: Player;
+  pos6Player: Player & {
+    team: Team;
+  };
 } & {
-  pos7Player: Player;
+  pos7Player: Player & {
+    team: Team;
+  };
 } & {
-  pos8Player: Player;
+  pos8Player: Player & {
+    team: Team;
+  };
 } & {
-  pos9Player: Player;
+  pos9Player: Player & {
+    team: Team;
+  };
 } & {
-  pos10Player: Player;
+  pos10Player: Player & {
+    team: Team;
+  };
 } & {
-  pos11Player: Player;
+  pos11Player: Player & {
+    team: Team;
+  };
 } & Post;
