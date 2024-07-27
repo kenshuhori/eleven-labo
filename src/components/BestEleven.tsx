@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { FootballField } from "./FootballField";
 import "@/styles/formations.css";
 import { colorCode } from "@/constants";
+import { formations } from "@/fixtures/formations";
 import type { Eleven } from "@/types";
 import { Button } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
@@ -15,6 +16,8 @@ interface BestElevenProps {
 
 export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) => {
   const formationClass = `formation-${formationCode}`;
+  const formation =
+    formations.find((formation) => formation.code === formationCode) || formations[0];
 
   return (
     <div className={formationClass}>
@@ -36,7 +39,7 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
 
         <div style={formationBaseStyle}>
           <Button style={formationNameStyle} type="button">
-            {formationCode}
+            {formation.name}
           </Button>
         </div>
       </FootballField>

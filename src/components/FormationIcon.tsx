@@ -1,5 +1,5 @@
 import { colorCode } from "@/constants";
-import { defaultFormation } from "@/fixtures/formations";
+import { formations } from "@/fixtures/formations";
 import type { Formation, FormationSelectOption } from "@/types";
 import {
   Button,
@@ -20,7 +20,9 @@ interface FormationIconProps {
 export const FormationIcon = ({ formationCode, onChange }: FormationIconProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [formation, setFormation] = useState<Formation>(defaultFormation);
+  const initialFormation =
+    formations.find((formation) => formation.code === formationCode) || formations[0];
+  const [formation, setFormation] = useState<Formation>(initialFormation);
   const onChangeFormation = useCallback(
     (selected: FormationSelectOption | null) => {
       if (selected !== null) {
