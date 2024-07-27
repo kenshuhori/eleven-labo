@@ -1,6 +1,6 @@
 "use client";
 
-import { getPost } from "@/app/actions";
+import { getPost, listCommentsByPostId } from "@/app/actions";
 import { Comment } from "@/components/Comment";
 import { CommentForm } from "@/components/CommentForm";
 import { ErrorComponent } from "@/components/ErrorComponent";
@@ -9,6 +9,7 @@ import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
 import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
+import useSWR from "swr";
 import useSWRImmutable from "swr";
 
 interface PageProps {
@@ -17,17 +18,26 @@ interface PageProps {
 
 export default function Page({ params }: { params: PageProps }) {
   const postId = params.postId;
-  const { data, error, isLoading } = useSWRImmutable(`/posts/${postId}`, getPost);
+  const {
+    data: post,
+    error: postError,
+    isLoading: postIsLoading,
+  } = useSWRImmutable(`/posts/${postId}`, getPost);
+  const {
+    data: comments,
+    error: commentsError,
+    isLoading: commentsIsLoading,
+  } = useSWR(`/posts/${postId}/comments`, listCommentsByPostId);
 
   const { isSignedIn } = useAuth();
 
-  if (error) {
+  if (postError) {
     return <ErrorComponent />;
   }
 
   return (
     <main style={baseStyle}>
-      {isLoading || data === undefined ? (
+      {postIsLoading || post === undefined ? (
         <>
           <SkeletonThemeHeader />
           <div style={postStyle}>
@@ -36,21 +46,27 @@ export default function Page({ params }: { params: PageProps }) {
         </>
       ) : (
         <>
-          <ThemeHeader title={data.theme.title} />
+          <ThemeHeader title={post.theme.title} />
           <div style={postStyle}>
-            <Post fullSentence={true} post={data} />
+            <Post fullSentence={true} post={post} />
           </div>
           <div style={commentsStyle}>
-            {data.comments.map((comment) => {
-              return (
-                <Fragment key={comment.id}>
-                  <div style={{ border: `1px dashed ${colorCode.gray}` }} />
-                  <Comment {...comment} />
-                </Fragment>
-              );
-            })}
+            {commentsIsLoading || comments === undefined || comments === null ? (
+              <></>
+            ) : (
+              <>
+                {comments.map((comment) => {
+                  return (
+                    <Fragment key={comment.id}>
+                      <div style={{ border: `1px dashed ${colorCode.gray}` }} />
+                      <Comment {...comment} />
+                    </Fragment>
+                  );
+                })}
+              </>
+            )}
           </div>
-          {isSignedIn && <CommentForm postId={data.id} />}
+          {isSignedIn && <CommentForm postId={post.id} />}
         </>
       )}
     </main>
@@ -63,7 +79,7 @@ const baseStyle: CSSProperties = {
 
 const commentsStyle: CSSProperties = {
   display: "flex",
-  padding: "1rem 1rem 3rem",
+  padding: "1rem 1rem 2rem",
   flexDirection: "column",
   gap: "1.5rem",
 };
