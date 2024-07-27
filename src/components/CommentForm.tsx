@@ -13,15 +13,25 @@ export const CommentForm = ({ postId, style }: CommentFormProps) => {
   const toast = useToast();
 
   const onSubmit = async (formData: FormData) => {
-    createComment(formData);
-    ref.current?.reset();
-    toast({
-      title: "コメントしました",
-      position: "top",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+    try {
+      createComment(formData);
+      ref.current?.reset();
+      toast({
+        title: "コメントしました",
+        position: "top",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "コメントに失敗しました",
+        position: "top",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
