@@ -19,7 +19,6 @@ export const getPost = async (key: string) => {
 
   return prisma.post.findUnique({
     include: {
-      comments: true,
       theme: true,
       pos1Player: {
         include: {
@@ -84,8 +83,6 @@ export const getPost = async (key: string) => {
 };
 
 export type PostWithRelation = {
-  comments: Comment[];
-} & {
   theme: Theme;
 } & {
   pos1Player: Player & {

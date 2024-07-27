@@ -4,7 +4,6 @@ import type { Post } from "@prisma/client";
 
 export const defaultPostWithRelation: PostWithRelation = {
   id: 1,
-  comments: [],
   description:
     "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
   formationCode: "4-1-2-3",

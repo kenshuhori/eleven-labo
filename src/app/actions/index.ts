@@ -1,4 +1,5 @@
 export { createComment } from "./comment/create";
+export { listCommentsByPostId } from "./comment/list";
 export { createPost } from "./post/create";
 export { getPost } from "./post/get";
 export { createTheme } from "./theme/create";

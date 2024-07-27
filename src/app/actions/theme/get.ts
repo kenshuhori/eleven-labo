@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Comment, Player, Post, Team, Theme } from "@prisma/client";
+import type { Player, Post, Team, Theme } from "@prisma/client";
 
 export const getTheme = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -42,7 +42,6 @@ export const getThemeWithPosts = async (key: string) => {
     include: {
       posts: {
         include: {
-          comments: true,
           theme: true,
           pos1Player: {
             include: {
@@ -116,8 +115,6 @@ export type ThemeWithRelation = {
 } & Theme;
 
 export type PostWithRelation = {
-  comments: Comment[];
-} & {
   theme: Theme;
 } & {
   pos1Player: Player & {
