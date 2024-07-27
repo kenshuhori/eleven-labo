@@ -28,6 +28,7 @@ export default function Page({ params }: { params: PageProps }) {
     error: commentsError,
     isLoading: commentsIsLoading,
   } = useSWR(`/posts/${postId}/comments`, listCommentsByPostId);
+  const commentCount = comments?.length ?? 0;
 
   const { isSignedIn } = useAuth();
 
@@ -48,7 +49,7 @@ export default function Page({ params }: { params: PageProps }) {
         <>
           <ThemeHeader title={post.theme.title} />
           <div style={postStyle}>
-            <Post fullSentence={true} post={post} />
+            <Post commentCount={commentCount} fullSentence={true} post={post} />
           </div>
           <div style={commentsStyle}>
             {commentsIsLoading || comments === undefined || comments === null ? (

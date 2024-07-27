@@ -7,11 +7,12 @@ import type { Eleven } from "@/types";
 import type React from "react";
 
 type PostProps = {
+  commentCount: number;
   fullSentence: boolean;
   post: PostWithRelation;
 };
 
-export const Post = ({ fullSentence, post }: PostProps) => {
+export const Post = ({ commentCount, fullSentence, post }: PostProps) => {
   const { createdAt, description, formationCode, id, likeCount } = post;
   const postUrl = `/posts/${id}`;
   const eleven: Eleven = [
@@ -38,7 +39,7 @@ export const Post = ({ fullSentence, post }: PostProps) => {
       />
       <BestEleven formationCode={formationCode} eleven={eleven} style={formationStyle} />
       <PostFooter
-        commentCount={3}
+        commentCount={commentCount}
         description={description}
         fullSentence={fullSentence}
         postUrl={postUrl}

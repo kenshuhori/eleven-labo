@@ -44,7 +44,7 @@ export default function Page({ params }: { params: PageProps }) {
             {theme.posts.map((post) => {
               return (
                 <Fragment key={post.id}>
-                  <Post fullSentence={false} post={post} />
+                  <Post commentCount={0} fullSentence={false} post={post} />
                 </Fragment>
               );
             })}
