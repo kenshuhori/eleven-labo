@@ -6,11 +6,11 @@ import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
 import type { Eleven } from "@/types";
 import type React from "react";
 
-type PostProps = {
+interface PostProps {
   commentCount: number;
   fullSentence: boolean;
   post: PostWithRelation;
-};
+}
 
 export const Post = ({ commentCount, fullSentence, post }: PostProps) => {
   const { createdAt, description, formationCode, id, likeCount } = post;
