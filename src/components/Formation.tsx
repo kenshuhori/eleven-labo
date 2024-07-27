@@ -10,11 +10,10 @@ import { Skeleton } from "@chakra-ui/react";
 
 interface FormationProps {
   formationCode: Formation["code"];
-  readonly?: boolean;
   style?: React.CSSProperties;
 }
 
-export const Formation = ({ formationCode, readonly = false, style }: FormationProps) => {
+export const Formation = ({ formationCode, style }: FormationProps) => {
   const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;
 
@@ -34,13 +33,12 @@ export const Formation = ({ formationCode, readonly = false, style }: FormationP
               <PlayerIcon
                 position={position}
                 player={defaultPlayer({ number: position })}
-                readonly={readonly}
                 ref={playerRef}
               />
             </Fragment>
           );
         })}
-        <FormationIcon formationCode={formationCode} onChange={onChange} readonly={readonly} />
+        <FormationIcon formationCode={formationCode} onChange={onChange} />
       </FootballField>
     </div>
   );

@@ -9,14 +9,10 @@ type PlayerTeam = Player & { team: Team };
 interface PlayerIconProps {
   position: number;
   player: PlayerTeam;
-  readonly?: boolean;
 }
 
 export const PlayerIcon = forwardRef(
-  (
-    { position, player: initialPlayer, readonly = false }: PlayerIconProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
+  ({ position, player: initialPlayer }: PlayerIconProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const className = `player-no${position} transition`;
@@ -44,16 +40,14 @@ export const PlayerIcon = forwardRef(
           </select>
           <label style={playerNameStyle}>{player.name}</label>
         </div>
-        {readonly === false && (
-          <Modal isOpen={isOpen} onClose={onClose} size="md">
-            <ModalOverlay />
-            <ModalContent style={{ top: "15vh" }}>
-              <ModalBody>
-                <PlayerSelect onChange={onChange} />
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-        )}
+        <Modal isOpen={isOpen} onClose={onClose} size="md">
+          <ModalOverlay />
+          <ModalContent style={{ top: "15vh" }}>
+            <ModalBody>
+              <PlayerSelect onChange={onChange} />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       </div>
     );
   },
