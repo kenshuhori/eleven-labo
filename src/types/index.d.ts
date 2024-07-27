@@ -1,13 +1,13 @@
 import type { Player, Position, Team } from "@prisma/client";
 
-type Eleven = {
+export type Eleven = {
   positionCode: number;
   player: PlayerTeam;
 }[];
 
-type Formation = {
+export type Formation = {
   code: string;
   name: string;
 };
 
-type PlayerTeam = Player & { team: Team };
+export type PlayerTeam = Player & { team: Team };
