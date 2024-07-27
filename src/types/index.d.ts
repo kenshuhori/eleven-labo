@@ -15,4 +15,9 @@ export type FormationSelectOption = {
   label: string;
 } & Formation;
 
+export type PlayerSelectOption = {
+  value: int;
+  label: string;
+} & PlayerTeam;
+
 export type PlayerTeam = Player & { team: Team };

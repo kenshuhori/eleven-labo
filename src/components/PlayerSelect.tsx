@@ -1,5 +1,6 @@
 import { PlayerSelectOptionsContext } from "@/app/(service-page)/template";
 import { colorCode } from "@/constants";
+import type { PlayerSelectOption } from "@/types";
 import { Image } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import React, { useContext, type CSSProperties } from "react";

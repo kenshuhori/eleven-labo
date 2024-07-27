@@ -1,8 +1,8 @@
-import type { PlayerTeam } from "@/types";
+import type { PlayerSelectOption, PlayerTeam } from "@/types";
 
 export const groupedPlayers = (
   players: PlayerTeam[] | undefined,
-): { category: string; options: PlayerTeam[] }[] => {
+): { category: string; options: PlayerSelectOption[] }[] => {
   if (players === undefined) {
     return [];
   }

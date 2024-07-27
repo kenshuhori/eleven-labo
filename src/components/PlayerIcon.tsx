@@ -1,6 +1,6 @@
 import { PlayerSelect } from "@/components/PlayerSelect";
 import { colorCode } from "@/constants";
-import type { PlayerTeam } from "@/types";
+import type { PlayerSelectOption, PlayerTeam } from "@/types";
 import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";

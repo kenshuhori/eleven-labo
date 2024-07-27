@@ -1,6 +1,7 @@
 "use client";
 
 import { listPlayer } from "@/app/actions";
+import type { PlayerSelectOption } from "@/types";
 import { groupedPlayers } from "@/utils/groupPlayer";
 import { createContext, useEffect, useState } from "react";
 import useSWRImmutable from "swr";
@@ -14,8 +15,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const { data, error, isLoading } = useSWRImmutable("/players", listPlayer);
 
   useEffect(() => {
-    const groupedOptions: { category: string; options: PlayerSelectOption[] }[] =
-      groupedPlayers(data);
+    const groupedOptions = groupedPlayers(data);
     setPlayers(groupedOptions);
   }, [data]);
 
