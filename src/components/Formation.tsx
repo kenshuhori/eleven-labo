@@ -5,7 +5,6 @@ import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
 import { defaultPlayer } from "@/fixtures/players";
-import { positionCodes } from "@/fixtures/positionCodes";
 import { Skeleton } from "@chakra-ui/react";
 
 interface FormationProps {
@@ -25,7 +24,7 @@ export const Formation = ({ formationCode, style }: FormationProps) => {
   return (
     <div className={formationClass}>
       <FootballField style={style}>
-        {positionCodes.map((position) => {
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((position) => {
           const playerRef = useRef<HTMLDivElement>(null);
 
           return (
