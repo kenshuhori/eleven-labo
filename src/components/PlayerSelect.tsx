@@ -1,5 +1,6 @@
 import { PlayerSelectOptionsContext } from "@/app/(service-page)/template";
 import { colorCode } from "@/constants";
+import type { PlayerSelectOption } from "@/types";
 import { Image } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import React, { useContext, type CSSProperties } from "react";
@@ -13,7 +14,7 @@ interface PlayerSelectProps {
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
 
-  const formatGroupLabel = (group: GroupedPlayerSelectOption) => {
+  const formatGroupLabel = (group: { category: string; options: PlayerSelectOption[] }) => {
     return (
       <div>
         <span style={{ fontSize: "1rem" }}>{group.category}</span>
@@ -55,7 +56,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 
   return (
     <div style={{ ...style }}>
-      <Select<PlayerSelectOption, false, GroupedPlayerSelectOption>
+      <Select<PlayerSelectOption, false, { category: string; options: PlayerSelectOption[] }>
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
         menuIsOpen={true}

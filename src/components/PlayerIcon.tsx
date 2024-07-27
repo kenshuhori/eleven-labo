@@ -1,10 +1,9 @@
-import { colorCode } from "@/constants";
-import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
-import type { Player, Team } from "@prisma/client";
-import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { PlayerSelect } from "@/components/PlayerSelect";
-
-type PlayerTeam = Player & { team: Team };
+import { colorCode } from "@/constants";
+import type { PlayerSelectOption, PlayerTeam } from "@/types";
+import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import type { Team } from "@prisma/client";
+import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 
 interface PlayerIconProps {
   position: number;

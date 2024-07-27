@@ -1,12 +1,11 @@
 "use client";
 
 import { Formation } from "@/components/Formation";
-import { defaultFormation } from "@/fixtures/formations";
 
 export default function Page() {
   return (
     <main>
-      <Formation formationCode={defaultFormation.code} />
+      <Formation formationCode={"4-4-2"} />
     </main>
   );
 }
