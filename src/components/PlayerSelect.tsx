@@ -36,7 +36,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         <div
           style={{
             display: "flex",
-            gap: "0.5rem",
+            gap: "1rem",
           }}
         >
           <Image
