@@ -10,8 +10,9 @@ export async function createComment(formData: FormData) {
     postId: formData.get("postId"),
   };
 
-  console.log(comment);
-  console.log(postId);
+  if (comment === null || postId === null) {
+    throw new Error("Invalid form data");
+  }
 
   try {
     await prisma.comment.create({
@@ -21,7 +22,7 @@ export async function createComment(formData: FormData) {
       },
     });
     revalidatePath(`/posts/${postId}`);
-    redirect(`/posts/${postId}`);
+    // redirect(`/posts/${postId}`);
   } catch (error) {
     console.error(error);
     throw new Error("Failed to create comment");
