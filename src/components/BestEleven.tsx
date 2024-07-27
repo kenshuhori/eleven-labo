@@ -74,7 +74,7 @@ const playerNameStyle: CSSProperties = {
   fontWeight: "1000",
   lineHeight: "1.2",
   textAlign: "center",
-  textShadow: `2px 2px ${colorCode.black}`,
+  textShadow: `3px 3px ${colorCode.black}`,
   width: "7rem",
 };
 
