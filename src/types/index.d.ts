@@ -15,9 +15,4 @@ export type FormationSelectOption = {
   label: string;
 } & Formation;
 
-export type GroupedFormationSelectOption = {
-  category: string;
-  options: FormationSelectOption[];
-};
-
 export type PlayerTeam = Player & { team: Team };

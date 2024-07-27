@@ -12,7 +12,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const { data, error, isLoading } = useSWRImmutable("/players", listPlayer);
 
   useEffect(() => {
-    const groupedOptions: GroupedPlayerSelectOption[] = groupedPlayers(data);
+    const groupedOptions: { category: string; options: PlayerSelectOption[] }[] =
+      groupedPlayers(data);
     setPlayers(groupedOptions);
   }, [data]);
 
