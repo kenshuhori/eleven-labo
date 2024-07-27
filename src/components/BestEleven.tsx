@@ -5,7 +5,7 @@ import "@/styles/formations.css";
 import { colorCode } from "@/constants";
 import { defaultPlayer } from "@/fixtures/players";
 import { positionCodes } from "@/fixtures/positionCodes";
-import { Skeleton } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
@@ -36,9 +36,9 @@ export const BestEleven = ({ formationCode, style }: BestElevenProps) => {
         })}
 
         <div style={formationBaseStyle}>
-          <button style={formationNameStyle} type="button">
+          <Button style={formationNameStyle} type="button">
             {formationCode}
-          </button>
+          </Button>
         </div>
       </FootballField>
     </div>
@@ -58,6 +58,7 @@ const playerIconStyle = (team: Team): CSSProperties => {
     border: `3px solid ${team.borderColor}`,
     borderRadius: "50%",
     color: team.color,
+    cursor: "default",
     fontFamily: "__Inter_aaf875",
     fontSize: "1.4rem",
     fontWeight: "1000",
@@ -89,12 +90,9 @@ const formationNameStyle: CSSProperties = {
   backgroundColor: colorCode.white,
   border: `2px solid ${colorCode.lightOrange}`,
   color: colorCode.black,
+  cursor: "default",
   fontSize: "1.1rem",
   height: "3.5rem",
   textShadow: `1px 1px 1px ${colorCode.lightOrange}`,
   width: "12rem",
-};
-
-export const SkeletonFormation = () => {
-  return <Skeleton style={{ height: "29rem", marginTop: "1rem" }} />;
 };

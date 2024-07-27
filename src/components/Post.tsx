@@ -1,4 +1,5 @@
-import { Formation, SkeletonFormation } from "@/components/Formation";
+import { BestEleven } from "@/components/BestEleven";
+import { SkeletonFormation } from "@/components/Formation";
 import { PostFooter, SkeletonPostFooter } from "@/components/PostFooter";
 import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
 import type { Post as PrismaPost } from "@prisma/client";
@@ -36,7 +37,7 @@ export const Post = ({
         authorImage={"https://example.com/john-doe.png"}
         createdAt={createdAt}
       />
-      <Formation formationCode={formationCode} readonly={true} style={formationStyle} />
+      <BestEleven formationCode={formationCode} style={formationStyle} />
       <PostFooter
         commentCount={3}
         description={description}
