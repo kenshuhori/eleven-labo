@@ -14,7 +14,6 @@ interface PostProps {
 
 export const Post = ({ commentCount, fullSentence, post }: PostProps) => {
   const { createdAt, description, formationCode, id, likeCount } = post;
-  const postUrl = `/posts/${id}`;
   const eleven: Eleven = [
     { positionCode: 1, player: post.pos1Player },
     { positionCode: 2, player: post.pos2Player },
@@ -42,7 +41,7 @@ export const Post = ({ commentCount, fullSentence, post }: PostProps) => {
         commentCount={commentCount}
         description={description}
         fullSentence={fullSentence}
-        postUrl={postUrl}
+        postUrl={`/posts/${id}`}
         likeCount={likeCount}
       />
     </div>
