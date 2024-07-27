@@ -1,4 +1,4 @@
-import type { Formation } from "@/types";
+import type { Formation, GroupedFormationSelectOption } from "@/types";
 
 export const groupedFormations = (formations: Formation[]): GroupedFormationSelectOption[] => {
   const threeBacks = formations.filter((formation) => formation.code.startsWith("3")).sort();
