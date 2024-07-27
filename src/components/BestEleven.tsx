@@ -8,7 +8,7 @@ import { Button } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
-  formationCode: Formation["code"];
+  formationCode: string;
   eleven: Eleven;
   style?: React.CSSProperties;
 }
@@ -74,7 +74,7 @@ const playerNameStyle: CSSProperties = {
   fontWeight: "1000",
   lineHeight: "1.2",
   textAlign: "center",
-  textShadow: `2px 2px ${colorCode.black}`,
+  textShadow: `3px 3px ${colorCode.black}`,
   width: "7rem",
 };
 

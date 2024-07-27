@@ -1,4 +1,4 @@
-export const leagues: League[] = [
+export const leagues = [
   {
     id: 39,
     name: "Premier League",

@@ -1,3 +1,5 @@
+import type { Formation } from "@/types";
+
 export const defaultFormation: Formation = {
   code: "4-4-2",
   name: "4-4-2 フラット",

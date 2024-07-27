@@ -1,5 +1,6 @@
 import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
+import type { Formation, FormationSelectOption } from "@/types";
 import {
   Button,
   Modal,
@@ -12,7 +13,7 @@ import { type CSSProperties, useCallback, useState } from "react";
 import { FormationSelect } from "./FormationSelect";
 
 interface FormationIconProps {
-  formationCode: Formation["code"];
+  formationCode: string;
   onChange: (selected: FormationSelectOption | null) => void;
 }
 

@@ -25,7 +25,7 @@ export default function Page() {
                 createdAt={theme.createdAt.toISOString()}
                 id={theme.id}
                 likeCount={theme.likeCount}
-                postCount={0}
+                postCount={theme.posts.length}
                 title={theme.title}
                 key={theme.id}
               />
