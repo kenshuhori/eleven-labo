@@ -1,7 +1,5 @@
-import type { Player, Team } from "@prisma/client";
-import { defaultTeam, teams } from "./teams";
-
-type PlayerTeam = Player & { team: Team };
+import type { PlayerTeam } from "@/types";
+import { defaultTeam } from "./teams";
 
 export const defaultPlayer = ({
   backgroundColor,
@@ -43,8 +41,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/280.png",
     position: "Goalkeeper",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 290,
@@ -54,8 +51,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/290.png",
     position: "Defender",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 8500,
@@ -65,8 +61,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/8500.png",
     position: "Midfielder",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 283,
@@ -76,8 +71,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/283.png",
     position: "Midfielder",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 1096,
@@ -87,8 +81,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/1096.png",
     position: "Midfielder",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 6716,
@@ -98,8 +91,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/6716.png",
     position: "Midfielder",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 306,
@@ -109,8 +101,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/306.png",
     position: "Attacker",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 51617,
@@ -120,8 +111,7 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/51617.png",
     position: "Attacker",
     teamId: 40,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "LIV")!,
+    team: defaultTeam({}),
   },
   {
     id: 0,
@@ -131,7 +121,6 @@ export const players: PlayerTeam[] = [
     photo: "https://media.api-sports.io/football/players/0.png",
     position: "Midfielder",
     teamId: 50,
-    // biome-ignore lint/style/noNonNullAssertion: <explanation>
-    team: teams.find((team) => team.code === "MAC")!,
+    team: defaultTeam({}),
   },
 ];

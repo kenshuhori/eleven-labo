@@ -1,6 +1,5 @@
-import type { Player, Team } from "@prisma/client";
-
-type PlayerTeam = Player & { team: Team };
+import type { PlayerTeam } from "@/types";
+import type { Team } from "@prisma/client";
 
 export const groupedPlayers = (
   players: PlayerTeam[] | undefined,

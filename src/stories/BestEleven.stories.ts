@@ -1,4 +1,5 @@
 import { BestEleven } from "@/components/BestEleven";
+import { players } from "@/fixtures/players";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -14,7 +15,52 @@ const meta = {
   },
   args: {
     formationCode: "4-3-3",
-    eleven: [],
+    eleven: [
+      {
+        positionCode: 1,
+        player: players[1],
+      },
+      {
+        positionCode: 2,
+        player: players[2],
+      },
+      {
+        positionCode: 3,
+        player: players[3],
+      },
+      {
+        positionCode: 4,
+        player: players[4],
+      },
+      {
+        positionCode: 5,
+        player: players[5],
+      },
+      {
+        positionCode: 6,
+        player: players[6],
+      },
+      {
+        positionCode: 7,
+        player: players[7],
+      },
+      {
+        positionCode: 8,
+        player: players[8],
+      },
+      {
+        positionCode: 9,
+        player: players[1],
+      },
+      {
+        positionCode: 10,
+        player: players[1],
+      },
+      {
+        positionCode: 11,
+        player: players[1],
+      },
+    ],
     style: {
       height: "30rem",
       position: "relative",
