@@ -10,10 +10,12 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
+    commentCount: { control: "number" },
     fullSentence: { control: "boolean" },
     post: { control: "object" },
   },
   args: {
+    commentCount: 0,
     fullSentence: true,
     post: defaultPostWithRelation,
   },
