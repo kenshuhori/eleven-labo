@@ -42,10 +42,9 @@ export default function Page({ params }: { params: PageProps }) {
           <ThemeHeader title={theme.title} />
           <div style={timelineStyle}>
             {theme.posts.map((post) => {
-              const postProps = { ...post, fullSentence: false };
               return (
                 <Fragment key={post.id}>
-                  <Post {...postProps} />
+                  <Post fullSentence={false} post={post} />
                 </Fragment>
               );
             })}

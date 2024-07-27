@@ -7,16 +7,11 @@ import type React from "react";
 
 type PostProps = {
   fullSentence: boolean;
-} & PrismaPost;
+  post: PrismaPost;
+};
 
-export const Post = ({
-  createdAt,
-  description,
-  formationCode,
-  fullSentence,
-  id,
-  likeCount,
-}: PostProps) => {
+export const Post = ({ fullSentence, post }: PostProps) => {
+  const { createdAt, description, formationCode, id, likeCount } = post;
   const postUrl = `/posts/${id}`;
 
   return (

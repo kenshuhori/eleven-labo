@@ -7,7 +7,6 @@ import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
 import { ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
-import { defaultPost } from "@/fixtures/posts";
 import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
 import useSWR from "swr";
@@ -26,8 +25,6 @@ export default function Page({ params }: { params: PageProps }) {
     return <ErrorComponent />;
   }
 
-  const postProps = { ...defaultPost, fullSentence: true };
-
   return (
     <main style={baseStyle}>
       {isLoading || data === undefined ? (
@@ -36,7 +33,7 @@ export default function Page({ params }: { params: PageProps }) {
         <>
           <ThemeHeader title={data.theme.title} />
           <div style={postStyle}>
-            <Post {...postProps} />
+            <Post fullSentence={true} post={data} />
           </div>
           <div style={commentsStyle}>
             {data.comments.map((comment) => {
@@ -48,7 +45,7 @@ export default function Page({ params }: { params: PageProps }) {
               );
             })}
           </div>
-          {isSignedIn && <CommentForm postId={postProps.id} />}
+          {isSignedIn && <CommentForm postId={data.id} />}
         </>
       )}
     </main>
