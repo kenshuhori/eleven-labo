@@ -9,7 +9,7 @@ import { positionCodes } from "@/fixtures/positionCodes";
 import { Skeleton } from "@chakra-ui/react";
 
 interface FormationProps {
-  formationCode: Formation["code"];
+  formationCode: string;
   style?: React.CSSProperties;
 }
 

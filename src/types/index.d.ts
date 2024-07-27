@@ -5,4 +5,9 @@ type Eleven = {
   player: PlayerTeam;
 }[];
 
+type Formation = {
+  code: string;
+  name: string;
+};
+
 type PlayerTeam = Player & { team: Team };

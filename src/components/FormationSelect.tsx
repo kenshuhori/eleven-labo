@@ -1,4 +1,5 @@
 import { formations } from "@/fixtures/formations";
+import type { Formation } from "@/types";
 import { groupedFormations } from "@/utils/groupFormation";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";

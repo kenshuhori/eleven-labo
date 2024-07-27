@@ -8,7 +8,7 @@ import { Button } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
-  formationCode: Formation["code"];
+  formationCode: string;
   eleven: Eleven;
   style?: React.CSSProperties;
 }
