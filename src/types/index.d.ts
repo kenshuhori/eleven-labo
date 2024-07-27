@@ -10,4 +10,9 @@ export type Formation = {
   name: string;
 };
 
+export type FormationSelectOption = {
+  value: string;
+  label: string;
+} & Formation;
+
 export type PlayerTeam = Player & { team: Team };

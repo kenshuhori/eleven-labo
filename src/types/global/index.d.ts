@@ -1,8 +1,3 @@
-type FormationSelectOption = {
-  value: string;
-  label: string;
-} & Formation;
-
 type GroupedFormationSelectOption = {
   category: string;
   options: FormationSelectOption[];

@@ -6,6 +6,7 @@ import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
 import { defaultPlayer } from "@/fixtures/players";
 import { Skeleton } from "@chakra-ui/react";
+import { FormationSelectOption } from "@/types";
 
 interface FormationProps {
   formationCode: string;

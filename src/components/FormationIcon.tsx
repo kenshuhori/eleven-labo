@@ -1,6 +1,6 @@
 import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
-import type { Formation } from "@/types";
+import type { Formation, FormationSelectOption } from "@/types";
 import {
   Button,
   Modal,
