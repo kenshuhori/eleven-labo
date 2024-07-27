@@ -13,7 +13,7 @@ interface PlayerSelectProps {
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
 
-  const formatGroupLabel = (group: GroupedPlayerSelectOption) => {
+  const formatGroupLabel = (group: { category: string; options: PlayerSelectOption[] }) => {
     return (
       <div>
         <span style={{ fontSize: "1rem" }}>{group.category}</span>
@@ -55,7 +55,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 
   return (
     <div style={{ ...style }}>
-      <Select<PlayerSelectOption, false, GroupedPlayerSelectOption>
+      <Select<PlayerSelectOption, false, { category: string; options: PlayerSelectOption[] }>
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
         menuIsOpen={true}
