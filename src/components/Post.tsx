@@ -16,17 +16,6 @@ export const Post = ({
   fullSentence,
   id,
   likeCount,
-  pos1PlayerId,
-  pos2PlayerId,
-  pos3PlayerId,
-  pos4PlayerId,
-  pos5PlayerId,
-  pos6PlayerId,
-  pos7PlayerId,
-  pos8PlayerId,
-  pos9PlayerId,
-  pos10PlayerId,
-  pos11PlayerId,
 }: PostProps) => {
   const postUrl = `/posts/${id}`;
 
@@ -37,7 +26,7 @@ export const Post = ({
         authorImage={"https://example.com/john-doe.png"}
         createdAt={createdAt}
       />
-      <BestEleven formationCode={formationCode} style={formationStyle} />
+      <BestEleven formationCode={formationCode} players={[{ 1: null }]} style={formationStyle} />
       <PostFooter
         commentCount={3}
         description={description}

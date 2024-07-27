@@ -10,10 +10,11 @@ import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
   formationCode: Formation["code"];
+  players: BestPlayer[];
   style?: React.CSSProperties;
 }
 
-export const BestEleven = ({ formationCode, style }: BestElevenProps) => {
+export const BestEleven = ({ formationCode, players, style }: BestElevenProps) => {
   const formationClass = `formation-${formationCode}`;
 
   return (
