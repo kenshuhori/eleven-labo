@@ -1,35 +1,32 @@
 import type { PlayerTeam } from "@/types";
-import type { Team } from "@prisma/client";
 
 export const groupedPlayers = (
   players: PlayerTeam[] | undefined,
-  teams: Team[],
-): GroupedPlayerSelectOption[] => {
+): { category: string; options: PlayerTeam[] }[] => {
   if (players === undefined) {
     return [];
   }
 
-  const groupedOptions: GroupedPlayerSelectOption[] = sortedTeams(teams).map((team) => {
-    const options = players.filter((player) => player.teamId === team.id);
+  const groupByTeam = Map.groupBy(players, (x) => x.team.name);
+  const toArray = Array.from(groupByTeam.entries());
+  return sortByTeam(toArray).map(([key, value]) => {
     return {
-      category: team.name,
-      options: options.map((player) => ({
-        value: player.name,
+      category: key,
+      options: value.map((player) => ({
+        value: player.id,
         label: player.name,
         ...player,
       })),
     };
   });
-
-  return groupedOptions;
 };
 
-const sortedTeams = (teams: Team[]) => {
-  return teams.sort((a, b) => {
-    if (a.code < b.code) {
+const sortByTeam = (group: [string, PlayerTeam[]][]) => {
+  return group.sort((a, b) => {
+    if (a < b) {
       return -1;
     }
-    if (a.code > b.code) {
+    if (a > b) {
       return 1;
     }
 
