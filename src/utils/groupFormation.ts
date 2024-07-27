@@ -1,8 +1,6 @@
-import type { Formation } from "@/types";
+import type { Formation, GroupedFormationSelectOption } from "@/types";
 
-export const groupedFormations = (
-  formations: Formation[],
-): { category: string; options: PlayerSelectOption[] }[] => {
+export const groupedFormations = (formations: Formation[]): GroupedFormationSelectOption[] => {
   const threeBacks = formations.filter((formation) => formation.code.startsWith("3")).sort();
   const fourBacks = formations.filter((formation) => formation.code.startsWith("4")).sort();
   const fiveBacks = formations.filter((formation) => formation.code.startsWith("5")).sort();
@@ -13,7 +11,7 @@ export const groupedFormations = (
       !formation.code.startsWith("5"),
   );
 
-  const groupedOptions: { category: string; options: PlayerSelectOption[] }[] = [
+  const groupedOptions: GroupedFormationSelectOption[] = [
     {
       category: "3バック",
       options: threeBacks.map((formation) => ({

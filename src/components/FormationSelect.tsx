@@ -1,5 +1,5 @@
 import { formations } from "@/fixtures/formations";
-import type { Formation, FormationSelectOption } from "@/types";
+import type { Formation, FormationSelectOption, GroupedFormationSelectOption } from "@/types";
 import { groupedFormations } from "@/utils/groupFormation";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
@@ -11,10 +11,9 @@ interface FormationSelectProps {
 }
 
 export const FormationSelect = ({ formation, onChange, style }: FormationSelectProps) => {
-  const groupedOptions: { category: string; options: PlayerSelectOption[] }[] =
-    groupedFormations(formations);
+  const groupedOptions: GroupedFormationSelectOption[] = groupedFormations(formations);
 
-  const formatGroupLabel = (group: { category: string; options: PlayerSelectOption[] }) => {
+  const formatGroupLabel = (group: GroupedFormationSelectOption) => {
     return (
       <div>
         <span style={{ fontSize: "1rem" }}>{group.category}</span>
@@ -49,7 +48,7 @@ export const FormationSelect = ({ formation, onChange, style }: FormationSelectP
 
   return (
     <div style={{ ...style }}>
-      <Select<FormationSelectOption, false, { category: string; options: PlayerSelectOption[] }>
+      <Select<FormationSelectOption, false, GroupedFormationSelectOption>
         defaultValue={defaultFormation}
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
