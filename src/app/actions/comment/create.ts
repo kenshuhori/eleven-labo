@@ -10,8 +10,8 @@ export async function createComment(formData: FormData) {
     postId: formData.get("postId"),
   };
 
-  if (comment === null || postId === null) {
-    throw new Error("Invalid form data");
+  if (comment === "" || postId === "") {
+    return new Error("Invalid form data");
   }
 
   try {
