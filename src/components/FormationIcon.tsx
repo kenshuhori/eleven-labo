@@ -14,14 +14,9 @@ import { FormationSelect } from "./FormationSelect";
 interface FormationIconProps {
   formationCode: Formation["code"];
   onChange: (selected: FormationSelectOption | null) => void;
-  readonly?: boolean;
 }
 
-export const FormationIcon = ({
-  formationCode,
-  onChange,
-  readonly = false,
-}: FormationIconProps) => {
+export const FormationIcon = ({ formationCode, onChange }: FormationIconProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [formation, setFormation] = useState<Formation>(defaultFormation);
@@ -47,16 +42,14 @@ export const FormationIcon = ({
           <option value={formation.code} />
         </select>
       </div>
-      {readonly === false && (
-        <Modal isOpen={isOpen} onClose={onClose} size="md">
-          <ModalOverlay />
-          <ModalContent style={{ top: "15vh" }}>
-            <ModalBody>
-              <FormationSelect formation={formation} onChange={onChangeFormation} />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      )}
+      <Modal isOpen={isOpen} onClose={onClose} size="md">
+        <ModalOverlay />
+        <ModalContent style={{ top: "15vh" }}>
+          <ModalBody>
+            <FormationSelect formation={formation} onChange={onChangeFormation} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </div>
   );
 };

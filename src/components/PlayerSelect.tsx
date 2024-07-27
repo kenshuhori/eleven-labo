@@ -1,4 +1,4 @@
-import { PlayerSelectOptionsContext } from "@/components/Formation";
+import { PlayerSelectOptionsContext } from "@/app/(service-page)/template";
 import { colorCode } from "@/constants";
 import { Image } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
