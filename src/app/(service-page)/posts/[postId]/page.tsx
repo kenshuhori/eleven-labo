@@ -9,7 +9,7 @@ import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import { colorCode } from "@/constants";
 import { useAuth } from "@clerk/clerk-react";
 import { type CSSProperties, Fragment } from "react";
-import useSWR from "swr";
+import useSWRImmutable from "swr";
 
 interface PageProps {
   postId: string;
@@ -17,7 +17,7 @@ interface PageProps {
 
 export default function Page({ params }: { params: PageProps }) {
   const postId = params.postId;
-  const { data, error, isLoading } = useSWR(`/posts/${postId}`, getPost);
+  const { data, error, isLoading } = useSWRImmutable(`/posts/${postId}`, getPost);
 
   const { isSignedIn } = useAuth();
 
