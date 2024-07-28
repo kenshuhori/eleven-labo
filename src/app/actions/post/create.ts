@@ -67,7 +67,6 @@ export async function createPost(formData: FormData) {
   ) {
     return new Error("Invalid form data");
   }
-
   try {
     await prisma.post.create({
       data: {

@@ -1,15 +1,14 @@
-import type { PostWithRelation } from "@/app/actions/post/get";
 import { BestEleven } from "@/components/BestEleven";
 import { SkeletonFormation } from "@/components/Formation";
 import { PostFooter, SkeletonPostFooter } from "@/components/PostFooter";
 import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
-import type { Eleven } from "@/types";
+import type { Eleven, PostWithPlayers } from "@/types";
 import type React from "react";
 
 interface PostProps {
   commentCount: number;
   fullSentence: boolean;
-  post: PostWithRelation;
+  post: PostWithPlayers;
 }
 
 export const Post = ({ commentCount, fullSentence, post }: PostProps) => {

@@ -2,6 +2,7 @@ export { createComment } from "./comment/create";
 export { listCommentsByPostId } from "./comment/list";
 export { createPost } from "./post/create";
 export { getPost } from "./post/get";
+export { listPostByThemeId } from "./post/list";
 export { createTheme } from "./theme/create";
 export { getTheme, getThemeWithPosts } from "./theme/get";
 export { listTheme } from "./theme/list";

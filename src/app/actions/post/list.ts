@@ -1,25 +1,25 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Player, Post, Team, Theme } from "@prisma/client";
+import type { Comment, Player, Post, Team } from "@prisma/client";
 
-export const getPost = async (key: string) => {
+export const listPostByThemeId = async (key: string) => {
   const pathStr = key.split("/")[1];
   const idStr = key.split("/")[2];
 
-  if (pathStr !== "posts" || idStr === undefined) {
+  if (pathStr !== "themes" || idStr === undefined) {
     throw new Error("Key not found");
   }
 
-  const id = Number(idStr);
+  const themeId = Number(idStr);
 
-  if (Number.isNaN(id)) {
+  if (Number.isNaN(themeId)) {
     throw new Error("Invalid key");
   }
 
-  return prisma.post.findUnique({
+  return prisma.post.findMany({
     include: {
-      theme: true,
+      comments: true,
       pos1Player: {
         include: {
           team: true,
@@ -77,13 +77,13 @@ export const getPost = async (key: string) => {
       },
     },
     where: {
-      id,
+      themeId,
     },
-  }) as Promise<PostWithRelation>;
+  }) as Promise<PostWithRelation[]>;
 };
 
-export type PostWithRelation = {
-  theme: Theme;
+type PostWithRelation = {
+  comments: Comment[];
 } & {
   pos1Player: Player & {
     team: Team;
