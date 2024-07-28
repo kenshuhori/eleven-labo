@@ -3,6 +3,8 @@ import { PostIconBox } from "@/components/PostIconBox";
 import { colorCode } from "@/constants";
 import { transformAgo } from "@/utils/ago";
 import { Skeleton } from "@chakra-ui/react";
+import defaultThumbnailImage from "@public/theme-thumbnail.jpg";
+import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 import type { CSSProperties } from "react";
@@ -12,22 +14,32 @@ interface ThemeProps {
   id: number;
   likeCount: number;
   postCount: number;
+  thumbnail: string;
   title: string;
 }
 
-export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps) => {
+export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }: ThemeProps) => {
   const createdAgo = transformAgo(createdAt);
   const url = `/themes/${id}`;
 
   return (
     <Link href={url}>
       <div style={baseStyle}>
-        <div style={titleStyle}>{title}</div>
-        <div style={createdAtStyle}>{createdAgo}</div>
-        <div style={navigateStyle}>{"続きを読む >"}</div>
-        <div style={footerStyle}>
-          <LikeIconButton count={likeCount} liked={false} />
-          <PostIconBox count={postCount} />
+        <div style={{ width: "80%" }}>
+          <div style={titleStyle}>{title}</div>
+          <div style={createdAtStyle}>{createdAgo}</div>
+          <div style={navigateStyle}>{"続きを読む >"}</div>
+          <div style={footerStyle}>
+            <LikeIconButton count={likeCount} liked={false} />
+            <PostIconBox count={postCount} />
+          </div>
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          {thumbnail ? (
+            <img alt="theme" src={thumbnail} style={thumbnailStyle} />
+          ) : (
+            <img alt="theme" src={defaultThumbnailImage.src} style={thumbnailStyle} />
+          )}
         </div>
       </div>
     </Link>
@@ -52,7 +64,10 @@ export const SkeletonTheme = () => {
 
 const baseStyle: CSSProperties = {
   borderBottom: `1px solid ${colorCode.gray}`,
+  display: "flex",
+  gap: "1rem",
   height: "10rem",
+  justifyContent: "space-between",
   padding: "12px 18px",
   position: "relative",
   width: "100%",
@@ -80,4 +95,11 @@ const footerStyle: CSSProperties = {
   gap: "16px",
   lineHeight: "1",
   position: "absolute",
+};
+
+const thumbnailStyle: CSSProperties = {
+  borderRadius: "1.0rem",
+  height: "6rem",
+  objectFit: "cover",
+  width: "6rem",
 };

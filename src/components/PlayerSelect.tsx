@@ -16,8 +16,8 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 
   const formatGroupLabel = (group: { category: string; options: PlayerSelectOption[] }) => {
     return (
-      <div>
-        <span style={{ fontSize: "1rem" }}>{group.category}</span>
+      <div style={{ marginTop: "1rem" }}>
+        <span style={{ fontSize: "1.2rem" }}>{group.category}</span>
       </div>
     );
   };
@@ -43,7 +43,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
             alt={data.name}
             src={data.photo}
             loading={"lazy"}
-            style={{ height: "2rem", width: "2rem" }}
+            style={{ height: "2.8rem", width: "2.8rem" }}
           />
           <span style={optionStyle}>{data.name}</span>
         </div>
@@ -77,9 +77,15 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 };
 
 const optionStyle: CSSProperties = {
-  fontSize: "1.2rem",
+  fontSize: "1.5rem",
   fontWeight: 700,
+  height: "3rem",
   letterSpacing: "1px",
+  lineHeight: "2.8rem",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  whiteSpace: "nowrap",
+  width: "17rem",
 };
 
 const numberStyle = (team: Team): CSSProperties => {
@@ -88,11 +94,12 @@ const numberStyle = (team: Team): CSSProperties => {
     border: `2px solid ${team.borderColor}`,
     borderRadius: "50%",
     color: team.color,
-    fontSize: "1.1rem",
+    fontSize: "1.4rem",
     fontWeight: "700",
-    height: "2rem",
+    height: "2.8rem",
+    lineHeight: "2.5rem",
     textAlign: "center",
     filter: `drop-shadow(2px 4px 2px ${colorCode.black})`,
-    width: "2rem",
+    width: "2.8rem",
   };
 };

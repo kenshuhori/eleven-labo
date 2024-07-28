@@ -18,7 +18,8 @@ export const Header = () => {
         <SignedIn>
           <UserButton />
         </SignedIn>
-        <MenuButton />
+        {/* リリース時は利用しない */}
+        {/* <MenuButton /> */}
       </div>
     </header>
   );
