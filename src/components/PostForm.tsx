@@ -7,35 +7,67 @@ import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
 import { Button, Skeleton, useToast } from "@chakra-ui/react";
 import type { Theme } from "@prisma/client";
-import type React from "react";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import { useSWRConfig } from "swr";
 
 interface PostFormProps {
   theme: Theme;
 }
 
 export const PostForm = ({ theme }: PostFormProps) => {
+  const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
+  const router = useRouter();
+  const { mutate } = useSWRConfig();
 
-  const onSubmit = (formData: FormData) => {
-    createPost(formData);
-    toast({
-      title: "投稿しました",
-      position: "top",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+  const [canSubmit, setCanSubmit] = useState(false);
+  const onChangeDescription = (event: React.FocusEvent<HTMLTextAreaElement>) => {
+    const description = event.target.value;
+    if (!description) {
+      setCanSubmit(false);
+    } else {
+      setCanSubmit(true);
+    }
+  };
+
+  const onSubmit = async (formData: FormData) => {
+    try {
+      await mutate(`/themes/${theme.id}`, createPost(formData));
+      ref.current?.reset();
+      toast({
+        title: "投稿しました",
+        position: "top",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      router.push(`/themes/${theme.id}`);
+    } catch (error) {
+      toast({
+        title: "投稿に失敗しました",
+        position: "top",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   const placeholder = "この11人を選んだ理由を伝えてみよう";
 
   return (
-    <form action={onSubmit} style={baseStyle}>
+    <form action={onSubmit} ref={ref} style={baseStyle}>
       <ThemeHeader title={theme.title} />
       <input name="themeId" style={{ display: "none" }} value={theme.id} readOnly />
       <Formation formationCode={defaultFormation.code} />
-      <textarea name="description" placeholder={placeholder} style={textareaStyle} />
-      <Button style={submitType} type={"submit"}>
+      <textarea
+        name="description"
+        onChange={onChangeDescription}
+        placeholder={placeholder}
+        style={textareaStyle}
+      />
+      <Button isDisabled={!canSubmit} style={submitType} type={"submit"}>
         投稿
       </Button>
     </form>
