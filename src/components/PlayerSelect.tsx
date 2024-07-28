@@ -57,6 +57,14 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   return (
     <div style={{ ...style }}>
       <Select<PlayerSelectOption, false, { category: string; options: PlayerSelectOption[] }>
+        filterOption={(option, rawInput) => {
+          const { name, number, team } = option.data;
+          return (
+            name.toLowerCase().includes(rawInput.toLowerCase()) ||
+            String(number).includes(rawInput) ||
+            team.name.toLowerCase().includes(rawInput.toLowerCase())
+          );
+        }}
         formatGroupLabel={formatGroupLabel}
         formatOptionLabel={formatOptionLabel}
         menuIsOpen={true}
