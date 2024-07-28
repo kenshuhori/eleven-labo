@@ -39,11 +39,13 @@ async function main() {
       where: { id: theme.id },
       update: {
         id: theme.id,
+        thumbnail: theme.thumbnail,
         title: theme.title,
         likeCount: theme.likeCount,
       },
       create: {
         id: theme.id,
+        thumbnail: theme.thumbnail,
         title: theme.title,
         likeCount: theme.likeCount,
       },
