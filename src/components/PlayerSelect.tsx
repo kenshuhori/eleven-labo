@@ -82,6 +82,10 @@ const optionStyle: CSSProperties = {
   height: "3rem",
   letterSpacing: "1px",
   lineHeight: "2.8rem",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  whiteSpace: "nowrap",
+  width: "17rem",
 };
 
 const numberStyle = (team: Team): CSSProperties => {
