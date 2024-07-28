@@ -24,7 +24,7 @@ export default function Page({ params }: { params: PageProps }) {
 
   return (
     <main style={baseStyle}>
-      {isLoading || theme === undefined ? (
+      {isLoading || theme === undefined || theme.posts === undefined ? (
         <>
           <SkeletonThemeHeader />
           <div style={timelineStyle}>

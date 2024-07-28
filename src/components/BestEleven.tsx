@@ -29,7 +29,7 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
             <div className={className} key={player.id}>
               <div style={contentStyle}>
                 <button style={playerIconStyle(player.team)} type="button">
-                  {player.number}
+                  {player.number ?? "？"}
                 </button>
                 <label style={playerNameStyle}>{player.name}</label>
               </div>
