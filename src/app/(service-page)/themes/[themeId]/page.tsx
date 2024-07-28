@@ -1,6 +1,6 @@
 "use client";
 
-import { getThemeWithPosts } from "@/app/actions";
+import { getThemeWithPosts, listPostByThemeId } from "@/app/actions";
 import { BottomButton } from "@/components/BottomButton";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
@@ -8,6 +8,7 @@ import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
 import useSWR from "swr";
+import useSWRImmutable from "swr";
 
 interface PageProps {
   themeId: string;
@@ -16,15 +17,24 @@ interface PageProps {
 export default function Page({ params }: { params: PageProps }) {
   const themeId = params.themeId;
 
-  const { data: theme, error, isLoading } = useSWR(`/themes/${themeId}`, getThemeWithPosts);
+  const {
+    data: theme,
+    error: themeError,
+    isLoading: themeIsLoading,
+  } = useSWRImmutable(`/themes/${themeId}`, getThemeWithPosts);
+  const {
+    data: posts,
+    error: postsError,
+    isLoading: postsIsLoading,
+  } = useSWR(`/themes/${themeId}/posts`, listPostByThemeId);
 
-  if (error) {
+  if (themeError || postsError) {
     return <ErrorComponent />;
   }
 
   return (
     <main style={baseStyle}>
-      {isLoading || theme === undefined || theme.posts === undefined ? (
+      {themeIsLoading || theme === undefined || postsIsLoading || posts === undefined ? (
         <>
           <SkeletonThemeHeader />
           <div style={timelineStyle}>
@@ -41,7 +51,7 @@ export default function Page({ params }: { params: PageProps }) {
         <>
           <ThemeHeader title={theme.title} />
           <div style={timelineStyle}>
-            {theme.posts.map((post) => {
+            {posts.map((post) => {
               return (
                 <Fragment key={post.id}>
                   <Post commentCount={post.comments.length} fullSentence={false} post={post} />
