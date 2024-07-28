@@ -1,3 +1,4 @@
+import { Skeleton } from "@chakra-ui/react";
 import React from "react";
 import { LikeIconButton } from "./LikeIconButton";
 
@@ -7,4 +8,8 @@ interface CommentFooterProps {
 
 export const CommentFooter = ({ count }: CommentFooterProps) => {
   return <LikeIconButton count={count} liked={false} />;
+};
+
+export const SkeletonCommentFooter = () => {
+  return <Skeleton style={{ height: "1rem", width: "6rem" }} />;
 };

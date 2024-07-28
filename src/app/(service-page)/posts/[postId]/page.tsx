@@ -1,7 +1,7 @@
 "use client";
 
 import { getPost, listCommentsByPostId } from "@/app/actions";
-import { Comment } from "@/components/Comment";
+import { Comment, SkeletonComment } from "@/components/Comment";
 import { CommentForm } from "@/components/CommentForm";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
@@ -51,25 +51,34 @@ export default function Page({ params }: { params: PageProps }) {
           <div style={postStyle}>
             <Post commentCount={commentCount} fullSentence={true} post={post} />
           </div>
-          <div style={commentsStyle}>
-            {commentsIsLoading || comments === undefined || comments === null ? (
-              <></>
-            ) : (
-              <>
-                {comments.map((comment) => {
-                  return (
-                    <Fragment key={comment.id}>
-                      <div style={{ border: `1px dashed ${colorCode.gray}` }} />
-                      <Comment {...comment} />
-                    </Fragment>
-                  );
-                })}
-              </>
-            )}
-          </div>
-          {isSignedIn && <CommentForm postId={post.id} />}
         </>
       )}
+      <div style={commentsStyle}>
+        {commentsIsLoading || comments === undefined ? (
+          <>
+            {[1, 2].map((idx) => {
+              // ざっくり4つ分のスケルトンを表示
+              return (
+                <Fragment key={idx}>
+                  <SkeletonComment />
+                </Fragment>
+              );
+            })}
+          </>
+        ) : (
+          <>
+            {comments.map((comment) => {
+              return (
+                <Fragment key={comment.id}>
+                  <div style={{ border: `1px dashed ${colorCode.gray}` }} />
+                  <Comment {...comment} />
+                </Fragment>
+              );
+            })}
+          </>
+        )}
+      </div>
+      {post && isSignedIn && <CommentForm postId={post.id} />}
     </main>
   );
 }

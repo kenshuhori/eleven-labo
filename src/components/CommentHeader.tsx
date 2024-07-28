@@ -1,5 +1,5 @@
 import { transformAgo } from "@/utils/ago";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import type React from "react";
 
 interface CommentHeaderProps {
@@ -18,6 +18,15 @@ export const CommentHeader = ({ author, authorImage, createdAt }: CommentHeaderP
         <div>{author}</div>
         <div>{createdAgo}</div>
       </div>
+    </div>
+  );
+};
+
+export const SkeletonCommentHeader = () => {
+  return (
+    <div style={baseStyle}>
+      <SkeletonCircle size="3rem" />
+      <SkeletonText alignContent={"center"} skeletonHeight="4" noOfLines={2} width={"8rem"} />
     </div>
   );
 };
