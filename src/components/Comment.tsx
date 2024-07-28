@@ -1,6 +1,6 @@
 import { CommentFooter, SkeletonCommentFooter } from "@/components/CommentFooter";
 import { CommentHeader, SkeletonCommentHeader } from "@/components/CommentHeader";
-import { Skeleton, SkeletonText } from "@chakra-ui/react";
+import { SkeletonText } from "@chakra-ui/react";
 import type React from "react";
 
 interface CommentProps {
