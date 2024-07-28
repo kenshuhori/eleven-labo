@@ -22,11 +22,11 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
   return (
     <div className={formationClass}>
       <FootballField style={style}>
-        {eleven.map(({ positionCode, player }) => {
+        {eleven.map(({ positionCode, player }, idx) => {
           const className = `player-no${positionCode} transition`;
 
           return (
-            <div className={className} key={player.id}>
+            <div className={className} key={`${positionCode}-${player.id}-${idx}`}>
               <div style={contentStyle}>
                 <button style={playerIconStyle(player.team)} type="button">
                   {player.number ?? "？"}
