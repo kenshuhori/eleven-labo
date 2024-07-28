@@ -26,8 +26,9 @@ export const CommentForm = ({ postId, style }: CommentFormProps) => {
 
   const onSubmit = async (formData: FormData) => {
     try {
-      await mutate("/posts/new", createComment(formData));
+      await mutate(`/posts/${postId}/comments`, createComment(formData));
       ref.current?.reset();
+      setCanSubmit(false);
       toast({
         title: "コメントしました",
         position: "top",

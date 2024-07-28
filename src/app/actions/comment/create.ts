@@ -1,8 +1,6 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 export async function createComment(formData: FormData) {
   const { comment, postId } = {
@@ -21,8 +19,6 @@ export async function createComment(formData: FormData) {
         comment: comment as string,
       },
     });
-    revalidatePath(`/posts/${postId}`);
-    // redirect(`/posts/${postId}`);
   } catch (error) {
     console.error(error);
     throw new Error("Failed to create comment");
