@@ -7,6 +7,7 @@ import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
 import { Button, Skeleton, useToast } from "@chakra-ui/react";
 import type { Theme } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useSWRConfig } from "swr";
 
@@ -17,6 +18,7 @@ interface PostFormProps {
 export const PostForm = ({ theme }: PostFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
+  const router = useRouter();
   const { mutate } = useSWRConfig();
 
   const [canSubmit, setCanSubmit] = useState(false);
@@ -40,6 +42,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
         duration: 3000,
         isClosable: true,
       });
+      router.push(`/themes/${theme.id}`);
     } catch (error) {
       toast({
         title: "投稿に失敗しました",

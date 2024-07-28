@@ -89,6 +89,6 @@ export async function createPost(formData: FormData) {
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to create comment");
+    return new Error("Failed to create post");
   }
 }
