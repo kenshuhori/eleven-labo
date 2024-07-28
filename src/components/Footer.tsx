@@ -7,11 +7,11 @@ export const Footer = () => (
   <footer style={baseStyle}>
     <div style={logoStyle}>{serviceTitle}</div>
     <div style={linksStyle}>
-      <Link href="/aboutUs" style={navigateStyle}>
-        about us
-      </Link>
       <Link href="/contact" style={navigateStyle}>
         お問い合わせ
+      </Link>
+      <Link href="/terms" style={navigateStyle}>
+        利用規約
       </Link>
     </div>
   </footer>

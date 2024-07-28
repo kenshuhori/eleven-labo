@@ -28,8 +28,8 @@ export const MenuButton = () => {
         <Link href="/formations" passHref>
           <MenuItem icon={<GiSoccerBall size={"1.4rem"} />}>フォーメーション ~Formation~</MenuItem>
         </Link>
-        <Link href="/aboutUs" passHref>
-          <MenuItem icon={<RiTeamFill size={"1.4rem"} />}>About Us</MenuItem>
+        <Link href="/terms" passHref>
+          <MenuItem icon={<RiTeamFill size={"1.4rem"} />}>利用規約</MenuItem>
         </Link>
       </MenuList>
     </Menu>
