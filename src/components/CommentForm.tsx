@@ -2,6 +2,7 @@ import { createComment } from "@/app/actions";
 import { colorCode } from "@/constants";
 import { Button, useToast } from "@chakra-ui/react";
 import { type CSSProperties, useRef, useState } from "react";
+import { useSWRConfig } from "swr";
 
 interface CommentFormProps {
   postId: number;
@@ -11,6 +12,7 @@ interface CommentFormProps {
 export const CommentForm = ({ postId, style }: CommentFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
+  const { mutate } = useSWRConfig();
 
   const [canSubmit, setCanSubmit] = useState(false);
   const onChangeComment = (event: React.FocusEvent<HTMLTextAreaElement>) => {
@@ -24,7 +26,7 @@ export const CommentForm = ({ postId, style }: CommentFormProps) => {
 
   const onSubmit = async (formData: FormData) => {
     try {
-      createComment(formData);
+      await mutate("/posts/new", createComment(formData));
       ref.current?.reset();
       toast({
         title: "コメントしました",
