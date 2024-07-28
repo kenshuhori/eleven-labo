@@ -7,7 +7,7 @@ import { colorCode } from "@/constants";
 import { defaultFormation } from "@/fixtures/formations";
 import { Button, Skeleton, useToast } from "@chakra-ui/react";
 import type { Theme } from "@prisma/client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useSWRConfig } from "swr";
 
 interface PostFormProps {
@@ -18,6 +18,16 @@ export const PostForm = ({ theme }: PostFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
   const { mutate } = useSWRConfig();
+
+  const [canSubmit, setCanSubmit] = useState(false);
+  const onChangeDescription = (event: React.FocusEvent<HTMLTextAreaElement>) => {
+    const description = event.target.value;
+    if (!description) {
+      setCanSubmit(false);
+    } else {
+      setCanSubmit(true);
+    }
+  };
 
   const onSubmit = async (formData: FormData) => {
     try {
@@ -48,8 +58,13 @@ export const PostForm = ({ theme }: PostFormProps) => {
       <ThemeHeader title={theme.title} />
       <input name="themeId" style={{ display: "none" }} value={theme.id} readOnly />
       <Formation formationCode={defaultFormation.code} />
-      <textarea name="description" placeholder={placeholder} style={textareaStyle} />
-      <Button style={submitType} type={"submit"}>
+      <textarea
+        name="description"
+        onChange={onChangeDescription}
+        placeholder={placeholder}
+        style={textareaStyle}
+      />
+      <Button isDisabled={!canSubmit} style={submitType} type={"submit"}>
         投稿
       </Button>
     </form>

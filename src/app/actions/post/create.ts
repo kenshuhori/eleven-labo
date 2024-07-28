@@ -38,23 +38,33 @@ export async function createPost(formData: FormData) {
   };
 
   if (
-    Number.isInteger(themeId) &&
-    description !== "" &&
-    formationCode !== "" &&
-    Number.isInteger(pos1PlayerId) &&
-    Number.isInteger(pos2PlayerId) &&
-    Number.isInteger(pos3PlayerId) &&
-    Number.isInteger(pos4PlayerId) &&
-    Number.isInteger(pos5PlayerId) &&
-    Number.isInteger(pos6PlayerId) &&
-    Number.isInteger(pos7PlayerId) &&
-    Number.isInteger(pos8PlayerId) &&
-    Number.isInteger(pos9PlayerId) &&
-    Number.isInteger(pos10PlayerId) &&
-    Number.isInteger(pos11PlayerId)
+    Number.isNaN(themeId) ||
+    Number(themeId) === 0 ||
+    description === "" ||
+    formationCode === "" ||
+    Number.isNaN(pos1PlayerId) ||
+    Number(pos1PlayerId) === 0 ||
+    Number.isNaN(pos2PlayerId) ||
+    Number(pos2PlayerId) === 0 ||
+    Number.isNaN(pos3PlayerId) ||
+    Number(pos3PlayerId) === 0 ||
+    Number.isNaN(pos4PlayerId) ||
+    Number(pos4PlayerId) === 0 ||
+    Number.isNaN(pos5PlayerId) ||
+    Number(pos5PlayerId) === 0 ||
+    Number.isNaN(pos6PlayerId) ||
+    Number(pos6PlayerId) === 0 ||
+    Number.isNaN(pos7PlayerId) ||
+    Number(pos7PlayerId) === 0 ||
+    Number.isNaN(pos8PlayerId) ||
+    Number(pos8PlayerId) === 0 ||
+    Number.isNaN(pos9PlayerId) ||
+    Number(pos9PlayerId) === 0 ||
+    Number.isNaN(pos10PlayerId) ||
+    Number(pos10PlayerId) === 0 ||
+    Number.isNaN(pos11PlayerId) ||
+    Number(pos11PlayerId) === 0
   ) {
-    // OK
-  } else {
     return new Error("Invalid form data");
   }
 
