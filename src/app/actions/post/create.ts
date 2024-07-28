@@ -1,5 +1,6 @@
 "use server";
 
+import { prisma } from "@/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -7,50 +8,78 @@ export async function createPost(formData: FormData) {
   const {
     themeId,
     description,
-    formation,
-    position1,
-    position2,
-    position3,
-    position4,
-    position5,
-    position6,
-    position7,
-    position8,
-    position9,
-    position10,
-    position11,
+    formationCode,
+    pos1PlayerId,
+    pos2PlayerId,
+    pos3PlayerId,
+    pos4PlayerId,
+    pos5PlayerId,
+    pos6PlayerId,
+    pos7PlayerId,
+    pos8PlayerId,
+    pos9PlayerId,
+    pos10PlayerId,
+    pos11PlayerId,
   } = {
     themeId: formData.get("themeId"),
     description: formData.get("description"),
-    formation: formData.get("formation"),
-    position1: formData.get("position1"),
-    position2: formData.get("position2"),
-    position3: formData.get("position3"),
-    position4: formData.get("position4"),
-    position5: formData.get("position5"),
-    position6: formData.get("position6"),
-    position7: formData.get("position7"),
-    position8: formData.get("position8"),
-    position9: formData.get("position9"),
-    position10: formData.get("position10"),
-    position11: formData.get("position11"),
+    formationCode: formData.get("formationCode"),
+    pos1PlayerId: formData.get("pos1PlayerId"),
+    pos2PlayerId: formData.get("pos2PlayerId"),
+    pos3PlayerId: formData.get("pos3PlayerId"),
+    pos4PlayerId: formData.get("pos4PlayerId"),
+    pos5PlayerId: formData.get("pos5PlayerId"),
+    pos6PlayerId: formData.get("pos6PlayerId"),
+    pos7PlayerId: formData.get("pos7PlayerId"),
+    pos8PlayerId: formData.get("pos8PlayerId"),
+    pos9PlayerId: formData.get("pos9PlayerId"),
+    pos10PlayerId: formData.get("pos10PlayerId"),
+    pos11PlayerId: formData.get("pos11PlayerId"),
   };
 
-  console.log(themeId);
-  console.log(description);
-  console.log(formation);
-  console.log(position1);
-  console.log(position2);
-  console.log(position3);
-  console.log(position4);
-  console.log(position5);
-  console.log(position6);
-  console.log(position7);
-  console.log(position8);
-  console.log(position9);
-  console.log(position10);
-  console.log(position11);
+  console.log("themeId", themeId);
+  console.log("description", description);
+  console.log("formationCode", formationCode);
+  console.log("pos1PlayerId", pos1PlayerId);
+  console.log("pos2PlayerId", pos2PlayerId);
+  console.log("pos3PlayerId", pos3PlayerId);
+  console.log("pos4PlayerId", pos4PlayerId);
+  console.log("pos5PlayerId", pos5PlayerId);
+  console.log("pos6PlayerId", pos6PlayerId);
+  console.log("pos7PlayerId", pos7PlayerId);
+  console.log("pos8PlayerId", pos8PlayerId);
+  console.log("pos9PlayerId", pos9PlayerId);
+  console.log("pos10PlayerId", pos10PlayerId);
+  console.log("pos11PlayerId", pos11PlayerId);
 
-  revalidatePath(`/themes/${themeId}`);
-  redirect(`/themes/${themeId}`);
+  if (themeId === "" || description === "") {
+    return new Error("Invalid form data");
+  }
+
+  try {
+    // await prisma.post.create({
+    //   data: {
+    //     themeId: Number(themeId),
+    //     description: description as string,
+    //     formationCode: formationCode as string,
+    //     pos1PlayerId: Number(pos1PlayerId),
+    //     pos2PlayerId: Number(pos2PlayerId),
+    //     pos3PlayerId: Number(pos3PlayerId),
+    //     pos4PlayerId: Number(pos4PlayerId),
+    //     pos5PlayerId: Number(pos5PlayerId),
+    //     pos6PlayerId: Number(pos6PlayerId),
+    //     pos7PlayerId: Number(pos7PlayerId),
+    //     pos8PlayerId: Number(pos8PlayerId),
+    //     pos9PlayerId: Number(pos9PlayerId),
+    //     pos10PlayerId: Number(pos10PlayerId),
+    //     pos11PlayerId: Number(pos11PlayerId),
+    //   },
+    // });
+
+    revalidatePath(`/themes/${themeId}`);
+    redirect(`/themes/${themeId}`);
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to create comment");
+  }
 }

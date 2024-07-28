@@ -41,7 +41,7 @@ export const FormationIcon = ({ formationCode, onChange }: FormationIconProps) =
           {formation.name}
         </Button>
         {/* モーダルで選択した選手をフォームに反映させるために非表示のselect要素を設置 */}
-        <select name={"formation"} style={{ display: "none" }}>
+        <select name={"formationCode"} style={{ display: "none" }}>
           <option value={formation.code} />
         </select>
       </div>
