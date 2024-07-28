@@ -22,12 +22,21 @@ export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps
   return (
     <Link href={url}>
       <div style={baseStyle}>
-        <div style={titleStyle}>{title}</div>
-        <div style={createdAtStyle}>{createdAgo}</div>
-        <div style={navigateStyle}>{"続きを読む >"}</div>
-        <div style={footerStyle}>
-          <LikeIconButton count={likeCount} liked={false} />
-          <PostIconBox count={postCount} />
+        <div>
+          <div style={titleStyle}>{title}</div>
+          <div style={createdAtStyle}>{createdAgo}</div>
+          <div style={navigateStyle}>{"続きを読む >"}</div>
+          <div style={footerStyle}>
+            <LikeIconButton count={likeCount} liked={false} />
+            <PostIconBox count={postCount} />
+          </div>
+        </div>
+        <div>
+          <img
+            alt="theme"
+            src="https://media.api-sports.io/football/leagues/39.png"
+            style={{ height: "6rem", width: "6rem", objectFit: "cover" }}
+          />
         </div>
       </div>
     </Link>
@@ -52,6 +61,7 @@ export const SkeletonTheme = () => {
 
 const baseStyle: CSSProperties = {
   borderBottom: `1px solid ${colorCode.gray}`,
+  display: "flex",
   height: "10rem",
   padding: "12px 18px",
   position: "relative",
