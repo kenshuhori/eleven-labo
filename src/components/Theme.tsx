@@ -18,6 +18,7 @@ interface ThemeProps {
 
 export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }: ThemeProps) => {
   const createdAgo = transformAgo(createdAt);
+  const thumbnailUrl = thumbnail ?? "/theme-thumbnail.jpg";
   const url = `/themes/${id}`;
 
   return (
@@ -33,11 +34,7 @@ export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }:
           </div>
         </div>
         <div>
-          <img
-            alt="theme"
-            src="https://media.api-sports.io/football/leagues/39.png"
-            style={{ height: "6rem", width: "6rem", objectFit: "cover" }}
-          />
+          <img alt="theme" src={thumbnailUrl} style={thumbnailStyle} />
         </div>
       </div>
     </Link>
@@ -63,6 +60,7 @@ export const SkeletonTheme = () => {
 const baseStyle: CSSProperties = {
   borderBottom: `1px solid ${colorCode.gray}`,
   display: "flex",
+  gap: "1rem",
   height: "10rem",
   padding: "12px 18px",
   position: "relative",
@@ -91,4 +89,11 @@ const footerStyle: CSSProperties = {
   gap: "16px",
   lineHeight: "1",
   position: "absolute",
+};
+
+const thumbnailStyle: CSSProperties = {
+  borderRadius: "1.0rem",
+  height: "6rem",
+  objectFit: "cover",
+  width: "6rem",
 };
