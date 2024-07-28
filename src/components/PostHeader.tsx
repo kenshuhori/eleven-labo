@@ -1,5 +1,5 @@
 import { transformAgo } from "@/utils/ago";
-import { Avatar, Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import { Avatar, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import type React from "react";
 
 interface PostHeaderProps {

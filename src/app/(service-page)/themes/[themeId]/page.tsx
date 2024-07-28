@@ -1,6 +1,6 @@
 "use client";
 
-import { getThemeWithPosts, listPostByThemeId } from "@/app/actions";
+import { getTheme, listPostByThemeId } from "@/app/actions";
 import { BottomButton } from "@/components/BottomButton";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
@@ -21,7 +21,7 @@ export default function Page({ params }: { params: PageProps }) {
     data: theme,
     error: themeError,
     isLoading: themeIsLoading,
-  } = useSWRImmutable(`/themes/${themeId}`, getThemeWithPosts);
+  } = useSWRImmutable(`/themes/${themeId}`, getTheme);
   const {
     data: posts,
     error: postsError,
@@ -34,33 +34,32 @@ export default function Page({ params }: { params: PageProps }) {
 
   return (
     <main style={baseStyle}>
-      {themeIsLoading || theme === undefined || postsIsLoading || posts === undefined ? (
-        <>
-          <SkeletonThemeHeader />
-          <div style={timelineStyle}>
-            {[1, 2].map((i) => {
-              return (
-                <Fragment key={i}>
-                  <SkeletonPost />
-                </Fragment>
-              );
-            })}
-          </div>
-        </>
+      {themeIsLoading || theme === undefined ? (
+        <SkeletonThemeHeader />
       ) : (
-        <>
-          <ThemeHeader title={theme.title} />
-          <div style={timelineStyle}>
-            {posts.map((post) => {
-              return (
-                <Fragment key={post.id}>
-                  <Post commentCount={post.comments.length} fullSentence={false} post={post} />
-                </Fragment>
-              );
-            })}
-            <BottomButton label={"投稿"} href={`${themeId}/posts/new`} />
-          </div>
-        </>
+        <ThemeHeader title={theme.title} />
+      )}
+      {postsIsLoading || posts === undefined ? (
+        <div style={timelineStyle}>
+          {[1, 2].map((i) => {
+            return (
+              <Fragment key={i}>
+                <SkeletonPost />
+              </Fragment>
+            );
+          })}
+        </div>
+      ) : (
+        <div style={timelineStyle}>
+          {posts.map((post) => {
+            return (
+              <Fragment key={post.id}>
+                <Post commentCount={post.comments.length} fullSentence={false} post={post} />
+              </Fragment>
+            );
+          })}
+          <BottomButton label={"投稿"} href={`${themeId}/posts/new`} />
+        </div>
       )}
     </main>
   );
