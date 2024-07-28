@@ -3,6 +3,8 @@ import { PostIconBox } from "@/components/PostIconBox";
 import { colorCode } from "@/constants";
 import { transformAgo } from "@/utils/ago";
 import { Skeleton } from "@chakra-ui/react";
+import defaultThumbnailImage from "@public/theme-thumbnail.jpg";
+import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 import type { CSSProperties } from "react";
@@ -18,13 +20,12 @@ interface ThemeProps {
 
 export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }: ThemeProps) => {
   const createdAgo = transformAgo(createdAt);
-  const thumbnailUrl = thumbnail ?? "/theme-thumbnail.jpg";
   const url = `/themes/${id}`;
 
   return (
     <Link href={url}>
       <div style={baseStyle}>
-        <div>
+        <div style={{ width: "80%" }}>
           <div style={titleStyle}>{title}</div>
           <div style={createdAtStyle}>{createdAgo}</div>
           <div style={navigateStyle}>{"続きを読む >"}</div>
@@ -33,8 +34,12 @@ export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }:
             <PostIconBox count={postCount} />
           </div>
         </div>
-        <div>
-          <img alt="theme" src={thumbnailUrl} style={thumbnailStyle} />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          {thumbnail ? (
+            <img alt="theme" src={thumbnail} style={thumbnailStyle} />
+          ) : (
+            <img alt="theme" src={defaultThumbnailImage.src} style={thumbnailStyle} />
+          )}
         </div>
       </div>
     </Link>
@@ -62,6 +67,7 @@ const baseStyle: CSSProperties = {
   display: "flex",
   gap: "1rem",
   height: "10rem",
+  justifyContent: "space-between",
   padding: "12px 18px",
   position: "relative",
   width: "100%",
