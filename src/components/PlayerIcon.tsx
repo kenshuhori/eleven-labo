@@ -35,7 +35,7 @@ export const PlayerIcon = forwardRef(
           </button>
           {/* モーダルで選択した選手をフォームに反映させるために非表示のselect要素を設置 */}
           <select name={`pos${position}PlayerId`} style={{ display: "none" }}>
-            <option />
+            <option value={player.id} />
           </select>
           <label style={playerNameStyle}>{player.name}</label>
         </div>
