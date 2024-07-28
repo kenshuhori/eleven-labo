@@ -104,7 +104,6 @@ async function main() {
         createdAt: comment.createdAt,
       },
       create: {
-        id: comment.id,
         postId: comment.postId,
         comment: comment.comment,
         likeCount: comment.likeCount,

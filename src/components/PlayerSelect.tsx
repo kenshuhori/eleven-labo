@@ -36,7 +36,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         <div
           style={{
             display: "flex",
-            gap: "0.5rem",
+            gap: "1rem",
           }}
         >
           <Image
@@ -47,7 +47,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
           />
           <span style={optionStyle}>{data.name}</span>
         </div>
-        <span style={numberStyle(data.team)}>{data.number}</span>
+        <span style={numberStyle(data.team)}>{data.number ?? "？"}</span>
       </div>
     ) : (
       <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
@@ -63,15 +63,6 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         onChange={onChange}
         options={groupedOptions}
         placeholder="選手を選択"
-        styles={{
-          control: (base) => ({ ...base }),
-          option: (base, { data, isFocused }) => ({
-            ...base,
-            backgroundColor: data.team.backgroundColor,
-            color: data.team.color,
-            filter: isFocused ? `drop-shadow(0px 1px 3px ${colorCode.black})` : "none",
-          }),
-        }}
       />
     </div>
   );

@@ -1,7 +1,8 @@
 import { createComment } from "@/app/actions";
 import { colorCode } from "@/constants";
 import { Button, useToast } from "@chakra-ui/react";
-import { type CSSProperties, useRef } from "react";
+import { type CSSProperties, useRef, useState } from "react";
+import { useSWRConfig } from "swr";
 
 interface CommentFormProps {
   postId: number;
@@ -11,24 +12,51 @@ interface CommentFormProps {
 export const CommentForm = ({ postId, style }: CommentFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
+  const { mutate } = useSWRConfig();
+
+  const [canSubmit, setCanSubmit] = useState(false);
+  const onChangeComment = (event: React.FocusEvent<HTMLTextAreaElement>) => {
+    const comment = event.target.value;
+    if (!comment) {
+      setCanSubmit(false);
+    } else {
+      setCanSubmit(true);
+    }
+  };
 
   const onSubmit = async (formData: FormData) => {
-    createComment(formData);
-    ref.current?.reset();
-    toast({
-      title: "コメントしました",
-      position: "top",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+    try {
+      await mutate(`/posts/${postId}/comments`, createComment(formData));
+      ref.current?.reset();
+      setCanSubmit(false);
+      toast({
+        title: "コメントしました",
+        position: "top",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "コメントに失敗しました",
+        position: "top",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
     <form action={onSubmit} ref={ref} style={{ ...baseStyle, ...style }}>
       <input name="postId" style={{ display: "none" }} value={postId} readOnly />
-      <textarea name={"comment"} placeholder={"コメントを追加..."} style={textareaStyle} />
-      <Button style={buttonStyle} type="submit">
+      <textarea
+        name={"comment"}
+        onChange={onChangeComment}
+        placeholder={"コメントを追加..."}
+        style={textareaStyle}
+      />
+      <Button isDisabled={!canSubmit} style={buttonStyle} type="submit">
         {"投稿"}
       </Button>
     </form>

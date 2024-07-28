@@ -1,7 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { prisma } from "@/prisma";
 
 export async function createComment(formData: FormData) {
   const { comment, postId } = {
@@ -9,9 +8,19 @@ export async function createComment(formData: FormData) {
     postId: formData.get("postId"),
   };
 
-  console.log(comment);
-  console.log(postId);
+  if (comment === "" || postId === "") {
+    return new Error("Invalid form data");
+  }
 
-  revalidatePath(`/posts/${postId}`);
-  redirect(`/posts/${postId}`);
+  try {
+    await prisma.comment.create({
+      data: {
+        postId: Number(postId),
+        comment: comment as string,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to create comment");
+  }
 }
