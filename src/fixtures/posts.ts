@@ -33,6 +33,7 @@ export const defaultPostWithRelation: PostWithRelation = {
   themeId: 1,
   theme: {
     id: 1,
+    thumbnail: "https://media.api-sports.io/football/leagues/39.png",
     title: "プレミアリーグ",
     createdAt: new Date("2024-01-01T00:00:00Z"),
     likeCount: 0,

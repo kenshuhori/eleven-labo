@@ -12,10 +12,11 @@ interface ThemeProps {
   id: number;
   likeCount: number;
   postCount: number;
+  thumbnail: string;
   title: string;
 }
 
-export const Theme = ({ createdAt, id, likeCount, postCount, title }: ThemeProps) => {
+export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }: ThemeProps) => {
   const createdAgo = transformAgo(createdAt);
   const url = `/themes/${id}`;
 

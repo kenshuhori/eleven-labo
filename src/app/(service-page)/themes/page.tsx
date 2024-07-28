@@ -26,6 +26,7 @@ export default function Page() {
                 id={theme.id}
                 likeCount={theme.likeCount}
                 postCount={theme.posts.length}
+                thumbnail={theme.thumbnail}
                 title={theme.title}
                 key={theme.id}
               />

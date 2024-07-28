@@ -13,6 +13,7 @@ const meta = {
     id: { control: "number" },
     likeCount: { control: "number" },
     postCount: { control: "number" },
+    thumbnail: { control: "text" },
     title: { control: "text" },
   },
   args: {
@@ -20,6 +21,7 @@ const meta = {
     id: 1,
     likeCount: 0,
     postCount: 0,
+    thumbnail: "https://media.api-sports.io/football/leagues/39.png",
     title: "23-24のプレミアリーグベスト11を考えよう!!",
   },
 } satisfies Meta<typeof Theme>;
