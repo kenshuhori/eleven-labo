@@ -1,41 +1,81 @@
-import { organizationName } from "@/constants";
-import { auth } from "@clerk/nextjs/server";
+import type { WebhookEvent } from "@clerk/nextjs/server";
 import { PrismaClient } from "@prisma/client";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
+import { Webhook } from "svix";
 
 const prisma = new PrismaClient();
 
 export async function POST(request: Request) {
+  // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
+  const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+
+  if (!WEBHOOK_SECRET) {
+    throw new Error("You do not have permissions to access this endpoint");
+  }
+
+  // Get the headers
+  const headerPayload = headers();
+  const svix_id = headerPayload.get("svix-id");
+  const svix_timestamp = headerPayload.get("svix-timestamp");
+  const svix_signature = headerPayload.get("svix-signature");
+
+  // If there are no headers, error out
+  if (!svix_id || !svix_timestamp || !svix_signature) {
+    return new Response("Error occured -- no svix headers", {
+      status: 400,
+    });
+  }
+
+  // Get the body
+  const payload = await request.json();
+  const body = JSON.stringify(payload);
+
+  // Create a new Svix instance with your secret.
+  const wh = new Webhook(WEBHOOK_SECRET);
+
+  let event: WebhookEvent;
+
   try {
-    // if (!checkPermission(request)) {
-    //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    // }
-
-    console.log("================ userデータ作成 開始 ================");
-
-    // ここに処理を記述
-    const payload = await request.json();
-    const body = JSON.stringify(payload);
-    console.log(body);
-
-    console.log("================ userデータ作成 終了 ================");
-    return NextResponse.json({ result: "success" }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    event = wh.verify(body, {
+      "svix-id": svix_id,
+      "svix-timestamp": svix_timestamp,
+      "svix-signature": svix_signature,
+    }) as WebhookEvent;
+  } catch (err) {
+    console.error("Error verifying webhook:", err);
+    return new Response("Error occured", {
+      status: 400,
+    });
   }
+
+  // Do something with the payload
+  // For this guide, you simply log the payload to the console
+  if (event.type === "user.created") {
+    const { id, first_name, last_name, username, has_image, image_url } = event.data;
+    console.log("id", id);
+    console.log("image_url", image_url);
+    console.log("last_name", last_name);
+
+    await prisma.user.upsert({
+      where: { clerkUserId: id },
+      update: {
+        firstName: first_name,
+        lastName: last_name,
+        username: username,
+        hasImage: has_image,
+        imageUrl: image_url,
+      },
+      create: {
+        clerkUserId: id,
+        firstName: first_name,
+        lastName: last_name,
+        username: username,
+        hasImage: has_image,
+        imageUrl: image_url,
+      },
+    });
+  }
+
+  return new Response("", { status: 200 });
 }
-
-const checkPermission = (request: Request) => {
-  const authHeader = request.headers.get("authorization");
-  const { orgSlug } = auth();
-
-  if (authHeader === `Bearer ${process.env.CRON_SECRET}`) {
-    return true;
-  }
-
-  if (orgSlug === organizationName) {
-    return true;
-  }
-
-  return false;
-};
