@@ -99,3 +99,14 @@ model Team {
   createdAt       DateTime @default(now())
   player          Player[]
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String   @default("")
+  lastName  String   @default("")
+  fullName  String   @default("")
+  username  String   @default("")
+  hasImage  Boolean
+  imageUrl  String
+  createdAt DateTime @default(now())
+}
