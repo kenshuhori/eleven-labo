@@ -49,7 +49,12 @@ export default function Page({ params }: { params: PageProps }) {
         <>
           <ThemeHeader title={post.theme.title} />
           <div style={postStyle}>
-            <Post commentCount={commentCount} fullSentence={true} post={post} />
+            <Post
+              author={post.author}
+              commentCount={commentCount}
+              fullSentence={true}
+              post={post}
+            />
           </div>
         </>
       )}

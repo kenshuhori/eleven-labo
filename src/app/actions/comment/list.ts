@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Comment } from "@prisma/client";
+import type { Comment, User } from "@prisma/client";
 
 export const listCommentsByPostId = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -18,8 +18,24 @@ export const listCommentsByPostId = async (key: string) => {
   }
 
   return prisma.comment.findMany({
+    include: {
+      author: {
+        select: {
+          firstName: true,
+          lastName: true,
+          username: true,
+          hasImage: true,
+          imageUrl: true,
+          deletedAt: true,
+        },
+      },
+    },
     where: {
       postId,
     },
-  }) as Promise<Comment[]>;
+  }) as Promise<CommentWithRelation[]>;
 };
+
+type CommentWithRelation = {
+  author: User;
+} & Comment;

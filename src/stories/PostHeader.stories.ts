@@ -1,5 +1,6 @@
+import { PostHeader } from "@/components/PostHeader";
+import { defaultUser } from "@/fixtures/users";
 import type { Meta, StoryObj } from "@storybook/react";
-import { PostHeader } from "../components/PostHeader";
 
 const meta = {
   title: "ElevenLabo/PostHeader",
@@ -9,13 +10,11 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    author: { control: "text" },
-    authorImage: { control: "text" },
+    author: { control: "object" },
     createdAt: { control: "text" },
   },
   args: {
-    author: "John Doe",
-    authorImage: "https://example.com/john-doe.png",
+    author: defaultUser,
     createdAt: new Date("2024-01-01T00:00:00Z"),
   },
 } satisfies Meta<typeof PostHeader>;

@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Player, Post, Team, Theme } from "@prisma/client";
+import type { Player, Post, Team, Theme, User } from "@prisma/client";
 
 export const getPost = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -19,6 +19,7 @@ export const getPost = async (key: string) => {
 
   return prisma.post.findUnique({
     include: {
+      author: true,
       theme: true,
       pos1Player: {
         include: {
@@ -83,6 +84,8 @@ export const getPost = async (key: string) => {
 };
 
 export type PostWithRelation = {
+  author: User;
+} & {
   theme: Theme;
 } & {
   pos1Player: Player & {

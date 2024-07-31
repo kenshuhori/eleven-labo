@@ -54,7 +54,12 @@ export default function Page({ params }: { params: PageProps }) {
           {posts.map((post) => {
             return (
               <Fragment key={post.id}>
-                <Post commentCount={post.comments.length} fullSentence={false} post={post} />
+                <Post
+                  author={post.author}
+                  commentCount={post.comments.length}
+                  fullSentence={false}
+                  post={post}
+                />
               </Fragment>
             );
           })}

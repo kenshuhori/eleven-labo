@@ -1,5 +1,6 @@
+import { Comment } from "@/components/Comment";
+import { defaultUser } from "@/fixtures/users";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Comment } from "../components/Comment";
 
 const meta = {
   title: "ElevenLabo/Comment",
@@ -9,16 +10,16 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    createdAt: { control: "text" },
+    author: { control: "object" },
     comment: { control: "text" },
-    id: { control: "number" },
+    createdAt: { control: "text" },
     likeCount: { control: "number" },
   },
   args: {
+    author: defaultUser,
     createdAt: new Date("2024-01-01T00:00:00Z"),
     comment:
       "僕が考えてたものとほとんど同じです！1点だけ、右WGはサラーでもいいのかなと思ってます！あとCBはファンダイクにするかも悩みどころですよねー",
-    id: 1,
     likeCount: 12,
   },
 } satisfies Meta<typeof Comment>;

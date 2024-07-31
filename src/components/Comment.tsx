@@ -1,23 +1,20 @@
 import { CommentFooter, SkeletonCommentFooter } from "@/components/CommentFooter";
 import { CommentHeader, SkeletonCommentHeader } from "@/components/CommentHeader";
 import { SkeletonText } from "@chakra-ui/react";
+import type { User } from "@prisma/client";
 import type React from "react";
 
 interface CommentProps {
-  createdAt: Date;
+  author: User;
   comment: string;
-  id: number;
+  createdAt: Date;
   likeCount: number;
 }
 
-export const Comment = ({ createdAt, comment, id, likeCount }: CommentProps) => {
+export const Comment = ({ author, comment, createdAt, likeCount }: CommentProps) => {
   return (
     <div style={baseStyle}>
-      <CommentHeader
-        author={"John Doe"}
-        authorImage={"https://example.com/john-doe.png"}
-        createdAt={createdAt}
-      />
+      <CommentHeader author={author} createdAt={createdAt} />
       <div style={indentStyle}>{comment}</div>
       <div style={indentStyle}>
         <CommentFooter count={likeCount} />

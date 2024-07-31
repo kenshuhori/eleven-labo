@@ -1,6 +1,7 @@
+import { Post } from "@/components/Post";
 import { defaultPostWithRelation } from "@/fixtures/posts";
+import { defaultUser } from "@/fixtures/users";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Post } from "../components/Post";
 
 const meta = {
   title: "ElevenLabo/Post",
@@ -10,11 +11,13 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
+    author: { control: "object" },
     commentCount: { control: "number" },
     fullSentence: { control: "boolean" },
     post: { control: "object" },
   },
   args: {
+    author: defaultUser,
     commentCount: 0,
     fullSentence: true,
     post: defaultPostWithRelation,

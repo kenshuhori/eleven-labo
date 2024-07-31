@@ -1,5 +1,5 @@
+import { FormationSelect } from "@/components/FormationSelect";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormationSelect } from "../components/FormationSelect";
 
 const meta = {
   title: "ElevenLabo/FormationSelect",

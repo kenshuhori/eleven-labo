@@ -1,5 +1,5 @@
+import { PostIconBox } from "@/components/PostIconBox";
 import type { Meta, StoryObj } from "@storybook/react";
-import { PostIconBox } from "../components/PostIconBox";
 
 const meta = {
   title: "ElevenLabo/PostIconBox",

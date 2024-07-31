@@ -1,5 +1,5 @@
+import { CommentFooter } from "@/components/CommentFooter";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CommentFooter } from "../components/CommentFooter";
 
 const meta = {
   title: "ElevenLabo/CommentFooter",

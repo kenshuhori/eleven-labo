@@ -40,6 +40,7 @@ export const defaultPostWithRelation: PostWithRelation = {
     likeCount: 0,
   },
   authorId: defaultUser.id,
+  author: defaultUser,
   createdAt: new Date("2024-01-01T00:00:00Z"),
 };
 

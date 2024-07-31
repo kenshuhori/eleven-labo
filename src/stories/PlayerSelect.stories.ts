@@ -1,5 +1,5 @@
+import { PlayerSelect } from "@/components/PlayerSelect";
 import type { Meta, StoryObj } from "@storybook/react";
-import { PlayerSelect } from "../components/PlayerSelect";
 
 const meta = {
   title: "ElevenLabo/PlayerSelect",

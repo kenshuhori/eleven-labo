@@ -1,5 +1,5 @@
+import { BottomButton } from "@/components/BottomButton";
 import type { Meta, StoryObj } from "@storybook/react";
-import { BottomButton } from "../components/BottomButton";
 
 const meta = {
   title: "ElevenLabo/BottomButton",

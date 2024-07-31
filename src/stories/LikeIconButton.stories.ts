@@ -1,5 +1,5 @@
+import { LikeIconButton } from "@/components/LikeIconButton";
 import type { Meta, StoryObj } from "@storybook/react";
-import { LikeIconButton } from "../components/LikeIconButton";
 
 const meta = {
   title: "ElevenLabo/LikeIconButton",
