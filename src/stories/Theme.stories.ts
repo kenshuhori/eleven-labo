@@ -1,5 +1,5 @@
+import { Theme } from "@/components/Theme";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Theme } from "../components/Theme";
 
 const meta = {
   title: "ElevenLabo/Theme",

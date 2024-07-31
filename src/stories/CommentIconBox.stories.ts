@@ -1,5 +1,5 @@
+import { CommentIconBox } from "@/components/CommentIconBox";
 import type { Meta, StoryObj } from "@storybook/react";
-import { CommentIconBox } from "../components/CommentIconBox";
 
 const meta = {
   title: "ElevenLabo/CommentIconBox",

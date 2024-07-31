@@ -1,5 +1,5 @@
+import { FootballField } from "@/components/FootballField";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FootballField } from "../components/FootballField";
 
 const meta = {
   title: "ElevenLabo/FootballField",

@@ -1,5 +1,5 @@
+import { PostFooter } from "@/components/PostFooter";
 import type { Meta, StoryObj } from "@storybook/react";
-import { PostFooter } from "../components/PostFooter";
 
 const meta = {
   title: "ElevenLabo/PostFooter",
