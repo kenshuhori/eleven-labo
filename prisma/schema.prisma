@@ -109,4 +109,5 @@ model User {
   hasImage    Boolean
   imageUrl    String
   createdAt   DateTime @default(now())
+  deletedAt   DateTime?
 }

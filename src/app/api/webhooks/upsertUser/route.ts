@@ -1,7 +1,6 @@
 import type { WebhookEvent } from "@clerk/nextjs/server";
 import { PrismaClient } from "@prisma/client";
 import { headers } from "next/headers";
-import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 
 const prisma = new PrismaClient();
@@ -49,13 +48,13 @@ export async function POST(request: Request) {
     });
   }
 
+  console.log(`============= ${event.type} event is invoked! =============`);
+  console.log(`============= target id = ${event.data.id} =============`);
+
   // Do something with the payload
   // For this guide, you simply log the payload to the console
-  if (event.type === "user.created") {
+  if (event.type === "user.created" || event.type === "user.updated") {
     const { id, first_name, last_name, username, has_image, image_url } = event.data;
-    console.log("id", id);
-    console.log("image_url", image_url);
-    console.log("last_name", last_name);
 
     await prisma.user.upsert({
       where: { clerkUserId: id },
@@ -76,6 +75,23 @@ export async function POST(request: Request) {
       },
     });
   }
+
+  if (event.type === "user.deleted") {
+    const { id } = event.data;
+    await prisma.user.update({
+      where: { clerkUserId: id },
+      data: {
+        firstName: "",
+        lastName: "",
+        username: "",
+        hasImage: false,
+        imageUrl: "",
+        deletedAt: new Date(),
+      },
+    });
+  }
+
+  console.log(`============= ${event.type} event finished successfully! =============`);
 
   return new Response("", { status: 200 });
 }
