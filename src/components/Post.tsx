@@ -3,15 +3,17 @@ import { SkeletonFormation } from "@/components/Formation";
 import { PostFooter, SkeletonPostFooter } from "@/components/PostFooter";
 import { PostHeader, SkeletonPostHeader } from "@/components/PostHeader";
 import type { Eleven, PostWithPlayers } from "@/types";
+import type { User } from "@prisma/client";
 import type React from "react";
 
 interface PostProps {
+  author: User;
   commentCount: number;
   fullSentence: boolean;
   post: PostWithPlayers;
 }
 
-export const Post = ({ commentCount, fullSentence, post }: PostProps) => {
+export const Post = ({ author, commentCount, fullSentence, post }: PostProps) => {
   const { createdAt, description, formationCode, id, likeCount } = post;
   const eleven: Eleven = [
     { positionCode: 1, player: post.pos1Player },
@@ -30,11 +32,7 @@ export const Post = ({ commentCount, fullSentence, post }: PostProps) => {
 
   return (
     <div style={baseStyle}>
-      <PostHeader
-        author={"John Doe"}
-        authorImage={"https://example.com/john-doe.png"}
-        createdAt={createdAt}
-      />
+      <PostHeader author={author} createdAt={createdAt} />
       <BestEleven formationCode={formationCode} eleven={eleven} style={formationStyle} />
       <PostFooter
         commentCount={commentCount}
