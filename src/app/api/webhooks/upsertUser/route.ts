@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     const { id, first_name, last_name, username, has_image, image_url } = event.data;
 
     await prisma.user.upsert({
-      where: { clerkUserId: id },
+      where: { id: id },
       update: {
         firstName: first_name,
         lastName: last_name,
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
         imageUrl: image_url,
       },
       create: {
-        clerkUserId: id,
+        id: id,
         firstName: first_name,
         lastName: last_name,
         username: username,
@@ -79,7 +79,7 @@ export async function POST(request: Request) {
   if (event.type === "user.deleted") {
     const { id } = event.data;
     await prisma.user.update({
-      where: { clerkUserId: id },
+      where: { id: id },
       data: {
         firstName: "",
         lastName: "",

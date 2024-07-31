@@ -2,11 +2,38 @@ import { comments } from "@/fixtures/comments";
 import { posts } from "@/fixtures/posts";
 import { teams } from "@/fixtures/teams";
 import { themes } from "@/fixtures/themes";
+import { users } from "@/fixtures/users";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
+  // users を upsert
+  for (const user of users) {
+    await prisma.user.upsert({
+      where: { id: user.id },
+      update: {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        hasImage: user.hasImage,
+        imageUrl: user.imageUrl,
+        createdAt: user.createdAt,
+        deletedAt: user.deletedAt,
+      },
+      create: {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        hasImage: user.hasImage,
+        imageUrl: user.imageUrl,
+        createdAt: user.createdAt,
+        deletedAt: user.deletedAt,
+      },
+    });
+  }
+
   // teams を upsert
   for (const team of teams) {
     await prisma.team.upsert({
@@ -71,6 +98,7 @@ async function main() {
         pos10PlayerId: post.pos10PlayerId,
         pos11PlayerId: post.pos11PlayerId,
         likeCount: post.likeCount,
+        authorId: post.authorId,
         themeId: post.themeId,
         createdAt: post.createdAt,
       },
@@ -89,6 +117,7 @@ async function main() {
         pos10PlayerId: post.pos10PlayerId,
         pos11PlayerId: post.pos11PlayerId,
         likeCount: post.likeCount,
+        authorId: post.authorId,
         themeId: post.themeId,
         createdAt: post.createdAt,
       },
@@ -103,12 +132,14 @@ async function main() {
         postId: comment.postId,
         comment: comment.comment,
         likeCount: comment.likeCount,
+        authorId: comment.authorId,
         createdAt: comment.createdAt,
       },
       create: {
         postId: comment.postId,
         comment: comment.comment,
         likeCount: comment.likeCount,
+        authorId: comment.authorId,
         createdAt: comment.createdAt,
       },
     });
