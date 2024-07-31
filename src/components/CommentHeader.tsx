@@ -1,4 +1,5 @@
 import { transformAgo } from "@/utils/ago";
+import { authorAvatar } from "@/utils/authorAvatar";
 import { Avatar, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import type { User } from "@prisma/client";
 import type React from "react";
@@ -11,14 +12,13 @@ interface CommentHeaderProps {
 export const CommentHeader = ({ author, createdAt }: CommentHeaderProps) => {
   const createdAgo = transformAgo(createdAt);
 
-  const authorName = author.firstName ?? "Unknown";
-  const authorImage = author.imageUrl;
+  const { name, image } = authorAvatar(author);
 
   return (
     <div style={baseStyle}>
-      <Avatar name={authorName} src={authorImage} />
+      <Avatar name={name} src={image} />
       <div>
-        <div>{authorName}</div>
+        <div>{name}</div>
         <div>{createdAgo}</div>
       </div>
     </div>
