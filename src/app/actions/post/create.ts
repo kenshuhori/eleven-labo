@@ -1,8 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 export async function createPost(formData: FormData) {
   const {
@@ -67,12 +66,20 @@ export async function createPost(formData: FormData) {
   ) {
     return new Error("Invalid form data");
   }
+
+  const { userId } = auth();
+
+  if (!userId) {
+    return new Error("User not authenticated");
+  }
+
   try {
     await prisma.post.create({
       data: {
         themeId: Number(themeId),
         description: description as string,
         formationCode: formationCode as string,
+        authorId: userId,
         pos1PlayerId: Number(pos1PlayerId),
         pos2PlayerId: Number(pos2PlayerId),
         pos3PlayerId: Number(pos3PlayerId),

@@ -1,5 +1,6 @@
 import type { PostWithRelation } from "@/app/actions/post/get";
 import { defaultPlayer } from "@/fixtures/players";
+import { defaultUser } from "@/fixtures/users";
 import type { Post } from "@prisma/client";
 
 export const defaultPostWithRelation: PostWithRelation = {
@@ -38,6 +39,7 @@ export const defaultPostWithRelation: PostWithRelation = {
     createdAt: new Date("2024-01-01T00:00:00Z"),
     likeCount: 0,
   },
+  authorId: defaultUser.id,
   createdAt: new Date("2024-01-01T00:00:00Z"),
 };
 
@@ -61,6 +63,7 @@ export const posts: Post[] = [
     likeCount: 12,
     themeId: 1,
     createdAt: new Date("2024-01-01T00:00:00Z"),
+    authorId: defaultUser.id,
   },
   {
     id: 2,
@@ -81,6 +84,7 @@ export const posts: Post[] = [
     likeCount: 5,
     themeId: 1,
     createdAt: new Date("2024-04-01T00:00:00Z"),
+    authorId: defaultUser.id,
   },
 ];
 

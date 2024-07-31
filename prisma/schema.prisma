@@ -12,6 +12,8 @@ model Comment {
   postId    Int
   post      Post     @relation(fields: [postId], references: [id])
   comment   String   @default("")
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
   likeCount Int      @default(0)
   createdAt DateTime @default(now())
 }
@@ -75,6 +77,8 @@ model Post {
   themeId       Int
   theme         Theme     @relation(fields: [themeId], references: [id])
   comments      Comment[]
+  authorId      String
+  author        User      @relation(fields: [authorId], references: [id])
   createdAt     DateTime  @default(now())
 }
 
@@ -101,13 +105,14 @@ model Team {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
-  clerkUserId String   @unique
-  firstName   String?  @default("")
-  lastName    String?  @default("")
-  username    String?  @default("")
-  hasImage    Boolean
-  imageUrl    String
-  createdAt   DateTime @default(now())
-  deletedAt   DateTime?
+  id        String    @unique
+  firstName String?   @default("")
+  lastName  String?   @default("")
+  username  String?   @default("")
+  hasImage  Boolean
+  imageUrl  String
+  comments  Comment[]
+  posts     Post[]
+  createdAt DateTime  @default(now())
+  deletedAt DateTime?
 }
