@@ -111,11 +111,11 @@ export const getThemeWithPosts = async (key: string) => {
   }) as Promise<ThemeWithRelation>;
 };
 
-export type ThemeWithRelation = {
+type ThemeWithRelation = {
   posts: PostWithRelation[];
 } & Theme;
 
-export type PostWithRelation = {
+type PostWithRelation = {
   comments: Comment[];
 } & {
   theme: Theme;

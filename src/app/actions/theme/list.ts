@@ -24,6 +24,6 @@ export const listTheme = async (key: string) => {
   }) as Promise<ThemeWithRelation[]>;
 };
 
-export type ThemeWithRelation = {
+type ThemeWithRelation = {
   posts: Post[];
 } & Theme;
