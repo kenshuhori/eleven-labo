@@ -3,7 +3,7 @@
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function createCommentLikeHistory(formData: FormData) {
+export async function createThemeLikeHistory(formData: FormData) {
   const { commentId } = {
     commentId: formData.get("commentId"),
   };
