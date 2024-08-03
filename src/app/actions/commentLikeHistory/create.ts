@@ -3,7 +3,15 @@
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function countUp() {
+export async function createComment(formData: FormData) {
+  const { commentId } = {
+    commentId: formData.get("commentId"),
+  };
+
+  if (commentId === "") {
+    return new Error("Invalid form data");
+  }
+
   const { userId } = auth();
 
   if (!userId) {
@@ -13,7 +21,7 @@ export async function countUp() {
   try {
     await prisma.commentLikeHistory.create({
       data: {
-        commentId: 1,
+        commentId: Number(commentId),
         userId: userId,
       },
     });

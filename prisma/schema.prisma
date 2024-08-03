@@ -26,6 +26,8 @@ model CommentLikeHistory {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
+
+  @@unique(fields: [commentId, userId])
 }
 
 model Player {
@@ -100,6 +102,8 @@ model PosttLikeHistory {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
+
+  @@unique(fields: [postId, userId])
 }
 
 model Theme {
@@ -119,6 +123,8 @@ model ThemetLikeHistory {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
+
+  @@unique(fields: [themeId, userId])
 }
 
 model Team {
