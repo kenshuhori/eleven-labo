@@ -14,7 +14,6 @@ model Comment {
   comment       String               @default("")
   authorId      String
   author        User                 @relation(fields: [authorId], references: [id])
-  likeCount     Int                  @default(0)
   createdAt     DateTime             @default(now())
   likeHistories CommentLikeHistory[]
 }
@@ -85,7 +84,6 @@ model Post {
   pos10Player   Player             @relation("pos10Posts", fields: [pos10PlayerId], references: [id])
   pos11PlayerId Int
   pos11Player   Player             @relation("pos11Posts", fields: [pos11PlayerId], references: [id])
-  likeCount     Int                @default(0)
   likeHistories PosttLikeHistory[]
   themeId       Int
   theme         Theme              @relation(fields: [themeId], references: [id])
@@ -111,7 +109,6 @@ model Theme {
   title         String
   thumbnail     String              @default("")
   posts         Post[]
-  likeCount     Int                 @default(0)
   likeHistories ThemetLikeHistory[]
   createdAt     DateTime            @default(now())
 }
