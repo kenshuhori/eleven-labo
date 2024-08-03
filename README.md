@@ -51,6 +51,7 @@ $ yarn storybook
 | ---- | ---- |
 | NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY | Clerkの利用に必要 |
 | CLERK_SECRET_KEY | Clerkの利用に必要 |
+| WEBHOOK_SECRET | Clerkからのwebhookの認証に必要 |
 | POSTGRES_URL | Vercel Storage の DB 利用に必要 |
 | POSTGRES_PRISMA_URL | Vercel Storage の DB 利用に必要 |
 | POSTGRES_URL_NO_SSL | Vercel Storage の DB 利用に必要 |
@@ -60,6 +61,7 @@ $ yarn storybook
 | POSTGRES_PASSWORD | Vercel Storage の DB パスワード |
 | POSTGRES_DATABASE | Vercel Storage の DB 名 |
 | API_FOOTBALL_API_KEY | API Football の API KEY |
+| GA_ID | GoogleAnalytics の ID |
 
 
 ## 管理者向け
