@@ -8,6 +8,7 @@ export const defaultPostWithRelation: PostWithRelation = {
   description:
     "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
   formationCode: "4-1-2-3",
+  likeHistories: [],
   pos1PlayerId: 306,
   pos1Player: defaultPlayer({}),
   pos2PlayerId: 306,
