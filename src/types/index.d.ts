@@ -1,4 +1,4 @@
-import type { Player, Position, Team } from "@prisma/client";
+import type { Player, Position, Post, PostLikeHistory, Team } from "@prisma/client";
 
 export type Eleven = {
   positionCode: number;
@@ -23,6 +23,7 @@ export type PlayerSelectOption = {
 export type PlayerTeam = Player & { team: Team };
 
 export type PostWithPlayers = {
+  likeHistories: PostLikeHistory[];
   pos1Player: Player & {
     team: Team;
   };

@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Post, Theme } from "@prisma/client";
+import type { Post, Theme, ThemetLikeHistory } from "@prisma/client";
 
 export const listTheme = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -12,6 +12,7 @@ export const listTheme = async (key: string) => {
 
   return prisma.theme.findMany({
     include: {
+      likeHistories: true,
       posts: {
         select: {
           id: true,
@@ -24,6 +25,7 @@ export const listTheme = async (key: string) => {
   }) as Promise<ThemeWithRelation[]>;
 };
 
-export type ThemeWithRelation = {
+type ThemeWithRelation = {
+  likeHistories: ThemetLikeHistory[];
   posts: Post[];
 } & Theme;

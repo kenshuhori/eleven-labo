@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Comment, Player, Post, Team, User } from "@prisma/client";
+import type { Comment, Player, Post, PosttLikeHistory, Team, User } from "@prisma/client";
 
 export const listPostByThemeId = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -21,6 +21,7 @@ export const listPostByThemeId = async (key: string) => {
     include: {
       author: true,
       comments: true,
+      likeHistories: true,
       pos1Player: {
         include: {
           team: true,
@@ -87,6 +88,8 @@ type PostWithRelation = {
   author: User;
 } & {
   comments: Comment[];
+} & {
+  likeHistories: PosttLikeHistory[];
 } & {
   pos1Player: Player & {
     team: Team;

@@ -13,14 +13,14 @@ const meta = {
     author: { control: "object" },
     comment: { control: "text" },
     createdAt: { control: "text" },
-    likeCount: { control: "number" },
+    likeHistories: { control: "object" },
   },
   args: {
     author: defaultUser,
     createdAt: new Date("2024-01-01T00:00:00Z"),
     comment:
       "僕が考えてたものとほとんど同じです！1点だけ、右WGはサラーでもいいのかなと思ってます！あとCBはファンダイクにするかも悩みどころですよねー",
-    likeCount: 12,
+    likeHistories: [],
   },
 } satisfies Meta<typeof Comment>;
 

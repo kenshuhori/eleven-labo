@@ -1,9 +1,15 @@
 export { createComment } from "./comment/create";
 export { listCommentsByPostId } from "./comment/list";
+export { createCommentLikeHistory } from "./commentLikeHistory/create";
+export { deleteCommentLikeHistory } from "./commentLikeHistory/delete";
 export { createPost } from "./post/create";
 export { getPost } from "./post/get";
 export { listPostByThemeId } from "./post/list";
+export { createPostLikeHistory } from "./postLikeHistory/create";
+export { deletePostLikeHistory } from "./postLikeHistory/delete";
 export { createTheme } from "./theme/create";
 export { getTheme, getThemeWithPosts } from "./theme/get";
 export { listTheme } from "./theme/list";
+export { createThemeLikeHistory } from "./themeLikeHistory/create";
+export { deleteThemeLikeHistory } from "./themeLikeHistory/delete";
 export { listPlayer } from "./player/list";
