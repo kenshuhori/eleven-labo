@@ -5,6 +5,7 @@ import { BottomButton } from "@/components/BottomButton";
 import { ErrorComponent } from "@/components/ErrorComponent";
 import { Post, SkeletonPost } from "@/components/Post";
 import { SkeletonThemeHeader, ThemeHeader } from "@/components/ThemeHeader";
+import { NoData } from "@public/NoData";
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
 import useSWR from "swr";
@@ -63,6 +64,7 @@ export default function Page({ params }: { params: PageProps }) {
               </Fragment>
             );
           })}
+          {posts.length === 0 && <NoData />}
           <BottomButton label={"投稿"} href={`${themeId}/posts/new`} />
         </div>
       )}
