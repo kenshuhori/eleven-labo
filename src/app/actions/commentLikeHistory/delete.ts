@@ -3,7 +3,7 @@
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function createComment(formData: FormData) {
+export async function decrement(formData: FormData) {
   const { commentId } = {
     commentId: formData.get("commentId"),
   };
@@ -19,18 +19,24 @@ export async function createComment(formData: FormData) {
   }
 
   try {
-    console.log("commentId", commentId);
-    // const existingRecord = prisma.commentLikeHistory.findUnique({
-    //   where: {
-    //     commentId: 0,
-    //   },
-    // });
-    // await prisma.commentLikeHistory.delete({
-    //   data: {
-    //     commentId: Number(commentId),
-    //     userId: userId,
-    //   },
-    // });
+    const existingRecord = await prisma.commentLikeHistory.findUnique({
+      where: {
+        commentId_userId: {
+          commentId: Number(commentId),
+          userId: userId,
+        },
+      },
+    });
+    if (existingRecord) {
+      await prisma.commentLikeHistory.delete({
+        where: {
+          commentId_userId: {
+            commentId: Number(commentId),
+            userId: userId,
+          },
+        },
+      });
+    }
   } catch (error) {
     console.error(error);
     throw new Error("Failed to create comment");

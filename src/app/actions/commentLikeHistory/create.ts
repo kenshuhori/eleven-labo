@@ -3,7 +3,7 @@
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function createComment(formData: FormData) {
+export async function increment(formData: FormData) {
   const { commentId } = {
     commentId: formData.get("commentId"),
   };
