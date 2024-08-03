@@ -24,7 +24,7 @@ export default function Page() {
               <Theme
                 createdAt={theme.createdAt.toISOString()}
                 id={theme.id}
-                likeCount={0}
+                likeCount={theme.likeHistories.length}
                 postCount={theme.posts.length}
                 thumbnail={theme.thumbnail}
                 title={theme.title}
