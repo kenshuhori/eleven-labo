@@ -4,7 +4,6 @@ import { colorCode } from "@/constants";
 import { transformAgo } from "@/utils/ago";
 import { Skeleton } from "@chakra-ui/react";
 import defaultThumbnailImage from "@public/theme-thumbnail.jpg";
-import Image from "next/image";
 import Link from "next/link";
 import type React from "react";
 import type { CSSProperties } from "react";
