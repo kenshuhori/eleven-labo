@@ -75,6 +75,44 @@ $ yarn storybook
 - [Notion | Eleven Labo](https://www.notion.so/8a1c7f326a074d19b8ea66bc5bd22937)
 
 
+#### ブランチ戦略
+
+Vercel へのデプロイの都合で、デフォルトブランチを `preview` とします。
+`main` ブランチは、本番リリース時にマージするものとします。
+
+```mermaid
+  gitGraph
+    commit
+    branch preview order: 2
+    commit
+    branch featureA order: 3
+    branch featureB order: 4
+    commit
+    checkout preview
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout featureA
+    commit
+    checkout preview
+    merge featureA
+    checkout featureB
+    commit
+    checkout featureB
+    checkout preview
+    merge featureB
+    checkout main
+    merge preview
+  
+  %%{init: { 
+    'gitGraph': {
+      'showCommitLabel': false
+    }
+  } }%%
+```
+
+
 #### データベース管理
 
 ```sh
