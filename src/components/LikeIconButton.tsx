@@ -6,10 +6,9 @@ import { type CSSProperties, useCallback, useState } from "react";
 interface Props {
   count: number;
   liked: boolean;
-  style?: CSSProperties;
 }
 
-export const LikeIconButton = ({ count, liked, style }: Props) => {
+export const LikeIconButton = ({ count, liked }: Props) => {
   const [like, setLike] = useState(liked);
   const [likeCount, setLikeCount] = useState(count);
 
@@ -27,7 +26,7 @@ export const LikeIconButton = ({ count, liked, style }: Props) => {
   );
 
   return (
-    <button onClick={onClick} type="button" style={{ ...baseStyle, ...style }}>
+    <button onClick={onClick} type="button" style={baseStyle}>
       <HeartIcon style={like ? likedIconStyle : iconStyle} />
       <div style={labelStyle}>{likeCount} likes</div>
     </button>

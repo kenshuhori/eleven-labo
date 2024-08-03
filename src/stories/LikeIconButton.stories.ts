@@ -11,7 +11,6 @@ const meta = {
   argTypes: {
     count: { control: "number" },
     liked: { control: "boolean" },
-    style: { control: "object" },
   },
   args: {
     count: 4,
