@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Comment, User } from "@prisma/client";
+import type { Comment, CommentLikeHistory, User } from "@prisma/client";
 
 export const listCommentsByPostId = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -29,6 +29,7 @@ export const listCommentsByPostId = async (key: string) => {
           deletedAt: true,
         },
       },
+      likeHistories: true,
     },
     where: {
       postId,
@@ -38,4 +39,6 @@ export const listCommentsByPostId = async (key: string) => {
 
 type CommentWithRelation = {
   author: User;
+} & {
+  likeHistories: CommentLikeHistory[];
 } & Comment;
