@@ -1,4 +1,5 @@
 import { colorCode } from "@/constants";
+import { useAuth, useClerk } from "@clerk/nextjs";
 import { HeartIcon } from "@public/heartIcon";
 import type React from "react";
 import { type CSSProperties, useCallback, useState } from "react";
@@ -11,22 +12,29 @@ interface Props {
 }
 
 export const LikeIconButton = ({ count, liked, onDecrement, onIncrement }: Props) => {
+  const { isSignedIn } = useAuth();
+  const clerk = useClerk();
+
   const [like, setLike] = useState(liked);
   const [likeCount, setLikeCount] = useState(count);
 
   const onClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      if (like) {
-        onDecrement();
-        setLikeCount(likeCount - 1);
+      if (isSignedIn) {
+        if (like) {
+          onDecrement();
+          setLikeCount(likeCount - 1);
+        } else {
+          onIncrement();
+          setLikeCount(likeCount + 1);
+        }
+        setLike(!like);
       } else {
-        onIncrement();
-        setLikeCount(likeCount + 1);
+        clerk.openSignIn();
       }
-      setLike(!like);
     },
-    [like, likeCount, onDecrement, onIncrement],
+    [clerk, like, likeCount, isSignedIn, onDecrement, onIncrement],
   );
 
   return (
