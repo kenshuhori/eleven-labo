@@ -1,6 +1,6 @@
 ## Eleven Labo | ベストイレブン研究所
 
-See https://eleven-labo.vercel.app/
+See https://eleven-labo.com/
 
 <table>
   <tr>
@@ -73,6 +73,44 @@ $ yarn storybook
 - [Figma | Eleven Labo](https://www.figma.com/files/team/1378738534124220787/project/239964492?fuid=1378738532096732362)
 - [Slack | Eleven Labo](https://app.slack.com/client/T07DC044G0K/C07DEHMA1V2)
 - [Notion | Eleven Labo](https://www.notion.so/8a1c7f326a074d19b8ea66bc5bd22937)
+
+
+#### ブランチ戦略
+
+Vercel へのデプロイの都合で、デフォルトブランチを `preview` とします。
+`main` ブランチは、本番リリース時にマージするものとします。
+
+```mermaid
+  gitGraph
+    commit
+    branch preview order: 2
+    commit
+    branch featureA order: 3
+    branch featureB order: 4
+    commit
+    checkout preview
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout featureA
+    commit
+    checkout preview
+    merge featureA
+    checkout featureB
+    commit
+    checkout featureB
+    checkout preview
+    merge featureB
+    checkout main
+    merge preview
+  
+  %%{init: { 
+    'gitGraph': {
+      'showCommitLabel': false
+    }
+  } }%%
+```
 
 
 #### データベース管理
