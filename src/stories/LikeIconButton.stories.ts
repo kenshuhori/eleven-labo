@@ -14,6 +14,8 @@ const meta = {
   },
   args: {
     count: 4,
+    onDecrement: () => {},
+    onIncrement: () => {},
   },
 } satisfies Meta<typeof LikeIconButton>;
 

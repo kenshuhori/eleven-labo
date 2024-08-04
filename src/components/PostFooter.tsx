@@ -1,30 +1,32 @@
 import { CommentIconBox } from "@/components/CommentIconBox";
-import { LikeIconButton } from "@/components/LikeIconButton";
 import { colorCode } from "@/constants";
 import { omit } from "@/utils/omitText";
 import { Skeleton, SkeletonText } from "@chakra-ui/react";
+import type { PostLikeHistory } from "@prisma/client";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
+import { PostLikeIconButton } from "./PostLikeIconButton";
 
 interface PostFooterProps {
   commentCount: number;
   description: string;
   fullSentence: boolean;
-  postUrl: string;
-  likeCount: number;
+  postId: number;
+  likeHistories: PostLikeHistory[];
 }
 
 export const PostFooter = ({
   commentCount,
   description,
   fullSentence,
-  postUrl,
-  likeCount,
+  postId,
+  likeHistories,
 }: PostFooterProps) => {
+  const postUrl = `/posts/${postId}`;
   return (
     <div style={baseStyle}>
       <div style={iconsStyle}>
-        <LikeIconButton count={likeCount} liked={false} />
+        <PostLikeIconButton likeHistories={likeHistories} postId={postId} />
         <CommentIconBox count={commentCount} />
       </div>
       <div>

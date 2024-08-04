@@ -1,13 +1,15 @@
 import { Skeleton } from "@chakra-ui/react";
+import type { CommentLikeHistory } from "@prisma/client";
 import React from "react";
-import { LikeIconButton } from "./LikeIconButton";
+import { CommentLikeIconButton } from "./CommentLikeIconButton";
 
 interface CommentFooterProps {
-  count: number;
+  commentId: number;
+  likeHistories: CommentLikeHistory[];
 }
 
-export const CommentFooter = ({ count }: CommentFooterProps) => {
-  return <LikeIconButton count={count} liked={false} />;
+export const CommentFooter = ({ commentId, likeHistories }: CommentFooterProps) => {
+  return <CommentLikeIconButton commentId={commentId} likeHistories={likeHistories} />;
 };
 
 export const SkeletonCommentFooter = () => {

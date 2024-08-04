@@ -12,15 +12,15 @@ const meta = {
     commentCount: { control: "number" },
     description: { control: "text" },
     fullSentence: { control: "boolean" },
-    postUrl: { control: "text" },
-    likeCount: { control: "number" },
+    postId: { control: "number" },
+    likeHistories: { control: "object" },
   },
   args: {
     commentCount: 8,
     description:
       "4-1-2-3で考えました。まずキーハーがXXXXなのは言うまでもありません。右SBはリヴァプールで今シーズン台頭したブラッドリーを選出したいと思います。",
-    postUrl: "/posts/1",
-    likeCount: 12,
+    postId: 1,
+    likeHistories: [],
   },
 } satisfies Meta<typeof PostFooter>;
 

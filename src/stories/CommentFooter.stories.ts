@@ -9,10 +9,12 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    count: { control: "number" },
+    commentId: { control: "number" },
+    likeHistories: { control: "object" },
   },
   args: {
-    count: 12,
+    commentId: 1,
+    likeHistories: [],
   },
 } satisfies Meta<typeof CommentFooter>;
 

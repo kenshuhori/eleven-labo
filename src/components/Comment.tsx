@@ -8,16 +8,17 @@ interface CommentProps {
   author: User;
   comment: string;
   createdAt: Date;
+  id: number;
   likeHistories: CommentLikeHistory[];
 }
 
-export const Comment = ({ author, comment, createdAt, likeHistories }: CommentProps) => {
+export const Comment = ({ author, comment, createdAt, id, likeHistories }: CommentProps) => {
   return (
     <div style={baseStyle}>
       <CommentHeader author={author} createdAt={createdAt} />
       <div style={indentStyle}>{comment}</div>
       <div style={indentStyle}>
-        <CommentFooter count={likeHistories.length} />
+        <CommentFooter commentId={id} likeHistories={likeHistories} />
       </div>
     </div>
   );
