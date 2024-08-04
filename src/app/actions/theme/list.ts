@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma";
-import type { Post, Theme, ThemetLikeHistory } from "@prisma/client";
+import type { Post, Theme, ThemeLikeHistory } from "@prisma/client";
 
 export const listTheme = async (key: string) => {
   const pathStr = key.split("/")[1];
@@ -26,6 +26,6 @@ export const listTheme = async (key: string) => {
 };
 
 type ThemeWithRelation = {
-  likeHistories: ThemetLikeHistory[];
+  likeHistories: ThemeLikeHistory[];
   posts: Post[];
 } & Theme;

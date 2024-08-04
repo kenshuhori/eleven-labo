@@ -1,23 +1,31 @@
-import { LikeIconButton } from "@/components/LikeIconButton";
 import { PostIconBox } from "@/components/PostIconBox";
 import { colorCode } from "@/constants";
 import { transformAgo } from "@/utils/ago";
 import { Skeleton } from "@chakra-ui/react";
+import type { ThemeLikeHistory } from "@prisma/client";
 import defaultThumbnailImage from "@public/theme-thumbnail.jpg";
 import Link from "next/link";
 import type React from "react";
 import type { CSSProperties } from "react";
+import { ThemeLikeIconButton } from "./ThemeLikeIconButton";
 
 interface ThemeProps {
   createdAt: string;
   id: number;
-  likeCount: number;
+  likeHistories: ThemeLikeHistory[];
   postCount: number;
   thumbnail: string;
   title: string;
 }
 
-export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }: ThemeProps) => {
+export const Theme = ({
+  createdAt,
+  id,
+  likeHistories,
+  postCount,
+  thumbnail,
+  title,
+}: ThemeProps) => {
   const createdAgo = transformAgo(createdAt);
   const url = `/themes/${id}`;
 
@@ -29,7 +37,7 @@ export const Theme = ({ createdAt, id, likeCount, postCount, thumbnail, title }:
           <div style={createdAtStyle}>{createdAgo}</div>
           <div style={navigateStyle}>{"続きを読む >"}</div>
           <div style={footerStyle}>
-            <LikeIconButton count={likeCount} liked={false} />
+            <ThemeLikeIconButton likeHistories={likeHistories} />
             <PostIconBox count={postCount} />
           </div>
         </div>
