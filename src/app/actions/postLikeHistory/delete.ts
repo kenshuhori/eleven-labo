@@ -3,35 +3,31 @@
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function deletePostLikeHistory(formData: FormData) {
-  const { commentId } = {
-    commentId: formData.get("commentId"),
-  };
-
-  if (commentId === "") {
-    return new Error("Invalid form data");
-  }
-
+export async function deletePostLikeHistory(postId: number) {
   const { userId } = auth();
 
   if (!userId) {
     return new Error("User not authenticated");
   }
 
+  if (!postId) {
+    return new Error("Post not found");
+  }
+
   try {
-    const existingRecord = await prisma.commentLikeHistory.findUnique({
+    const existingRecord = await prisma.postLikeHistory.findUnique({
       where: {
-        commentId_userId: {
-          commentId: Number(commentId),
+        postId_userId: {
+          postId: postId,
           userId: userId,
         },
       },
     });
     if (existingRecord) {
-      await prisma.commentLikeHistory.delete({
+      await prisma.postLikeHistory.delete({
         where: {
-          commentId_userId: {
-            commentId: Number(commentId),
+          postId_userId: {
+            postId: postId,
             userId: userId,
           },
         },
@@ -39,6 +35,6 @@ export async function deletePostLikeHistory(formData: FormData) {
     }
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to create comment");
+    throw new Error("Failed to delete post like history");
   }
 }

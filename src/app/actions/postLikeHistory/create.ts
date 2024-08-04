@@ -3,30 +3,26 @@
 import { prisma } from "@/prisma";
 import { auth } from "@clerk/nextjs/server";
 
-export async function createPostLikeHistory(formData: FormData) {
-  const { commentId } = {
-    commentId: formData.get("commentId"),
-  };
-
-  if (commentId === "") {
-    return new Error("Invalid form data");
-  }
-
+export async function createPostLikeHistory(postId: number) {
   const { userId } = auth();
 
   if (!userId) {
     return new Error("User not authenticated");
   }
 
+  if (!postId) {
+    return new Error("Post not found");
+  }
+
   try {
-    await prisma.commentLikeHistory.create({
+    await prisma.postLikeHistory.create({
       data: {
-        commentId: Number(commentId),
+        postId: postId,
         userId: userId,
       },
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to create comment");
+    throw new Error("Failed to create post like history");
   }
 }
