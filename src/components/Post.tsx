@@ -38,8 +38,8 @@ export const Post = ({ author, commentCount, fullSentence, post }: PostProps) =>
         commentCount={commentCount}
         description={description}
         fullSentence={fullSentence}
-        postUrl={`/posts/${id}`}
-        likeCount={likeHistories.length}
+        postId={id}
+        likeHistories={likeHistories}
       />
     </div>
   );
