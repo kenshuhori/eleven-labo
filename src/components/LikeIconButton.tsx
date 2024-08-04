@@ -6,9 +6,11 @@ import { type CSSProperties, useCallback, useState } from "react";
 interface Props {
   count: number;
   liked: boolean;
+  onDecrement: () => void;
+  onIncrement: () => void;
 }
 
-export const LikeIconButton = ({ count, liked }: Props) => {
+export const LikeIconButton = ({ count, liked, onDecrement, onIncrement }: Props) => {
   const [like, setLike] = useState(liked);
   const [likeCount, setLikeCount] = useState(count);
 
@@ -16,13 +18,15 @@ export const LikeIconButton = ({ count, liked }: Props) => {
     (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
       if (like) {
+        onDecrement();
         setLikeCount(likeCount - 1);
       } else {
+        onIncrement();
         setLikeCount(likeCount + 1);
       }
       setLike(!like);
     },
-    [like, likeCount],
+    [like, likeCount, onDecrement, onIncrement],
   );
 
   return (

@@ -37,7 +37,7 @@ export const Theme = ({
           <div style={createdAtStyle}>{createdAgo}</div>
           <div style={navigateStyle}>{"続きを読む >"}</div>
           <div style={footerStyle}>
-            <ThemeLikeIconButton likeHistories={likeHistories} />
+            <ThemeLikeIconButton likeHistories={likeHistories} themeId={id} />
             <PostIconBox count={postCount} />
           </div>
         </div>
