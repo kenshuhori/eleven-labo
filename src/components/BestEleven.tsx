@@ -1,11 +1,12 @@
 import type React from "react";
-import type { CSSProperties } from "react";
+import { type CSSProperties, useState } from "react";
 import { FootballField } from "./FootballField";
 import "@/styles/formations.css";
 import { colorCode } from "@/constants";
 import { formations } from "@/fixtures/formations";
 import type { Eleven } from "@/types";
 import { Button } from "@chakra-ui/react";
+import { Switch } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
@@ -18,6 +19,8 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
   const formationClass = `formation-${formationCode}`;
   const formation =
     formations.find((formation) => formation.code === formationCode) || formations[0];
+  const [iconMode, setIconMode] = useState<"number" | "photo">("number");
+  const switchIconMode = () => setIconMode(iconMode === "number" ? "photo" : "number");
 
   return (
     <div className={formationClass}>
@@ -28,14 +31,25 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
           return (
             <div className={className} key={`${positionCode}-${player.id}-${idx}`}>
               <div style={contentStyle}>
-                <button style={playerIconStyle(player.team)} type="button">
-                  {player.number ?? "？"}
-                </button>
+                <div style={playerIconStyle(player.team)}>
+                  {iconMode === "photo" ? (
+                    <img alt={player.name} src={player.photo} style={{ borderRadius: "50%" }} />
+                  ) : (
+                    <div style={numberStyle}>{player.number ?? "？"}</div>
+                  )}
+                </div>
                 <label style={playerNameStyle}>{player.name}</label>
               </div>
             </div>
           );
         })}
+
+        <div style={switcherStyle}>
+          <label style={switcherLabelStyle}>
+            表示切替
+            <Switch onChange={switchIconMode} size="lg" />
+          </label>
+        </div>
 
         <div style={formationBaseStyle}>
           <Button style={formationNameStyle} type="button">
@@ -54,13 +68,20 @@ const contentStyle: CSSProperties = {
   gap: "2px",
 };
 
+const numberStyle: CSSProperties = {
+  alignItems: "center",
+  display: "flex",
+  height: "100%",
+  justifyContent: "center",
+  widows: "100%",
+};
+
 const playerIconStyle = (team: Team): CSSProperties => {
   return {
     backgroundColor: team.backgroundColor,
     border: `3px solid ${team.borderColor}`,
     borderRadius: "50%",
     color: team.color,
-    cursor: "default",
     fontFamily: "__Inter_aaf875",
     fontSize: "1.4rem",
     fontWeight: "1000",
@@ -79,6 +100,19 @@ const playerNameStyle: CSSProperties = {
   textAlign: "center",
   textShadow: `3px 3px ${colorCode.black}`,
   width: "7rem",
+};
+
+const switcherStyle: CSSProperties = {
+  top: "-1.1rem",
+  position: "absolute",
+  right: "1.0rem",
+};
+
+const switcherLabelStyle: CSSProperties = {
+  alignItems: "center",
+  display: "flex",
+  fontSize: "0.9rem",
+  gap: "0.4rem",
 };
 
 const formationBaseStyle: CSSProperties = {
