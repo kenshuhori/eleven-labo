@@ -1,6 +1,6 @@
 ## Eleven Labo | ベストイレブン研究所
 
-See https://eleven-labo.vercel.app/
+See https://eleven-labo.com/
 
 <table>
   <tr>
