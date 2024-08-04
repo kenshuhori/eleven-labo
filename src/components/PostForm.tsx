@@ -67,7 +67,7 @@ export const PostForm = ({ theme }: PostFormProps) => {
         placeholder={placeholder}
         style={textareaStyle}
       />
-      <Button isDisabled={!canSubmit} style={submitType} type={"submit"}>
+      <Button isDisabled={!canSubmit} style={submitStyle} type={"submit"}>
         投稿
       </Button>
     </form>
@@ -89,7 +89,7 @@ const baseStyle: React.CSSProperties = {
   width: "34rem",
 };
 
-const submitType: React.CSSProperties = {
+const submitStyle: React.CSSProperties = {
   backgroundColor: colorCode.black,
   color: colorCode.white,
   fontSize: "1.2rem",
