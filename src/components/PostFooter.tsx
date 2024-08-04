@@ -24,7 +24,12 @@ export const PostFooter = ({
   return (
     <div style={baseStyle}>
       <div style={iconsStyle}>
-        <LikeIconButton count={likeCount} liked={false} />
+        <LikeIconButton
+          count={likeCount}
+          liked={false}
+          onDecrement={() => {}}
+          onIncrement={() => {}}
+        />
         <CommentIconBox count={commentCount} />
       </div>
       <div>

@@ -84,7 +84,7 @@ model Post {
   pos10Player   Player             @relation("pos10Posts", fields: [pos10PlayerId], references: [id])
   pos11PlayerId Int
   pos11Player   Player             @relation("pos11Posts", fields: [pos11PlayerId], references: [id])
-  likeHistories PosttLikeHistory[]
+  likeHistories PostLikeHistory[]
   themeId       Int
   theme         Theme              @relation(fields: [themeId], references: [id])
   comments      Comment[]
@@ -93,7 +93,7 @@ model Post {
   createdAt     DateTime           @default(now())
 }
 
-model PosttLikeHistory {
+model PostLikeHistory {
   id        Int      @id @default(autoincrement())
   postId    Int
   post      Post     @relation(fields: [postId], references: [id])
@@ -109,11 +109,11 @@ model Theme {
   title         String
   thumbnail     String              @default("")
   posts         Post[]
-  likeHistories ThemetLikeHistory[]
+  likeHistories ThemeLikeHistory[]
   createdAt     DateTime            @default(now())
 }
 
-model ThemetLikeHistory {
+model ThemeLikeHistory {
   id        Int      @id @default(autoincrement())
   themeId   Int
   theme     Theme    @relation(fields: [themeId], references: [id])
@@ -147,8 +147,8 @@ model User {
   comments             Comment[]
   posts                Post[]
   commentLikeHistories CommentLikeHistory[]
-  posttLikeHistories   PosttLikeHistory[]
-  themetLikeHistories  ThemetLikeHistory[]
+  postLikeHistories   PostLikeHistory[]
+  themeLikeHistories  ThemeLikeHistory[]
   createdAt            DateTime             @default(now())
   deletedAt            DateTime?
 }

@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     createdAt: { control: "date" },
     id: { control: "number" },
-    likeCount: { control: "number" },
+    likeHistories: { control: "object" },
     postCount: { control: "number" },
     thumbnail: { control: "text" },
     title: { control: "text" },
@@ -19,7 +19,7 @@ const meta = {
   args: {
     createdAt: "2021-09-01T00:00:00Z",
     id: 1,
-    likeCount: 0,
+    likeHistories: [],
     postCount: 0,
     thumbnail: "https://media.api-sports.io/football/leagues/39.png",
     title: "23-24のプレミアリーグベスト11を考えよう!!",

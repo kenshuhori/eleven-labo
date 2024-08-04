@@ -7,7 +7,9 @@ interface CommentFooterProps {
 }
 
 export const CommentFooter = ({ count }: CommentFooterProps) => {
-  return <LikeIconButton count={count} liked={false} />;
+  return (
+    <LikeIconButton count={count} liked={false} onDecrement={() => {}} onIncrement={() => {}} />
+  );
 };
 
 export const SkeletonCommentFooter = () => {
