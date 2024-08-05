@@ -1,17 +1,29 @@
 import { PlayerSelect } from "@/components/PlayerSelect";
 import { colorCode } from "@/constants";
 import type { PlayerSelectOption, PlayerTeam } from "@/types";
-import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import {
+  Avatar,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
+import { AiOutlineUser } from "react-icons/ai";
 
 interface PlayerIconProps {
+  iconMode: "number" | "photo";
   position: number;
   player: PlayerTeam;
 }
 
 export const PlayerIcon = forwardRef(
-  ({ position, player: initialPlayer }: PlayerIconProps, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { iconMode, position, player: initialPlayer }: PlayerIconProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const className = `player-no${position} transition`;
@@ -31,7 +43,11 @@ export const PlayerIcon = forwardRef(
       <div className={className} ref={ref}>
         <div style={contentStyle}>
           <button onClick={onOpen} style={playerIconStyle(player.team)} type="button">
-            {player.number ?? "？"}
+            {iconMode === "photo" ? (
+              <Avatar src={player.photo} icon={<AiOutlineUser fontSize="2.0rem" />} />
+            ) : (
+              <div>{player.number ?? "？"}</div>
+            )}
           </button>
           {/* モーダルで選択した選手をフォームに反映させるために非表示のselect要素を設置 */}
           <select name={`pos${position}PlayerId`} style={{ display: "none" }}>
