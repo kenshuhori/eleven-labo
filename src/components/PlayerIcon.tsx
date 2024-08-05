@@ -44,7 +44,11 @@ export const PlayerIcon = forwardRef(
         <div style={contentStyle}>
           <button onClick={onOpen} style={playerIconStyle(player.team)} type="button">
             {iconMode === "photo" ? (
-              <Avatar src={player.photo} icon={<AiOutlineUser fontSize="2.0rem" />} />
+              <Avatar
+                src={player.photo}
+                size={"2.1rem"}
+                icon={<AiOutlineUser size="2.8rem" fontSize="2.0rem" />}
+              />
             ) : (
               <div>{player.number ?? "？"}</div>
             )}
