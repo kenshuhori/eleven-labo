@@ -13,11 +13,19 @@ interface PlayerSelectProps {
 
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
+  const filteredOptions = groupedOptions.filter((option) => {
+    // TODO: リーグを選択できるようにする
+    return option.leagueId === 38;
+  });
 
-  const formatGroupLabel = (group: { category: string; options: PlayerSelectOption[] }) => {
+  const formatGroupLabel = (group: {
+    teamName: string;
+    leagueId: number;
+    options: PlayerSelectOption[];
+  }) => {
     return (
       <div style={{ marginTop: "1rem" }}>
-        <span style={{ fontSize: "1.2rem" }}>{group.category}</span>
+        <span style={{ fontSize: "1.2rem" }}>{group.teamName}</span>
       </div>
     );
   };
@@ -51,7 +59,11 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 
   return (
     <div style={{ ...style }}>
-      <Select<PlayerSelectOption, false, { category: string; options: PlayerSelectOption[] }>
+      <Select<
+        PlayerSelectOption,
+        false,
+        { teamName: string; leagueId: number; options: PlayerSelectOption[] }
+      >
         filterOption={(option, rawInput) => {
           const { name, number, team } = option.data;
           return (
@@ -64,7 +76,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
         formatOptionLabel={formatOptionLabel}
         menuIsOpen={true}
         onChange={onChange}
-        options={groupedOptions}
+        options={filteredOptions}
         placeholder="選手を選択"
       />
     </div>
