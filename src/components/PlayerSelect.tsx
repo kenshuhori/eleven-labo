@@ -39,15 +39,10 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
             gap: "1rem",
           }}
         >
-          <Image
-            alt={data.name}
-            src={data.photo}
-            loading={"lazy"}
-            style={{ height: "2.8rem", width: "2.8rem" }}
-          />
+          <span style={numberStyle(data.team)}>{data.number ?? "？"}</span>
           <span style={optionStyle}>{data.name}</span>
         </div>
-        <span style={numberStyle(data.team)}>{data.number ?? "？"}</span>
+        {/* <span>{data.position ?? "？"}</span> */}
       </div>
     ) : (
       <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
