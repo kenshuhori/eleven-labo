@@ -10,9 +10,11 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
+    iconMode: { control: "radio" },
     player: { control: "object" },
   },
   args: {
+    iconMode: "number",
     position: 99,
   },
 } satisfies Meta<typeof PlayerIcon>;
