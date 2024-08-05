@@ -2,11 +2,11 @@ import type React from "react";
 import { type CSSProperties, useState } from "react";
 import { FootballField } from "./FootballField";
 import "@/styles/formations.css";
+import { PlayerIconSwitcher } from "@/components/PlayerIconSwitcher";
 import { colorCode } from "@/constants";
 import { formations } from "@/fixtures/formations";
 import type { Eleven } from "@/types";
 import { Button } from "@chakra-ui/react";
-import { Switch } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
@@ -44,12 +44,7 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
           );
         })}
 
-        <div style={switcherStyle}>
-          <label style={switcherLabelStyle}>
-            表示切替
-            <Switch onChange={switchIconMode} size="lg" />
-          </label>
-        </div>
+        <PlayerIconSwitcher onChange={switchIconMode} />
 
         <div style={formationBaseStyle}>
           <Button style={formationNameStyle} type="button">
@@ -100,19 +95,6 @@ const playerNameStyle: CSSProperties = {
   textAlign: "center",
   textShadow: `3px 3px ${colorCode.black}`,
   width: "7rem",
-};
-
-const switcherStyle: CSSProperties = {
-  top: "-1.1rem",
-  position: "absolute",
-  right: "1.0rem",
-};
-
-const switcherLabelStyle: CSSProperties = {
-  alignItems: "center",
-  display: "flex",
-  fontSize: "0.9rem",
-  gap: "0.4rem",
 };
 
 const formationBaseStyle: CSSProperties = {
