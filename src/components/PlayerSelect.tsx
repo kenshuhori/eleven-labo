@@ -1,7 +1,7 @@
 import { PlayerSelectOptionsContext } from "@/app/(service-page)/template";
+import { PositionLabel } from "@/components/PositionLabel";
 import { colorCode } from "@/constants";
 import type { PlayerSelectOption } from "@/types";
-import { Image } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import React, { useContext, type CSSProperties } from "react";
 import Select from "react-select";
@@ -42,7 +42,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
           <span style={numberStyle(data.team)}>{data.number ?? "？"}</span>
           <span style={optionStyle}>{data.name}</span>
         </div>
-        {/* <span>{data.position ?? "？"}</span> */}
+        <PositionLabel position={data.position} />
       </div>
     ) : (
       <span style={optionStyle}>{`${data.name} #${data.number}`}</span>
