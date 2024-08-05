@@ -4,9 +4,10 @@ import { FootballField } from "./FootballField";
 import { PlayerIcon } from "./PlayerIcon";
 import "@/styles/formations.css";
 import { FormationIcon } from "@/components/FormationIcon";
+import { PlayerIconSwitcher } from "@/components/PlayerIconSwitcher";
 import { defaultPlayer } from "@/fixtures/players";
-import { Skeleton } from "@chakra-ui/react";
 import type { FormationSelectOption } from "@/types";
+import { Skeleton } from "@chakra-ui/react";
 
 interface FormationProps {
   formationCode: string;
@@ -14,13 +15,15 @@ interface FormationProps {
 }
 
 export const Formation = ({ formationCode, style }: FormationProps) => {
+  const [formationClass, setFormationClass] = useState<string>(`formation-${formationCode}`);
   const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;
 
     setFormationClass(`formation-${selected?.code}`);
   }, []);
 
-  const [formationClass, setFormationClass] = useState<string>(`formation-${formationCode}`);
+  const [iconMode, setIconMode] = useState<"number" | "photo">("number");
+  const switchIconMode = () => setIconMode(iconMode === "number" ? "photo" : "number");
 
   return (
     <div className={formationClass}>
@@ -31,6 +34,7 @@ export const Formation = ({ formationCode, style }: FormationProps) => {
           return (
             <Fragment key={position}>
               <PlayerIcon
+                iconMode={iconMode}
                 position={position}
                 player={defaultPlayer({ number: position })}
                 ref={playerRef}
@@ -38,6 +42,7 @@ export const Formation = ({ formationCode, style }: FormationProps) => {
             </Fragment>
           );
         })}
+        <PlayerIconSwitcher onChange={switchIconMode} />
         <FormationIcon formationCode={formationCode} onChange={onChange} />
       </FootballField>
     </div>
