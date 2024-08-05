@@ -72,11 +72,11 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 };
 
 const optionStyle: CSSProperties = {
-  fontSize: "1.5rem",
+  fontSize: "1.4rem",
   fontWeight: 700,
-  height: "3rem",
-  letterSpacing: "1px",
-  lineHeight: "2.8rem",
+  height: "2.4rem",
+  letterSpacing: "0.8px",
+  lineHeight: "2.6rem",
   overflow: "hidden",
   textOverflow: "ellipsis",
   whiteSpace: "nowrap",
@@ -89,12 +89,12 @@ const numberStyle = (team: Team): CSSProperties => {
     border: `2px solid ${team.borderColor}`,
     borderRadius: "50%",
     color: team.color,
-    fontSize: "1.4rem",
+    fontSize: "1.3rem",
     fontWeight: "700",
-    height: "2.8rem",
-    lineHeight: "2.5rem",
+    height: "2.5rem",
+    lineHeight: "2.2rem",
     textAlign: "center",
     filter: `drop-shadow(2px 4px 2px ${colorCode.black})`,
-    width: "2.8rem",
+    width: "2.5rem",
   };
 };
