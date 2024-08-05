@@ -61,7 +61,7 @@ export const PlayerIcon = forwardRef(
         </div>
         <Modal isOpen={isOpen} onClose={onClose} size="md">
           <ModalOverlay />
-          <ModalContent style={{ top: "15vh" }}>
+          <ModalContent style={{ top: "8vh" }}>
             <ModalBody>
               <PlayerSelect onChange={onChange} />
             </ModalBody>
@@ -86,12 +86,12 @@ const playerIconStyle = (team: Team): CSSProperties => {
     borderRadius: "50%",
     color: team.color,
     fontFamily: "__Inter_aaf875",
-    fontSize: "1.4rem",
+    fontSize: "1.6rem",
     fontWeight: "1000",
-    height: "3.5rem",
+    height: "4.0rem",
     textShadow: team.textShadowColor ? `1px 1px ${team.textShadowColor}` : "unset",
     filter: `drop-shadow(2px 4px 2px ${colorCode.black})`,
-    width: "3.5rem",
+    width: "4.0rem",
   };
 };
 
