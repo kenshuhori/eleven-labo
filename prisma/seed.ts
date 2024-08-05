@@ -52,6 +52,7 @@ async function main() {
         code: team.code,
         name: team.name,
         logo: team.logo,
+        leagueId: team.leagueId,
         backgroundColor: team.backgroundColor,
         borderColor: team.borderColor,
         color: team.color,
