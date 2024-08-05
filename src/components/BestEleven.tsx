@@ -7,7 +7,6 @@ import { colorCode } from "@/constants";
 import { formations } from "@/fixtures/formations";
 import type { Eleven } from "@/types";
 import { Button } from "@chakra-ui/react";
-import { Switch } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
 interface BestElevenProps {
@@ -96,19 +95,6 @@ const playerNameStyle: CSSProperties = {
   textAlign: "center",
   textShadow: `3px 3px ${colorCode.black}`,
   width: "7rem",
-};
-
-const switcherStyle: CSSProperties = {
-  top: "-1.1rem",
-  position: "absolute",
-  right: "1.0rem",
-};
-
-const switcherLabelStyle: CSSProperties = {
-  alignItems: "center",
-  display: "flex",
-  fontSize: "0.9rem",
-  gap: "0.4rem",
 };
 
 const formationBaseStyle: CSSProperties = {
