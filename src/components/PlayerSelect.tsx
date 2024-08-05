@@ -19,13 +19,13 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   });
 
   const formatGroupLabel = (group: {
-    teanName: string;
+    teamName: string;
     leagueId: number;
     options: PlayerSelectOption[];
   }) => {
     return (
       <div style={{ marginTop: "1rem" }}>
-        <span style={{ fontSize: "1.2rem" }}>{group.teanName}</span>
+        <span style={{ fontSize: "1.2rem" }}>{group.teamName}</span>
       </div>
     );
   };
@@ -62,7 +62,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
       <Select<
         PlayerSelectOption,
         false,
-        { teanName: string; leagueId: number; options: PlayerSelectOption[] }
+        { teamName: string; leagueId: number; options: PlayerSelectOption[] }
       >
         filterOption={(option, rawInput) => {
           const { name, number, team } = option.data;
