@@ -7,11 +7,13 @@ import { createContext, useMemo, useState } from "react";
 import useSWRImmutable from "swr";
 
 export const PlayerSelectOptionsContext = createContext<
-  { teanName: string; options: PlayerSelectOption[] }[]
+  { teanName: string; leagueId: number; options: PlayerSelectOption[] }[]
 >([]);
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  const [players, setPlayers] = useState<{ teanName: string; options: PlayerSelectOption[] }[]>([]);
+  const [players, setPlayers] = useState<
+    { teanName: string; leagueId: number; options: PlayerSelectOption[] }[]
+  >([]);
   const { data, error, isLoading } = useSWRImmutable("/players", listPlayer);
 
   useMemo(() => {

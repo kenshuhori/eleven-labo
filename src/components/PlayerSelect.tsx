@@ -14,10 +14,15 @@ interface PlayerSelectProps {
 export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
   const filteredOptions = groupedOptions.filter((option) => {
-    return option.teanName === "Arsenal";
+    // TODO: リーグを選択できるようにする
+    return option.leagueId === 38;
   });
 
-  const formatGroupLabel = (group: { teanName: string; options: PlayerSelectOption[] }) => {
+  const formatGroupLabel = (group: {
+    teanName: string;
+    leagueId: number;
+    options: PlayerSelectOption[];
+  }) => {
     return (
       <div style={{ marginTop: "1rem" }}>
         <span style={{ fontSize: "1.2rem" }}>{group.teanName}</span>
@@ -54,7 +59,11 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
 
   return (
     <div style={{ ...style }}>
-      <Select<PlayerSelectOption, false, { teanName: string; options: PlayerSelectOption[] }>
+      <Select<
+        PlayerSelectOption,
+        false,
+        { teanName: string; leagueId: number; options: PlayerSelectOption[] }
+      >
         filterOption={(option, rawInput) => {
           const { name, number, team } = option.data;
           return (

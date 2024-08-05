@@ -2,7 +2,7 @@ import type { PlayerSelectOption, PlayerTeam } from "@/types";
 
 export const groupedPlayers = (
   players: PlayerTeam[] | undefined,
-): { teanName: string; options: PlayerSelectOption[] }[] => {
+): { teanName: string; leagueId: number; options: PlayerSelectOption[] }[] => {
   if (players === undefined) {
     return [];
   }
