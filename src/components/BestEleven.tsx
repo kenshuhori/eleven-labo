@@ -6,16 +6,15 @@ import { PlayerIconSwitcher } from "@/components/PlayerIconSwitcher";
 import { colorCode } from "@/constants";
 import { formations } from "@/fixtures/formations";
 import type { Eleven } from "@/types";
-import { Button } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 
-interface BestElevenProps {
+interface Props {
   formationCode: string;
   eleven: Eleven;
   style?: React.CSSProperties;
 }
 
-export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) => {
+export const BestEleven = ({ formationCode, eleven, style }: Props) => {
   const formationClass = `formation-${formationCode}`;
   const formation =
     formations.find((formation) => formation.code === formationCode) || formations[0];
@@ -47,9 +46,9 @@ export const BestEleven = ({ formationCode, eleven, style }: BestElevenProps) =>
         <PlayerIconSwitcher onChange={switchIconMode} />
 
         <div style={formationBaseStyle}>
-          <Button style={formationNameStyle} type="button">
+          <button style={formationNameStyle} type="button">
             {formation.name}
-          </Button>
+          </button>
         </div>
       </FootballField>
     </div>
@@ -107,9 +106,11 @@ const formationBaseStyle: CSSProperties = {
 const formationNameStyle: CSSProperties = {
   backgroundColor: colorCode.white,
   border: `2px solid ${colorCode.lightOrange}`,
+  borderRadius: "0.5rem",
   color: colorCode.black,
   cursor: "default",
   fontSize: "1.1rem",
+  fontWeight: "500",
   height: "3.5rem",
   textShadow: `1px 1px 1px ${colorCode.lightOrange}`,
   width: "12rem",
