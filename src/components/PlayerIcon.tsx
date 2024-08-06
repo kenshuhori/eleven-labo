@@ -71,7 +71,7 @@ export const PlayerIcon = forwardRef(
             <ModalBody>
               <RadioGroup
                 onChange={setLeagueId}
-                style={{ display: "flex", flexWrap: "wrap", gap: "4px", padding: "0.8rem" }}
+                style={{ display: "none", flexWrap: "wrap", gap: "4px", padding: "0.8rem" }}
                 value={leagueId}
               >
                 {leagues.map((league) => {
