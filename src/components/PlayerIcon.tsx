@@ -1,20 +1,38 @@
 import { PlayerSelect } from "@/components/PlayerSelect";
 import { colorCode } from "@/constants";
+import { leagues } from "@/fixtures/leagues";
 import type { PlayerSelectOption, PlayerTeam } from "@/types";
-import { Modal, ModalBody, ModalContent, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import {
+  Avatar,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalOverlay,
+  Radio,
+  RadioGroup,
+  Stack,
+  useDisclosure,
+} from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
+import { AiOutlineUser } from "react-icons/ai";
 
 interface PlayerIconProps {
+  iconMode: "number" | "photo";
   position: number;
   player: PlayerTeam;
 }
 
 export const PlayerIcon = forwardRef(
-  ({ position, player: initialPlayer }: PlayerIconProps, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { iconMode, position, player: initialPlayer }: PlayerIconProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const className = `player-no${position} transition`;
+
+    const [leagueId, setLeagueId] = useState<string>(leagues[0].id.toString());
 
     const [player, setPlayer] = useState<PlayerTeam>(initialPlayer);
     const onChange = useCallback(
@@ -31,7 +49,15 @@ export const PlayerIcon = forwardRef(
       <div className={className} ref={ref}>
         <div style={contentStyle}>
           <button onClick={onOpen} style={playerIconStyle(player.team)} type="button">
-            {player.number ?? "？"}
+            {iconMode === "photo" ? (
+              <Avatar
+                src={player.photo}
+                size={"2.1rem"}
+                icon={<AiOutlineUser size="2.8rem" fontSize="2.0rem" />}
+              />
+            ) : (
+              <div>{player.number ?? "？"}</div>
+            )}
           </button>
           {/* モーダルで選択した選手をフォームに反映させるために非表示のselect要素を設置 */}
           <select name={`pos${position}PlayerId`} style={{ display: "none" }}>
@@ -41,9 +67,24 @@ export const PlayerIcon = forwardRef(
         </div>
         <Modal isOpen={isOpen} onClose={onClose} size="md">
           <ModalOverlay />
-          <ModalContent style={{ top: "15vh" }}>
+          <ModalContent>
             <ModalBody>
-              <PlayerSelect onChange={onChange} />
+              <RadioGroup
+                onChange={setLeagueId}
+                style={{ display: "none", flexWrap: "wrap", gap: "4px", padding: "0.8rem" }}
+                value={leagueId}
+              >
+                {leagues.map((league) => {
+                  return (
+                    <div key={league.id} style={{ flex: "1 1 45%" }}>
+                      <Radio size="lg" value={league.id.toString()}>
+                        {league.name}
+                      </Radio>
+                    </div>
+                  );
+                })}
+              </RadioGroup>
+              <PlayerSelect leagueId={leagueId} onChange={onChange} />
             </ModalBody>
           </ModalContent>
         </Modal>
@@ -66,12 +107,12 @@ const playerIconStyle = (team: Team): CSSProperties => {
     borderRadius: "50%",
     color: team.color,
     fontFamily: "__Inter_aaf875",
-    fontSize: "1.4rem",
+    fontSize: "1.6rem",
     fontWeight: "1000",
-    height: "3.5rem",
+    height: "4.0rem",
     textShadow: team.textShadowColor ? `1px 1px ${team.textShadowColor}` : "unset",
     filter: `drop-shadow(2px 4px 2px ${colorCode.black})`,
-    width: "3.5rem",
+    width: "4.0rem",
   };
 };
 

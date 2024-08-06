@@ -4,11 +4,11 @@ export const leagues = [
     name: "Premier League",
     logo: "https://media.api-sports.io/football/leagues/39.png",
   },
-  {
-    id: 61,
-    name: "Ligue 1",
-    logo: "https://media.api-sports.io/football/leagues/61.png",
-  },
+  // {
+  //   id: 61,
+  //   name: "Ligue 1",
+  //   logo: "https://media.api-sports.io/football/leagues/61.png",
+  // },
   {
     id: 78,
     name: "Bundesliga",

@@ -2,7 +2,7 @@ import type { PlayerSelectOption, PlayerTeam } from "@/types";
 
 export const groupedPlayers = (
   players: PlayerTeam[] | undefined,
-): { category: string; options: PlayerSelectOption[] }[] => {
+): { teamName: string; leagueId: number; options: PlayerSelectOption[] }[] => {
   if (players === undefined) {
     return [];
   }
@@ -11,7 +11,8 @@ export const groupedPlayers = (
   const toArray = Array.from(groupByTeam.entries());
   return sortByTeam(toArray).map(([key, value]) => {
     return {
-      category: key,
+      teamName: key,
+      leagueId: value[0].team.leagueId,
       options: value.map((player) => ({
         value: player.id,
         label: player.name,

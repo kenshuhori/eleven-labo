@@ -129,6 +129,7 @@ model Team {
   name            String
   code            String
   logo            String
+  leagueId        Int
   backgroundColor String   @default("#FFFFFF")
   color           String   @default("#000000")
   borderColor     String   @default("#000000")

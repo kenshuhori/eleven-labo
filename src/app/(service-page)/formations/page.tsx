@@ -4,7 +4,7 @@ import { Formation } from "@/components/Formation";
 
 export default function Page() {
   return (
-    <main>
+    <main style={{ marginTop: "2rem" }}>
       <Formation formationCode={"4-4-2"} />
     </main>
   );
