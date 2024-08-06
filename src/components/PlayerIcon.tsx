@@ -1,5 +1,6 @@
 import { PlayerSelect } from "@/components/PlayerSelect";
 import { colorCode } from "@/constants";
+import { leagues } from "@/fixtures/leagues";
 import type { PlayerSelectOption, PlayerTeam } from "@/types";
 import {
   Avatar,
@@ -7,6 +8,9 @@ import {
   ModalBody,
   ModalContent,
   ModalOverlay,
+  Radio,
+  RadioGroup,
+  Stack,
   useDisclosure,
 } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
@@ -27,6 +31,8 @@ export const PlayerIcon = forwardRef(
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const className = `player-no${position} transition`;
+
+    const [leagueId, setLeagueId] = useState<string>(leagues[0].id.toString());
 
     const [player, setPlayer] = useState<PlayerTeam>(initialPlayer);
     const onChange = useCallback(
@@ -61,9 +67,24 @@ export const PlayerIcon = forwardRef(
         </div>
         <Modal isOpen={isOpen} onClose={onClose} size="md">
           <ModalOverlay />
-          <ModalContent style={{ top: "8vh" }}>
+          <ModalContent>
             <ModalBody>
-              <PlayerSelect onChange={onChange} />
+              <RadioGroup
+                onChange={setLeagueId}
+                style={{ display: "none", flexWrap: "wrap", gap: "4px", padding: "0.8rem" }}
+                value={leagueId}
+              >
+                {leagues.map((league) => {
+                  return (
+                    <div key={league.id} style={{ flex: "1 1 45%" }}>
+                      <Radio size="lg" value={league.id.toString()}>
+                        {league.name}
+                      </Radio>
+                    </div>
+                  );
+                })}
+              </RadioGroup>
+              <PlayerSelect leagueId={leagueId} onChange={onChange} />
             </ModalBody>
           </ModalContent>
         </Modal>

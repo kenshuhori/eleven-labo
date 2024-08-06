@@ -7,15 +7,15 @@ import React, { useContext, type CSSProperties } from "react";
 import Select from "react-select";
 
 interface PlayerSelectProps {
+  leagueId: string;
   onChange: (selected: PlayerSelectOption | null) => void;
   style?: CSSProperties;
 }
 
-export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
+export const PlayerSelect = ({ leagueId, onChange, style }: PlayerSelectProps) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
   const filteredOptions = groupedOptions.filter((option) => {
-    // TODO: リーグを選択できるようにする
-    return option.leagueId === 39;
+    return option.leagueId.toString() === leagueId;
   });
 
   const formatGroupLabel = (group: {

@@ -15,9 +15,11 @@ const meta = {
     },
   },
   argTypes: {
+    leagueId: { control: "text" },
     onChange: { control: "text" },
   },
   args: {
+    leagueId: "39",
     onChange: () => {},
     style: {
       width: "20rem",

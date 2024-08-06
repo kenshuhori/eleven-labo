@@ -1,5 +1,4 @@
 import { organizationName } from "@/constants";
-import { teams } from "@/fixtures/teams";
 import { auth } from "@clerk/nextjs/server";
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
@@ -15,9 +14,18 @@ export async function GET(request: Request) {
     // ここに処理を記述
     // const { searchParams } = new URL(request.url);
     // const teamId = searchParams.get("teamId") || 50;
+    const leagueId = 61; // Ligue 1
+    const teams = await prisma.team.findMany({
+      where: {
+        leagueId: leagueId,
+      },
+    });
 
     for (const t of teams) {
       console.log(`================ ${t.name} ================`);
+      if (t.id < 111) {
+        continue;
+      }
 
       const url = `https://v3.football.api-sports.io/players/squads?team=${t.id}`;
       const response = await fetch(url, {
