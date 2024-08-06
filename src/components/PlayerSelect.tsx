@@ -15,7 +15,7 @@ export const PlayerSelect = ({ onChange, style }: PlayerSelectProps) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
   const filteredOptions = groupedOptions.filter((option) => {
     // TODO: リーグを選択できるようにする
-    return option.leagueId === 38;
+    return option.leagueId === 39;
   });
 
   const formatGroupLabel = (group: {
