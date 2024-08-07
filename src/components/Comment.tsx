@@ -4,7 +4,7 @@ import { SkeletonText } from "@chakra-ui/react";
 import type { CommentLikeHistory, User } from "@prisma/client";
 import type React from "react";
 
-interface CommentProps {
+interface Props {
   author: User;
   comment: string;
   createdAt: Date;
@@ -12,7 +12,7 @@ interface CommentProps {
   likeHistories: CommentLikeHistory[];
 }
 
-export const Comment = ({ author, comment, createdAt, id, likeHistories }: CommentProps) => {
+export const Comment = ({ author, comment, createdAt, id, likeHistories }: Props) => {
   return (
     <div style={baseStyle}>
       <CommentHeader author={author} createdAt={createdAt} />

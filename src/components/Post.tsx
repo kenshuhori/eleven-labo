@@ -6,14 +6,14 @@ import type { Eleven, PostWithPlayers } from "@/types";
 import type { User } from "@prisma/client";
 import type React from "react";
 
-interface PostProps {
+interface Props {
   author: User;
   commentCount: number;
   fullSentence: boolean;
   post: PostWithPlayers;
 }
 
-export const Post = ({ author, commentCount, fullSentence, post }: PostProps) => {
+export const Post = ({ author, commentCount, fullSentence, post }: Props) => {
   const { createdAt, description, formationCode, id, likeHistories } = post;
   const eleven: Eleven = [
     { positionCode: 1, player: post.pos1Player },

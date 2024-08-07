@@ -1,12 +1,12 @@
 import fieldSvg from "@public/field.svg";
 import type React from "react";
 
-interface FootballFieldProps {
+interface Props {
   children?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
-export const FootballField = ({ children, style }: FootballFieldProps) => (
+export const FootballField = ({ children, style }: Props) => (
   <div
     style={{
       alignItems: "center",

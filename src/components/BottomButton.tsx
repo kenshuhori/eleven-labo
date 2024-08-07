@@ -2,13 +2,13 @@ import { colorCode } from "@/constants";
 import Link from "next/link";
 import React, { type CSSProperties } from "react";
 
-interface BottomButtonProps {
+interface Props {
   label: string;
   href: string;
   style?: CSSProperties;
 }
 
-export const BottomButton = ({ label, href, style }: BottomButtonProps) => {
+export const BottomButton = ({ label, href, style }: Props) => {
   return (
     <div style={{ ...baseStyle, ...style }}>
       <Link href={href} style={buttonStyle}>

@@ -9,12 +9,12 @@ import { defaultPlayer } from "@/fixtures/players";
 import type { FormationSelectOption } from "@/types";
 import { Skeleton } from "@chakra-ui/react";
 
-interface FormationProps {
+interface Props {
   formationCode: string;
   style?: React.CSSProperties;
 }
 
-export const Formation = ({ formationCode, style }: FormationProps) => {
+export const Formation = ({ formationCode, style }: Props) => {
   const [formationClass, setFormationClass] = useState<string>(`formation-${formationCode}`);
   const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;

@@ -11,11 +11,11 @@ import { Fragment } from "react";
 import useSWR from "swr";
 import useSWRImmutable from "swr";
 
-interface PageProps {
+interface Props {
   themeId: string;
 }
 
-export default function Page({ params }: { params: PageProps }) {
+export default function Page({ params }: { params: Props }) {
   const themeId = params.themeId;
 
   const {

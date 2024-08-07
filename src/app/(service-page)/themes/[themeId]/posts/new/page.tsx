@@ -6,11 +6,11 @@ import { PostForm, SkeletonPostForm } from "@/components/PostForm";
 import type { CSSProperties } from "react";
 import useSWR from "swr";
 
-interface PageProps {
+interface Props {
   themeId: string;
 }
 
-export default function Page({ params }: { params: PageProps }) {
+export default function Page({ params }: { params: Props }) {
   const { themeId } = params;
   const { data: theme, error, isLoading } = useSWR(`/themes/${themeId}`, getTheme);
 

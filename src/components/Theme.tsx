@@ -9,7 +9,7 @@ import type React from "react";
 import type { CSSProperties } from "react";
 import { ThemeLikeIconButton } from "./ThemeLikeIconButton";
 
-interface ThemeProps {
+interface Props {
   createdAt: string;
   id: number;
   likeHistories: ThemeLikeHistory[];
@@ -18,14 +18,7 @@ interface ThemeProps {
   title: string;
 }
 
-export const Theme = ({
-  createdAt,
-  id,
-  likeHistories,
-  postCount,
-  thumbnail,
-  title,
-}: ThemeProps) => {
+export const Theme = ({ createdAt, id, likeHistories, postCount, thumbnail, title }: Props) => {
   const createdAgo = transformAgo(createdAt);
   const url = `/themes/${id}`;
 

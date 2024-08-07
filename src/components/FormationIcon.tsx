@@ -12,12 +12,12 @@ import {
 import { type CSSProperties, useCallback, useState } from "react";
 import { FormationSelect } from "./FormationSelect";
 
-interface FormationIconProps {
+interface Props {
   formationCode: string;
   onChange: (selected: FormationSelectOption | null) => void;
 }
 
-export const FormationIcon = ({ formationCode, onChange }: FormationIconProps) => {
+export const FormationIcon = ({ formationCode, onChange }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialFormation =
