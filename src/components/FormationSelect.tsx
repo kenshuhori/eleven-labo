@@ -4,13 +4,13 @@ import { groupedFormations } from "@/utils/groupFormation";
 import React, { type CSSProperties } from "react";
 import Select from "react-select";
 
-interface FormationSelectProps {
+interface Props {
   formation: Formation;
   onChange: (selected: FormationSelectOption | null) => void;
   style?: CSSProperties;
 }
 
-export const FormationSelect = ({ formation, onChange, style }: FormationSelectProps) => {
+export const FormationSelect = ({ formation, onChange, style }: Props) => {
   const groupedOptions: {
     category: string;
     options: FormationSelectOption[];

@@ -4,12 +4,12 @@ import { Button, useToast } from "@chakra-ui/react";
 import { type CSSProperties, useRef, useState } from "react";
 import { useSWRConfig } from "swr";
 
-interface CommentFormProps {
+interface Props {
   postId: number;
   style?: CSSProperties;
 }
 
-export const CommentForm = ({ postId, style }: CommentFormProps) => {
+export const CommentForm = ({ postId, style }: Props) => {
   const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
   const { mutate } = useSWRConfig();

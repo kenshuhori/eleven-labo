@@ -6,13 +6,13 @@ import type { Team } from "@prisma/client";
 import React, { useContext, type CSSProperties } from "react";
 import Select from "react-select";
 
-interface PlayerSelectProps {
+interface Props {
   leagueId: string;
   onChange: (selected: PlayerSelectOption | null) => void;
   style?: CSSProperties;
 }
 
-export const PlayerSelect = ({ leagueId, onChange, style }: PlayerSelectProps) => {
+export const PlayerSelect = ({ leagueId, onChange, style }: Props) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
   const filteredOptions = groupedOptions.filter((option) => {
     return option.leagueId.toString() === leagueId;

@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { type CSSProperties } from "react";
 import { PostLikeIconButton } from "./PostLikeIconButton";
 
-interface PostFooterProps {
+interface Props {
   commentCount: number;
   description: string;
   fullSentence: boolean;
@@ -21,7 +21,7 @@ export const PostFooter = ({
   fullSentence,
   postId,
   likeHistories,
-}: PostFooterProps) => {
+}: Props) => {
   const postUrl = `/posts/${postId}`;
   return (
     <div style={baseStyle}>

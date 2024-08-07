@@ -11,11 +11,11 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useSWRConfig } from "swr";
 
-interface PostFormProps {
+interface Props {
   theme: Theme;
 }
 
-export const PostForm = ({ theme }: PostFormProps) => {
+export const PostForm = ({ theme }: Props) => {
   const ref = useRef<HTMLFormElement>(null);
   const toast = useToast();
   const router = useRouter();

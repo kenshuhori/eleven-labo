@@ -8,7 +8,6 @@ export const defaultTeam = ({
 }: {
   backgroundColor?: string;
   borderColor?: string;
-  className?: string;
   color?: string;
   textShadowColor?: string;
 }) => ({
