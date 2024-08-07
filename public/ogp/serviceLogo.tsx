@@ -1,8 +1,8 @@
-interface ServiceLogoProps {
+interface Props {
   style?: React.CSSProperties;
 }
 
-export const ServiceLogo = ({ style }: ServiceLogoProps) => {
+export const ServiceLogo = ({ style }: Props) => {
   return (
     <svg
       width="284"

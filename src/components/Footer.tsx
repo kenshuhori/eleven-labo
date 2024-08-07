@@ -7,11 +7,14 @@ export const Footer = () => (
   <footer style={baseStyle}>
     <div style={logoStyle}>{serviceTitle}</div>
     <div style={linksStyle}>
-      <Link href="/contact" style={navigateStyle}>
+      {/* <Link href="/contact" style={navigateStyle}>
         お問い合わせ
-      </Link>
+      </Link> */}
       <Link href="/terms" style={navigateStyle}>
         利用規約
+      </Link>
+      <Link href="/about" style={navigateStyle}>
+        ベストイレブン研究所とは
       </Link>
     </div>
   </footer>

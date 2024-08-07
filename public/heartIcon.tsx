@@ -1,9 +1,9 @@
-interface HeartIconProps {
+interface Props {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export const HeartIcon = ({ className, style }: HeartIconProps) => {
+export const HeartIcon = ({ className, style }: Props) => {
   return (
     <svg
       width="18"

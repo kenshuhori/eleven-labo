@@ -10,24 +10,20 @@ import {
   ModalOverlay,
   Radio,
   RadioGroup,
-  Stack,
   useDisclosure,
 } from "@chakra-ui/react";
 import type { Team } from "@prisma/client";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 
-interface PlayerIconProps {
+interface Props {
   iconMode: "number" | "photo";
   position: number;
   player: PlayerTeam;
 }
 
 export const PlayerIcon = forwardRef(
-  (
-    { iconMode, position, player: initialPlayer }: PlayerIconProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => {
+  ({ iconMode, position, player: initialPlayer }: Props, ref: ForwardedRef<HTMLDivElement>) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const className = `player-no${position} transition`;

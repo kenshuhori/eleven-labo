@@ -1,8 +1,8 @@
-interface EyeCatchImageProps {
+interface Props {
   style?: React.CSSProperties;
 }
 
-export const EyeCatchImage = ({ style }: EyeCatchImageProps) => {
+export const EyeCatchImage = ({ style }: Props) => {
   return (
     <svg
       width="390"

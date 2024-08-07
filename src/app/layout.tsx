@@ -4,10 +4,12 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { inter, noto_sans_jp } from "@/app/fonts";
 import { serviceDescription, serviceImageUrl, serviceTitleLong, serviceUrl } from "@/constants";
+import favicon from "@public/favicon.ico";
 
 export const metadata: Metadata = {
   title: serviceTitleLong,
   description: serviceDescription,
+  icons: [{ rel: "icon", url: favicon.src }],
   openGraph: {
     type: "website",
     locale: "ja_JP",

@@ -2,11 +2,11 @@ import { colorCode } from "@/constants";
 import { Skeleton } from "@chakra-ui/react";
 import type React from "react";
 
-interface ThemeHeaderProps {
+interface Props {
   title: string;
 }
 
-export const ThemeHeader = ({ title }: ThemeHeaderProps) => {
+export const ThemeHeader = ({ title }: Props) => {
   return (
     <div style={baseStyle}>
       <h1 style={headerStyle}>{title}</h1>

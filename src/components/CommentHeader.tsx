@@ -4,12 +4,12 @@ import { Avatar, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import type { User } from "@prisma/client";
 import type React from "react";
 
-interface CommentHeaderProps {
+interface Props {
   author: User;
   createdAt: Date;
 }
 
-export const CommentHeader = ({ author, createdAt }: CommentHeaderProps) => {
+export const CommentHeader = ({ author, createdAt }: Props) => {
   const createdAgo = transformAgo(createdAt);
 
   const { name, image } = authorAvatar(author);

@@ -1,9 +1,7 @@
-import React, { type CSSProperties } from "react";
-
-import { MenuButton } from "@/components/MenuButton";
 import { serviceTitleShort } from "@/constants";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import React, { type CSSProperties } from "react";
 
 export const Header = () => {
   return (

@@ -1,9 +1,9 @@
-interface PostIconProps {
+interface Props {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export const PostIcon = ({ className, style }: PostIconProps) => {
+export const PostIcon = ({ className, style }: Props) => {
   return (
     <svg
       width="16"
