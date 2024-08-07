@@ -1,21 +1,16 @@
 import type { PlayerTeam } from "@/types";
+import type { Team } from "@prisma/client";
 import { defaultTeam } from "./teams";
 
 export const defaultPlayer = ({
-  backgroundColor,
-  borderColor,
-  color,
   name,
   number,
-  textShadowColor,
+  team,
 }: {
-  backgroundColor?: string;
-  borderColor?: string;
-  className?: string;
-  color?: string;
   name?: string;
   number?: number;
   textShadowColor?: string;
+  team?: Team;
 }): PlayerTeam => ({
   id: 0,
   name: name ?? "???",
@@ -24,12 +19,7 @@ export const defaultPlayer = ({
   photo: "https://example.com/default.png",
   position: "Attacker",
   teamId: 40,
-  team: defaultTeam({
-    backgroundColor,
-    borderColor,
-    color,
-    textShadowColor,
-  }),
+  team: team ?? defaultTeam({}),
 });
 
 export const players: PlayerTeam[] = [

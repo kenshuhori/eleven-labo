@@ -1,5 +1,6 @@
 import { PlayerIcon } from "@/components/PlayerIcon";
 import { defaultPlayer } from "@/fixtures/players";
+import { defaultTeam } from "@/fixtures/teams";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
@@ -31,11 +32,13 @@ export const Default: Story = {
 export const Arsenal: Story = {
   args: {
     player: defaultPlayer({
-      backgroundColor: "#EF0107",
-      borderColor: "#063672",
-      color: "#FFFFFF",
       number: 99,
-      textShadowColor: "#9C824A",
+      team: defaultTeam({
+        backgroundColor: "#EF0107",
+        borderColor: "#063672",
+        color: "#FFFFFF",
+        textShadowColor: "#9C824A",
+      }),
     }),
   },
 };
@@ -43,10 +46,12 @@ export const Arsenal: Story = {
 export const Chelsea: Story = {
   args: {
     player: defaultPlayer({
-      backgroundColor: "#034694",
-      borderColor: "#DBA111",
-      color: "#FFFFFF",
       number: 99,
+      team: defaultTeam({
+        backgroundColor: "#034694",
+        borderColor: "#DBA111",
+        color: "#FFFFFF",
+      }),
     }),
   },
 };
@@ -54,10 +59,12 @@ export const Chelsea: Story = {
 export const Liverpool: Story = {
   args: {
     player: defaultPlayer({
-      backgroundColor: "#C8102E",
-      borderColor: "#00B2A9",
-      color: "#F6EB61",
       number: 99,
+      team: defaultTeam({
+        backgroundColor: "#C8102E",
+        borderColor: "#00B2A9",
+        color: "#F6EB61",
+      }),
     }),
   },
 };
@@ -65,11 +72,13 @@ export const Liverpool: Story = {
 export const ManchesterCity: Story = {
   args: {
     player: defaultPlayer({
-      backgroundColor: "#6CABDD",
-      borderColor: "#FFFFFF",
-      color: "#1C2C5B",
       number: 99,
-      textShadowColor: "#FFFFFF",
+      team: defaultTeam({
+        backgroundColor: "#6CABDD",
+        borderColor: "#FFFFFF",
+        color: "#1C2C5B",
+        textShadowColor: "#FFFFFF",
+      }),
     }),
   },
 };
@@ -77,11 +86,13 @@ export const ManchesterCity: Story = {
 export const ManchesterUnited: Story = {
   args: {
     player: defaultPlayer({
-      backgroundColor: "#DA291C",
-      borderColor: "#000000",
-      color: "#000000",
       number: 99,
-      textShadowColor: "#FBE122",
+      team: defaultTeam({
+        backgroundColor: "#DA291C",
+        borderColor: "#000000",
+        color: "#000000",
+        textShadowColor: "#FBE122",
+      }),
     }),
   },
 };
@@ -89,10 +100,12 @@ export const ManchesterUnited: Story = {
 export const Tottenham: Story = {
   args: {
     player: defaultPlayer({
-      backgroundColor: "#FFFFFF",
-      borderColor: "#132257",
-      color: "#132257",
       number: 99,
+      team: defaultTeam({
+        backgroundColor: "#FFFFFF",
+        borderColor: "#132257",
+        color: "#132257",
+      }),
     }),
   },
 };
