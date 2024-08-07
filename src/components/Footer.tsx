@@ -13,6 +13,9 @@ export const Footer = () => (
       <Link href="/terms" style={navigateStyle}>
         利用規約
       </Link>
+      <Link href="/privacy" style={navigateStyle}>
+        プライバシーポリシー
+      </Link>
       <Link href="/about" style={navigateStyle}>
         ベストイレブン研究所とは
       </Link>
