@@ -1,4 +1,3 @@
-import { comments } from "@/fixtures/comments";
 import { posts } from "@/fixtures/posts";
 import { teams } from "@/fixtures/teams";
 import { themes } from "@/fixtures/themes";
@@ -117,25 +116,6 @@ async function main() {
         authorId: post.authorId,
         themeId: post.themeId,
         createdAt: post.createdAt,
-      },
-    });
-  }
-
-  for (const comment of comments) {
-    await prisma.comment.upsert({
-      where: { id: comment.id },
-      update: {
-        id: comment.id,
-        postId: comment.postId,
-        comment: comment.comment,
-        authorId: comment.authorId,
-        createdAt: comment.createdAt,
-      },
-      create: {
-        postId: comment.postId,
-        comment: comment.comment,
-        authorId: comment.authorId,
-        createdAt: comment.createdAt,
       },
     });
   }
