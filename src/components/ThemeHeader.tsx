@@ -23,9 +23,10 @@ export const SkeletonThemeHeader = () => {
 };
 
 const baseStyle: React.CSSProperties = {
-  paddingBottom: "8px",
-  paddingInline: "8px",
+  paddingBottom: "0.4rem",
+  paddingInline: "0.5rem",
   maxWidth: "36rem",
+  minHeight: "4rem",
 };
 
 const headerStyle: React.CSSProperties = {

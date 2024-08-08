@@ -10,11 +10,16 @@ interface Props {
   leagueId: string;
   onChange: (selected: PlayerSelectOption | null) => void;
   style?: CSSProperties;
+  teamId: number | null;
 }
 
-export const PlayerSelect = ({ leagueId, onChange, style }: Props) => {
+export const PlayerSelect = ({ leagueId, onChange, style, teamId }: Props) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
   const filteredOptions = groupedOptions.filter((option) => {
+    if (teamId !== null) {
+      return option.teamId === teamId;
+    }
+
     return option.leagueId.toString() === leagueId;
   });
 

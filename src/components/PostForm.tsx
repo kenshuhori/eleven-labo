@@ -60,7 +60,7 @@ export const PostForm = ({ theme }: Props) => {
     <form action={onSubmit} ref={ref} style={baseStyle}>
       <ThemeHeader title={theme.title} />
       <input name="themeId" style={{ display: "none" }} value={theme.id} readOnly />
-      <Formation formationCode={defaultFormation.code} />
+      <Formation formationCode={defaultFormation.code} theme={theme} />
       <textarea
         name="description"
         onChange={onChangeDescription}

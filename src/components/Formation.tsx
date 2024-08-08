@@ -8,13 +8,15 @@ import { PlayerIconSwitcher } from "@/components/PlayerIconSwitcher";
 import { defaultPlayer } from "@/fixtures/players";
 import type { FormationSelectOption } from "@/types";
 import { Skeleton } from "@chakra-ui/react";
+import type { Theme } from "@prisma/client";
 
 interface Props {
   formationCode: string;
   style?: React.CSSProperties;
+  theme: Theme;
 }
 
-export const Formation = ({ formationCode, style }: Props) => {
+export const Formation = ({ formationCode, style, theme }: Props) => {
   const [formationClass, setFormationClass] = useState<string>(`formation-${formationCode}`);
   const onChange = useCallback((selected: FormationSelectOption | null) => {
     if (selected === null) return;
@@ -38,6 +40,7 @@ export const Formation = ({ formationCode, style }: Props) => {
                 position={position}
                 player={defaultPlayer({ number: position })}
                 ref={playerRef}
+                theme={theme}
               />
             </Fragment>
           );
