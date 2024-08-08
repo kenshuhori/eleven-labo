@@ -33,7 +33,7 @@ export const PostFooter = ({
         {/* 気持ち1スペース分空ける */}
         {fullSentence ? (
           <>
-            <label style={{ marginRight: "4px" }}>{description}</label>
+            <label style={{ marginRight: "4px", whiteSpace: "pre-wrap" }}>{description}</label>
           </>
         ) : (
           <>
