@@ -13,7 +13,7 @@ import type { Theme } from "@prisma/client";
 interface Props {
   formationCode: string;
   style?: React.CSSProperties;
-  theme: Theme;
+  theme?: Theme;
 }
 
 export const Formation = ({ formationCode, style, theme }: Props) => {

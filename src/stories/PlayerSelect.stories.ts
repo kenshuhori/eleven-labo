@@ -17,6 +17,7 @@ const meta = {
   argTypes: {
     leagueId: { control: "text" },
     onChange: { control: "text" },
+    teamId: { control: "text" },
   },
   args: {
     leagueId: "39",
@@ -24,6 +25,7 @@ const meta = {
     style: {
       width: "20rem",
     },
+    teamId: null,
   },
 } satisfies Meta<typeof PlayerSelect>;
 

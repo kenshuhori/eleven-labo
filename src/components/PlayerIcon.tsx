@@ -20,7 +20,7 @@ interface Props {
   iconMode: "number" | "photo";
   position: number;
   player: PlayerTeam;
-  theme: Theme;
+  theme?: Theme;
 }
 
 export const PlayerIcon = forwardRef(
@@ -32,7 +32,7 @@ export const PlayerIcon = forwardRef(
 
     const className = `player-no${position} transition`;
 
-    const [leagueId, setLeagueId] = useState<string>((theme.leagueId ?? leagues[0].id).toString());
+    const [leagueId, setLeagueId] = useState<string>((theme?.leagueId ?? leagues[0].id).toString());
 
     const [player, setPlayer] = useState<PlayerTeam>(initialPlayer);
     const onChange = useCallback(
@@ -84,7 +84,11 @@ export const PlayerIcon = forwardRef(
                   );
                 })}
               </RadioGroup>
-              <PlayerSelect leagueId={leagueId} onChange={onChange} teamId={theme.teamId} />
+              <PlayerSelect
+                leagueId={leagueId}
+                onChange={onChange}
+                teamId={theme?.teamId ?? null}
+              />
             </ModalBody>
           </ModalContent>
         </Modal>
