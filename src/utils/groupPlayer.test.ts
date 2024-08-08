@@ -7,6 +7,7 @@ test("グループ化された選手配列が返ること", () => {
   expect(result).toStrictEqual([
     {
       teamName: "Default",
+      teamId: 0,
       leagueId: 39,
       options: [
         {
