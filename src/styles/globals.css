@@ -43,3 +43,9 @@ body {
     left: calc(50% - 240px - (var(--scrollbar-width) / 2));
   }
 }
+
+/* アカウントアイコンの大きさ */
+.cl-userButtonAvatarBox {
+  height: 2.5rem;
+  width: 2.5rem;
+}
