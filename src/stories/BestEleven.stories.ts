@@ -30,27 +30,27 @@ const meta = {
       },
       {
         positionCode: 4,
-        player: players[4],
+        player: players[1],
       },
       {
         positionCode: 5,
-        player: players[5],
+        player: players[2],
       },
       {
         positionCode: 6,
-        player: players[6],
+        player: players[3],
       },
       {
         positionCode: 7,
-        player: players[7],
+        player: players[1],
       },
       {
         positionCode: 8,
-        player: players[8],
+        player: players[2],
       },
       {
         positionCode: 9,
-        player: players[1],
+        player: players[3],
       },
       {
         positionCode: 10,
@@ -58,7 +58,7 @@ const meta = {
       },
       {
         positionCode: 11,
-        player: players[1],
+        player: players[2],
       },
     ],
     style: {

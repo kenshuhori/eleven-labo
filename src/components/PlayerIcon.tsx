@@ -12,7 +12,7 @@ import {
   RadioGroup,
   useDisclosure,
 } from "@chakra-ui/react";
-import type { Team } from "@prisma/client";
+import type { Team, Theme } from "@prisma/client";
 import { type CSSProperties, type ForwardedRef, forwardRef, useCallback, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 
@@ -20,15 +20,19 @@ interface Props {
   iconMode: "number" | "photo";
   position: number;
   player: PlayerTeam;
+  theme?: Theme;
 }
 
 export const PlayerIcon = forwardRef(
-  ({ iconMode, position, player: initialPlayer }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { iconMode, position, player: initialPlayer, theme }: Props,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const className = `player-no${position} transition`;
 
-    const [leagueId, setLeagueId] = useState<string>(leagues[0].id.toString());
+    const [leagueId, setLeagueId] = useState<string>((theme?.leagueId ?? leagues[0].id).toString());
 
     const [player, setPlayer] = useState<PlayerTeam>(initialPlayer);
     const onChange = useCallback(
@@ -80,7 +84,11 @@ export const PlayerIcon = forwardRef(
                   );
                 })}
               </RadioGroup>
-              <PlayerSelect leagueId={leagueId} onChange={onChange} />
+              <PlayerSelect
+                leagueId={leagueId}
+                onChange={onChange}
+                teamId={theme?.teamId ?? null}
+              />
             </ModalBody>
           </ModalContent>
         </Modal>

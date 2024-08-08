@@ -35,6 +35,8 @@ export const defaultPostWithRelation: PostWithRelation = {
     id: 1,
     thumbnail: "https://media.api-sports.io/football/leagues/39.png",
     title: "プレミアリーグ",
+    leagueId: 39,
+    teamId: null,
     createdAt: new Date("2024-01-01T00:00:00Z"),
   },
   authorId: defaultUser.id,

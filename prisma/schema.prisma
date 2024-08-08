@@ -59,38 +59,38 @@ enum Position {
 }
 
 model Post {
-  id            Int                @id @default(autoincrement())
-  description   String             @default("")
-  formationCode String             @default("4-4-2")
+  id            Int               @id @default(autoincrement())
+  description   String            @default("")
+  formationCode String            @default("4-4-2")
   pos1PlayerId  Int
-  pos1Player    Player             @relation("pos1Posts", fields: [pos1PlayerId], references: [id])
+  pos1Player    Player            @relation("pos1Posts", fields: [pos1PlayerId], references: [id])
   pos2PlayerId  Int
-  pos2Player    Player             @relation("pos2Posts", fields: [pos2PlayerId], references: [id])
+  pos2Player    Player            @relation("pos2Posts", fields: [pos2PlayerId], references: [id])
   pos3PlayerId  Int
-  pos3Player    Player             @relation("pos3Posts", fields: [pos3PlayerId], references: [id])
+  pos3Player    Player            @relation("pos3Posts", fields: [pos3PlayerId], references: [id])
   pos4PlayerId  Int
-  pos4Player    Player             @relation("pos4Posts", fields: [pos4PlayerId], references: [id])
+  pos4Player    Player            @relation("pos4Posts", fields: [pos4PlayerId], references: [id])
   pos5PlayerId  Int
-  pos5Player    Player             @relation("pos5Posts", fields: [pos5PlayerId], references: [id])
+  pos5Player    Player            @relation("pos5Posts", fields: [pos5PlayerId], references: [id])
   pos6PlayerId  Int
-  pos6Player    Player             @relation("pos6Posts", fields: [pos6PlayerId], references: [id])
+  pos6Player    Player            @relation("pos6Posts", fields: [pos6PlayerId], references: [id])
   pos7PlayerId  Int
-  pos7Player    Player             @relation("pos7Posts", fields: [pos7PlayerId], references: [id])
+  pos7Player    Player            @relation("pos7Posts", fields: [pos7PlayerId], references: [id])
   pos8PlayerId  Int
-  pos8Player    Player             @relation("pos8Posts", fields: [pos8PlayerId], references: [id])
+  pos8Player    Player            @relation("pos8Posts", fields: [pos8PlayerId], references: [id])
   pos9PlayerId  Int
-  pos9Player    Player             @relation("pos9Posts", fields: [pos9PlayerId], references: [id])
+  pos9Player    Player            @relation("pos9Posts", fields: [pos9PlayerId], references: [id])
   pos10PlayerId Int
-  pos10Player   Player             @relation("pos10Posts", fields: [pos10PlayerId], references: [id])
+  pos10Player   Player            @relation("pos10Posts", fields: [pos10PlayerId], references: [id])
   pos11PlayerId Int
-  pos11Player   Player             @relation("pos11Posts", fields: [pos11PlayerId], references: [id])
+  pos11Player   Player            @relation("pos11Posts", fields: [pos11PlayerId], references: [id])
   likeHistories PostLikeHistory[]
   themeId       Int
-  theme         Theme              @relation(fields: [themeId], references: [id])
+  theme         Theme             @relation(fields: [themeId], references: [id])
   comments      Comment[]
   authorId      String
-  author        User               @relation(fields: [authorId], references: [id])
-  createdAt     DateTime           @default(now())
+  author        User              @relation(fields: [authorId], references: [id])
+  createdAt     DateTime          @default(now())
 }
 
 model PostLikeHistory {
@@ -105,12 +105,14 @@ model PostLikeHistory {
 }
 
 model Theme {
-  id            Int                 @id @default(autoincrement())
+  id            Int                @id @default(autoincrement())
   title         String
-  thumbnail     String              @default("")
+  thumbnail     String             @default("")
   posts         Post[]
   likeHistories ThemeLikeHistory[]
-  createdAt     DateTime            @default(now())
+  leagueId      Int?
+  teamId        Int?
+  createdAt     DateTime           @default(now())
 }
 
 model ThemeLikeHistory {
@@ -148,8 +150,8 @@ model User {
   comments             Comment[]
   posts                Post[]
   commentLikeHistories CommentLikeHistory[]
-  postLikeHistories   PostLikeHistory[]
-  themeLikeHistories  ThemeLikeHistory[]
+  postLikeHistories    PostLikeHistory[]
+  themeLikeHistories   ThemeLikeHistory[]
   createdAt            DateTime             @default(now())
   deletedAt            DateTime?
 }
