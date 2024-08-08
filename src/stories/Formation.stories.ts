@@ -11,6 +11,7 @@ const meta = {
   argTypes: {
     formationCode: { control: "text" },
     style: { control: "object" },
+    theme: { control: "object" },
   },
   args: {
     formationCode: "4-3-3",
