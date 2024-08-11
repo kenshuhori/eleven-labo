@@ -17,20 +17,20 @@ export const PlayerSelect = ({ leagueId, onChange, style, teamId }: Props) => {
   const groupedOptions = useContext(PlayerSelectOptionsContext);
   const filteredOptions = groupedOptions.filter((option) => {
     if (teamId !== null) {
-      return option.teamId === teamId;
+      return option.team.id === teamId;
     }
 
-    return option.leagueId.toString() === leagueId;
+    return option.team.leagueId.toString() === leagueId;
   });
 
   const formatGroupLabel = (group: {
-    teamName: string;
-    leagueId: number;
+    team: Team;
     options: PlayerSelectOption[];
   }) => {
     return (
-      <div style={{ marginTop: "1rem" }}>
-        <span style={{ fontSize: "1.2rem" }}>{group.teamName}</span>
+      <div style={{ alignItems: "center", display: "flex", gap: "0.8rem", marginTop: "1rem" }}>
+        <img alt={group.team.name} src={group.team.logo} style={{ width: "2.7rem" }} />
+        <span style={{ fontSize: "1.2rem" }}>{group.team.name}</span>
       </div>
     );
   };
@@ -64,11 +64,7 @@ export const PlayerSelect = ({ leagueId, onChange, style, teamId }: Props) => {
 
   return (
     <div style={{ ...style }}>
-      <Select<
-        PlayerSelectOption,
-        false,
-        { teamName: string; leagueId: number; options: PlayerSelectOption[] }
-      >
+      <Select<PlayerSelectOption, false, { team: Team; options: PlayerSelectOption[] }>
         filterOption={(option, rawInput) => {
           const { name, number, team } = option.data;
           return (
