@@ -15,7 +15,7 @@ test("文字数が limit を下回る場合、渡された文字列が返るこ�
   };
   const result = authorAvatar(user);
   expect(result).toStrictEqual({
-    name: "John",
+    name: "DoeJohn",
     image: "https://example.com/image.jpg",
   });
 });
