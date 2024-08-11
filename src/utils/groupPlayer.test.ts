@@ -6,9 +6,18 @@ test("グループ化された選手配列が返ること", () => {
   const result = groupedPlayers(players);
   expect(result).toStrictEqual([
     {
-      teamName: "Default",
-      teamId: 0,
-      leagueId: 39,
+      team: {
+        backgroundColor: "#FFFFFF",
+        borderColor: "#000000",
+        code: "default",
+        color: "#000000",
+        createdAt: new Date("2021-08-08T00:00:00.000Z"),
+        id: 0,
+        leagueId: 39,
+        logo: "https://example.com/default.png",
+        name: "Default",
+        textShadowColor: null,
+      },
       options: [
         {
           id: 280,
