@@ -8147,10 +8147,10 @@ svix-fetch@^3.0.0:
     node-fetch "^2.6.1"
     whatwg-fetch "^3.4.1"
 
-svix@^1.25.0:
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/svix/-/svix-1.28.0.tgz#49c7c7b0ea510af959fccad304b32c214aed8826"
-  integrity sha512-JvETGdOINcFqFffDRpmpKYYZMumAhJ5AROEEnPiPI7d5vYvuYzagJBIxP4qgf4vXdMftBot3fW2+LOJgjUh+LQ==
+svix@^1.29.0:
+  version "1.29.0"
+  resolved "https://registry.yarnpkg.com/svix/-/svix-1.29.0.tgz#0e9a821ef689284b1c972e9f12e82fab9d0ddfca"
+  integrity sha512-QMUy8X5g5t8A0iZhpRiYcXS1Tun5aAZXsNvK/PjPrx08bt8mpLCUY4CMQailjPh6U+vWAXajVwN/wZrKlUUwAQ==
   dependencies:
     "@stablelib/base64" "^1.0.0"
     es6-promise "^4.2.4"
