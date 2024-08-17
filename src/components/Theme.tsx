@@ -100,6 +100,6 @@ const footerStyle: CSSProperties = {
 const thumbnailStyle: CSSProperties = {
   borderRadius: "1.0rem",
   height: "6rem",
-  objectFit: "cover",
+  objectFit: "contain",
   width: "6rem",
 };
