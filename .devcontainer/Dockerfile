@@ -1,3 +1,3 @@
-FROM node:22.4
+FROM node:22.7
 
 WORKDIR /usr/src/app/
