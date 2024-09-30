@@ -1967,55 +1967,54 @@
     react-confetti "^6.1.0"
     strip-ansi "^7.1.0"
 
-"@clerk/backend@1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@clerk/backend/-/backend-1.6.1.tgz#e1d2a22f73e707c8afbcf04011afa63a9aa216f9"
-  integrity sha512-UA1zLXuHQBZ7CQtRXTKl5siejmfqOYs4jLfAyMnsHjY0r+PJ2/oZ4WsFepJNw1CdQdP2hi8wmrSuV3EZA6VjnQ==
+"@clerk/backend@1.13.5":
+  version "1.13.5"
+  resolved "https://registry.yarnpkg.com/@clerk/backend/-/backend-1.13.5.tgz#8b4d218ab4fbfb80bf39e142478016bc55d217fb"
+  integrity sha512-1ndtoUwQ7jYAG8tMQhUGq+MlvWpnQdOSlk4j0piGeou0drpD0+8jOoBsjp+io4WjN43NJqLlAV6by+b4Y8aTcw==
   dependencies:
-    "@clerk/shared" "2.4.5"
-    "@clerk/types" "4.12.1"
+    "@clerk/shared" "2.8.4"
+    "@clerk/types" "4.23.0"
     cookie "0.5.0"
     snakecase-keys "5.4.4"
     tslib "2.4.1"
 
-"@clerk/clerk-react@5.3.3":
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-5.3.3.tgz#b03e88c6fe65109d56f2ddabce922c887a8031a2"
-  integrity sha512-GtwC2tQegwA74M2XiTLiwJ7wkywlwDjjz4gJLzSST33sa903uVlnWEUONFQjINgra8pfx9f2U6mmHVj1F27FQw==
+"@clerk/clerk-react@5.9.4":
+  version "5.9.4"
+  resolved "https://registry.yarnpkg.com/@clerk/clerk-react/-/clerk-react-5.9.4.tgz#bcba98223f625e6b9accaa002ce4341e1885de24"
+  integrity sha512-bcaGccFaOiAaonvbIBNyJgjy1W20Gt4WgHHaFKgh44k+LtauG6LrYotdac1ffXCyVuWHZvVNTA29SuSodkRmAg==
   dependencies:
-    "@clerk/shared" "2.4.5"
-    "@clerk/types" "4.12.1"
+    "@clerk/shared" "2.8.4"
+    "@clerk/types" "4.23.0"
     tslib "2.4.1"
 
-"@clerk/nextjs@^5.2.1":
-  version "5.2.14"
-  resolved "https://registry.yarnpkg.com/@clerk/nextjs/-/nextjs-5.2.14.tgz#a8d5884902f7395399e131d9074b58f4ff7c09f4"
-  integrity sha512-6m62iOOeSJkuyD+kw/k9zGaU+MpYTaFuFr+pX4TCQEgrvc3aOdeUXcLeeNYDIAORNtPtDx5+YS/Ld3J60/BG1Q==
+"@clerk/nextjs@^5.6.3":
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/@clerk/nextjs/-/nextjs-5.6.3.tgz#6df1916d726ccdce0e9e21f18314dd3eb6b7baa5"
+  integrity sha512-yPRKys3eOiFTTFPmzzWx7UxQ/MkQzpJYzBN61qNB6MrbHxI/CBJdo+yEF0kGqbQhYGRVe4k5W9M9fMOqzgEMSA==
   dependencies:
-    "@clerk/backend" "1.6.1"
-    "@clerk/clerk-react" "5.3.3"
-    "@clerk/shared" "2.4.5"
-    "@clerk/types" "4.12.1"
+    "@clerk/backend" "1.13.5"
+    "@clerk/clerk-react" "5.9.4"
+    "@clerk/shared" "2.8.4"
+    "@clerk/types" "4.23.0"
     crypto-js "4.2.0"
-    path-to-regexp "6.2.2"
     server-only "0.0.1"
     tslib "2.4.1"
 
-"@clerk/shared@2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@clerk/shared/-/shared-2.4.5.tgz#52a92ab25c3bca56d16c1f86418d74528ed9c975"
-  integrity sha512-WK8/LLow7q+OXzsRWtSAkqsBbtt16TcivfvN5bIhbcs52jIiA1EvIOetwFk5yXDNBHdEn2GxL7UXxdBaodselA==
+"@clerk/shared@2.8.4":
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/@clerk/shared/-/shared-2.8.4.tgz#da8847c162d272d25e67ea4807b6ae286cd4efa0"
+  integrity sha512-I+V05B/YqEWAaXb+SWb9VFCK6WSjChW01gC9OJxpkvjauNiBtDjFVghodZFg2dxcbwQGQNj6sC1hrf+mcBVBqw==
   dependencies:
-    "@clerk/types" "4.12.1"
+    "@clerk/types" "4.23.0"
     glob-to-regexp "0.4.1"
     js-cookie "3.0.5"
     std-env "^3.7.0"
     swr "^2.2.0"
 
-"@clerk/types@4.12.1":
-  version "4.12.1"
-  resolved "https://registry.yarnpkg.com/@clerk/types/-/types-4.12.1.tgz#7eadeb94a44b8f8a8e0579e37fc3f50ec3cfe4a4"
-  integrity sha512-0torlmJM3S3kYdaZuIrw1pf4K8aMvoFV+PE1xg7MGfZ0enD9UO3Vhw24pP/yBhI4hVGtNu95E63gpeOFIYysrA==
+"@clerk/types@4.23.0":
+  version "4.23.0"
+  resolved "https://registry.yarnpkg.com/@clerk/types/-/types-4.23.0.tgz#d8436eee61458f4a44c73d38365d84396eaa9199"
+  integrity sha512-xCAPeKXOt/qAEzhlv35sdNYm9ewoveRMUwVEoGsFIDaeF9N1agCNdzKtCMcHjGZFH4ESnopLmEq2n46aRxPFkA==
   dependencies:
     csstype "3.1.1"
 
@@ -6854,11 +6853,6 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==
-
-path-to-regexp@6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.2.tgz#324377a83e5049cbecadc5554d6a63a9a4866b36"
-  integrity sha512-GQX3SSMokngb36+whdpRXE+3f9V8UzyAorlYvOGx87ufGHehNTn5lCxrKtLyZ4Yl/wEKnNnr98ZzOwwDZV5ogw==
 
 path-type@^4.0.0:
   version "4.0.0"
